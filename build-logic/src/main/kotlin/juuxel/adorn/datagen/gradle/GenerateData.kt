@@ -34,17 +34,14 @@ abstract class GenerateData : DefaultTask() {
         val output = DataOutputImpl.load(output.get().asFile.toPath())
 
         DataGenerator.generate(
-            configFiles = configs.get()
+            configs.get()
                 .filter { !it.tagsOnly.get() }
                 .flatMap { config -> config.files.map { it.toPath() } },
-            output = output
+            output
         )
 
         if (generateTags.get()) {
-            TagGenerator.generate(
-                configs = configs.get().flatMap { config -> config.files.map { it.toPath() } },
-                output = output
-            )
+            TagGenerator.generateFromConfigFiles(configs.get().flatMap { config -> config.files.map { it.toPath() } }, output)
         }
 
         output.finish()
