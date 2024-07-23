@@ -1,9 +1,5 @@
 plugins {
-    // The Kotlin DSL plugin sets up Kotlin with the correct version
-    // and lets me do .gradle.kts files as plugins.
-    // See https://docs.gradle.org/current/userguide/kotlin_dsl.html#sec:kotlin-dsl_plugin
-    `kotlin-dsl`
-    id("org.jmailen.kotlinter") version "3.2.0"
+    `java-gradle-plugin`
 }
 
 repositories {
@@ -20,10 +16,21 @@ java {
     targetCompatibility = JavaVersion.VERSION_17
 }
 
-tasks {
-    compileKotlin {
-        kotlinOptions {
-            jvmTarget = "17"
+gradlePlugin {
+    plugins {
+        register("adorn-data-generator") {
+            id = "adorn-data-generator"
+            implementationClass = "juuxel.adorn.gradle.DataGeneratorPlugin"
+        }
+
+        register("adorn-data-generator.emi") {
+            id = "adorn-data-generator.emi"
+            implementationClass = "juuxel.adorn.gradle.EmiDataGeneratorPlugin"
+        }
+
+        register("adorn-service-inline") {
+            id = "adorn-service-inline"
+            implementationClass = "juuxel.adorn.gradle.ServiceInlinePlugin"
         }
     }
 }
