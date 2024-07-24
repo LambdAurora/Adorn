@@ -95,7 +95,7 @@ class TradingStationBlock(settings: Settings) : VisibleBlockWithEntity(settings)
                     player.incrementStat(AdornStats.INTERACT_WITH_TRADING_STATION)
 
                     if (player is ServerPlayerEntity) {
-                        AdornCriteria.BOUGHT_FROM_TRADING_STATION.trigger(player, soldItem)
+                        AdornCriteria.BOUGHT_FROM_TRADING_STATION.get().trigger(player, soldItem)
                     }
                 }
             } else {

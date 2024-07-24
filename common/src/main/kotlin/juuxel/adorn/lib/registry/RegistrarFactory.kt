@@ -11,6 +11,8 @@ interface RegistrarFactory {
     @InlineServices
     companion object {
         private val instance: RegistrarFactory by lazy { loadService() }
+
+        @JvmStatic
         fun get() = instance
     }
 }

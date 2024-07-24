@@ -58,7 +58,7 @@ abstract class SeatBlock(settings: Settings) : Block(settings) {
                 sittingStat?.let { player.incrementStat(it) }
 
                 if (player is ServerPlayerEntity) {
-                    AdornCriteria.SIT_ON_BLOCK.trigger(player, pos)
+                    AdornCriteria.SIT_ON_BLOCK.get().trigger(player, pos)
                 }
 
                 ActionResult.SUCCESS
