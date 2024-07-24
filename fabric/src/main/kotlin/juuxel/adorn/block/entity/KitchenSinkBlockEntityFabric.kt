@@ -5,7 +5,6 @@ package juuxel.adorn.block.entity
 import com.google.common.base.Predicates
 import juuxel.adorn.fluid.FluidReference
 import juuxel.adorn.util.FluidStorageReference
-import juuxel.adorn.util.toFluidVariant
 import net.fabricmc.fabric.api.lookup.v1.block.BlockApiLookup
 import net.fabricmc.fabric.api.transfer.v1.context.ContainerItemContext
 import net.fabricmc.fabric.api.transfer.v1.fluid.FluidConstants
@@ -91,10 +90,10 @@ class KitchenSinkBlockEntityFabric(pos: BlockPos, state: BlockState) : KitchenSi
     }
 
     override fun getFillSound(fluid: FluidReference, stack: ItemStack): FluidItemSound =
-        super.getFillSound(fluid, stack).orElse(FluidVariantAttributes.getFillSound(fluid.toFluidVariant()))
+        super.getFillSound(fluid, stack).orElse(FluidVariantAttributes.getFillSound(FluidStorageReference.toFluidVariant(fluid)))
 
     override fun getEmptySound(fluid: FluidReference, stack: ItemStack): FluidItemSound =
-        super.getEmptySound(fluid, stack).orElse(FluidVariantAttributes.getEmptySound(fluid.toFluidVariant()))
+        super.getEmptySound(fluid, stack).orElse(FluidVariantAttributes.getEmptySound(FluidStorageReference.toFluidVariant(fluid)))
 
     override fun readNbt(nbt: NbtCompound) {
         super.readNbt(nbt)

@@ -6,7 +6,7 @@ import net.minecraft.client.render.block.entity.BlockEntityRendererFactory
 
 class KitchenSinkRendererFabric(context: BlockEntityRendererFactory.Context) : KitchenSinkRenderer<KitchenSinkBlockEntityFabric>(context) {
     override fun getFluidLevel(entity: KitchenSinkBlockEntityFabric): Double =
-        FluidUnit.convertAsDouble(entity.storage.amount.toDouble(), from = FluidUnit.DROPLET, to = FluidUnit.LITRE)
+        FluidUnit.convertAsDouble(entity.storage.amount.toDouble(), FluidUnit.DROPLET, FluidUnit.LITRE)
 
     override fun isEmpty(entity: KitchenSinkBlockEntityFabric): Boolean =
         entity.storage.amount == 0L

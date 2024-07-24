@@ -66,7 +66,7 @@ class WateringCanItem(settings: Settings) : ItemWithDescription(settings) {
                 val drained = FluidBridge.get().drain(world, pos, null, hitResult.side.opposite, Fluids.WATER, FLUID_DRAIN_PREDICATE)
 
                 if (drained != null) {
-                    val amount = FluidUnit.convert(drained.amount, from = drained.unit, to = FluidUnit.LITRE)
+                    val amount = FluidUnit.convert(drained.amount, drained.unit, FluidUnit.LITRE)
                     val levels = (amount / FLUID_DRAIN_PREDICATE.step).toInt()
                     waterLevel = min(waterLevel + levels, MAX_WATER_LEVEL)
                     nbt.putInt(NBT_WATER_LEVEL, waterLevel)
@@ -191,7 +191,7 @@ class WateringCanItem(settings: Settings) : ItemWithDescription(settings) {
         private const val WATER_LEVEL_DIVISOR = 1f / MAX_WATER_LEVEL
         private const val WATER_LEVELS_PER_BUCKET = 10
 
-        private val FLUID_DRAIN_PREDICATE = StepMaximum(min = 0L, max = 1000L, step = 1000L / WATER_LEVELS_PER_BUCKET, unit = FluidUnit.LITRE)
+        private val FLUID_DRAIN_PREDICATE = StepMaximum(0L, 1000L, 1000L / WATER_LEVELS_PER_BUCKET, FluidUnit.LITRE)
 
         private fun spawnParticlesAt(world: ServerWorld, pos: BlockPos, y: Double) {
             val px = pos.x.toDouble() + 0.3 + world.random.nextDouble() * 0.4

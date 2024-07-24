@@ -4,7 +4,7 @@ import juuxel.adorn.fluid.FluidAmountPredicate
 import juuxel.adorn.fluid.FluidUnit
 import juuxel.adorn.fluid.FluidVolume
 import juuxel.adorn.platform.FluidBridge
-import juuxel.adorn.platform.forge.util.toFluidVolume
+import juuxel.adorn.platform.forge.util.FluidTankReference
 import net.minecraft.block.BlockState
 import net.minecraft.fluid.Fluid
 import net.minecraft.util.math.BlockPos
@@ -23,13 +23,13 @@ class FluidBridgeForge : FluidBridge {
 
         if (fluidHandler != null) {
             val upperBound = amountPredicate.upperBound
-            val maxAmount = FluidUnit.convert(upperBound.amount, from = upperBound.unit, to = FluidUnit.LITRE).toInt()
+            val maxAmount = FluidUnit.convert(upperBound.amount, upperBound.unit, FluidUnit.LITRE).toInt()
             val max = FluidStack(fluid, maxAmount)
             val extracted = fluidHandler.drain(max, IFluidHandler.FluidAction.SIMULATE)
 
             if (!extracted.isEmpty && amountPredicate.test(extracted.amount.toLong(), FluidUnit.LITRE)) {
                 fluidHandler.drain(extracted, IFluidHandler.FluidAction.EXECUTE)
-                return extracted.toFluidVolume()
+                return FluidTankReference.toFluidVolume(extracted)
             }
         }
 

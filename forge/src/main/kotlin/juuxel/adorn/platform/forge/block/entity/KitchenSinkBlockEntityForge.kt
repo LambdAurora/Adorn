@@ -3,7 +3,6 @@ package juuxel.adorn.platform.forge.block.entity
 import juuxel.adorn.block.entity.KitchenSinkBlockEntity
 import juuxel.adorn.fluid.FluidReference
 import juuxel.adorn.platform.forge.util.FluidTankReference
-import juuxel.adorn.platform.forge.util.toFluidStack
 import net.minecraft.block.BlockState
 import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.fluid.Fluids
@@ -112,10 +111,10 @@ class KitchenSinkBlockEntityForge(pos: BlockPos, state: BlockState) : KitchenSin
     }
 
     override fun getFillSound(fluid: FluidReference, stack: ItemStack): FluidItemSound =
-        super.getFillSound(fluid, stack).orElse(fluid.fluid.fluidType.getSound(fluid.toFluidStack(), SoundActions.BUCKET_FILL))
+        super.getFillSound(fluid, stack).orElse(fluid.fluid.fluidType.getSound(FluidTankReference.toFluidStack(fluid), SoundActions.BUCKET_FILL))
 
     override fun getEmptySound(fluid: FluidReference, stack: ItemStack): FluidItemSound =
-        super.getEmptySound(fluid, stack).orElse(fluid.fluid.fluidType.getSound(fluid.toFluidStack(), SoundActions.BUCKET_EMPTY))
+        super.getEmptySound(fluid, stack).orElse(fluid.fluid.fluidType.getSound(FluidTankReference.toFluidStack(fluid), SoundActions.BUCKET_EMPTY))
 
     override fun readNbt(nbt: NbtCompound) {
         super.readNbt(nbt)

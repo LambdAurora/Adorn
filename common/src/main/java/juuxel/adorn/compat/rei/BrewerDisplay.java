@@ -48,10 +48,10 @@ public record BrewerDisplay(
 
     private static EntryIngredient entryIngredientOf(FluidIngredient fluidIngredient) {
         var amount = FluidUnit.convert(fluidIngredient.getAmount(), fluidIngredient.getUnit(), FluidBridge.get().getFluidUnit());
-        var stacks = fluidIngredient.getFluid()
+        var stacks = fluidIngredient.fluid()
             .getFluids()
             .stream()
-            .map(fluid -> EntryStacks.of(FluidStack.create(fluid, amount, fluidIngredient.getNbt())))
+            .map(fluid -> EntryStacks.of(FluidStack.create(fluid, amount, fluidIngredient.nbt())))
             .toList();
         return EntryIngredient.of(stacks);
     }

@@ -80,8 +80,8 @@ public final class BrewerCategory implements IRecipeCategory<BrewingRecipe> {
 
             var ingredient = r.fluid();
             var amount = FluidUnit.convert(ingredient.getAmount(), ingredient.getUnit(), FluidBridge.get().getFluidUnit());
-            for (Fluid fluid : ingredient.getFluid().getFluids()) {
-                tank.addFluidStack(fluid, amount, ingredient.getNbt());
+            for (Fluid fluid : ingredient.fluid().getFluids()) {
+                tank.addFluidStack(fluid, amount, ingredient.nbt());
             }
         }
     }

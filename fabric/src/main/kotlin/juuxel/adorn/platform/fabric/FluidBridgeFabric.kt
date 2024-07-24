@@ -21,7 +21,7 @@ class FluidBridgeFabric : FluidBridge {
 
         if (storage != null) {
             val upperBound = amountPredicate.upperBound
-            val maxAmount = FluidUnit.convert(upperBound.amount, from = upperBound.unit, to = FluidUnit.DROPLET)
+            val maxAmount = FluidUnit.convert(upperBound.amount, upperBound.unit, FluidUnit.DROPLET)
             Transaction.openOuter().use { transaction ->
                 val extracted = storage.extract(FluidVariant.of(fluid), maxAmount, transaction)
 

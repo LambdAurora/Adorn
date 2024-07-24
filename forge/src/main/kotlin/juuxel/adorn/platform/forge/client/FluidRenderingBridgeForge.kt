@@ -3,7 +3,7 @@ package juuxel.adorn.platform.forge.client
 import juuxel.adorn.client.FluidRenderingBridge
 import juuxel.adorn.fluid.FluidReference
 import juuxel.adorn.fluid.FluidUnit
-import juuxel.adorn.platform.forge.util.toFluidStack
+import juuxel.adorn.platform.forge.util.FluidTankReference
 import net.minecraft.client.MinecraftClient
 import net.minecraft.client.item.TooltipContext
 import net.minecraft.client.texture.Sprite
@@ -23,7 +23,7 @@ object FluidRenderingBridgeForge : FluidRenderingBridge {
     override fun getStillSprite(volume: FluidReference): Sprite? {
         val fluid: Fluid = volume.fluid
         val atlas = MinecraftClient.getInstance().getSpriteAtlas(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE)
-        return atlas.apply(IClientFluidTypeExtensions.of(fluid).getStillTexture(volume.toFluidStack()))
+        return atlas.apply(IClientFluidTypeExtensions.of(fluid).getStillTexture(FluidTankReference.toFluidStack(volume)))
     }
 
     @OnlyIn(Dist.CLIENT)
@@ -32,7 +32,7 @@ object FluidRenderingBridgeForge : FluidRenderingBridge {
         return if (world != null && pos != null) {
             IClientFluidTypeExtensions.of(fluid).getTintColor(fluid.defaultState, world, pos)
         } else {
-            IClientFluidTypeExtensions.of(fluid).getTintColor(volume.toFluidStack())
+            IClientFluidTypeExtensions.of(fluid).getTintColor(FluidTankReference.toFluidStack(volume))
         }
     }
 
@@ -45,7 +45,7 @@ object FluidRenderingBridgeForge : FluidRenderingBridge {
     @OnlyIn(Dist.CLIENT)
     override fun getTooltip(volume: FluidReference, context: TooltipContext, maxAmountInLitres: Int?): List<Text> = buildList {
         val fluid: Fluid = volume.fluid
-        val stack = volume.toFluidStack()
+        val stack = FluidTankReference.toFluidStack(volume)
         val name = stack.displayName
         add(Text.empty().append(name).styled(fluid.fluidType.getRarity(stack).styleModifier))
 

@@ -2,7 +2,7 @@ package juuxel.adorn.client
 
 import juuxel.adorn.fluid.FluidReference
 import juuxel.adorn.fluid.FluidUnit
-import juuxel.adorn.util.toFluidVariant
+import juuxel.adorn.util.FluidStorageReference
 import net.fabricmc.api.EnvType
 import net.fabricmc.api.Environment
 import net.fabricmc.fabric.api.transfer.v1.client.fluid.FluidVariantRendering
@@ -16,19 +16,19 @@ import net.minecraft.world.BlockRenderView
 object FluidRenderingBridgeFabric : FluidRenderingBridge {
     @Environment(EnvType.CLIENT)
     override fun getStillSprite(volume: FluidReference): Sprite? =
-        FluidVariantRendering.getSprite(volume.toFluidVariant())
+        FluidVariantRendering.getSprite(FluidStorageReference.toFluidVariant(volume))
 
     @Environment(EnvType.CLIENT)
     override fun getColor(volume: FluidReference, world: BlockRenderView?, pos: BlockPos?) =
-        FluidVariantRendering.getColor(volume.toFluidVariant(), world, pos)
+        FluidVariantRendering.getColor(FluidStorageReference.toFluidVariant(volume), world, pos)
 
     @Environment(EnvType.CLIENT)
     override fun fillsFromTop(volume: FluidReference): Boolean =
-        FluidVariantAttributes.isLighterThanAir(volume.toFluidVariant())
+        FluidVariantAttributes.isLighterThanAir(FluidStorageReference.toFluidVariant(volume))
 
     @Environment(EnvType.CLIENT)
     override fun getTooltip(volume: FluidReference, context: TooltipContext, maxAmountInLitres: Int?): List<Text> {
-        val result = FluidVariantRendering.getTooltip(volume.toFluidVariant(), context).toMutableList()
+        val result = FluidVariantRendering.getTooltip(FluidStorageReference.toFluidVariant(volume), context).toMutableList()
 
         if (maxAmountInLitres != null) {
             result.add(1, volume.getAmountText(maxAmountInLitres.toLong(), FluidUnit.LITRE))
