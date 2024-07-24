@@ -34,23 +34,23 @@ public class AdornReiClient implements REIClientPlugin {
 
     @Override
     public void registerCollapsibleEntries(CollapsibleEntryRegistry registry) {
-        add(registry, AdornTags.INSTANCE.getSOFAS().getItem());
-        add(registry, AdornTags.INSTANCE.getCHAIRS().getItem());
-        add(registry, AdornTags.INSTANCE.getTABLES().getItem());
-        add(registry, AdornTags.INSTANCE.getDRAWERS().getItem());
-        add(registry, AdornTags.INSTANCE.getKITCHEN_COUNTERS().getItem());
-        add(registry, AdornTags.INSTANCE.getKITCHEN_CUPBOARDS().getItem());
-        add(registry, AdornTags.INSTANCE.getKITCHEN_SINKS().getItem());
-        add(registry, AdornTags.INSTANCE.getPOSTS().getItem());
-        add(registry, AdornTags.INSTANCE.getPLATFORMS().getItem());
-        add(registry, AdornTags.INSTANCE.getSTEPS().getItem());
-        add(registry, AdornTags.INSTANCE.getSHELVES().getItem());
-        add(registry, AdornTags.INSTANCE.getCHIMNEYS().getItem());
-        add(registry, AdornTags.INSTANCE.getCOFFEE_TABLES().getItem());
-        add(registry, AdornTags.INSTANCE.getBENCHES().getItem());
-        add(registry, AdornTags.INSTANCE.getCRATES().getItem());
-        add(registry, AdornTags.INSTANCE.getTABLE_LAMPS().getItem());
-        add(registry, AdornTags.INSTANCE.getCANDLELIT_LANTERNS().getItem());
+        add(registry, AdornTags.SOFAS.item());
+        add(registry, AdornTags.CHAIRS.item());
+        add(registry, AdornTags.TABLES.item());
+        add(registry, AdornTags.DRAWERS.item());
+        add(registry, AdornTags.KITCHEN_COUNTERS.item());
+        add(registry, AdornTags.KITCHEN_CUPBOARDS.item());
+        add(registry, AdornTags.KITCHEN_SINKS.item());
+        add(registry, AdornTags.POSTS.item());
+        add(registry, AdornTags.PLATFORMS.item());
+        add(registry, AdornTags.STEPS.item());
+        add(registry, AdornTags.SHELVES.item());
+        add(registry, AdornTags.CHIMNEYS.item());
+        add(registry, AdornTags.COFFEE_TABLES.item());
+        add(registry, AdornTags.BENCHES.item());
+        add(registry, AdornTags.CRATES.item());
+        add(registry, AdornTags.TABLE_LAMPS.item());
+        add(registry, AdornTags.CANDLELIT_LANTERNS.item());
     }
 
     private static void add(CollapsibleEntryRegistry registry, TagKey<Item> tag) {

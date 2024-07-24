@@ -50,7 +50,7 @@ public final class FertilizerRefillingRecipe extends SpecialCraftingRecipe {
                     return null;
                 }
             } else if (!stack.isEmpty()) {
-                if (stack.isIn(AdornTags.INSTANCE.getWATERING_CAN_FERTILIZERS())) {
+                if (stack.isIn(AdornTags.WATERING_CAN_FERTILIZERS)) {
                     fertilizers++;
                 } else {
                     // Unwanted item
