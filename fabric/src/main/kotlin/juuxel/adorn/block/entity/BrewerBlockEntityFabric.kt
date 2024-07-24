@@ -29,7 +29,8 @@ class BrewerBlockEntityFabric(pos: BlockPos, state: BlockState) : BrewerBlockEnt
         }
     }
 
-    override val fluidReference: FluidReference = FluidStorageReference(fluidStorage)
+    private val fluidReference: FluidReference = FluidStorageReference(fluidStorage)
+    override fun getFluidReference() = fluidReference
 
     override fun canExtractFluidContainer() =
         Transaction.openOuter().use { extractFluidContainer(it) == 0L }

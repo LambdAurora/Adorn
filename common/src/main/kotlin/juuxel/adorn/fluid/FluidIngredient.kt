@@ -27,6 +27,7 @@ data class FluidIngredient(
     }
 
     companion object {
+        @JvmField
         val CODEC: Codec<FluidIngredient> = RecordCodecBuilder.create { instance ->
             instance.group(
                 FluidKey.CODEC.fieldOf("fluid").forGetter { it.fluid },
@@ -36,6 +37,7 @@ data class FluidIngredient(
             ).apply(instance, ::FluidIngredient)
         }
 
+        @JvmStatic
         fun load(buf: PacketByteBuf): FluidIngredient {
             val fluid = FluidKey.load(buf)
             val amount = buf.readVarLong()

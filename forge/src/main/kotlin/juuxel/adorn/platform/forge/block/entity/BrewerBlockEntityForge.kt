@@ -16,7 +16,9 @@ class BrewerBlockEntityForge(pos: BlockPos, state: BlockState) : BrewerBlockEnti
             markDirty()
         }
     }
-    override val fluidReference: FluidReference = FluidTankReference(tank)
+
+    private val fluidReference: FluidReference = FluidTankReference(tank)
+    override fun getFluidReference() = fluidReference
 
     override fun canExtractFluidContainer() =
         !FluidUtil.tryEmptyContainer(getStack(FLUID_CONTAINER_SLOT), tank, tank.space, null, false).isSuccess

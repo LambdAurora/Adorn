@@ -22,7 +22,7 @@ class AdornEmiPlugin : EmiPlugin {
 
         val recipeManager = registry.recipeManager
 
-        for (entry in recipeManager.listAllOfType(AdornRecipes.BREWING_TYPE)) {
+        for (entry in recipeManager.listAllOfType(AdornRecipes.BREWING_TYPE.get())) {
             val emiRecipe = when (val recipe = entry.value) {
                 is ItemBrewingRecipe -> BrewingEmiRecipe(entry.id, recipe)
                 is FluidBrewingRecipe -> BrewingEmiRecipe(entry.id, recipe)

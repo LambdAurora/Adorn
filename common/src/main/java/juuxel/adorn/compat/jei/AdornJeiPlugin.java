@@ -37,7 +37,7 @@ public final class AdornJeiPlugin implements IModPlugin {
 
     @Override
     public void registerRecipes(IRecipeRegistration registration) {
-        registerRecipes(registration, AdornRecipes.INSTANCE.getBREWING_TYPE(), JeiRecipeTypes.BREWER);
+        registerRecipes(registration, AdornRecipes.BREWING_TYPE.get(), JeiRecipeTypes.BREWER);
     }
 
     private <C extends Inventory, T extends Recipe<C>> void registerRecipes(
