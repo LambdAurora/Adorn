@@ -46,7 +46,7 @@ enum class FluidUnit(val id: String, val bucketVolume: Long) : Displayable {
          */
         fun losslessConvert(volume: Long, from: FluidUnit, to: FluidUnit): MixedFraction {
             if (from == to) return MixedFraction.whole(volume)
-            return MixedFraction(volume * to.bucketVolume, from.bucketVolume)
+            return MixedFraction.of(volume * to.bucketVolume, from.bucketVolume)
         }
 
         /**
