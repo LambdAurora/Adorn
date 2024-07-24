@@ -138,6 +138,7 @@ class TradingStationMenu(
                 TradingStation.createEmpty()
             }
 
+        @JvmStatic
         fun isValidItem(stack: ItemStack): Boolean =
             stack.item.canBeNested()
     }
