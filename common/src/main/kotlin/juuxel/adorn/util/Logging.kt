@@ -1,3 +1,4 @@
+@file:JvmName("Logging")
 package juuxel.adorn.util
 
 import org.slf4j.Logger

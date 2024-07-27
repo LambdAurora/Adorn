@@ -43,6 +43,7 @@ data class Trade(var selling: ItemStack, var price: ItemStack) : NbtConvertible,
         fun empty(): Trade =
             Trade(ItemStack.EMPTY, ItemStack.EMPTY)
 
+        @JvmStatic
         fun fromNbt(nbt: NbtCompound): Trade {
             val trade = empty()
             trade.readNbt(nbt)
