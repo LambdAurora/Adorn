@@ -45,6 +45,7 @@ object BlockVariantSets : RegistryHelper() {
         return variants.toSet()
     }
 
+    @JvmStatic
     fun add(variantSet: BlockVariantSet) {
         variantSets += variantSet
     }

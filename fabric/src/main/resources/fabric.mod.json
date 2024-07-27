@@ -28,10 +28,7 @@
       }
     ],
     "modmenu": [
-      {
-        "value": "juuxel.adorn.compat.modmenu.AdornModMenuPlugin",
-        "adapter": "kotlin"
-      }
+      "juuxel.adorn.compat.modmenu.AdornModMenuPlugin"
     ],
     "rei_common": [
       "juuxel.adorn.compat.rei.AdornReiServer"

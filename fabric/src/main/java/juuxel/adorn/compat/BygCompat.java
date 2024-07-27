@@ -1,10 +1,13 @@
-package juuxel.adorn.compat
+package juuxel.adorn.compat;
 
-import juuxel.adorn.block.variant.BlockVariant
-import juuxel.adorn.block.variant.BlockVariantSet
+import juuxel.adorn.block.variant.BlockVariant;
+import juuxel.adorn.block.variant.BlockVariantSet;
 
-object BygCompat : BlockVariantSet {
-    override val woodVariants = listOf(
+import java.util.Arrays;
+import java.util.List;
+
+public final class BygCompat implements BlockVariantSet {
+    private static final String[] WOOD_VARIANTS = {
         "aspen",
         "baobab",
         "blue_enchanted",
@@ -33,10 +36,10 @@ object BygCompat : BlockVariantSet {
         "white_mangrove",
         "willow",
         "witch_hazel",
-        "zelkova"
-    ).map { BlockVariant.Wood("byg/$it") }
+        "zelkova",
+    };
 
-    override val stoneVariants = listOf(
+    private static final String[] STONE_VARIANTS = {
         "dacite",
         "dacite_brick",
         "dacite_cobblestone",
@@ -53,6 +56,20 @@ object BygCompat : BlockVariantSet {
         "red_rock_brick",
         "mossy_red_rock_brick",
         "cracked_red_rock_brick",
-        "chiseled_red_rock_brick"
-    ).map { BlockVariant.Stone("byg/$it") }
+        "chiseled_red_rock_brick",
+    };
+
+    @Override
+    public List<BlockVariant> getWoodVariants() {
+        return Arrays.stream(WOOD_VARIANTS)
+            .<BlockVariant>map(name -> new BlockVariant.Wood("byg/" + name))
+            .toList();
+    }
+
+    @Override
+    public List<BlockVariant> getStoneVariants() {
+        return Arrays.stream(STONE_VARIANTS)
+            .<BlockVariant>map(name -> new BlockVariant.Stone("byg/" + name))
+            .toList();
+    }
 }
