@@ -38,7 +38,8 @@ class KitchenSinkBlockEntityForge(pos: BlockPos, state: BlockState) : KitchenSin
         }
     }
 
-    override val fluidReference: FluidReference = FluidTankReference(tank)
+    private val fluidReference: FluidReference = FluidTankReference(tank)
+    override fun getFluidReference() = fluidReference
 
     override fun interactWithItem(stack: ItemStack, player: PlayerEntity, hand: Hand): Boolean {
         if (tank.space > 0) {

@@ -132,7 +132,7 @@ class TradingStationBlock(settings: Settings) : VisibleBlockWithEntity(settings)
     override fun canPathfindThrough(state: BlockState, world: BlockView, pos: BlockPos, type: NavigationType) = false
 
     override fun createBlockEntity(pos: BlockPos, state: BlockState): BlockEntity? =
-        AdornBlockEntities.TRADING_STATION.instantiate(pos, state)
+        AdornBlockEntities.TRADING_STATION.get().instantiate(pos, state)
 
     override fun appendTooltip(stack: ItemStack, world: BlockView?, tooltip: MutableList<Text>, options: TooltipContext) {
         super.appendTooltip(stack, world, tooltip, options)

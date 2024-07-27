@@ -88,7 +88,7 @@ class DrawerBlock(variant: BlockVariant) : VisibleBlockWithEntity(variant.create
         Menu.calculateComparatorOutput(world.getBlockEntity(pos))
 
     override fun createBlockEntity(pos: BlockPos, state: BlockState): BlockEntity? =
-        AdornBlockEntities.DRAWER.instantiate(pos, state)
+        AdornBlockEntities.DRAWER.get().instantiate(pos, state)
 
     override fun scheduledTick(state: BlockState, world: ServerWorld, pos: BlockPos, random: Random) {
         val entity = world.getBlockEntity(pos)

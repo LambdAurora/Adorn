@@ -13,9 +13,9 @@ import net.neoforged.neoforge.client.event.EntityRenderersEvent
 object AdornRenderers {
     fun registerRenderers(event: EntityRenderersEvent.RegisterRenderers) {
         event.registerEntityRenderer(AdornEntities.SEAT, ::InvisibleEntityRenderer)
-        event.registerBlockEntityRenderer(AdornBlockEntities.TRADING_STATION, ::TradingStationRenderer)
-        event.registerBlockEntityRenderer(AdornBlockEntities.SHELF, ::ShelfRenderer)
+        event.registerBlockEntityRenderer(AdornBlockEntities.TRADING_STATION.get(), ::TradingStationRenderer)
+        event.registerBlockEntityRenderer(AdornBlockEntities.SHELF.get(), ::ShelfRenderer)
         @Suppress("UNCHECKED_CAST")
-        event.registerBlockEntityRenderer(AdornBlockEntities.KITCHEN_SINK as BlockEntityType<KitchenSinkBlockEntityForge>, ::KitchenSinkRendererForge)
+        event.registerBlockEntityRenderer(AdornBlockEntities.KITCHEN_SINK.get() as BlockEntityType<KitchenSinkBlockEntityForge>, ::KitchenSinkRendererForge)
     }
 }

@@ -57,7 +57,7 @@ object AdornCapabilities {
 
     @SubscribeEvent
     fun register(event: RegisterCapabilitiesEvent) {
-        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, AdornBlockEntities.BREWER, INVENTORY_WRAPPER_FOR_BLOCK_ENTITY)
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, AdornBlockEntities.BREWER.get(), INVENTORY_WRAPPER_FOR_BLOCK_ENTITY)
 
         val containerBlockKinds = listOf(
             BlockKind.DRAWER,
@@ -71,7 +71,7 @@ object AdornCapabilities {
             }
         }
 
-        event.registerBlockEntity(Capabilities.FluidHandler.BLOCK, AdornBlockEntities.BREWER, FLUID_TANK_FOR_BLOCK_ENTITY)
+        event.registerBlockEntity(Capabilities.FluidHandler.BLOCK, AdornBlockEntities.BREWER.get(), FLUID_TANK_FOR_BLOCK_ENTITY)
 
         for (kitchenSink in BlockVariantSets.get(BlockKind.KITCHEN_SINK)) {
             event.registerBlock(Capabilities.FluidHandler.BLOCK, FLUID_TANK_FOR_BLOCK, kitchenSink.get())

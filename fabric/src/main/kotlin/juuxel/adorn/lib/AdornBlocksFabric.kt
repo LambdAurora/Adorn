@@ -42,7 +42,7 @@ object AdornBlocksFabric {
         UseBlockCallback.EVENT.register(CommonEventHandlers::handleCarpets)
         FluidStorage.SIDED.registerForBlockEntity(
             { brewer, _ -> (brewer as BrewerBlockEntityFabric).fluidStorage },
-            AdornBlockEntities.BREWER
+            AdornBlockEntities.BREWER.get()
         )
 
         OxidizableBlocksRegistry.registerOxidizableBlockPair(AdornBlocks.COPPER_PIPE, AdornBlocks.EXPOSED_COPPER_PIPE)
@@ -67,9 +67,9 @@ object AdornBlocksFabric {
             this as BlockEntityType<T>
 
         // BlockEntityRenderers
-        BlockEntityRendererFactories.register(AdornBlockEntities.TRADING_STATION, ::TradingStationRenderer)
-        BlockEntityRendererFactories.register(AdornBlockEntities.SHELF, ::ShelfRenderer)
-        BlockEntityRendererFactories.register(AdornBlockEntities.KITCHEN_SINK.forceType(), ::KitchenSinkRendererFabric)
+        BlockEntityRendererFactories.register(AdornBlockEntities.TRADING_STATION.get(), ::TradingStationRenderer)
+        BlockEntityRendererFactories.register(AdornBlockEntities.SHELF.get(), ::ShelfRenderer)
+        BlockEntityRendererFactories.register(AdornBlockEntities.KITCHEN_SINK.get().forceType(), ::KitchenSinkRendererFabric)
 
         // RenderLayers
         BlockRenderLayerMap.INSTANCE.putBlocks(

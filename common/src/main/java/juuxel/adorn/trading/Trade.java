@@ -1,0 +1,105 @@
+package juuxel.adorn.trading;
+
+import juuxel.adorn.util.NbtConvertible;
+import net.minecraft.client.item.TooltipData;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NbtCompound;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
+public final class Trade implements NbtConvertible, TooltipData {
+    public static final String NBT_SELLING = "Selling";
+    public static final String NBT_PRICE = "Price";
+
+    private ItemStack selling;
+    private ItemStack price;
+    private final List<TradeListener> listeners = new ArrayList<>();
+
+    public Trade(ItemStack selling, ItemStack price) {
+        this.selling = selling;
+        this.price = price;
+    }
+
+    public ItemStack getSelling() {
+        return selling;
+    }
+
+    public void setSelling(ItemStack selling) {
+        this.selling = selling;
+    }
+
+    public ItemStack getPrice() {
+        return price;
+    }
+
+    public void setPrice(ItemStack price) {
+        this.price = price;
+    }
+
+    public boolean isEmpty() {
+        return selling.isEmpty() || price.isEmpty();
+    }
+
+    public boolean isFullyEmpty() {
+        return selling.isEmpty() && price.isEmpty();
+    }
+
+    @Override
+    public void readNbt(NbtCompound nbt) {
+        selling = ItemStack.fromNbt(nbt.getCompound(NBT_SELLING));
+        price = ItemStack.fromNbt(nbt.getCompound(NBT_PRICE));
+    }
+
+    @Override
+    public NbtCompound writeNbt(NbtCompound nbt) {
+        nbt.put(NBT_SELLING, selling.writeNbt(new NbtCompound()));
+        nbt.put(NBT_PRICE, price.writeNbt(new NbtCompound()));
+        return nbt;
+    }
+
+    public void addListener(TradeListener listener) {
+        listeners.add(listener);
+    }
+
+    public void callListeners() {
+        for (TradeListener listener : listeners) {
+            listener.onTradeChanged(this);
+        }
+    }
+
+    /**
+     * Creates a modifiable inventory for this trade.
+     */
+    public TradeInventory createInventory() {
+        return new TradeInventory(this);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(selling, price);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == this) return true;
+        if (!(obj instanceof Trade other)) return false;
+        return selling.equals(other.selling) && price.equals(other.price);
+    }
+
+    public static Trade empty() {
+        return new Trade(ItemStack.EMPTY, ItemStack.EMPTY);
+    }
+
+    public static Trade fromNbt(NbtCompound nbt) {
+        var trade = empty();
+        trade.readNbt(nbt);
+        return trade;
+    }
+
+    @FunctionalInterface
+    public interface TradeListener {
+        void onTradeChanged(Trade trade);
+    }
+}

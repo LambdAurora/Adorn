@@ -190,7 +190,7 @@ class ShelfBlock(variant: BlockVariant) : VisibleBlockWithEntity(variant.createS
     override fun canPathfindThrough(state: BlockState, world: BlockView, pos: BlockPos, type: NavigationType) = false
 
     override fun createBlockEntity(pos: BlockPos, state: BlockState): BlockEntity? =
-        AdornBlockEntities.SHELF.instantiate(pos, state)
+        AdornBlockEntities.SHELF.get().instantiate(pos, state)
 
     override fun getCodec(): MapCodec<out BlockWithEntity> = throw UnsupportedOperationException()
 

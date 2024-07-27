@@ -25,7 +25,7 @@ class KitchenSinkBlock(variant: BlockVariant) : KitchenCounterBlock(variant), Bl
     override val descriptionKey = "block.adorn.kitchen_sink.description"
 
     override fun onUse(state: BlockState, world: World, pos: BlockPos, player: PlayerEntity, hand: Hand, hit: BlockHitResult): ActionResult {
-        val entity = world.getBlockEntity(pos, AdornBlockEntities.KITCHEN_SINK).orElse(null) ?: return ActionResult.PASS
+        val entity = world.getBlockEntity(pos, AdornBlockEntities.KITCHEN_SINK.get()).orElse(null) ?: return ActionResult.PASS
         val stack = player.getStackInHand(hand)
         val successful = if (stack.isOf(Items.SPONGE)) {
             val result = entity.clearFluidsWithSponge()
@@ -55,13 +55,13 @@ class KitchenSinkBlock(variant: BlockVariant) : KitchenCounterBlock(variant), Bl
     override fun hasComparatorOutput(state: BlockState) = true
 
     override fun getComparatorOutput(state: BlockState, world: World, pos: BlockPos): Int =
-        world.getBlockEntity(pos, AdornBlockEntities.KITCHEN_SINK).orElse(null)
+        world.getBlockEntity(pos, AdornBlockEntities.KITCHEN_SINK.get()).orElse(null)
             ?.calculateComparatorOutput() ?: 0
 
     override fun canPathfindThrough(state: BlockState, world: BlockView, pos: BlockPos, type: NavigationType) = false
 
     override fun createBlockEntity(pos: BlockPos, state: BlockState): BlockEntity? =
-        AdornBlockEntities.KITCHEN_SINK.instantiate(pos, state)
+        AdornBlockEntities.KITCHEN_SINK.get().instantiate(pos, state)
 
     companion object {
         private val SHAPES: Map<Direction, VoxelShape>

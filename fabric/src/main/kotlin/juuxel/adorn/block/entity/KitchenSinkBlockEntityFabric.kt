@@ -51,7 +51,8 @@ class KitchenSinkBlockEntityFabric(pos: BlockPos, state: BlockState) : KitchenSi
         }
     }
 
-    override val fluidReference: FluidReference = FluidStorageReference(storage)
+    private val fluidReference: FluidReference = FluidStorageReference(storage)
+    override fun getFluidReference() = fluidReference
 
     override fun interactWithItem(stack: ItemStack, player: PlayerEntity, hand: Hand): Boolean {
         // StorageUtil.move will mutate the stack and we need it for correct sounds (bottles!).

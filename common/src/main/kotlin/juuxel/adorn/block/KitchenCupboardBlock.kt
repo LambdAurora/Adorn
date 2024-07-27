@@ -58,7 +58,7 @@ class KitchenCupboardBlock(variant: BlockVariant) : AbstractKitchenCounterBlock(
         Menu.calculateComparatorOutput(world.getBlockEntity(pos))
 
     override fun createBlockEntity(pos: BlockPos, state: BlockState): BlockEntity? =
-        AdornBlockEntities.KITCHEN_CUPBOARD.instantiate(pos, state)
+        AdornBlockEntities.KITCHEN_CUPBOARD.get().instantiate(pos, state)
 
     override fun scheduledTick(state: BlockState, world: ServerWorld, pos: BlockPos, random: Random) {
         val entity = world.getBlockEntity(pos)
