@@ -79,7 +79,7 @@ public abstract class BrewerBlockEntity extends BaseContainerBlockEntity impleme
 
     @Override
     public int[] getAvailableSlots(Direction side) {
-        var facing = getCachedState().get(BrewerBlock.Companion.getFACING());
+        var facing = getCachedState().get(BrewerBlock.FACING);
 
         if (side == facing.rotateYClockwise()) {
             return new int[] { LEFT_INGREDIENT_SLOT };
@@ -154,8 +154,8 @@ public abstract class BrewerBlockEntity extends BaseContainerBlockEntity impleme
         var dirty = false;
         var hasMug = !brewer.getStack(INPUT_SLOT).isEmpty();
 
-        if (hasMug != state.get(BrewerBlock.Companion.getHAS_MUG())) {
-            world.setBlockState(pos, state.with(BrewerBlock.Companion.getHAS_MUG(), hasMug));
+        if (hasMug != state.get(BrewerBlock.HAS_MUG)) {
+            world.setBlockState(pos, state.with(BrewerBlock.HAS_MUG, hasMug));
         }
 
         var recipe = world.getRecipeManager().getFirstMatch(AdornRecipes.BREWING_TYPE.get(), brewer, world).map(RecipeEntry::value).orElse(null);
@@ -182,7 +182,7 @@ public abstract class BrewerBlockEntity extends BaseContainerBlockEntity impleme
         var activeNow = brewer.isActive();
         if (originallyActive != activeNow) {
             dirty = true;
-            var newState = state.with(BrewerBlock.Companion.getACTIVE(), activeNow);
+            var newState = state.with(BrewerBlock.ACTIVE, activeNow);
             world.setBlockState(pos, newState);
         }
 

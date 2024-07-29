@@ -30,7 +30,7 @@ object SofaSleeping {
 
         EntitySleepEvents.MODIFY_SLEEPING_DIRECTION.register { entity, sleepingPos, sleepingDirection ->
             if (entity.world.getBlockState(sleepingPos).block is SofaBlock) {
-                SofaBlock.getSleepingDirection(entity.world, sleepingPos, ignoreNeighbors = true)?.opposite
+                SofaBlock.getSleepingDirection(entity.world, sleepingPos, true)?.opposite
             } else {
                 sleepingDirection
             }
@@ -55,7 +55,7 @@ object SofaSleeping {
 
             if (state.block is SofaBlock) {
                 world.setBlockState(pos, state.with(SeatBlock.OCCUPIED, occupied))
-                val neighborPos = pos.offset(SofaBlock.getSleepingDirection(world, pos, ignoreNeighbors = true))
+                val neighborPos = pos.offset(SofaBlock.getSleepingDirection(world, pos, true))
                 world.setBlockState(neighborPos, world.getBlockState(neighborPos).with(SeatBlock.OCCUPIED, occupied))
                 true
             } else {
@@ -65,7 +65,7 @@ object SofaSleeping {
 
         EntitySleepEvents.MODIFY_WAKE_UP_POSITION.register { entity, sleepingPos, state, wakeUpPos ->
             if (state.block is SofaBlock) {
-                val direction = SofaBlock.getSleepingDirection(entity.world, sleepingPos, ignoreNeighbors = true)
+                val direction = SofaBlock.getSleepingDirection(entity.world, sleepingPos, true)
                 BedBlock.findWakeUpPosition(entity.type, entity.world, sleepingPos, direction, entity.yaw).orElse(null)
             } else {
                 wakeUpPos

@@ -23,7 +23,7 @@ public class DashOptionalSomeValue implements DashPropertyValue {
 
     @DashConstructor(ConstructorMode.OBJECT)
     public DashOptionalSomeValue(OptionalProperty.Value.Some<?> value) {
-        this(value.getValue().name(), value.getValue().getClass().getName());
+        this(value.value().name(), value.value().getClass().getName());
     }
 
     @SuppressWarnings({"rawtypes", "unchecked"})

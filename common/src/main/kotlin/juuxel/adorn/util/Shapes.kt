@@ -1,3 +1,5 @@
+@file:JvmName("Shapes")
+
 package juuxel.adorn.util
 
 import net.minecraft.block.Block.createCuboidShape

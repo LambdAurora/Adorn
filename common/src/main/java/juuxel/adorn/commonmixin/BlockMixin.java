@@ -17,7 +17,7 @@ abstract class BlockMixin {
     @Inject(method = "sideCoversSmallSquare", at = @At(value = "INVOKE_ASSIGN", target = "Lnet/minecraft/world/WorldView;getBlockState(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/block/BlockState;"), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
     private static void adorn_onSideCoversSmallSquare(WorldView world, BlockPos pos, Direction side, CallbackInfoReturnable<Boolean> info, BlockState state) {
         Block block = state.getBlock();
-        if (block instanceof PicketFenceBlock && !((PicketFenceBlock) block).sideCoversSmallSquare(state)) {
+        if (block instanceof PicketFenceBlock picketFence && !picketFence.sideCoversSmallSquare(state)) {
             info.setReturnValue(false);
         }
     }

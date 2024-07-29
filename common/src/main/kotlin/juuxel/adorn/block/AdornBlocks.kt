@@ -42,13 +42,13 @@ object AdornBlocks : RegistryHelper() {
         ChimneyBlock(AbstractChimneyBlock.createBlockSettings(MapColor.STONE_GRAY))
     }
     val PRISMARINE_CHIMNEY: Block by registerBlock("prismarine_chimney") {
-        PrismarineChimneyBlock(AbstractChimneyBlock.createBlockSettings(MapColor.CYAN, hardness = 1.5f))
+        PrismarineChimneyBlock(AbstractChimneyBlock.createBlockSettings(MapColor.CYAN, 1.5f))
     }
     val MAGMATIC_PRISMARINE_CHIMNEY: Block by registerBlock("magmatic_prismarine_chimney") {
-        PrismarineChimneyBlock.WithColumn(true, AbstractChimneyBlock.createBlockSettings(MapColor.CYAN, hardness = 1.5f).luminance { 3 })
+        PrismarineChimneyBlock.WithColumn(true, AbstractChimneyBlock.createBlockSettings(MapColor.CYAN, 1.5f).luminance { 3 })
     }
     val SOULFUL_PRISMARINE_CHIMNEY: Block by registerBlock("soulful_prismarine_chimney") {
-        PrismarineChimneyBlock.WithColumn(false, AbstractChimneyBlock.createBlockSettings(MapColor.CYAN, hardness = 1.5f))
+        PrismarineChimneyBlock.WithColumn(false, AbstractChimneyBlock.createBlockSettings(MapColor.CYAN, 1.5f))
     }
 
     val TABLE_LAMPS: Map<DyeColor, Block> by DyeColor.values().associateLazily {
