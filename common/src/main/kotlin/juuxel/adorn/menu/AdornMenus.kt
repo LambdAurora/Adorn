@@ -16,6 +16,7 @@ object AdornMenus {
     val TRADING_STATION: MenuType<TradingStationMenu> by MENUS.register("trading_station") { MenuType(::TradingStationMenu, FeatureFlags.VANILLA_FEATURES) }
     val BREWER: MenuType<BrewerMenu> by MENUS.register("brewer") { MenuType(::BrewerMenu, FeatureFlags.VANILLA_FEATURES) }
 
+    @JvmStatic
     fun init() {
     }
 

@@ -58,6 +58,7 @@ object AdornItems {
     val COPPER_NUGGET by ITEMS.register("copper_nugget") { ItemWithDescription(Item.Settings()) }
     val WATERING_CAN by ITEMS.register("watering_can") { WateringCanItem(Item.Settings()) }
 
+    @JvmStatic
     fun init() {
     }
 }

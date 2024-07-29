@@ -17,7 +17,7 @@ object ItemEvents {
     fun onFuelTime(event: FurnaceFuelBurnTimeEvent) {
         for (fuelData in FuelData.FUEL_DATA) {
             if (fuelData.matches(event.itemStack)) {
-                event.burnTime = fuelData.burnTime
+                event.burnTime = fuelData.burnTime()
                 break
             }
         }

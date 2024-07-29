@@ -81,6 +81,8 @@ abstract class ConfigManager {
     }
 
     companion object {
+        @JvmStatic
+        @get:JvmName("get")
         val INSTANCE: ConfigManager by lazy { loadService() }
         private val JANKSON = Jankson.builder()
             .registerSerializer(FluidUnit::class.java) { unit, _ -> JsonPrimitive(unit.id) }

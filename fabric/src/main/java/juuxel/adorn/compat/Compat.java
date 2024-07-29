@@ -23,7 +23,7 @@ public final class Compat {
 
         if (!compatMap.containsKey(mod)) {
             compatMap.put(mod, true);
-            ConfigManager.Companion.getINSTANCE().save();
+            ConfigManager.get().save();
             return true;
         }
 

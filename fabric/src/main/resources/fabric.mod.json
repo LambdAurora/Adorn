@@ -16,16 +16,10 @@
 
   "entrypoints": {
     "main": [
-      {
-        "value": "juuxel.adorn.Adorn",
-        "adapter": "kotlin"
-      }
+      "juuxel.adorn.Adorn::init"
     ],
     "client": [
-      {
-        "value": "juuxel.adorn.Adorn::initClient",
-        "adapter": "kotlin"
-      }
+      "juuxel.adorn.Adorn::initClient"
     ],
     "modmenu": [
       "juuxel.adorn.compat.modmenu.AdornModMenuPlugin"

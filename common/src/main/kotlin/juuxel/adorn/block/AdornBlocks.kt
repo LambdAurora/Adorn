@@ -191,6 +191,7 @@ object AdornBlocks : RegistryHelper() {
         CopperPipeBlock(AbstractBlock.Settings.copy(OXIDIZED_COPPER_PIPE))
     }
 
+    @JvmStatic
     fun init() {
     }
 

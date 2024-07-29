@@ -76,6 +76,7 @@ object AdornItemGroups {
             .build()
     }
 
+    @JvmStatic
     fun init() {
         if (ConfigManager.config().client.showItemsInStandardGroups) {
             addToVanillaItemGroups()

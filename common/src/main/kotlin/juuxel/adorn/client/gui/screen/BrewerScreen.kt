@@ -61,6 +61,7 @@ class BrewerScreen(menu: BrewerMenu, playerInventory: PlayerInventory, title: Te
         val TEXTURE = AdornCommon.id("textures/gui/brewer.png")
         const val FLUID_AREA_HEIGHT: Int = 59
 
+        @JvmStatic
         fun setFluidFromPacket(client: MinecraftClient, syncId: Int, fluid: FluidVolume) {
             val screen = client.currentScreen
             if (screen is MenuProvider<*>) {

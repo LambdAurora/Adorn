@@ -69,8 +69,8 @@ subprojects {
 
     // Set Java version.
     extensions.configure<JavaPluginExtension> {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
     }
 
     architectury {
@@ -166,13 +166,13 @@ subprojects {
     tasks {
         withType<JavaCompile> {
             options.encoding = "UTF-8"
-            options.release.set(17)
+            options.release.set(21)
         }
 
         withType<KotlinCompile> {
             // Set the Kotlin JVM target to match the Java version
             // for all Kotlin compilation tasks.
-            kotlinOptions.jvmTarget = "17"
+            kotlinOptions.jvmTarget = "21"
 
             kotlinOptions.freeCompilerArgs = listOf(
                 // Compile lambdas to invokedynamic.

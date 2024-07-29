@@ -4,6 +4,7 @@ import juuxel.adorn.menu.AdornMenus
 import net.minecraft.client.gui.screen.ingame.MenuScreens
 
 object AdornMenuScreens {
+    @JvmStatic
     fun register() {
         MenuScreens.register(AdornMenus.DRAWER, ::DrawerScreen)
         MenuScreens.register(AdornMenus.KITCHEN_CUPBOARD, ::KitchenCupboardScreen)

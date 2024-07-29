@@ -50,12 +50,14 @@ object BlockVariantSets : RegistryHelper() {
         variantSets += variantSet
     }
 
+    @JvmStatic
     fun get(kind: BlockKind): List<Registered<Block>> =
         blocksByKind[kind]
 
     fun get(kind: BlockKind, variant: BlockVariant): Registered<Block>? =
         blocksByKindVariant[kind to variant]
 
+    @JvmStatic
     fun register() {
         val woodVariants = variantSets.flatMap(BlockVariantSet::woodVariants)
         val stoneVariants = variantSets.flatMap(BlockVariantSet::stoneVariants)
