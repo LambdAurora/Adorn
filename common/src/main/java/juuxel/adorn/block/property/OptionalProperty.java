@@ -45,8 +45,7 @@ public final class OptionalProperty<T extends Enum<T> & StringIdentifiable> exte
 
     @Override
     public String name(Value<T> value) {
-        // TODO: Use pattern matching
-        return value instanceof Value.Some<T> some ? some.value.asString() : NONE_NAME;
+        return value instanceof Value.Some<T>(T inner) ? inner.asString() : NONE_NAME;
     }
 
     public EnumProperty<T> getDelegate() {
@@ -76,13 +75,11 @@ public final class OptionalProperty<T extends Enum<T> & StringIdentifiable> exte
             }
 
             @Override
-            public int compareTo(OptionalProperty.Value<T> o) {
-                // TODO: Use pattern matching
-                if (o instanceof Some<T> other) {
-                    return value.compareTo(other.value);
-                }
-
-                return 1;
+            public int compareTo(Value<T> o) {
+                return switch (o) {
+                    case Some<T>(var otherValue) -> value.compareTo(otherValue);
+                    case None<T> none -> 1;
+                };
             }
         }
 
@@ -98,7 +95,7 @@ public final class OptionalProperty<T extends Enum<T> & StringIdentifiable> exte
             }
 
             @Override
-            public int compareTo(OptionalProperty.Value<T> o) {
+            public int compareTo(Value<T> o) {
                 return o instanceof None<T> ? 0 : -1;
             }
         }

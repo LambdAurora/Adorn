@@ -12,13 +12,9 @@ import juuxel.adorn.client.gui.screen.TradingStationScreen;
 import juuxel.adorn.recipe.AdornRecipes;
 import juuxel.adorn.recipe.FluidBrewingRecipe;
 import juuxel.adorn.recipe.ItemBrewingRecipe;
-import juuxel.adorn.util.Logging;
-import org.slf4j.Logger;
 
 @EmiEntrypoint
 public final class AdornEmiPlugin implements EmiPlugin {
-    private static final Logger LOGGER = Logging.logger();
-
     public static final EmiRecipeCategory BREWER_CATEGORY = new EmiRecipeCategory(
         AdornCommon.id("brewer"),
         EmiStack.of(AdornBlocks.INSTANCE.getBREWER()),
@@ -33,16 +29,10 @@ public final class AdornEmiPlugin implements EmiPlugin {
         var recipeManager = registry.getRecipeManager();
 
         for (var entry : recipeManager.listAllOfType(AdornRecipes.BREWING_TYPE.get())) {
-            BrewingEmiRecipe emiRecipe;
-            // TODO: Pattern matching
-            if (entry.value() instanceof ItemBrewingRecipe recipe) {
-                emiRecipe = new BrewingEmiRecipe(entry.id(), recipe);
-            } else if (entry.value() instanceof FluidBrewingRecipe recipe) {
-                emiRecipe = new BrewingEmiRecipe(entry.id(), recipe);
-            } else {
-                LOGGER.error("Unknown brewing recipe: {}", entry.value());
-                continue;
-            }
+            BrewingEmiRecipe emiRecipe = switch (entry.value()) {
+                case ItemBrewingRecipe recipe -> new BrewingEmiRecipe(entry.id(), recipe);
+                case FluidBrewingRecipe recipe -> new BrewingEmiRecipe(entry.id(), recipe);
+            };
 
             registry.addRecipe(emiRecipe);
         }

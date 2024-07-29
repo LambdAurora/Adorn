@@ -69,16 +69,15 @@ public final class BrewerCategory implements IRecipeCategory<BrewingRecipe> {
             .setFluidRenderer(capacity, false, 16, BrewerScreen.FLUID_AREA_HEIGHT)
             .setOverlay(guiHelper.createDrawable(TEXTURE, 154, 17, 16, BrewerScreen.FLUID_AREA_HEIGHT), 0, 0);
 
-        if (recipe instanceof ItemBrewingRecipe r) {
-            firstSlot.addIngredients(r.firstIngredient());
-            secondSlot.addIngredients(r.secondIngredient());
-            resultSlot.addItemStack(r.result());
-        } else if (recipe instanceof FluidBrewingRecipe r) {
-            firstSlot.addIngredients(r.firstIngredient());
-            secondSlot.addIngredients(r.secondIngredient());
-            resultSlot.addItemStack(r.result());
+        if (recipe instanceof ItemBrewingRecipe(var firstIngredient, var secondIngredient, var result)) {
+            firstSlot.addIngredients(firstIngredient);
+            secondSlot.addIngredients(secondIngredient);
+            resultSlot.addItemStack(result);
+        } else if (recipe instanceof FluidBrewingRecipe(var firstIngredient, var secondIngredient, var ingredient, var result)) {
+            firstSlot.addIngredients(firstIngredient);
+            secondSlot.addIngredients(secondIngredient);
+            resultSlot.addItemStack(result);
 
-            var ingredient = r.fluid();
             var amount = FluidUnit.convert(ingredient.getAmount(), ingredient.getUnit(), FluidBridge.get().getFluidUnit());
             for (Fluid fluid : ingredient.fluid().getFluids()) {
                 tank.addFluidStack(fluid, amount, ingredient.nbt());

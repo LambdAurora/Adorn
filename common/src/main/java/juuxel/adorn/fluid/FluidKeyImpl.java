@@ -51,14 +51,9 @@ final class FluidKeyImpl {
     ).xmap(
         // TODO (Java 21): Use pattern matching
         either -> either.map(Function.identity(), Function.identity()),
-        key -> {
-            if (key instanceof Simple simple) {
-                return Either.left(simple);
-            } else if (key instanceof OfArray ofArray) {
-                return Either.right(ofArray);
-            } else {
-                throw new IllegalArgumentException();
-            }
+        key -> switch (key) {
+            case Simple simple -> Either.left(simple);
+            case OfArray ofArray -> Either.right(ofArray);
         }
     );
 
