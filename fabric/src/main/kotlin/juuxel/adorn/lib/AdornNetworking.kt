@@ -55,6 +55,7 @@ object AdornNetworking {
         }
     }
 
+    @JvmStatic
     fun sendOpenBookPacket(player: PlayerEntity, bookId: Identifier) {
         if (player is ServerPlayerEntity) {
             val buf = PacketByteBufs.create()
@@ -63,6 +64,7 @@ object AdornNetworking {
         }
     }
 
+    @JvmStatic
     fun sendBrewerFluidSync(player: PlayerEntity, syncId: Int, fluid: FluidReference) {
         if (player is ServerPlayerEntity) {
             val buf = PacketByteBufs.create()
