@@ -9,6 +9,6 @@ import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry
 object AdornEntitiesFabric {
     @Environment(EnvType.CLIENT)
     fun initClient() {
-        EntityRendererRegistry.register(AdornEntities.SEAT, ::InvisibleEntityRenderer)
+        EntityRendererRegistry.register(AdornEntities.SEAT.get(), ::InvisibleEntityRenderer)
     }
 }

@@ -50,7 +50,7 @@ public abstract class SeatBlock extends Block {
 
         if (!occupied) {
             if (!world.isClient) {
-                var entity = AdornEntities.INSTANCE.getSEAT().create(world);
+                var entity = AdornEntities.SEAT.get().create(world);
                 entity.setPos(actualPos);
                 world.spawnEntity(entity);
                 world.setBlockState(actualPos, actualState.with(OCCUPIED, true));
@@ -78,7 +78,7 @@ public abstract class SeatBlock extends Block {
         if (!state.isOf(newState.getBlock())) {
             if (world.isClient || !isSittingEnabled()) return;
             var seats = world.getEntitiesByType(
-                AdornEntities.INSTANCE.getSEAT(),
+                AdornEntities.SEAT.get(),
                 new Box(getActualSeatPos(world, state, pos)),
                 Predicates.alwaysTrue()
             );
