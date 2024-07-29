@@ -4,7 +4,6 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.PacketByteBuf;
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
@@ -45,7 +44,6 @@ public record FluidIngredient(FluidKey fluid, long amount, @Nullable NbtCompound
         return amount;
     }
 
-    @NotNull
     @Override
     public FluidUnit getUnit() {
         return unit;
