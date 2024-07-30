@@ -17,14 +17,14 @@ import juuxel.adorn.recipe.ItemBrewingRecipe;
 public final class AdornEmiPlugin implements EmiPlugin {
     public static final EmiRecipeCategory BREWER_CATEGORY = new EmiRecipeCategory(
         AdornCommon.id("brewer"),
-        EmiStack.of(AdornBlocks.INSTANCE.getBREWER()),
+        EmiStack.of(AdornBlocks.BREWER.get()),
         new EmiTexture(AdornCommon.id("textures/gui/recipe_viewer/brewer_light.png"), 240, 0, 16, 16)
     );
 
     @Override
     public void register(EmiRegistry registry) {
         registry.addCategory(BREWER_CATEGORY);
-        registry.addWorkstation(BREWER_CATEGORY, EmiStack.of(AdornBlocks.INSTANCE.getBREWER()));
+        registry.addWorkstation(BREWER_CATEGORY, EmiStack.of(AdornBlocks.BREWER.get()));
 
         var recipeManager = registry.getRecipeManager();
 

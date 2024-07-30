@@ -53,7 +53,7 @@ class TradingStationMenu(
     }
 
     override fun canUse(player: PlayerEntity) =
-        canUse(context, player, AdornBlocks.TRADING_STATION)
+        canUse(context, player, AdornBlocks.TRADING_STATION.get())
 
     override fun quickMove(player: PlayerEntity, index: Int): ItemStack {
         val offset = 2

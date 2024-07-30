@@ -1,6 +1,6 @@
-package juuxel.adorn.block.variant
+package juuxel.adorn.block.variant;
 
-enum class BlockKind {
+public enum BlockKind {
     CHAIR,
     TABLE,
     DRAWER,

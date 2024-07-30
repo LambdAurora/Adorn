@@ -29,8 +29,8 @@ import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 final class EventsImplementedInJava {
     void register(IEventBus modBus) {
         register(AdornSounds.SOUNDS, modBus);
-        register(AdornBlocks.INSTANCE.getBlocks(), modBus);
-        register(AdornBlocks.INSTANCE.getItems(), modBus);
+        register(AdornBlocks.BLOCKS, modBus);
+        register(AdornBlocks.ITEMS, modBus);
         register(AdornItems.ITEMS, modBus);
         register(AdornEntities.ENTITIES, modBus);
         register(AdornBlockEntities.BLOCK_ENTITIES, modBus);

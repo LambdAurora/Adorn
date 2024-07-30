@@ -73,7 +73,7 @@ public final class TableLampBlock extends Block implements Waterloggable, BlockW
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         var stack = player.getStackInHand(hand);
         if (stack.getItem() instanceof DyeItem dye) {
-            world.setBlockState(pos, AdornBlocks.INSTANCE.getTABLE_LAMPS().get(dye.getColor()).getStateWithProperties(state));
+            world.setBlockState(pos, AdornBlocks.TABLE_LAMPS.get().get(dye.getColor()).getStateWithProperties(state));
             world.playSound(player, pos, SoundEvents.BLOCK_WOOL_PLACE, SoundCategory.BLOCKS, 1f, 0.8f);
             if (!player.getAbilities().creativeMode) stack.decrement(1);
             if (!world.isClient) player.incrementStat(AdornStats.DYE_TABLE_LAMP);

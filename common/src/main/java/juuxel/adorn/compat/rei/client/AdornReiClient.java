@@ -23,7 +23,7 @@ public class AdornReiClient implements REIClientPlugin {
     @Override
     public void registerCategories(CategoryRegistry registry) {
         registry.add(new BrewerCategory());
-        registry.addWorkstations(AdornReiServer.BREWER, EntryStacks.of(AdornBlocks.INSTANCE.getBREWER()));
+        registry.addWorkstations(AdornReiServer.BREWER, EntryStacks.of(AdornBlocks.BREWER.get()));
     }
 
     @Override

@@ -22,7 +22,7 @@ public final class CheckTradingStationOwnerLootFunction implements LootFunction 
 
     @Override
     public ItemStack apply(ItemStack stack, LootContext lootContext) {
-        if (stack.isOf(AdornBlocks.INSTANCE.getTRADING_STATION().asItem())) {
+        if (stack.isOf(AdornBlocks.TRADING_STATION.get().asItem())) {
             var blockEntityNbt = stack.getSubNbt(BlockItem.BLOCK_ENTITY_TAG_KEY);
             if (blockEntityNbt != null) {
                 if (!hasTrade(blockEntityNbt) || !hasStorage(blockEntityNbt)) {

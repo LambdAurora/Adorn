@@ -47,7 +47,7 @@ object AdornItemGroups {
     val GROUP: ItemGroup by ITEM_GROUPS.register(GROUP_ID) {
         ItemGroupBridge.get().builder()
             .displayName(Text.translatable(Util.createTranslationKey("itemGroup", AdornCommon.id(GROUP_ID))))
-            .icon { ItemStack(AdornBlocks.SOFAS[DyeColor.LIME]) }
+            .icon { ItemStack(AdornBlocks.SOFAS.get()[DyeColor.LIME]) }
             .entries { _, entries ->
                 val context = ItemGroupBuildContext { entries.add(it) }
                 with(context) {
@@ -146,14 +146,14 @@ object AdornItemGroups {
     }
 
     private fun ItemGroupBuildContext.addColoredBlocks() {
-        for ((_, sofa) in AdornBlocks.SOFAS) {
+        for ((_, sofa) in AdornBlocks.SOFAS.get()) {
             add(sofa)
         }
-        for ((_, lamp) in AdornBlocks.TABLE_LAMPS) {
+        for ((_, lamp) in AdornBlocks.TABLE_LAMPS.get()) {
             add(lamp)
         }
         add(AdornBlocks.CANDLELIT_LANTERN)
-        for ((_, lantern) in AdornBlocks.DYED_CANDLELIT_LANTERNS) {
+        for ((_, lantern) in AdornBlocks.DYED_CANDLELIT_LANTERNS.get()) {
             add(lantern)
         }
     }

@@ -27,7 +27,7 @@ public final class BrewerCategory implements DisplayCategory<BrewerDisplay> {
 
     @Override
     public Renderer getIcon() {
-        return EntryStacks.of(AdornBlocks.INSTANCE.getBREWER());
+        return EntryStacks.of(AdornBlocks.BREWER.get());
     }
 
     @Override

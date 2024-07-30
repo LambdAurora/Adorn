@@ -32,7 +32,7 @@ public final class BrewerCategory implements IRecipeCategory<BrewingRecipe> {
 
     public BrewerCategory(IJeiHelpers helpers) {
         this.guiHelper = helpers.getGuiHelper();
-        icon = guiHelper.createDrawableItemStack(AdornBlocks.INSTANCE.getBREWER().asItem().getDefaultStack());
+        icon = guiHelper.createDrawableItemStack(AdornBlocks.BREWER.get().asItem().getDefaultStack());
     }
 
     @Override

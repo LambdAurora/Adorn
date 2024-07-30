@@ -48,7 +48,7 @@ public final class AdornJeiPlugin implements IModPlugin {
 
     @Override
     public void registerRecipeCatalysts(IRecipeCatalystRegistration registration) {
-        registration.addRecipeCatalyst(AdornBlocks.INSTANCE.getBREWER().asItem().getDefaultStack(), JeiRecipeTypes.BREWER);
+        registration.addRecipeCatalyst(AdornBlocks.BREWER.get().asItem().getDefaultStack(), JeiRecipeTypes.BREWER);
     }
 
     @Override

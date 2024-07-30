@@ -14,8 +14,8 @@ public final class Compat {
         ifModLoaded("ecologics", () -> BlockVariantSets.add(new EcologicsCompat()));
         ifModLoaded("architects_palette", () -> BlockVariantSets.add(new ArchitectsPaletteCompat()));
 
-        ((ForgeRegistrar<?>) BlockVariantSets.INSTANCE.getBlocks()).hook(modBus);
-        ((ForgeRegistrar<?>) BlockVariantSets.INSTANCE.getItems()).hook(modBus);
+        ((ForgeRegistrar<?>) BlockVariantSets.BLOCKS).hook(modBus);
+        ((ForgeRegistrar<?>) BlockVariantSets.ITEMS).hook(modBus);
     }
 
     public static boolean isCompatEnabled(String mod) {

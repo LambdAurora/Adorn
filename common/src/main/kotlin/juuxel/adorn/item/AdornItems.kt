@@ -40,8 +40,8 @@ object AdornItems {
 
     val STONE_TORCH by ITEMS.register("stone_torch") {
         VerticallyAttachableBlockItemWithDescription(
-            AdornBlocks.STONE_TORCH_GROUND,
-            AdornBlocks.STONE_TORCH_WALL,
+            AdornBlocks.STONE_TORCH_GROUND.get(),
+            AdornBlocks.STONE_TORCH_WALL.get(),
             Item.Settings(),
             attachmentDirection = Direction.DOWN
         )

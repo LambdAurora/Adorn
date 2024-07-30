@@ -2,6 +2,7 @@ package juuxel.adorn.item;
 
 import juuxel.adorn.block.AdornBlocks;
 import juuxel.adorn.lib.AdornTags;
+import juuxel.adorn.lib.registry.Registered;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemStack;
@@ -20,7 +21,7 @@ public sealed interface FuelData {
         new ForTag(AdornTags.WOODEN_PLATFORMS.item(), 300),
         new ForTag(AdornTags.WOODEN_STEPS.item(), 300),
         new ForTag(AdornTags.WOODEN_SHELVES.item(), 300),
-        new ForItem(AdornBlocks.INSTANCE.getCRATE(), 300),
+        new ForItem(AdornBlocks.CRATE, 300),
         // Woollen (150)
         new ForTag(AdornTags.SOFAS.item(), 150)
     );
@@ -28,10 +29,10 @@ public sealed interface FuelData {
     int burnTime();
     boolean matches(ItemStack stack);
 
-    record ForItem(ItemConvertible item, int burnTime) implements FuelData {
+    record ForItem(Registered<? extends ItemConvertible> item, int burnTime) implements FuelData {
         @Override
         public boolean matches(ItemStack stack) {
-            return stack.isOf(item.asItem());
+            return stack.isOf(item.get().asItem());
         }
     }
 

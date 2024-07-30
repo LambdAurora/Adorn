@@ -44,13 +44,13 @@ public final class AdornBlocksFabric {
             AdornBlockEntities.BREWER.get()
         );
 
-        OxidizableBlocksRegistry.registerOxidizableBlockPair(AdornBlocks.INSTANCE.getCOPPER_PIPE(), AdornBlocks.INSTANCE.getEXPOSED_COPPER_PIPE());
-        OxidizableBlocksRegistry.registerOxidizableBlockPair(AdornBlocks.INSTANCE.getEXPOSED_COPPER_PIPE(), AdornBlocks.INSTANCE.getWEATHERED_COPPER_PIPE());
-        OxidizableBlocksRegistry.registerOxidizableBlockPair(AdornBlocks.INSTANCE.getWEATHERED_COPPER_PIPE(), AdornBlocks.INSTANCE.getOXIDIZED_COPPER_PIPE());
-        OxidizableBlocksRegistry.registerWaxableBlockPair(AdornBlocks.INSTANCE.getCOPPER_PIPE(), AdornBlocks.INSTANCE.getWAXED_COPPER_PIPE());
-        OxidizableBlocksRegistry.registerWaxableBlockPair(AdornBlocks.INSTANCE.getEXPOSED_COPPER_PIPE(), AdornBlocks.INSTANCE.getWAXED_EXPOSED_COPPER_PIPE());
-        OxidizableBlocksRegistry.registerWaxableBlockPair(AdornBlocks.INSTANCE.getWEATHERED_COPPER_PIPE(), AdornBlocks.INSTANCE.getWAXED_WEATHERED_COPPER_PIPE());
-        OxidizableBlocksRegistry.registerWaxableBlockPair(AdornBlocks.INSTANCE.getOXIDIZED_COPPER_PIPE(), AdornBlocks.INSTANCE.getWAXED_OXIDIZED_COPPER_PIPE());
+        OxidizableBlocksRegistry.registerOxidizableBlockPair(AdornBlocks.COPPER_PIPE.get(), AdornBlocks.EXPOSED_COPPER_PIPE.get());
+        OxidizableBlocksRegistry.registerOxidizableBlockPair(AdornBlocks.EXPOSED_COPPER_PIPE.get(), AdornBlocks.WEATHERED_COPPER_PIPE.get());
+        OxidizableBlocksRegistry.registerOxidizableBlockPair(AdornBlocks.WEATHERED_COPPER_PIPE.get(), AdornBlocks.OXIDIZED_COPPER_PIPE.get());
+        OxidizableBlocksRegistry.registerWaxableBlockPair(AdornBlocks.COPPER_PIPE.get(), AdornBlocks.WAXED_COPPER_PIPE.get());
+        OxidizableBlocksRegistry.registerWaxableBlockPair(AdornBlocks.EXPOSED_COPPER_PIPE.get(), AdornBlocks.WAXED_EXPOSED_COPPER_PIPE.get());
+        OxidizableBlocksRegistry.registerWaxableBlockPair(AdornBlocks.WEATHERED_COPPER_PIPE.get(), AdornBlocks.WAXED_WEATHERED_COPPER_PIPE.get());
+        OxidizableBlocksRegistry.registerWaxableBlockPair(AdornBlocks.OXIDIZED_COPPER_PIPE.get(), AdornBlocks.WAXED_OXIDIZED_COPPER_PIPE.get());
     }
 
     public static void afterRegister() {
@@ -69,15 +69,15 @@ public final class AdornBlocksFabric {
         // RenderLayers
         BlockRenderLayerMap.INSTANCE.putBlocks(
             RenderLayer.getCutout(),
-            AdornBlocks.INSTANCE.getTRADING_STATION(),
-            AdornBlocks.INSTANCE.getSTONE_TORCH_GROUND(),
-            AdornBlocks.INSTANCE.getSTONE_TORCH_WALL(),
-            AdornBlocks.INSTANCE.getCHAIN_LINK_FENCE(),
-            AdornBlocks.INSTANCE.getSTONE_LADDER(),
-            AdornBlocks.INSTANCE.getCANDLELIT_LANTERN()
+            AdornBlocks.TRADING_STATION.get(),
+            AdornBlocks.STONE_TORCH_GROUND.get(),
+            AdornBlocks.STONE_TORCH_WALL.get(),
+            AdornBlocks.CHAIN_LINK_FENCE.get(),
+            AdornBlocks.STONE_LADDER.get(),
+            AdornBlocks.CANDLELIT_LANTERN.get()
         );
 
-        for (var block : AdornBlocks.INSTANCE.getDYED_CANDLELIT_LANTERNS().values()) {
+        for (var block : AdornBlocks.DYED_CANDLELIT_LANTERNS.get().values()) {
             BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getCutout());
         }
 

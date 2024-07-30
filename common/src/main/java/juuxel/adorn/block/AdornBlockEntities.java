@@ -29,9 +29,9 @@ public final class AdornBlockEntities {
     public static final Registered<BlockEntityType<KitchenSinkBlockEntity>> KITCHEN_SINK =
         register("kitchen_sink", PlatformBridges.Companion.getBlockEntities()::createKitchenSink, KitchenSinkBlock.class);
     public static final Registered<BlockEntityType<TradingStationBlockEntity>> TRADING_STATION =
-        register("trading_station", TradingStationBlockEntity::new, AdornBlocks.INSTANCE::getTRADING_STATION);
+        register("trading_station", TradingStationBlockEntity::new, AdornBlocks.TRADING_STATION);
     public static final Registered<BlockEntityType<BrewerBlockEntity>> BREWER =
-        register("brewer", PlatformBridges.Companion.getBlockEntities()::createBrewer, AdornBlocks.INSTANCE::getBREWER);
+        register("brewer", PlatformBridges.Companion.getBlockEntities()::createBrewer, AdornBlocks.BREWER);
 
     private static <E extends BlockEntity> Registered<BlockEntityType<E>> register(String name, BlockEntityFactory<E> factory, Supplier<? extends Block> block) {
         return BLOCK_ENTITIES.register(name, () -> BlockEntityType.Builder.create(factory, block.get()).build(null));
