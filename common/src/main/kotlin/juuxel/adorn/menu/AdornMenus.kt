@@ -10,6 +10,7 @@ import net.minecraft.registry.RegistryKeys
 import net.minecraft.resource.featuretoggle.FeatureFlags
 
 object AdornMenus {
+    @JvmField
     val MENUS = RegistrarFactory.get().create(RegistryKeys.SCREEN_HANDLER)
     val DRAWER: MenuType<DrawerMenu> by MENUS.register("drawer") { createType(DrawerMenu::load) }
     val KITCHEN_CUPBOARD: MenuType<KitchenCupboardMenu> by MENUS.register("kitchen_cupboard") { createType(KitchenCupboardMenu::load) }

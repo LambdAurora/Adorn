@@ -1,5 +1,7 @@
 package juuxel.adorn.block.variant
 
+import java.util.function.Function
+
 interface BlockVariantSet {
     val woodVariants: List<BlockVariant> get() = emptyList()
     val stoneVariants: List<BlockVariant> get() = emptyList()
@@ -10,6 +12,12 @@ interface BlockVariantSet {
 
     fun sortVariants(sorter: Sorter) {
         // No custom sorting by default.
+    }
+
+    companion object {
+        @JvmStatic
+        fun createVariants(prefix: String, factory: Function<String, BlockVariant>, vararg variants: String): List<BlockVariant> =
+            variants.map { factory.apply("$prefix/$it") }
     }
 
     fun interface CustomVariantConsumer {

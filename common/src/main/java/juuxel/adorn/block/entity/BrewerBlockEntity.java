@@ -125,7 +125,10 @@ public abstract class BrewerBlockEntity extends BaseContainerBlockEntity impleme
         return MathHelper.ceil(level);
     }
 
+    /** {@return true if you can extract the fluid container as an item} */
     protected abstract boolean canExtractFluidContainer();
+
+    /** Extract the fluid from the container, if possible. */
     protected abstract void tryExtractFluidContainer();
 
     private boolean isActive() {

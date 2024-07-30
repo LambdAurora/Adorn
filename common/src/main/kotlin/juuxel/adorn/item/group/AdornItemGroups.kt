@@ -22,6 +22,7 @@ import net.minecraft.util.DyeColor
 import net.minecraft.util.Util
 
 object AdornItemGroups {
+    @JvmField
     val ITEM_GROUPS: Registrar<ItemGroup> = RegistrarFactory.get().create(RegistryKeys.ITEM_GROUP)
 
     // Block kinds for each vanilla item group

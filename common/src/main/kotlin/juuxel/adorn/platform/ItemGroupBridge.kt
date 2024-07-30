@@ -13,6 +13,8 @@ interface ItemGroupBridge {
     @InlineServices
     companion object {
         private val instance: ItemGroupBridge by lazy { loadService() }
+
+        @JvmStatic
         fun get(): ItemGroupBridge = instance
     }
 }
