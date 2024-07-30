@@ -1,23 +1,24 @@
 package juuxel.adorn.compat;
 
 import juuxel.adorn.block.variant.BlockVariant;
-import juuxel.adorn.block.variant.BlockVariantSet;
+import juuxel.adorn.block.variant.CompatBlockVariantSet;
 
-import java.util.Arrays;
 import java.util.List;
 
-public final class BiomeMakeoverCompat implements BlockVariantSet {
-    private static final String[] WOOD_VARIANTS = {
-        "ancient_oak",
-        "blighted_balsa",
-        "willow",
-        "swamp_cypress",
-    };
+public final class BiomeMakeoverCompat extends CompatBlockVariantSet {
+    @Override
+    protected String getModId() {
+        return "biomemakeover";
+    }
 
     @Override
     public List<BlockVariant> getWoodVariants() {
-        return Arrays.stream(WOOD_VARIANTS)
-            .<BlockVariant>map(name -> new BlockVariant.Wood("biomemakeover/" + name))
-            .toList();
+        return createVariants(
+            BlockVariant.Wood::new,
+            "ancient_oak",
+            "blighted_balsa",
+            "willow",
+            "swamp_cypress"
+        );
     }
 }

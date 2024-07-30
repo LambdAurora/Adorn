@@ -1,44 +1,42 @@
 package juuxel.adorn.compat;
 
 import juuxel.adorn.block.variant.BlockVariant;
-import juuxel.adorn.block.variant.BlockVariantSet;
+import juuxel.adorn.block.variant.CompatBlockVariantSet;
 
-import java.util.Arrays;
 import java.util.List;
 
-public final class TerrestriaCompat implements BlockVariantSet {
-    private static final String[] WOOD_VARIANTS = {
-        "cypress",
-        "hemlock",
-        "japanese_maple",
-        "rainbow_eucalyptus",
-        "redwood",
-        "rubber",
-        "sakura",
-        "yucca_palm",
-        "willow",
-    };
-
-    private static final String[] STONE_VARIANTS = {
-        "basalt",
-        "basalt_cobblestone",
-        "smooth_basalt",
-        "basalt_brick",
-        "mossy_basalt_cobblestone",
-        "mossy_basalt_brick",
-    };
+public final class TerrestriaCompat extends CompatBlockVariantSet {
+    @Override
+    protected String getModId() {
+        return "terrestria";
+    }
 
     @Override
     public List<BlockVariant> getWoodVariants() {
-        return Arrays.stream(WOOD_VARIANTS)
-            .<BlockVariant>map(name -> new BlockVariant.Wood("terrestria/" + name))
-            .toList();
+        return createVariants(
+            BlockVariant.Wood::new,
+            "cypress",
+            "hemlock",
+            "japanese_maple",
+            "rainbow_eucalyptus",
+            "redwood",
+            "rubber",
+            "sakura",
+            "yucca_palm",
+            "willow"
+        );
     }
 
     @Override
     public List<BlockVariant> getStoneVariants() {
-        return Arrays.stream(STONE_VARIANTS)
-            .<BlockVariant>map(name -> new BlockVariant.Stone("terrestria/" + name))
-            .toList();
+        return createVariants(
+            BlockVariant.Stone::new,
+            "basalt",
+            "basalt_cobblestone",
+            "smooth_basalt",
+            "basalt_brick",
+            "mossy_basalt_cobblestone",
+            "mossy_basalt_brick"
+        );
     }
 }

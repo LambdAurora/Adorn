@@ -1,22 +1,23 @@
 package juuxel.adorn.compat;
 
 import juuxel.adorn.block.variant.BlockVariant;
-import juuxel.adorn.block.variant.BlockVariantSet;
+import juuxel.adorn.block.variant.CompatBlockVariantSet;
 
-import java.util.Arrays;
 import java.util.List;
 
-public final class PromenadeCompat implements BlockVariantSet {
-    private static final String[] WOOD_VARIANTS = {
-        "dark_amaranth",
-        "palm",
-        "sakura",
-    };
+public final class PromenadeCompat extends CompatBlockVariantSet {
+    @Override
+    protected String getModId() {
+        return "promenade";
+    }
 
     @Override
     public List<BlockVariant> getWoodVariants() {
-        return Arrays.stream(WOOD_VARIANTS)
-            .<BlockVariant>map(name -> new BlockVariant.Wood("promenade/" + name))
-            .toList();
+        return createVariants(
+            BlockVariant.Wood::new,
+            "dark_amaranth",
+            "palm",
+            "sakura"
+        );
     }
 }
