@@ -10,6 +10,8 @@ interface ClientNetworkBridge {
     @InlineServices
     companion object {
         private val instance: ClientNetworkBridge by lazy { loadService() }
+
+        @JvmStatic
         fun get(): ClientNetworkBridge = instance
     }
 }

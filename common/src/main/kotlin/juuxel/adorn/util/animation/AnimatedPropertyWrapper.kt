@@ -1,7 +1,5 @@
 package juuxel.adorn.util.animation
 
-import kotlin.reflect.KProperty
-
 class AnimatedPropertyWrapper<T>(
     engine: AnimationEngine,
     duration: Int,
@@ -9,6 +7,6 @@ class AnimatedPropertyWrapper<T>(
     private val getter: () -> T,
     private val setter: (T) -> Unit
 ) : AbstractAnimatedProperty<T>(engine, duration, interpolator) {
-    override fun getValue(thisRef: Any?, property: KProperty<*>): T = getter()
+    override fun get(): T = getter()
     override fun setRawValue(value: T) = setter(value)
 }

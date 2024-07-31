@@ -1,22 +1,22 @@
 package juuxel.adorn.util.animation
 
 import kotlin.math.pow
-import kotlin.properties.ReadWriteProperty
-import kotlin.reflect.KProperty
 
 abstract class AbstractAnimatedProperty<T>(
     private val engine: AnimationEngine,
     private val duration: Int,
     private val interpolator: Interpolator<T>
-) : ReadWriteProperty<Any?, T> {
+) {
     protected abstract fun setRawValue(value: T)
 
     @Volatile
     private var currentTask: Task? = null
 
-    override fun setValue(thisRef: Any?, property: KProperty<*>, value: T) {
+    abstract fun get(): T
+
+    fun set(value: T) {
         synchronized(this) {
-            val oldValue = getValue(thisRef, property)
+            val oldValue = get()
             currentTask?.let(engine::remove)
 
             if (oldValue != value) {

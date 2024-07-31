@@ -8,8 +8,13 @@ fun interface Interpolator<T> {
     fun interpolate(delta: Float, from: T, to: T): T
 
     companion object {
+        @JvmField
         val FLOAT: Interpolator<Float> = Interpolator(MathHelper::lerp)
+
+        @JvmField
         val DOUBLE: Interpolator<Double> = Interpolator { delta, from, to -> MathHelper.lerp(delta.toDouble(), from, to) }
+
+        @JvmField
         val COLOR: Interpolator<Int> = Interpolator { delta, from, to ->
             val alpha = FLOAT.interpolate(delta, Colors.alphaOf(from), Colors.alphaOf(to))
             val red = FLOAT.interpolate(delta, Colors.redOf(from), Colors.redOf(to))
