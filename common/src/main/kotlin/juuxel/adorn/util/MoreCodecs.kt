@@ -9,6 +9,7 @@ import com.mojang.serialization.JsonOps
 import net.minecraft.text.Text
 
 object MoreCodecs {
+    @JvmField
     val TEXT: Codec<Text> = object : Codec<Text> {
         override fun <T> encode(input: Text, ops: DynamicOps<T>, prefix: T): DataResult<T> {
             val json = Text.Serialization.toJsonTree(input)

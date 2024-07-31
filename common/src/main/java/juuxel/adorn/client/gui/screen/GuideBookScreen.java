@@ -75,7 +75,7 @@ public final class GuideBookScreen extends Screen {
         // its mouse hover tooltip renders on top of all widgets.
         flipBook = addDrawableChild(new FlipBook(this::updatePageTurnButtons));
         flipBook.add(new TitlePage(pageX, pageY));
-        for (var page : book.getPages()) {
+        for (var page : book.pages()) {
             var panel = new Panel();
             panel.add(new BookPageTitle(pageX, pageY, page));
             var body = new BookPageBody(pageX, pageY + PAGE_TEXT_Y, page);
@@ -161,7 +161,7 @@ public final class GuideBookScreen extends Screen {
     private final class TitlePage implements Element, Drawable {
         private final int x;
         private final int y;
-        private final Text byAuthor = Text.translatable("book.byAuthor", book.getAuthor());
+        private final Text byAuthor = Text.translatable("book.byAuthor", book.author());
         private boolean focused = false;
 
         private TitlePage(int x, int y) {
@@ -175,11 +175,11 @@ public final class GuideBookScreen extends Screen {
             var matrices = context.getMatrices();
             matrices.push();
             matrices.translate(cx, y + 7 + 25, 0.0);
-            matrices.scale(book.getTitleScale(), book.getTitleScale(), 1.0f);
-            context.drawText(textRenderer, book.getTitle(), -textRenderer.getWidth(book.getTitle()) / 2, 0, Colors.SCREEN_TEXT, false);
+            matrices.scale(book.titleScale(), book.titleScale(), 1.0f);
+            context.drawText(textRenderer, book.title(), -textRenderer.getWidth(book.title()) / 2, 0, Colors.SCREEN_TEXT, false);
             matrices.pop();
 
-            context.drawText(textRenderer, book.getSubtitle(), cx - textRenderer.getWidth(book.getSubtitle()) / 2, y + 45, Colors.SCREEN_TEXT, false);
+            context.drawText(textRenderer, book.subtitle(), cx - textRenderer.getWidth(book.subtitle()) / 2, y + 45, Colors.SCREEN_TEXT, false);
             context.drawText(textRenderer, byAuthor, cx - textRenderer.getWidth(byAuthor) / 2, y + 60, Colors.SCREEN_TEXT, false);
         }
 
@@ -206,8 +206,8 @@ public final class GuideBookScreen extends Screen {
         private BookPageTitle(int x, int y, Page page) {
             this.x = x;
             this.y = y;
-            this.wrappedTitleLines = textRenderer.wrapLines(page.getTitle().copy().styled(style -> style.withBold(true)), PAGE_TITLE_WIDTH);
-            this.icons = CollectionsKt.interleave(page.getIcons().stream().map(Page.Icon::createStacks).toList());
+            this.wrappedTitleLines = textRenderer.wrapLines(page.title().copy().styled(style -> style.withBold(true)), PAGE_TITLE_WIDTH);
+            this.icons = CollectionsKt.interleave(page.icons().stream().map(Page.Icon::createStacks).toList());
         }
 
         @Override
@@ -254,9 +254,9 @@ public final class GuideBookScreen extends Screen {
             this.x = x;
             this.y = y;
             this.page = page;
-            this.wrappedBodyLines = textRenderer.wrapLines(page.getText(), PAGE_WIDTH - PAGE_TEXT_X);
+            this.wrappedBodyLines = textRenderer.wrapLines(page.text(), PAGE_WIDTH - PAGE_TEXT_X);
             this.textHeight = wrappedBodyLines.size() * textRenderer.fontHeight;
-            this.imageHeight = page.getImage() != null ? page.getImage().getSize().getY() + PAGE_IMAGE_GAP : 0;
+            this.imageHeight = page.image() != null ? page.image().size().y() + PAGE_IMAGE_GAP : 0;
             this.height = Math.max(PAGE_BODY_HEIGHT, textHeight + imageHeight);
         }
 
@@ -293,15 +293,15 @@ public final class GuideBookScreen extends Screen {
 
         @Override
         public void render(DrawContext context, int mouseX, int mouseY, float delta) {
-            int textYOffset = page.getImage() != null && page.getImage().getPlacement() == Image.Placement.BEFORE_TEXT ? imageHeight : 0;
+            int textYOffset = page.image() != null && page.image().placement() == Image.Placement.BEFORE_TEXT ? imageHeight : 0;
 
             for (int i = 0; i < wrappedBodyLines.size(); i++) {
                 var line = wrappedBodyLines.get(i);
                 context.drawText(textRenderer, line, x + PAGE_TEXT_X, textYOffset + y + i * textRenderer.fontHeight, Colors.SCREEN_TEXT, false);
             }
 
-            if (page.getImage() != null) {
-                renderImage(context, page.getImage(), mouseX, mouseY);
+            if (page.image() != null) {
+                renderImage(context, page.image(), mouseX, mouseY);
             }
 
             var hoveredStyle = getTextStyleAt(mouseX, mouseY);
@@ -309,23 +309,23 @@ public final class GuideBookScreen extends Screen {
         }
 
         private void renderImage(DrawContext context, Image image, int mouseX, int mouseY) {
-            var imageX = x + (PAGE_WIDTH - image.getSize().getX()) / 2;
-            var imageY = switch (image.getPlacement()) {
+            var imageX = x + (PAGE_WIDTH - image.size().x()) / 2;
+            var imageY = switch (image.placement()) {
                 case BEFORE_TEXT -> y;
                 case AFTER_TEXT -> y + textHeight + PAGE_IMAGE_GAP;
             };
 
             RenderSystem.enableBlend();
-            context.drawTexture(image.getLocation(), imageX, imageY, 0f, 0f, image.getSize().getX(), image.getSize().getY(), image.getSize().getX(), image.getSize().getY());
+            context.drawTexture(image.location(), imageX, imageY, 0f, 0f, image.size().x(), image.size().y(), image.size().x(), image.size().y());
             RenderSystem.disableBlend();
 
-            for (var hoverArea : image.getHoverAreas()) {
+            for (var hoverArea : image.hoverAreas()) {
                 if (hoverArea.contains(mouseX - imageX, mouseY - imageY)) {
-                    var hX = imageX + hoverArea.getPosition().getX();
-                    var hY = imageY + hoverArea.getPosition().getY();
-                    context.fill(hX, hY, hX + hoverArea.getSize().getX(), hY + hoverArea.getSize().getY(), HOVER_AREA_HIGHLIGHT_COLOR);
+                    var hX = imageX + hoverArea.position().x();
+                    var hY = imageY + hoverArea.position().y();
+                    context.fill(hX, hY, hX + hoverArea.size().x(), hY + hoverArea.size().y(), HOVER_AREA_HIGHLIGHT_COLOR);
 
-                    var wrappedTooltip = textRenderer.wrapLines(hoverArea.getTooltip(), PAGE_WIDTH);
+                    var wrappedTooltip = textRenderer.wrapLines(hoverArea.tooltip(), PAGE_WIDTH);
                     Scissors.suspendScissors(() -> context.drawOrderedTooltip(textRenderer, wrappedTooltip, mouseX, mouseY));
                     break;
                 }
