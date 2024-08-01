@@ -28,7 +28,7 @@ public record BrewerDisplay(
 ) implements Display {
     public BrewerDisplay(ItemBrewingRecipe recipe) {
         this(
-            EntryIngredients.of(AdornItems.INSTANCE.getMUG()),
+            EntryIngredients.of(AdornItems.MUG.get()),
             EntryIngredients.ofIngredient(recipe.firstIngredient()),
             EntryIngredients.ofIngredient(recipe.secondIngredient()),
             EntryIngredient.empty(),
@@ -38,7 +38,7 @@ public record BrewerDisplay(
 
     public BrewerDisplay(FluidBrewingRecipe recipe) {
         this(
-            EntryIngredients.of(AdornItems.INSTANCE.getMUG()),
+            EntryIngredients.of(AdornItems.MUG.get()),
             EntryIngredients.ofIngredient(recipe.firstIngredient()),
             EntryIngredients.ofIngredient(recipe.secondIngredient()),
             entryIngredientOf(recipe.fluid()),

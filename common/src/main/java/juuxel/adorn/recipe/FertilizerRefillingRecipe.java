@@ -42,7 +42,7 @@ public final class FertilizerRefillingRecipe extends SpecialCraftingRecipe {
         for (int slot = 0; slot < inventory.size(); slot++) {
             var stack = inventory.getStack(slot);
 
-            if (stack.isOf(AdornItems.INSTANCE.getWATERING_CAN())) {
+            if (stack.isOf(AdornItems.WATERING_CAN.get())) {
                 if (wateringCan.isEmpty()) {
                     wateringCan = stack;
                 } else {

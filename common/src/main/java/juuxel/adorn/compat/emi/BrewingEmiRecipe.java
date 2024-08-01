@@ -32,7 +32,7 @@ public record BrewingEmiRecipe(
     public BrewingEmiRecipe(Identifier id, ItemBrewingRecipe recipe) {
         this(
             id,
-            EmiStack.of(AdornItems.INSTANCE.getMUG()),
+            EmiStack.of(AdornItems.MUG.get()),
             EmiUtil.withRemainders(EmiIngredient.of(recipe.firstIngredient())),
             EmiUtil.withRemainders(EmiIngredient.of(recipe.secondIngredient())),
             EmiStack.EMPTY,
@@ -43,7 +43,7 @@ public record BrewingEmiRecipe(
     public BrewingEmiRecipe(Identifier id, FluidBrewingRecipe recipe) {
         this(
             id,
-            EmiStack.of(AdornItems.INSTANCE.getMUG()),
+            EmiStack.of(AdornItems.MUG.get()),
             EmiUtil.withRemainders(EmiIngredient.of(recipe.firstIngredient())),
             EmiUtil.withRemainders(EmiIngredient.of(recipe.secondIngredient())),
             EmiUtil.emiIngredientOf(recipe.fluid()),

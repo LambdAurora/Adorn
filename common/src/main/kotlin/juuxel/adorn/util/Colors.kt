@@ -6,6 +6,7 @@ fun color(rgb: Int, alpha: Int = 0xFF) =
 
 fun color(rgb: Int, alpha: Float) = color(rgb, (alpha * 255f).toInt())
 
+@JvmOverloads
 fun color(red: Float, green: Float, blue: Float, alpha: Float = 1f): Int =
     color((red * 255f).toInt(), (green * 255f).toInt(), (blue * 255f).toInt(), (alpha * 255f).toInt())
 

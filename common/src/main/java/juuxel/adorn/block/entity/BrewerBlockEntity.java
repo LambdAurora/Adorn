@@ -98,7 +98,7 @@ public abstract class BrewerBlockEntity extends BaseContainerBlockEntity impleme
 
     @Override
     public boolean isValid(int slot, ItemStack stack) {
-        if (slot == INPUT_SLOT && !(stack.isOf(AdornItems.INSTANCE.getMUG()) && getStack(slot).isEmpty())) return false;
+        if (slot == INPUT_SLOT && !(stack.isOf(AdornItems.MUG.get()) && getStack(slot).isEmpty())) return false;
         if (slot == FLUID_CONTAINER_SLOT && !getStack(slot).isEmpty()) return false;
         return true;
     }
@@ -116,7 +116,7 @@ public abstract class BrewerBlockEntity extends BaseContainerBlockEntity impleme
     public int calculateComparatorOutput() {
         // If brewing has finished
         var mugStack = getStack(INPUT_SLOT);
-        if (!mugStack.isEmpty() && !mugStack.isOf(AdornItems.INSTANCE.getMUG())) {
+        if (!mugStack.isEmpty() && !mugStack.isOf(AdornItems.MUG.get())) {
             return 15;
         }
 
@@ -163,7 +163,7 @@ public abstract class BrewerBlockEntity extends BaseContainerBlockEntity impleme
 
         var recipe = world.getRecipeManager().getFirstMatch(AdornRecipes.BREWING_TYPE.get(), brewer, world).map(RecipeEntry::value).orElse(null);
 
-        if (recipe != null && brewer.getStack(INPUT_SLOT).isOf(AdornItems.INSTANCE.getMUG())) {
+        if (recipe != null && brewer.getStack(INPUT_SLOT).isOf(AdornItems.MUG.get())) {
             if (brewer.progress++ >= MAX_PROGRESS) {
                 decrementIngredient(brewer, LEFT_INGREDIENT_SLOT);
                 decrementIngredient(brewer, RIGHT_INGREDIENT_SLOT);

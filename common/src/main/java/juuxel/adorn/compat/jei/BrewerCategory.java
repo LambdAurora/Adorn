@@ -63,7 +63,7 @@ public final class BrewerCategory implements IRecipeCategory<BrewingRecipe> {
         var secondSlot = layoutBuilder.addSlot(RecipeIngredientRole.INPUT, leftX + 61, topY + 1);
         var resultSlot = layoutBuilder.addSlot(RecipeIngredientRole.OUTPUT, leftX + 31, topY + 40);
         layoutBuilder.addSlot(RecipeIngredientRole.INPUT, leftX + 4, topY + 39)
-            .addIngredients(Ingredient.ofItems(AdornItems.INSTANCE.getMUG()));
+            .addIngredients(Ingredient.ofItems(AdornItems.MUG.get()));
         var capacity = FluidBridge.get().getFluidUnit().getBucketVolume() * BrewerBlockEntity.FLUID_CAPACITY_IN_BUCKETS;
         var tank = layoutBuilder.addSlot(RecipeIngredientRole.INPUT, leftX + 88, topY + 1)
             .setFluidRenderer(capacity, false, 16, BrewerScreen.FLUID_AREA_HEIGHT)

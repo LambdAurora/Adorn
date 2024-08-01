@@ -105,7 +105,7 @@ class BrewerMenu(
         override fun getMaxItemCount(): Int = 1
 
         override fun canInsert(stack: ItemStack): Boolean =
-            stack.isOf(AdornItems.MUG)
+            stack.isOf(AdornItems.MUG.get())
     }
 
     private class FluidContainerSlot(inventory: Inventory, index: Int, x: Int, y: Int) : Slot(inventory, index, x, y) {

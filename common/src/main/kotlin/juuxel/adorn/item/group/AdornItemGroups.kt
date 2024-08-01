@@ -216,7 +216,7 @@ object AdornItemGroups {
 
     private fun ItemGroupBuildContext.addIngredients() {
         if (this is ItemGroupModifyContext) {
-            addAfter(after = Items.STICK, listOf(AdornItems.STONE_ROD))
+            addAfter(after = Items.STICK, AdornItems.STONE_ROD)
             addAfter(after = Items.IRON_NUGGET, AdornItems.COPPER_NUGGET)
         } else {
             add(AdornItems.STONE_ROD)
