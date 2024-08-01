@@ -3,12 +3,10 @@ package juuxel.adorn.util
 import juuxel.adorn.lib.registry.Registered
 import net.minecraft.block.AbstractBlock
 import net.minecraft.block.Block
-import net.minecraft.block.Blocks
 import net.minecraft.block.entity.BlockEntity
 import net.minecraft.item.ItemStack
 import net.minecraft.menu.MenuContext
 import net.minecraft.registry.Registries
-import net.minecraft.server.world.ServerWorld
 import net.minecraft.text.MutableText
 import net.minecraft.text.Text
 import net.minecraft.util.math.BlockPos
@@ -95,28 +93,8 @@ fun MenuContext.getBlockEntity(): BlockEntity? =
         .orElse(null)
 
 /**
- * Gets the block located at this context's position.
- */
-fun MenuContext.getBlock() =
-    get { world, pos -> world.getBlockState(pos).block }
-        .orElse(Blocks.AIR)
-
-/**
  * Creates a menu context in the world and at the position of the [blockEntity].
  * In a way, the inverse operation to [getBlockEntity].
  */
 fun menuContextOf(blockEntity: BlockEntity): MenuContext =
     MenuContext.create(blockEntity.world, blockEntity.pos)
-
-/**
- * Syncs this block entity to the client. If not running on the server, crashes.
- */
-fun BlockEntity.syncToClient() {
-    val world = this.world
-
-    if (world is ServerWorld) {
-        world.chunkManager.markForUpdate(pos)
-    } else {
-        throw IllegalStateException("[Adorn] Can't sync server->client from the server. What on earth am I doing?")
-    }
-}

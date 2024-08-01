@@ -37,7 +37,7 @@ public abstract class AbstractAnimatedProperty<T> {
         return (float) Math.pow(1 - (1 - delta), 5);
     }
 
-    private class Task implements AnimationTask {
+    private final class Task implements AnimationTask {
         private final T from;
         private final T to;
         private int age = 0;

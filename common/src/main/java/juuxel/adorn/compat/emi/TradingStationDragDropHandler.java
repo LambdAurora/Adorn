@@ -30,6 +30,6 @@ public final class TradingStationDragDropHandler implements EmiDragDropHandler<T
     }
 
     private static <T> Optional<T> single(List<T> ts) {
-        return ts.size() == 1 ? Optional.of(ts.get(0)) : Optional.empty();
+        return ts.size() == 1 ? Optional.of(ts.getFirst()) : Optional.empty();
     }
 }

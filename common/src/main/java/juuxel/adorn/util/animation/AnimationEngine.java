@@ -39,7 +39,7 @@ public final class AnimationEngine {
         thread = null;
     }
 
-    private class AnimatorThread extends Thread {
+    private final class AnimatorThread extends Thread {
         private AnimatorThread() {
             super("Adorn animator");
             setDaemon(true);
