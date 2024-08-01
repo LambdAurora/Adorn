@@ -6,7 +6,6 @@ import juuxel.adorn.util.animation.AnimatedProperty;
 import juuxel.adorn.util.animation.AnimatedPropertyWrapper;
 import juuxel.adorn.util.animation.AnimationEngine;
 import juuxel.adorn.util.animation.Interpolator;
-import kotlin.Unit;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.Element;
 import net.minecraft.util.math.MathHelper;
@@ -47,9 +46,8 @@ public final class ScrollEnvelope extends ScissorEnvelope {
         );
     }
 
-    private Unit setOffset(double offset) {
+    private void setOffset(double offset) {
         this.offset = MathHelper.clamp(offset, 0.0, heightDifference());
-        return Unit.INSTANCE;
     }
 
     private int heightDifference() {
