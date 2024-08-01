@@ -95,7 +95,7 @@ public abstract class FluidReference implements HasFluidAmount {
     }
 
     private static FluidUnit getDefaultDisplayUnit() {
-        return ConfigManager.Companion.config().client.displayedFluidUnit;
+        return ConfigManager.config().client.displayedFluidUnit;
     }
 
     private static long getUnitDenominator(FluidUnit from, FluidUnit to) {

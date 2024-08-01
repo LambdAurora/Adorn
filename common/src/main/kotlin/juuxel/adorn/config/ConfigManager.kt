@@ -91,6 +91,7 @@ abstract class ConfigManager {
         private val DEFAULT = JANKSON.toJson(Config()) as JsonObject
         private val LOGGER = logger()
 
+        @JvmStatic
         fun config() = INSTANCE.config
     }
 }

@@ -24,7 +24,7 @@ public final class AdornGameRules {
     }
 
     private static Type<BooleanRule> createBooleanRule(Predicate<Config.GameRuleDefaults> defaultGetter) {
-        return BooleanRule.create(defaultGetter.test(ConfigManager.Companion.config().gameRuleDefaults));
+        return BooleanRule.create(defaultGetter.test(ConfigManager.config().gameRuleDefaults));
     }
 
     private static <T extends Rule<T>> Key<T> register(String name, Category category, Type<T> type) {

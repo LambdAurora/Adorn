@@ -19,7 +19,7 @@ public final class Compat {
     }
 
     public static boolean isCompatEnabled(String mod) {
-        var compatMap = ConfigManager.Companion.config().compat;
+        var compatMap = ConfigManager.config().compat;
 
         if (!compatMap.containsKey(mod)) {
             compatMap.put(mod, true);
