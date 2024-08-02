@@ -29,12 +29,6 @@ dependencies {
     // Add dependency on NeoForge. This is mainly used for generating the patched Minecraft jar with NeoForge classes.
     neoForge("net.neoforged:neoforge:${rootProject.property("neoforge-version")}")
 
-    // Add Kotlin.
-    implementation(kotlin("stdlib"))
-    forgeRuntimeLibrary(kotlin("stdlib", version = kotlin.coreLibrariesVersion))
-    (bundle(kotlin("stdlib")) as ModuleDependency)
-        .exclude(group = "org.jetbrains", module = "annotations")
-
     // Depend on the common project. The "namedElements" configuration contains the non-remapped
     // classes and resources of the project.
     // It follows Gradle's own convention of xyzElements for "outgoing" configurations like apiElements.
@@ -66,7 +60,6 @@ dependencies {
 
 tasks {
     shadowJar {
-        relocate("kotlin", "juuxel.adorn.relocated.kotlin")
         relocate("blue.endless.jankson", "juuxel.adorn.relocated.jankson")
     }
 

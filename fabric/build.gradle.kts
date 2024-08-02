@@ -68,10 +68,6 @@ dependencies {
     // Standard Fabric mod setup.
     modImplementation("net.fabricmc:fabric-loader:${rootProject.property("fabric-loader")}")
     modImplementation("net.fabricmc.fabric-api:fabric-api:${rootProject.property("fabric-api")}")
-    modApi("net.fabricmc:fabric-language-kotlin:${rootProject.property("fabric-kotlin")}") {
-        // TODO: Check if this has been updated
-        exclude(group = "net.fabricmc", module = "fabric-loader")
-    }
 
     // Bundle Jankson in the mod and use it as a regular "implementation" library.
     bundle(implementation("blue.endless:jankson:${rootProject.property("jankson")}")!!)

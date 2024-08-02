@@ -1,24 +1,19 @@
 import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 import net.fabricmc.loom.api.LoomGradleExtensionAPI
 import net.fabricmc.loom.task.RemapJarTask
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-import org.jmailen.gradle.kotlinter.KotlinterExtension
 
 plugins {
     // Apply the base plugin which mostly defines useful "build lifecycle" tasks like
-    // assemble, check and build. The root project doesn't contain any Java or Kotlin code,
+    // assemble, check and build. The root project doesn't contain any code,
     // so we won't apply those plugins here. Only the assemble task is used in the root project.
     // See https://docs.gradle.org/current/userguide/base_plugin.html.
     base
 
     // Set up specific versions of the plugins we're using.
     // Note that of all these plugins, only the Architectury plugin needs to be applied.
-    kotlin("jvm") version "1.9.21" apply false
-
     id("architectury-plugin") version "3.4.+"
     id("dev.architectury.loom") version "1.4.+" apply false
 
-    id("org.jmailen.kotlinter") version "3.12.0" apply false
     id("com.github.johnrengelman.shadow") version "8.1.1" apply false
 }
 
@@ -62,10 +57,8 @@ tasks {
 
 // Do the shared set up for the Minecraft subprojects.
 subprojects {
-    apply(plugin = "org.jetbrains.kotlin.jvm")
     apply(plugin = "dev.architectury.loom")
     apply(plugin = "architectury-plugin")
-    apply(plugin = "org.jmailen.kotlinter")
 
     // Set Java version.
     extensions.configure<JavaPluginExtension> {
@@ -151,35 +144,10 @@ subprojects {
         })
     }
 
-    extensions.configure<KotlinterExtension> {
-        disabledRules = arrayOf(
-            // Disable these since we often do grouping on the parameters and args:
-            //   x: Int, y: Int, z: Int
-            //   width: Int, height: Int, depth: Int
-            "parameter-list-wrapping",
-            "argument-list-wrapping",
-            // Used for minimising diffs on listOf
-            "trailing-comma-on-call-site",
-        )
-    }
-
     tasks {
         withType<JavaCompile> {
             options.encoding = "UTF-8"
             options.release.set(21)
-        }
-
-        withType<KotlinCompile> {
-            // Set the Kotlin JVM target to match the Java version
-            // for all Kotlin compilation tasks.
-            kotlinOptions.jvmTarget = "21"
-
-            kotlinOptions.freeCompilerArgs = listOf(
-                // Compile lambdas to invokedynamic.
-                "-Xlambdas=indy",
-                // Compile interface functions with bodies to default methods.
-                "-Xjvm-default=all",
-            )
         }
 
         // Include the license in the jar files.

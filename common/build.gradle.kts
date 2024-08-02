@@ -16,8 +16,6 @@ loom {
 }
 
 dependencies {
-    // Add dependencies on the required Kotlin modules.
-    implementation(kotlin("stdlib-jdk8"))
     implementation("blue.endless:jankson:${rootProject.property("jankson")}")
 
     // Just for @Environment and mixin deps :)
