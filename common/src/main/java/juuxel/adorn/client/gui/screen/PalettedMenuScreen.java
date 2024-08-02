@@ -25,7 +25,7 @@ public abstract class PalettedMenuScreen<M extends Menu & ContainerBlockMenu> ex
     protected abstract Identifier getPaletteId();
 
     private ColorManager.ColorPair getPalette() {
-        return PlatformBridges.Companion.getResources().getColorManager().getColors(getPaletteId()).get(blockId);
+        return PlatformBridges.get().getResources().getColorManager().getColors(getPaletteId()).get(blockId);
     }
 
     @Override

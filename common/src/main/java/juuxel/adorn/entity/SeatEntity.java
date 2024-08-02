@@ -59,7 +59,7 @@ public final class SeatEntity extends Entity {
     public void kill() {
         removeAllPassengers();
         if (!getWorld().isClient) {
-            PlatformBridges.Companion.getNetwork().sendToTracking(this, new EntityPassengersSetS2CPacket(this));
+            PlatformBridges.get().getNetwork().sendToTracking(this, new EntityPassengersSetS2CPacket(this));
         }
         super.kill();
         var state = getWorld().getBlockState(seatPos);

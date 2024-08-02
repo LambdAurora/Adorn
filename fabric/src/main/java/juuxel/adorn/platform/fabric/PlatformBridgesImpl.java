@@ -16,7 +16,7 @@ public final class PlatformBridgesImpl implements PlatformBridges {
 
     @Override
     public BlockFactory getBlockFactory() {
-        return BlockFactory.Default;
+        return BlockFactory.DEFAULT;
     }
 
     @Override

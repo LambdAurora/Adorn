@@ -2,13 +2,10 @@ package juuxel.adorn.platform.forge;
 
 import juuxel.adorn.platform.MenuBridge;
 import juuxel.adorn.util.Logging;
-import kotlin.jvm.functions.Function3;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.menu.Menu;
 import net.minecraft.menu.MenuType;
 import net.minecraft.menu.NamedMenuFactory;
-import net.minecraft.network.PacketByteBuf;
 import net.minecraft.util.math.BlockPos;
 import net.neoforged.neoforge.common.extensions.IMenuTypeExtension;
 import org.jetbrains.annotations.Nullable;
@@ -29,7 +26,7 @@ public final class MenuBridgeImpl implements MenuBridge {
     }
 
     @Override
-    public <M extends Menu> MenuType<M> createType(Function3<? super Integer, ? super PlayerInventory, ? super PacketByteBuf, ? extends M> factory) {
-        return IMenuTypeExtension.create(factory::invoke);
+    public <M extends Menu> MenuType<M> createType(Factory<M> factory) {
+        return IMenuTypeExtension.create(factory::create);
     }
 }

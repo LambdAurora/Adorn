@@ -11,7 +11,7 @@ public final class AdornEntities {
     public static final Registrar<EntityType<?>> ENTITIES = RegistrarFactory.get().create(RegistryKeys.ENTITY_TYPE);
 
     public static final Registered<EntityType<SeatEntity>> SEAT =
-        ENTITIES.register("seat", PlatformBridges.Companion.getEntities()::createSeatType);
+        ENTITIES.register("seat", PlatformBridges.get().getEntities()::createSeatType);
 
     public static void init() {
     }

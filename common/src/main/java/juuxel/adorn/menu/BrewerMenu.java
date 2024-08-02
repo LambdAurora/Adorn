@@ -117,7 +117,7 @@ public final class BrewerMenu extends Menu {
         var last = lastFluid;
         if (last == null || !FluidReference.areFluidsAndAmountsEqual(fluid, last)) {
             lastFluid = fluid.createSnapshot();
-            PlatformBridges.Companion.getNetwork().sendBrewerFluidSync(player, syncId, fluid);
+            PlatformBridges.get().getNetwork().sendBrewerFluidSync(player, syncId, fluid);
         }
     }
 

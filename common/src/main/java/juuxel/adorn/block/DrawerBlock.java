@@ -74,7 +74,7 @@ public final class DrawerBlock extends VisibleBlockWithEntity implements BlockWi
         if (world.isClient) return ActionResult.SUCCESS;
 
         if (world.getBlockEntity(pos) instanceof DrawerBlockEntity drawer) {
-            PlatformBridges.Companion.getMenus().open(player, drawer, pos);;
+            PlatformBridges.get().getMenus().open(player, drawer, pos);;
             player.incrementStat(AdornStats.OPEN_DRAWER);
         }
 

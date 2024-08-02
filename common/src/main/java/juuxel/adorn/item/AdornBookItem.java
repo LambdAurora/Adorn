@@ -27,7 +27,7 @@ public final class AdornBookItem extends Item {
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         if (!world.isClient) {
-            PlatformBridges.Companion.getNetwork().sendOpenBookPacket(user, bookId);
+            PlatformBridges.get().getNetwork().sendOpenBookPacket(user, bookId);
         }
         user.incrementStat(Stats.USED.getOrCreateStat(this));
 
@@ -37,7 +37,7 @@ public final class AdornBookItem extends Item {
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         super.appendTooltip(stack, world, tooltip, context);
-        var bookManager = PlatformBridges.Companion.getResources().getBookManager();
+        var bookManager = PlatformBridges.get().getResources().getBookManager();
         if (bookManager.contains(bookId)) {
             tooltip.add(Text.translatable("book.byAuthor", bookManager.get(bookId).author()).formatted(Formatting.GRAY));
         }

@@ -21,8 +21,8 @@ public final class AdornClient {
         modBus.addListener(AdornRenderers::registerRenderers);
         modBus.addListener(AdornClient::registerTooltipComponent);
         var resourceManager = (ReloadableResourceManagerImpl) MinecraftClient.getInstance().getResourceManager();
-        resourceManager.registerReloader(PlatformBridges.Companion.getResources().getBookManager());
-        resourceManager.registerReloader(PlatformBridges.Companion.getResources().getColorManager());
+        resourceManager.registerReloader(PlatformBridges.get().getResources().getBookManager());
+        resourceManager.registerReloader(PlatformBridges.get().getResources().getColorManager());
         ModLoadingContext.get().registerExtensionPoint(
             ConfigScreenHandler.ConfigScreenFactory.class,
             () -> new ConfigScreenHandler.ConfigScreenFactory((client, parent) -> new MainConfigScreen(parent))
@@ -38,6 +38,6 @@ public final class AdornClient {
     }
 
     public static void openBookScreen(Identifier bookId) {
-        MinecraftClient.getInstance().setScreen(new GuideBookScreen(PlatformBridges.Companion.getResources().getBookManager().get(bookId)));
+        MinecraftClient.getInstance().setScreen(new GuideBookScreen(PlatformBridges.get().getResources().getBookManager().get(bookId)));
     }
 }

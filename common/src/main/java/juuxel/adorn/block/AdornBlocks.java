@@ -33,7 +33,7 @@ public final class AdornBlocks {
         DyeColor.values(),
         color -> HELPER.registerBlock(
             color.asString() + "_sofa",
-            () -> PlatformBridges.Companion.getBlockFactory().createSofa(BlockVariant.wool(color))
+            () -> PlatformBridges.get().getBlockFactory().createSofa(BlockVariant.wool(color))
         )
     );
 

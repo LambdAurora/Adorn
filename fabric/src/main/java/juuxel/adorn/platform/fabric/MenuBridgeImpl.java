@@ -2,7 +2,6 @@ package juuxel.adorn.platform.fabric;
 
 import juuxel.adorn.platform.MenuBridge;
 import juuxel.adorn.util.Logging;
-import kotlin.jvm.functions.Function3;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerType;
 import net.minecraft.entity.player.PlayerEntity;
@@ -52,7 +51,7 @@ public final class MenuBridgeImpl implements MenuBridge {
     }
 
     @Override
-    public <M extends Menu> MenuType<M> createType(Function3<? super Integer, ? super PlayerInventory, ? super PacketByteBuf, ? extends M> factory) {
-        return new ExtendedScreenHandlerType<>(factory::invoke);
+    public <M extends Menu> MenuType<M> createType(Factory<M> factory) {
+        return new ExtendedScreenHandlerType<>(factory::create);
     }
 }

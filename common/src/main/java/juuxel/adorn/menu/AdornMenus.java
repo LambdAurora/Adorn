@@ -3,12 +3,10 @@ package juuxel.adorn.menu;
 import juuxel.adorn.lib.registry.Registered;
 import juuxel.adorn.lib.registry.Registrar;
 import juuxel.adorn.lib.registry.RegistrarFactory;
+import juuxel.adorn.platform.MenuBridge;
 import juuxel.adorn.platform.PlatformBridges;
-import kotlin.jvm.functions.Function3;
-import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.menu.Menu;
 import net.minecraft.menu.MenuType;
-import net.minecraft.network.PacketByteBuf;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.resource.featuretoggle.FeatureFlags;
 
@@ -26,7 +24,7 @@ public final class AdornMenus {
     public static void init() {
     }
 
-    private static <M extends Menu> MenuType<M> createType(Function3<Integer, PlayerInventory, PacketByteBuf, M> factory) {
-        return PlatformBridges.Companion.getMenus().createType(factory);
+    private static <M extends Menu> MenuType<M> createType(MenuBridge.Factory<M> factory) {
+        return PlatformBridges.get().getMenus().createType(factory);
     }
 }

@@ -119,7 +119,7 @@ public final class ShelfBlock extends VisibleBlockWithEntity implements Waterlog
                 inventory.setStack(slot, stack);
                 be.markDirty();
                 if (!world.isClient) {
-                    PlatformBridges.Companion.getNetwork().syncBlockEntity(be);
+                    PlatformBridges.get().getNetwork().syncBlockEntity(be);
                     player.incrementStat(AdornStats.INTERACT_WITH_SHELF);
                 }
 
@@ -138,7 +138,7 @@ public final class ShelfBlock extends VisibleBlockWithEntity implements Waterlog
             inventory.setStack(slot, ItemStack.EMPTY);
             be.markDirty();
             if (!world.isClient) {
-                PlatformBridges.Companion.getNetwork().syncBlockEntity(be);
+                PlatformBridges.get().getNetwork().syncBlockEntity(be);
                 player.incrementStat(AdornStats.INTERACT_WITH_SHELF);
             }
         }
