@@ -4,7 +4,7 @@ import juuxel.adorn.fluid.FluidUnit;
 import juuxel.adorn.fluid.StepMaximum;
 import juuxel.adorn.lib.AdornSounds;
 import juuxel.adorn.platform.FluidBridge;
-import juuxel.adorn.util.ColorsKt;
+import juuxel.adorn.util.Colors;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.FarmlandBlock;
@@ -188,7 +188,7 @@ public final class WateringCanItem extends ItemWithDescription {
             // To:
             0.4f, 1f
         );
-        return ColorsKt.color(rg, rg, 1f);
+        return Colors.color(rg, rg, 1f);
     }
 
     @Override

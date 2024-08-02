@@ -5,7 +5,7 @@ import juuxel.adorn.block.AdornBlocks;
 import juuxel.adorn.block.entity.TradingStationBlockEntity;
 import juuxel.adorn.trading.Trade;
 import juuxel.adorn.util.InventoryComponent;
-import juuxel.adorn.util.NbtExtensionsKt;
+import juuxel.adorn.util.NbtUtil;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.loot.context.LootContext;
@@ -35,14 +35,14 @@ public final class CheckTradingStationOwnerLootFunction implements LootFunction 
     }
 
     private boolean hasTrade(NbtCompound nbt) {
-        var tradeNbt = NbtExtensionsKt.getCompoundOrNull(nbt, TradingStationBlockEntity.NBT_TRADE);
+        var tradeNbt = NbtUtil.getCompoundOrNull(nbt, TradingStationBlockEntity.NBT_TRADE);
         if (tradeNbt == null) return false;
         var trade = Trade.fromNbt(tradeNbt);
         return !trade.isFullyEmpty();
     }
 
     private boolean hasStorage(NbtCompound nbt) {
-        var storageNbt = NbtExtensionsKt.getCompoundOrNull(nbt, TradingStationBlockEntity.NBT_STORAGE);
+        var storageNbt = NbtUtil.getCompoundOrNull(nbt, TradingStationBlockEntity.NBT_STORAGE);
         if (storageNbt == null) return false;
         var inventory = new InventoryComponent(TradingStationBlockEntity.STORAGE_SIZE);
         inventory.readNbt(storageNbt);

@@ -4,7 +4,7 @@ import it.unimi.dsi.fastutil.bytes.Byte2ObjectArrayMap;
 import it.unimi.dsi.fastutil.bytes.Byte2ObjectMap;
 import juuxel.adorn.block.variant.BlockVariant;
 import juuxel.adorn.lib.AdornStats;
-import juuxel.adorn.util.ExtensionsKt;
+import juuxel.adorn.util.AdornUtil;
 import juuxel.adorn.util.Shapes;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -46,8 +46,8 @@ public final class BenchBlock extends SeatBlock implements Waterloggable, BlockW
 
         for (var axis : new Direction.Axis[] { Direction.Axis.X, Direction.Axis.Z }) {
             var topShape = axis == Direction.Axis.X ? X_TOP_SHAPE : Z_TOP_SHAPE;
-            var negativeLeg = legShapes.get(ExtensionsKt.getDirection(axis, Direction.AxisDirection.NEGATIVE));
-            var positiveLeg = legShapes.get(ExtensionsKt.getDirection(axis, Direction.AxisDirection.POSITIVE));
+            var negativeLeg = legShapes.get(Direction.from(axis, Direction.AxisDirection.NEGATIVE));
+            var positiveLeg = legShapes.get(Direction.from(axis, Direction.AxisDirection.POSITIVE));
 
             for (var connectedN : booleans) {
                 for (var connectedP : booleans) {
@@ -80,7 +80,7 @@ public final class BenchBlock extends SeatBlock implements Waterloggable, BlockW
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
         var state = getDefaultState()
-            .with(AXIS, ExtensionsKt.turnHorizontally(ctx.getHorizontalPlayerFacing().getAxis()))
+            .with(AXIS, AdornUtil.turnHorizontally(ctx.getHorizontalPlayerFacing().getAxis()))
             .with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).getFluid() == Fluids.WATER);
         return updateConnections(ctx.getWorld(), ctx.getBlockPos(), state);
     }
@@ -125,7 +125,7 @@ public final class BenchBlock extends SeatBlock implements Waterloggable, BlockW
         return switch (rotation) {
             case COUNTERCLOCKWISE_90:
             case CLOCKWISE_90:
-                yield state.with(AXIS, ExtensionsKt.turnHorizontally(state.get(AXIS)));
+                yield state.with(AXIS, AdornUtil.turnHorizontally(state.get(AXIS)));
             default:
                 yield state;
         };

@@ -3,9 +3,9 @@ package juuxel.adorn.block.entity;
 import juuxel.adorn.block.AdornBlockEntities;
 import juuxel.adorn.menu.TradingStationMenu;
 import juuxel.adorn.trading.Trade;
-import juuxel.adorn.util.ExtensionsKt;
+import juuxel.adorn.util.AdornUtil;
 import juuxel.adorn.util.InventoryComponent;
-import juuxel.adorn.util.NbtExtensionsKt;
+import juuxel.adorn.util.NbtUtil;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -67,7 +67,7 @@ public final class TradingStationBlockEntity extends BlockEntity implements Name
 
     @Override
     public Menu createMenu(int syncId, PlayerInventory playerInventory, PlayerEntity player) {
-        return new TradingStationMenu(syncId, playerInventory, ExtensionsKt.menuContextOf(this));
+        return new TradingStationMenu(syncId, playerInventory, AdornUtil.menuContextOf(this));
     }
 
     @Override
@@ -102,11 +102,9 @@ public final class TradingStationBlockEntity extends BlockEntity implements Name
 
         if (nbt.containsUuid(NBT_TRADING_OWNER)) {
             owner = nbt.getUuid(NBT_TRADING_OWNER);
-        } else if (NbtExtensionsKt.containsOldUuid(nbt, NBT_TRADING_OWNER)) {
-            owner = NbtExtensionsKt.getOldUuid(nbt, NBT_TRADING_OWNER);
         }
 
-        ownerName = Objects.requireNonNullElse(NbtExtensionsKt.getText(nbt, NBT_TRADING_OWNER_NAME), UNKNOWN_OWNER);
+        ownerName = Objects.requireNonNullElse(NbtUtil.getText(nbt, NBT_TRADING_OWNER_NAME), UNKNOWN_OWNER);
         trade.readNbt(nbt.getCompound(NBT_TRADE));
         storage.readNbt(nbt.getCompound(NBT_STORAGE));
     }
@@ -119,7 +117,7 @@ public final class TradingStationBlockEntity extends BlockEntity implements Name
             nbt.putUuid(NBT_TRADING_OWNER, owner);
         }
 
-        NbtExtensionsKt.putText(nbt, NBT_TRADING_OWNER_NAME, ownerName);
+        NbtUtil.putText(nbt, NBT_TRADING_OWNER_NAME, ownerName);
 
         nbt.put(NBT_TRADE, trade.writeNbt(new NbtCompound()));
         nbt.put(NBT_STORAGE, storage.writeNbt(new NbtCompound()));

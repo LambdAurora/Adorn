@@ -1,6 +1,6 @@
 package juuxel.adorn.block.variant;
 
-import juuxel.adorn.util.ExtensionsKt;
+import juuxel.adorn.util.AdornUtil;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -102,7 +102,7 @@ public interface BlockVariant {
 
             @Override
             public AbstractBlock.Settings createSettings() {
-                return ExtensionsKt.copySettingsSafely(base);
+                return AdornUtil.copySettingsSafely(base);
             }
         };
     }
@@ -114,14 +114,14 @@ public interface BlockVariant {
     record Wood(String name) implements BlockVariant {
         @Override
         public AbstractBlock.Settings createSettings() {
-            return ExtensionsKt.copySettingsSafely(Blocks.OAK_PLANKS);
+            return AdornUtil.copySettingsSafely(Blocks.OAK_PLANKS);
         }
     }
 
     record Stone(String name) implements BlockVariant {
         @Override
         public AbstractBlock.Settings createSettings() {
-            return ExtensionsKt.copySettingsSafely(Blocks.COBBLESTONE);
+            return AdornUtil.copySettingsSafely(Blocks.COBBLESTONE);
         }
     }
 }

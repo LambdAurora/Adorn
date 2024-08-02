@@ -12,7 +12,7 @@ import juuxel.adorn.client.gui.widget.Panel;
 import juuxel.adorn.client.gui.widget.ScrollEnvelope;
 import juuxel.adorn.client.gui.widget.SizedElement;
 import juuxel.adorn.client.gui.widget.TickingElement;
-import juuxel.adorn.util.CollectionsKt;
+import juuxel.adorn.util.CollectionUtil;
 import juuxel.adorn.util.Colors;
 import juuxel.adorn.util.animation.AnimationEngine;
 import net.minecraft.client.gui.DrawContext;
@@ -207,7 +207,7 @@ public final class GuideBookScreen extends Screen {
             this.x = x;
             this.y = y;
             this.wrappedTitleLines = textRenderer.wrapLines(page.title().copy().styled(style -> style.withBold(true)), PAGE_TITLE_WIDTH);
-            this.icons = CollectionsKt.interleave(page.icons().stream().map(Page.Icon::createStacks).toList());
+            this.icons = CollectionUtil.interleave(page.icons().stream().map(Page.Icon::createStacks).toList());
         }
 
         @Override

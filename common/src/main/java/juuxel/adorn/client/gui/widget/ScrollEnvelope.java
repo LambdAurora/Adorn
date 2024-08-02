@@ -1,7 +1,6 @@
 package juuxel.adorn.client.gui.widget;
 
 import juuxel.adorn.util.Colors;
-import juuxel.adorn.util.ColorsKt;
 import juuxel.adorn.util.animation.AnimatedProperty;
 import juuxel.adorn.util.animation.AnimatedPropertyWrapper;
 import juuxel.adorn.util.animation.AnimationEngine;
@@ -15,11 +14,11 @@ public final class ScrollEnvelope extends ScissorEnvelope {
     private static final double SHADOW_THRESHOLD = 1.0;
     private static final int GRADIENT_HEIGHT = 5;
     private static final int SCROLLING_SPEED = 20;
-    private static final int GRADIENT_COLOR = ColorsKt.color(0x000000, 0.2f);
+    private static final int GRADIENT_COLOR = Colors.color(0x000000, 0.2f);
     private static final int SCROLLING_TRACK_MARGIN = 2;
     private static final int SCROLLING_TRACK_WIDTH = 4;
-    private static final int SCROLL_THUMB_COLOR_INACTIVE = ColorsKt.color(0x000000, 0.2f);
-    private static final int SCROLL_THUMB_COLOR_ACTIVE = ColorsKt.color(0x000000, 0.6f);
+    private static final int SCROLL_THUMB_COLOR_INACTIVE = Colors.color(0x000000, 0.2f);
+    private static final int SCROLL_THUMB_COLOR_ACTIVE = Colors.color(0x000000, 0.6f);
 
     private final SizedElement element;
     private double offset = 0.0;

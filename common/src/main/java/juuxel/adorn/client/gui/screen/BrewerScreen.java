@@ -7,7 +7,7 @@ import juuxel.adorn.client.FluidRenderingBridge;
 import juuxel.adorn.fluid.FluidReference;
 import juuxel.adorn.fluid.FluidVolume;
 import juuxel.adorn.menu.BrewerMenu;
-import juuxel.adorn.util.ColorsKt;
+import juuxel.adorn.util.Colors;
 import juuxel.adorn.util.Logging;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
@@ -107,7 +107,7 @@ public final class BrewerScreen extends AdornMenuScreen<BrewerMenu> {
             return;
         }
 
-        var color = ColorsKt.color(bridge.getColor(fluid));
+        var color = Colors.color(bridge.getColor(fluid));
         var height = FLUID_AREA_HEIGHT * (float) (fluid.getAmount() / (BrewerBlockEntity.FLUID_CAPACITY_IN_BUCKETS * fluid.getUnit().getBucketVolume()));
         var fluidY = 0;
 

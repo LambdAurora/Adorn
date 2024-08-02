@@ -3,8 +3,7 @@ package juuxel.adorn.client.renderer;
 import juuxel.adorn.block.entity.TradingStationBlockEntity;
 import juuxel.adorn.config.ConfigManager;
 import juuxel.adorn.util.Colors;
-import juuxel.adorn.util.ColorsKt;
-import juuxel.adorn.util.ExtensionsKt;
+import juuxel.adorn.util.AdornUtil;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.font.TextRenderer;
@@ -56,8 +55,8 @@ public final class TradingStationRenderer implements BlockEntityRenderer<Trading
             Text label1 = Text.translatable(OWNER_LABEL, be.getOwnerName().copy().formatted(Formatting.GOLD));
             renderLabel(be, label1, 0.0, 0.9, 0.0, 12, matrices, vertexConsumers, light);
             if (!be.getTrade().isEmpty()) {
-                Text label2 = Text.translatable(SELLING_LABEL, ExtensionsKt.toTextWithCount(be.getTrade().getSelling()));
-                Text label3 = Text.translatable(PRICE_LABEL, ExtensionsKt.toTextWithCount(be.getTrade().getPrice()));
+                Text label2 = Text.translatable(SELLING_LABEL, AdornUtil.toTextWithCount(be.getTrade().getSelling()));
+                Text label3 = Text.translatable(PRICE_LABEL, AdornUtil.toTextWithCount(be.getTrade().getPrice()));
                 renderLabel(be, label2, 0.0, 0.9 - 0.25, 0.0, 12, matrices, vertexConsumers, light);
                 renderLabel(be, label3, 0.0, 0.9 - 0.5, 0.0, 12, matrices, vertexConsumers, light);
             }
@@ -79,7 +78,7 @@ public final class TradingStationRenderer implements BlockEntityRenderer<Trading
 
             var positionMatrix = matrices.peek().getPositionMatrix();
             float opacity = MinecraftClient.getInstance().options.getTextBackgroundOpacity(0.25f);
-            int backgroundColor = ColorsKt.color(0x000000, opacity);
+            int backgroundColor = Colors.color(0x000000, opacity);
             var textX = -textRenderer.getWidth(label) * 0.5f;
             textRenderer.draw(label, textX, 0f, Colors.WHITE, false, positionMatrix, vertexConsumers, TextRenderer.TextLayerType.NORMAL, backgroundColor, light);
 

@@ -2,7 +2,7 @@ package juuxel.adorn.block.entity;
 
 import juuxel.adorn.block.AdornBlockEntities;
 import juuxel.adorn.menu.KitchenCupboardMenu;
-import juuxel.adorn.util.ExtensionsKt;
+import juuxel.adorn.util.AdornUtil;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.menu.Menu;
@@ -15,6 +15,6 @@ public final class KitchenCupboardBlockEntity extends SimpleContainerBlockEntity
 
     @Override
     protected Menu createMenu(int syncId, PlayerInventory inv) {
-        return new KitchenCupboardMenu(syncId, inv, this, ExtensionsKt.menuContextOf(this));
+        return new KitchenCupboardMenu(syncId, inv, this, AdornUtil.menuContextOf(this));
     }
 }

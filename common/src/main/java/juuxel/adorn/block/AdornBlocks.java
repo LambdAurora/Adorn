@@ -8,7 +8,7 @@ import juuxel.adorn.lib.registry.Registrar;
 import juuxel.adorn.lib.registry.RegistrarFactory;
 import juuxel.adorn.lib.registry.RegistryHelper;
 import juuxel.adorn.platform.PlatformBridges;
-import juuxel.adorn.util.ExtensionsKt;
+import juuxel.adorn.util.AdornUtil;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -29,7 +29,7 @@ public final class AdornBlocks {
     public static final Registrar<Item> ITEMS = RegistrarFactory.get().create(RegistryKeys.ITEM);
     private static final RegistryHelper HELPER = new RegistryHelper(BLOCKS, ITEMS);
 
-    public static final Registered<Map<DyeColor, SofaBlock>> SOFAS = ExtensionsKt.associateLazily(
+    public static final Registered<Map<DyeColor, SofaBlock>> SOFAS = AdornUtil.associateLazily(
         DyeColor.values(),
         color -> HELPER.registerBlock(
             color.asString() + "_sofa",
@@ -54,7 +54,7 @@ public final class AdornBlocks {
     public static final Registered<Block> SOULFUL_PRISMARINE_CHIMNEY = HELPER.registerBlock("soulful_prismarine_chimney",
         () -> new PrismarineChimneyBlock.WithColumn(false, AbstractChimneyBlock.createBlockSettings(MapColor.CYAN, 1.5f)));
 
-    public static final Registered<Map<DyeColor, Block>> TABLE_LAMPS = ExtensionsKt.associateLazily(
+    public static final Registered<Map<DyeColor, Block>> TABLE_LAMPS = AdornUtil.associateLazily(
         DyeColor.values(),
         color -> HELPER.registerBlock(color.asString() + "_table_lamp", () -> new TableLampBlock(TableLampBlock.createBlockSettings(color)))
     );
@@ -80,7 +80,7 @@ public final class AdornBlocks {
         ));
 
     public static final Registered<Block> CRATE = HELPER.registerBlock("crate",
-        () -> new Block(ExtensionsKt.copySettingsSafely(Blocks.OAK_PLANKS)));
+        () -> new Block(AdornUtil.copySettingsSafely(Blocks.OAK_PLANKS)));
     public static final Registered<Block> APPLE_CRATE = registerCrate("apple_crate");
     public static final Registered<Block> WHEAT_CRATE = registerCrate("wheat_crate");
     public static final Registered<Block> CARROT_CRATE = registerCrate("carrot_crate");
@@ -119,7 +119,7 @@ public final class AdornBlocks {
 
     public static final Registered<Block> CANDLELIT_LANTERN = HELPER.registerBlock("candlelit_lantern",
         () -> new CandlelitLanternBlock(CandlelitLanternBlock.createBlockSettings()));
-    public static final Registered<Map<DyeColor, Block>> DYED_CANDLELIT_LANTERNS = ExtensionsKt.associateLazily(
+    public static final Registered<Map<DyeColor, Block>> DYED_CANDLELIT_LANTERNS = AdornUtil.associateLazily(
         DyeColor.values(),
         color -> HELPER.registerBlock(
             color.asString() + "_candlelit_lantern",
@@ -176,6 +176,6 @@ public final class AdornBlocks {
     }
 
     private static Registered<Block> registerCrate(String name) {
-        return HELPER.registerBlock(name, () -> new Item.Settings().recipeRemainder(CRATE.get().asItem()), () -> new Block(ExtensionsKt.copySettingsSafely(CRATE.get())));
+        return HELPER.registerBlock(name, () -> new Item.Settings().recipeRemainder(CRATE.get().asItem()), () -> new Block(AdornUtil.copySettingsSafely(CRATE.get())));
     }
 }

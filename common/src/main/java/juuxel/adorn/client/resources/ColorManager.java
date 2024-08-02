@@ -9,7 +9,6 @@ import com.mojang.serialization.JsonOps;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import juuxel.adorn.AdornCommon;
 import juuxel.adorn.util.Colors;
-import juuxel.adorn.util.ColorsKt;
 import juuxel.adorn.util.Logging;
 import net.minecraft.resource.ResourceFinder;
 import net.minecraft.resource.ResourceManager;
@@ -98,7 +97,7 @@ public class ColorManager extends SinglePreparationResourceReloader<Map<Identifi
 
         var colorStr = str.substring(1);
         return DataResult.success(switch (colorStr.length()) {
-            case 6 -> ColorsKt.color(Integer.parseInt(colorStr, 16));
+            case 6 -> Colors.color(Integer.parseInt(colorStr, 16));
             case 8 -> Integer.parseInt(colorStr, 16);
             default -> throw new MatchException("Mismatching color length: " + colorStr.length(), null);
         });

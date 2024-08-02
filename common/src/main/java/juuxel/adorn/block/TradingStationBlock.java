@@ -5,7 +5,7 @@ import juuxel.adorn.block.entity.TradingStationBlockEntity;
 import juuxel.adorn.criterion.AdornCriteria;
 import juuxel.adorn.lib.AdornGameRules;
 import juuxel.adorn.lib.AdornStats;
-import juuxel.adorn.util.NbtExtensionsKt;
+import juuxel.adorn.util.NbtUtil;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.BlockWithEntity;
@@ -161,7 +161,7 @@ public final class TradingStationBlock extends VisibleBlockWithEntity implements
 
         var nbt = stack.getSubNbt(BlockItem.BLOCK_ENTITY_TAG_KEY);
         if (nbt != null && nbt.contains(TradingStationBlockEntity.NBT_TRADING_OWNER)) {
-            var owner = NbtExtensionsKt.getText(nbt, TradingStationBlockEntity.NBT_TRADING_OWNER_NAME);
+            var owner = NbtUtil.getText(nbt, TradingStationBlockEntity.NBT_TRADING_OWNER_NAME);
             if (owner == null) owner = TradingStationBlockEntity.UNKNOWN_OWNER;
             tooltip.add(Text.translatable(OWNER_DESCRIPTION, owner.copy().formatted(Formatting.WHITE)).formatted(Formatting.GREEN));
         }
