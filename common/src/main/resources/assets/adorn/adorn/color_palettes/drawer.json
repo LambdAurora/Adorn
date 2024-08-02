@@ -22,6 +22,5 @@
 
   "adorn:traverse/fir_drawer": { "bg": "#8E5E3D" },
 
-  // The default color is the oak color
   "adorn:default": "#BE9A60"
 }

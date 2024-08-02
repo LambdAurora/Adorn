@@ -30,7 +30,7 @@ public abstract class PalettedMenuScreen<M extends Menu & ContainerBlockMenu> ex
 
     @Override
     protected void drawBackground(DrawContext context, float delta, int mouseX, int mouseY) {
-        var bg = getPalette().getBg();
+        var bg = getPalette().bg();
         RenderSystem.setShaderColor(Colors.redOf(bg), Colors.greenOf(bg), Colors.blueOf(bg), 1.0f);
         context.drawTexture(getBackgroundTexture(), x, y, 0, 0, backgroundWidth, backgroundHeight);
         RenderSystem.setShaderColor(1f, 1f, 1f, 1f);
@@ -38,7 +38,7 @@ public abstract class PalettedMenuScreen<M extends Menu & ContainerBlockMenu> ex
 
     @Override
     protected void drawForeground(DrawContext context, int mouseX, int mouseY) {
-        var fg = getPalette().getFg();
+        var fg = getPalette().fg();
         context.drawText(textRenderer, title, titleX, titleY, fg, false);
         context.drawText(textRenderer, playerInventoryTitle, playerInventoryTitleX, playerInventoryTitleY, fg, false);
     }
