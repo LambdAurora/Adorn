@@ -30,10 +30,11 @@ public final class Asm {
                         cr.accept(node, 0);
 
                         // Transform
-                        transformer.transform(fs::getPath, node);
+                        boolean modified = transformer.transform(fs::getPath, node);
+                        if (!modified) continue;
 
                         // Write out the new class
-                        var cw = new ClassWriter(cr, 0);
+                        var cw = new ClassWriter(cr, ClassWriter.COMPUTE_FRAMES);
                         node.accept(cw);
                         Files.write(c, cw.toByteArray());
                     }
@@ -44,6 +45,6 @@ public final class Asm {
 
     @FunctionalInterface
     public interface Transformer {
-        void transform(Function<String, Path> filer, ClassNode classNode) throws IOException;
+        boolean transform(Function<String, Path> filer, ClassNode classNode) throws IOException;
     }
 }
