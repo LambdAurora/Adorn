@@ -19,7 +19,7 @@ public record MethodBodyPattern(List<InsnPattern<?>> patterns) {
     @SuppressWarnings("unchecked")
     public boolean match(MethodNode mn, Consumer<MatchContext> visitor) {
         for (AbstractInsnNode insn : mn.instructions) {
-            var start = (InsnPattern<AbstractInsnNode>) patterns.get(0);
+            var start = (InsnPattern<AbstractInsnNode>) patterns.getFirst();
             if (start.type().isInstance(insn) && start.filter().test(insn)) {
                 Stream<AbstractInsnNode> insnStream = Stream.iterate(insn.getNext(), it -> it.getNext() != null, AbstractInsnNode::getNext)
                     .filter(it -> !(it instanceof LabelNode)
@@ -35,7 +35,7 @@ public record MethodBodyPattern(List<InsnPattern<?>> patterns) {
                     .collect(Collectors.toCollection(ArrayList::new));
 
                 if (matches.size() != patterns.size() - 1) continue;
-                matches.add(0, insn);
+                matches.addFirst(insn);
                 var context = new MatchContext() {
                     @Override
                     public List<AbstractInsnNode> instructions() {

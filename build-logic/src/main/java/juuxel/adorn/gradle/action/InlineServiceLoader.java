@@ -49,7 +49,7 @@ public final class InlineServiceLoader implements Action<Task> {
                                 if (serviceImpls.size() != 1) {
                                     throw new IllegalArgumentException("Service file " + serviceType + " must have exactly one provider");
                                 }
-                                implType = serviceImpls.get(0).replace('.', '/');
+                                implType = serviceImpls.getFirst().replace('.', '/');
                             } catch (IOException e) {
                                 throw new UncheckedIOException(e);
                             }
