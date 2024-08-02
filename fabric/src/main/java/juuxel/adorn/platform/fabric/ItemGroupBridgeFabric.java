@@ -2,8 +2,6 @@ package juuxel.adorn.platform.fabric;
 
 import juuxel.adorn.item.group.ItemGroupModifyContext;
 import juuxel.adorn.platform.ItemGroupBridge;
-import kotlin.Unit;
-import kotlin.jvm.functions.Function1;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.ItemConvertible;
@@ -11,6 +9,7 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.registry.RegistryKey;
 
 import java.util.List;
+import java.util.function.Consumer;
 
 public final class ItemGroupBridgeFabric implements ItemGroupBridge {
     @Override
@@ -19,7 +18,7 @@ public final class ItemGroupBridgeFabric implements ItemGroupBridge {
     }
 
     @Override
-    public void addItems(RegistryKey<ItemGroup> group, Function1<? super ItemGroupModifyContext, Unit> configurator) {
+    public void addItems(RegistryKey<ItemGroup> group, Consumer<ItemGroupModifyContext> configurator) {
         ItemGroupEvents.modifyEntriesEvent(group).register(entries -> {
             var context = new ItemGroupModifyContext() {
                 @Override
@@ -33,7 +32,7 @@ public final class ItemGroupBridgeFabric implements ItemGroupBridge {
                 }
             };
 
-            configurator.invoke(context);
+            configurator.accept(context);
         });
     }
 }

@@ -3,8 +3,6 @@ package juuxel.adorn.platform.forge;
 import com.mojang.datafixers.util.Pair;
 import juuxel.adorn.item.group.ItemGroupModifyContext;
 import juuxel.adorn.platform.ItemGroupBridge;
-import kotlin.Unit;
-import kotlin.jvm.functions.Function1;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -14,10 +12,11 @@ import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
 
 public final class ItemGroupBridgeForge implements ItemGroupBridge {
     private static final ItemGroup.StackVisibility DEFAULT_STACK_VISIBILITY = ItemGroup.StackVisibility.PARENT_AND_SEARCH_TABS;
-    private final List<Pair<RegistryKey<ItemGroup>, Function1<? super ItemGroupModifyContext, Unit>>> additions = new ArrayList<>();
+    private final List<Pair<RegistryKey<ItemGroup>, Consumer<ItemGroupModifyContext>>> additions = new ArrayList<>();
 
     @Override
     public ItemGroup.Builder builder() {
@@ -25,7 +24,7 @@ public final class ItemGroupBridgeForge implements ItemGroupBridge {
     }
 
     @Override
-    public void addItems(RegistryKey<ItemGroup> group, Function1<? super ItemGroupModifyContext, Unit> configurator) {
+    public void addItems(RegistryKey<ItemGroup> group, Consumer<ItemGroupModifyContext> configurator) {
         additions.add(new Pair<>(group, configurator));
     }
 
@@ -54,7 +53,7 @@ public final class ItemGroupBridgeForge implements ItemGroupBridge {
                     }
                 }
             };
-            configurator.invoke(context);
+            configurator.accept(context);
         }
     }
 }
