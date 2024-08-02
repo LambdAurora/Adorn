@@ -3,7 +3,6 @@ package juuxel.adorn.platform.forge.registrar;
 import com.google.common.collect.Iterators;
 import juuxel.adorn.AdornCommon;
 import juuxel.adorn.lib.registry.Registered;
-import kotlin.jvm.functions.Function0;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.neoforged.bus.api.IEventBus;
@@ -13,6 +12,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.function.Supplier;
 
 public final class DeferredRegistrar<T> implements ForgeRegistrar<T> {
     private final DeferredRegister<T> register;
@@ -28,8 +28,8 @@ public final class DeferredRegistrar<T> implements ForgeRegistrar<T> {
     }
 
     @Override
-    public <U extends T> Registered<U> register(String id, Function0<? extends U> provider) {
-        var registryObject = register.register(id, provider::invoke);
+    public <U extends T> Registered<U> register(String id, Supplier<? extends U> provider) {
+        var registryObject = register.register(id, provider);
         objects.add(registryObject);
         return registryObject::get;
     }
