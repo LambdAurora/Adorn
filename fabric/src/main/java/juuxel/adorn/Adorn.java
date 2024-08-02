@@ -52,7 +52,7 @@ public final class Adorn {
         Compat.init();
         BlockVariantSets.register();
         AdornBlocksFabric.afterRegister();
-        ConfigManager.get().finalize();
+        ConfigManager.get().finish();
     }
 
     @Environment(EnvType.CLIENT)

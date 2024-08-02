@@ -1,8 +1,6 @@
 package juuxel.adorn.gradle.action;
 
 import juuxel.adorn.gradle.asm.Asm;
-import juuxel.adorn.gradle.asm.InsnPattern;
-import juuxel.adorn.gradle.asm.MethodBodyPattern;
 import org.gradle.api.Action;
 import org.gradle.api.Task;
 import org.objectweb.asm.ConstantDynamic;
@@ -12,9 +10,7 @@ import org.objectweb.asm.Type;
 import org.objectweb.asm.tree.AnnotationNode;
 import org.objectweb.asm.tree.InsnNode;
 import org.objectweb.asm.tree.LdcInsnNode;
-import org.objectweb.asm.tree.MethodInsnNode;
 import org.objectweb.asm.tree.MethodNode;
-import org.objectweb.asm.tree.TypeInsnNode;
 
 import java.io.IOException;
 import java.io.UncheckedIOException;
@@ -23,26 +19,6 @@ import java.util.List;
 import java.util.Objects;
 
 public final class InlineServiceLoader implements Action<Task> {
-    private static final MethodBodyPattern INLINE_PATTERN = new MethodBodyPattern(
-        List.of(
-            new InsnPattern<>(LdcInsnNode.class, ldc -> ldc.cst instanceof Type),
-            new InsnPattern<>(
-                MethodInsnNode.class,
-                method -> method.getOpcode() == Opcodes.INVOKESTATIC
-                    && "java/util/ServiceLoader".equals(method.owner)
-                    && "load".equals(method.name)
-                    && "(Ljava/lang/Class;)Ljava/util/ServiceLoader;".equals(method.desc)
-            ),
-            new InsnPattern<>(
-                MethodInsnNode.class,
-                method -> method.getOpcode() == Opcodes.INVOKEVIRTUAL
-                    && "java/util/ServiceLoader".equals(method.owner)
-                    && "findFirst".equals(method.name)
-                    && "()Ljava/util/Optional;".equals(method.desc)
-            )
-        )
-    );
-
     @Override
     public void execute(Task task) {
         try {
@@ -61,39 +37,6 @@ public final class InlineServiceLoader implements Action<Task> {
             }
 
             for (MethodNode method : classNode.methods) {
-                boolean success = INLINE_PATTERN.match(method, ctx -> {
-                    var ldc = (LdcInsnNode) ctx.instructions().get(0);
-                    var type = ((Type) ldc.cst).getInternalName().replace('/', '.');
-                    var serviceFile = filer.apply("META-INF/services/" + type);
-                    if (Files.exists(serviceFile)) {
-                        try {
-                            var serviceImpls = Files.readAllLines(serviceFile);
-                            if (serviceImpls.size() != 1) throw new IllegalArgumentException("Service file " + type + " must have exactly one provider");
-                            var implType = serviceImpls.get(0).replace('.', '/');
-                            ctx.replaceWith(
-                                List.of(
-                                    new TypeInsnNode(Opcodes.NEW, implType),
-                                    new InsnNode(Opcodes.DUP),
-                                    new MethodInsnNode(Opcodes.INVOKESPECIAL, implType, "<init>", "()V"),
-                                    new MethodInsnNode(
-                                        Opcodes.INVOKESTATIC,
-                                        "java/util/Optional",
-                                        "of",
-                                        "(Ljava/lang/Object;)Ljava/util/Optional;"
-                                    )
-                                )
-                            );
-                        } catch (IOException e) {
-                            throw new UncheckedIOException(e);
-                        }
-                    }
-                });
-
-                if (success) {
-                    method.maxStack++;
-                    return true;
-                }
-
                 if (method.invisibleAnnotations == null) continue;
                 for (AnnotationNode annotation : method.invisibleAnnotations) {
                     if ("Ljuuxel/adorn/util/InlineServices$Getter;".equals(annotation.desc)) {
@@ -125,13 +68,7 @@ public final class InlineServiceLoader implements Action<Task> {
                                 "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/Class;Ljava/lang/invoke/MethodHandle;[Ljava/lang/Object;)Ljava/lang/Object;",
                                 false
                             ),
-                            new Handle(
-                                Opcodes.H_NEWINVOKESPECIAL,
-                                implType,
-                                "<init>",
-                                "()V",
-                                false
-                            )
+                            new Handle(Opcodes.H_NEWINVOKESPECIAL, implType, "<init>", "()V", false)
                         )));
                         method.instructions.add(new InsnNode(Opcodes.ARETURN));
                         return true;

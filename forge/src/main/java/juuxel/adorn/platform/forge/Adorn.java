@@ -59,6 +59,6 @@ public final class Adorn {
 
     private void init(FMLCommonSetupEvent event) {
         AdornStats.init();
-        ConfigManager.get().finalize();
+        ConfigManager.get().finish();
     }
 }

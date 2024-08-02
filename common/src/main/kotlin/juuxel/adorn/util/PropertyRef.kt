@@ -15,6 +15,7 @@ interface PropertyRef<T> {
         /**
          * Creates a reflected property reference for a field of the [owner].
          */
+        @JvmStatic
         fun <T> ofField(owner: Any, fieldName: String): PropertyRef<T> {
             val field = owner::class.java.getField(fieldName)
             field.isAccessible = true

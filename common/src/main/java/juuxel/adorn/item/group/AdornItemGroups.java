@@ -82,7 +82,7 @@ public final class AdornItemGroups {
             .build());
 
     public static void init() {
-        if (ConfigManager.get().config().client.showItemsInStandardGroups) {
+        if (ConfigManager.config().client.showItemsInStandardGroups) {
             addToVanillaItemGroups();
         }
     }
