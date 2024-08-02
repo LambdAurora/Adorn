@@ -61,7 +61,7 @@ public final class BenchBlock extends SeatBlock implements Waterloggable, BlockW
                         parts.add(positiveLeg);
                     }
 
-                    var key = Bits.buildBenchState(axis, connectedN, connectedP);
+                    var key = getShapeKey(axis, connectedN, connectedP);
                     SHAPES.put(key, VoxelShapes.union(topShape, parts.toArray(VoxelShape[]::new)));
                 }
             }
@@ -106,7 +106,11 @@ public final class BenchBlock extends SeatBlock implements Waterloggable, BlockW
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return SHAPES.get(Bits.buildBenchState(state.get(AXIS), state.get(CONNECTED_N), state.get(CONNECTED_P)));
+        return SHAPES.get(getShapeKey(state.get(AXIS), state.get(CONNECTED_N), state.get(CONNECTED_P)));
+    }
+
+    private static byte getShapeKey(Direction.Axis axis, boolean connectedN, boolean connectedP) {
+        return (byte) ((axis == Direction.Axis.X ? 1 : 0) << 2 | (connectedN ? 1 : 0) << 1 | (connectedP ? 1 : 0));
     }
 
     @Override

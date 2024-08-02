@@ -30,7 +30,7 @@ public final class TableBlock extends AbstractTableBlock implements BlockWithDes
                 for (var south : booleans) {
                     for (var west : booleans) {
                         for (var hasCarpet : booleans) {
-                            var key = Bits.buildTableState(north, east, south, west, hasCarpet);
+                            var key = getShapeKey(north, east, south, west, hasCarpet);
                             var shape = makeShape(north, east, south, west, hasCarpet, topShape, legX0Z0, legX1Z0, legX0Z1, legX1Z1);
                             SHAPES.put(key, shape);
                         }

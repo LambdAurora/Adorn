@@ -168,7 +168,7 @@ public class SofaBlock extends SeatBlock implements Waterloggable, SneakClickHan
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         return OUTLINE_SHAPE_MAP.get(
-            Bits.buildSofaState(
+            getShapeKey(
                 state.get(FACING),
                 state.get(CONNECTED_LEFT),
                 state.get(CONNECTED_RIGHT),
@@ -180,7 +180,7 @@ public class SofaBlock extends SeatBlock implements Waterloggable, SneakClickHan
     @Override
     public VoxelShape getCollisionShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         return COLLISION_SHAPE_MAP.get(
-            Bits.buildSofaState(
+            getShapeKey(
                 state.get(FACING),
                 state.get(CONNECTED_LEFT),
                 state.get(CONNECTED_RIGHT),
@@ -239,7 +239,7 @@ public class SofaBlock extends SeatBlock implements Waterloggable, SneakClickHan
                             case RIGHT -> parts.add(rightCorners.get(facing));
                         }
 
-                        var key = Bits.buildSofaState(facing, left, right, front);
+                        var key = getShapeKey(facing, left, right, front);
                         var shape = VoxelShapes.union(bottom, parts.toArray(VoxelShape[]::new));
                         result.put(key, shape);
                     }
@@ -247,6 +247,10 @@ public class SofaBlock extends SeatBlock implements Waterloggable, SneakClickHan
             }
         }
         return result;
+    }
+
+    private static byte getShapeKey(Direction facing, boolean left, boolean right, FrontConnection front) {
+        return (byte) (facing.getHorizontal() << 5 | (left ? 1 : 0) << 3 | (right ? 1 : 0) << 2 | front.ordinal());
     }
 
     public static @Nullable Direction getSleepingDirection(BlockView world, BlockPos pos) {

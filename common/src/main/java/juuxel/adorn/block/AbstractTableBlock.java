@@ -71,11 +71,15 @@ public abstract class AbstractTableBlock extends CarpetedBlock implements Waterl
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         return getShapeForKey(
-            Bits.buildTableState(
+            getShapeKey(
                 state.get(NORTH), state.get(EAST), state.get(SOUTH), state.get(WEST),
                 isCarpetingEnabled() && state.get(CARPET).isPresent()
             )
         );
+    }
+
+    protected static byte getShapeKey(boolean north, boolean east, boolean south, boolean west, boolean hasCarpet) {
+        return (byte) ((north ? 1 : 0) << 4 | (east ? 1 : 0) << 3 | (south ? 1 : 0) << 2 | (west ? 1 : 0) << 1 | (hasCarpet ? 1 : 0));
     }
 
     protected abstract VoxelShape getShapeForKey(byte key);

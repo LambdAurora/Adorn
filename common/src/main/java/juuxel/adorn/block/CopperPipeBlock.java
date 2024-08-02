@@ -92,7 +92,7 @@ public class CopperPipeBlock extends Block implements Waterloggable, BlockWithDe
                                 if (up) shape = VoxelShapes.union(shape, pipes.get(Direction.UP));
                                 if (down) shape = VoxelShapes.union(shape, pipes.get(Direction.DOWN));
 
-                                SHAPES.put(Bits.buildCopperPipeState(north, east, south, west, up, down), shape);
+                                SHAPES.put(getShapeKey(north, east, south, west, up, down), shape);
                             }
                         }
                     }
@@ -112,7 +112,18 @@ public class CopperPipeBlock extends Block implements Waterloggable, BlockWithDe
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return SHAPES.get(Bits.buildCopperPipeState(state.get(NORTH), state.get(EAST), state.get(SOUTH), state.get(WEST), state.get(UP), state.get(DOWN)));
+        return SHAPES.get(getShapeKey(state.get(NORTH), state.get(EAST), state.get(SOUTH), state.get(WEST), state.get(UP), state.get(DOWN)));
+    }
+
+    private static byte getShapeKey(boolean north, boolean east, boolean south, boolean west, boolean up, boolean down) {
+        int northB = north ? 1 : 0;
+        int eastB = east ? 1 : 0;
+        int southB = south ? 1 : 0;
+        int westB = west ? 1 : 0;
+        int upB = up ? 1 : 0;
+        int downB = down ? 1 : 0;
+
+        return (byte) (northB << 5 | eastB << 4 | southB << 3 | westB << 2 | upB << 1 | downB);
     }
 
     @Override
