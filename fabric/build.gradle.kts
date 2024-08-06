@@ -1,14 +1,8 @@
 plugins {
     id("adorn-data-generator")
     id("adorn-data-generator.emi")
+    id("adorn-minify-json")
     id("adorn-service-inline")
-}
-
-architectury {
-    // Create the IDE launch configurations for this subproject.
-    platformSetupLoomIde()
-    // Set up Architectury for Fabric.
-    fabric()
 }
 
 // The files below are for using the access widener for the common project.
@@ -59,11 +53,6 @@ dependencies {
     implementation(project(":common", configuration = "namedElements")) {
         isTransitive = false
     }
-    // Bundle the transformed version of the common project in the mod.
-    // The transformed version includes things like fixed refmaps.
-    bundle(project(path = ":common", configuration = "transformProductionFabric")) {
-        isTransitive = false
-    }
 
     // Standard Fabric mod setup.
     modImplementation(libs.fabric.loader)
@@ -71,7 +60,7 @@ dependencies {
 
     // Bundle Jankson in the mod and use it as a regular "implementation" library.
     implementation(libs.jankson)
-    bundle(libs.jankson)
+    include(libs.jankson)
 
     // Mod compat
     modCompileOnly(libs.towelette)
@@ -84,10 +73,6 @@ dependencies {
 }
 
 tasks {
-    shadowJar {
-        relocate("blue.endless.jankson", "juuxel.adorn.relocated.jankson")
-    }
-
     processResources {
         // Mark that this task depends on the project version,
         // and should reset when the project version changes.

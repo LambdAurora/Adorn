@@ -1,6 +1,5 @@
 package juuxel.adorn.gradle;
 
-import juuxel.adorn.gradle.action.MinifyJson;
 import juuxel.adorn.gradle.datagen.DataGeneratorExtension;
 import juuxel.adorn.gradle.datagen.DeleteDuplicates;
 import juuxel.adorn.gradle.datagen.GenerateData;
@@ -36,9 +35,6 @@ public final class DataGeneratorPlugin implements Plugin<Project> {
         java.getSourceSets().named("main", main -> {
             main.getResources().srcDir(generatedResources);
             main.getResources().exclude(".cache");
-        });
-        project.afterEvaluate(p -> {
-            p.getTasks().named("remapJar", task -> task.doLast(new MinifyJson()));
         });
     }
 }

@@ -28,6 +28,11 @@ gradlePlugin {
             implementationClass = "juuxel.adorn.gradle.EmiDataGeneratorPlugin"
         }
 
+        register("adorn-minify-json") {
+            id = "adorn-minify-json"
+            implementationClass = "juuxel.adorn.gradle.MinifyJsonPlugin"
+        }
+
         register("adorn-service-inline") {
             id = "adorn-service-inline"
             implementationClass = "juuxel.adorn.gradle.ServiceInlinePlugin"
