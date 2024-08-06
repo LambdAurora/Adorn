@@ -75,6 +75,7 @@ dependencies {
 
     // Mod compat
     modCompileOnly(libs.towelette)
+    modCompileOnly(libs.modmenu)
     modLocalRuntime(libs.modmenu)
     modCompileOnly(libs.dashloader)
     modCompileOnly(libs.emi.fabric) {
