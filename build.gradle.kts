@@ -12,7 +12,7 @@ plugins {
     // Set up specific versions of the plugins we're using.
     // Note that of all these plugins, only the Architectury plugin needs to be applied.
     id("architectury-plugin") version "3.4.+"
-    id("dev.architectury.loom") version "1.4.+" apply false
+    id("dev.architectury.loom") version "1.7.+" apply false
 
     id("com.github.johnrengelman.shadow") version "8.1.1" apply false
 }
@@ -42,7 +42,7 @@ tasks {
         // Copy the outputs of the tasks...
         from(tasks)
         // ...into build/libs.
-        into(buildDir.resolve("libs"))
+        into(layout.buildDirectory.dir("libs"))
     }
 
     // Set up assemble to depend on the collectJars task, so it gets run on gradlew build.
