@@ -107,7 +107,7 @@ public class ColorManager extends SinglePreparationResourceReloader<Map<Identifi
         private static final int DEFAULT_FG = Colors.SCREEN_TEXT;
 
         private static final Codec<Integer> COLOR_CODEC =
-            Codec.STRING.comapFlatMap(ColorManager::parseHexColor, color -> HexFormat.of().withUpperCase().toHexDigits(color));
+            Codec.STRING.comapFlatMap(ColorManager::parseHexColor, color -> '#' + HexFormat.of().withUpperCase().toHexDigits(color));
         public static final Codec<ColorPair> CODEC = Codecs.alternatively(
             RecordCodecBuilder.create(instance -> instance.group(
                 COLOR_CODEC.fieldOf("bg").forGetter(ColorPair::bg),
