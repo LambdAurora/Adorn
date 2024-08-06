@@ -1,10 +1,32 @@
 [versions]
+dashloader = "2.0-pre2"
 emi = "1.0.21+1.20.2"
+fabric-loader = "0.15.2"
+fabric-api = "0.91.2+1.20.4"
+jankson = "1.2.1"
+modmenu = "9.0.0-pre.1"
+neoforge = "20.4.200"
+rei = "14.0.680"
+towelette = "e5e39eb"
 
 [libraries]
+# Loader dependencies
+fabric-loader = { module = "net.fabricmc:fabric-loader", version.ref = "fabric-loader" }
+fabric-api = { module = "net.fabricmc.fabric-api:fabric-api", version.ref = "fabric-api" }
+neoforge = { module = "net.neoforged:neoforge", version.ref = "neoforge" }
+
+# Non-mod library dependencies
+jankson = { module = "blue.endless:jankson", version.ref = "jankson" }
+
+# Mod dependencies
+dashloader = { module = "net.oskarstrom:DashLoader", version.ref = "dashloader" }
 emi-common = { module = "dev.emi:emi-xplat-intermediary", version.ref = "emi" }
 emi-fabric = { module = "dev.emi:emi-fabric", version.ref = "emi" }
 emi-forge = { module = "dev.emi:emi-forge", version.ref = "emi" }
 jei-fabric = { module = "maven.modrinth:jei", version = "7Qec2BlS" }
 jei-forge = { module = "maven.modrinth:jei", version = "YnRrj5NP" }
+modmenu = { module = "com.terraformersmc:modmenu", version.ref = "modmenu" }
 rei-annotations = { module = "me.shedaniel:REIPluginCompatibilities-forge-annotations", version = "12.0.54" }
+rei-common = { module = "me.shedaniel:RoughlyEnoughItems-api", version.ref = "rei" }
+rei-neoforge = { module = "me.shedaniel:RoughlyEnoughItems-api-neoforge", version.ref = "rei" }
+towelette = { module = "com.github.Virtuoel:Towelette", version.ref = "towelette" }

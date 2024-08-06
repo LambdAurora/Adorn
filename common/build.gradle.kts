@@ -16,13 +16,13 @@ loom {
 }
 
 dependencies {
-    implementation("blue.endless:jankson:${rootProject.property("jankson")}")
+    implementation(libs.jankson)
 
     // Just for @Environment and mixin deps :)
-    modImplementation("net.fabricmc:fabric-loader:${rootProject.property("fabric-loader")}")
+    modImplementation(libs.fabric.loader)
 
     // Add a mod dependency on some APIs for compat code.
-    modCompileOnly("me.shedaniel:RoughlyEnoughItems-api:${rootProject.property("rei")}")
+    modCompileOnly(libs.rei.common)
     modCompileOnly(libs.emi.common)
     modCompileOnly(libs.jei.fabric)
     compileOnly(libs.rei.annotations)

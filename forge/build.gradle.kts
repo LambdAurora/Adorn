@@ -27,7 +27,7 @@ repositories {
 
 dependencies {
     // Add dependency on NeoForge. This is mainly used for generating the patched Minecraft jar with NeoForge classes.
-    neoForge("net.neoforged:neoforge:${rootProject.property("neoforge-version")}")
+    neoForge(libs.neoforge)
 
     // Depend on the common project. The "namedElements" configuration contains the non-remapped
     // classes and resources of the project.
@@ -42,20 +42,15 @@ dependencies {
     }
 
     // Bundle Jankson in the mod.
-    bundle("blue.endless:jankson:${rootProject.property("jankson")}")
+    bundle(libs.jankson)
     // Use Jankson as a library. Note that on Forge, regular non-mod libraries have to be declared
     // using forgeRuntimeLibrary as Forge reads the runtime classpath from a separately generated file.
     // In ForgeGradle projects, you might see a custom "library" configuration used for this.
-    forgeRuntimeLibrary("blue.endless:jankson:${rootProject.property("jankson")}")
+    forgeRuntimeLibrary(libs.jankson)
 
     // Add regular mod dependency on REI - API for compile time and the mod itself for runtime.
     // modLocalRuntime won't be exposed if other mods depend on your mod unlike modRuntimeOnly.
-    // TODO: Revert back to API jar after it's fixed: https://github.com/shedaniel/RoughlyEnoughItems/issues/1194
-    modCompileOnly("me.shedaniel:RoughlyEnoughItems-neoforge:${rootProject.property("rei")}")
-    //modLocalRuntime("me.shedaniel:RoughlyEnoughItems-neoforge:${rootProject.property("rei")}")
-    //modLocalRuntime("dev.architectury:architectury-neoforge:${rootProject.property("architectury-api")}")
-    //modLocalRuntime(libs.emi.forge)
-    //modLocalRuntime(libs.jei.forge)
+    modCompileOnly(libs.rei.neoforge)
 }
 
 tasks {
