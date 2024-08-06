@@ -68,7 +68,7 @@ public class ColorManager extends SinglePreparationResourceReloader<Map<Identifi
             for (var json : jsons) {
                 var partialPalette = PALETTE_CODEC.parse(JsonOps.INSTANCE, json).get()
                     .map(Function.identity(), partial -> {
-                        LOGGER.error("[Adorn] Could not parse color palette {}", id);
+                        LOGGER.error("[Adorn] Could not parse color palette {}: {}", id, partial.message());
                         return null;
                     });
                 if (partialPalette == null) continue;
@@ -106,13 +106,14 @@ public class ColorManager extends SinglePreparationResourceReloader<Map<Identifi
     public record ColorPair(int bg, int fg) {
         private static final int DEFAULT_FG = Colors.SCREEN_TEXT;
 
+        private static final Codec<Integer> COLOR_CODEC =
+            Codec.STRING.comapFlatMap(ColorManager::parseHexColor, color -> HexFormat.of().withUpperCase().toHexDigits(color));
         public static final Codec<ColorPair> CODEC = Codecs.alternatively(
             RecordCodecBuilder.create(instance -> instance.group(
-                Codec.INT.fieldOf("bg").forGetter(ColorPair::bg),
-                Codec.INT.optionalFieldOf("fg", DEFAULT_FG).forGetter(ColorPair::bg)
+                COLOR_CODEC.fieldOf("bg").forGetter(ColorPair::bg),
+                COLOR_CODEC.optionalFieldOf("fg", DEFAULT_FG).forGetter(ColorPair::bg)
             ).apply(instance, ColorPair::new)),
-            Codec.STRING.comapFlatMap(ColorManager::parseHexColor, color -> HexFormat.of().withUpperCase().toHexDigits(color))
-                .xmap(bg -> new ColorPair(bg, DEFAULT_FG), ColorPair::bg)
+            COLOR_CODEC.xmap(bg -> new ColorPair(bg, DEFAULT_FG), ColorPair::bg)
         );
     }
 }
