@@ -54,8 +54,8 @@ tasks {
         // and should reset when the project version changes.
         inputs.property("version", project.version)
 
-        // Replace the $version template in mods.toml with the project version.
-        filesMatching("META-INF/mods.toml") {
+        // Replace the $version template in neoforge.mods.toml with the project version.
+        filesMatching("META-INF/neoforge.mods.toml") {
             expand("version" to project.version)
         }
     }
