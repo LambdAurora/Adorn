@@ -78,7 +78,6 @@ public abstract class CarpetedBlock extends SeatBlock {
         if (carpet.isPresent()) {
             var carpetBlock = COLORS_TO_BLOCKS.get(carpet.value());
             if (!carpetBlock.getDefaultState().canPlaceAt(world, pos)) {
-                // TODO: a null player here is potentially dangerous
                 carpetBlock.onBreak(world, pos, state, null);
                 dropStacks(carpetBlock.getDefaultState(), world, pos);
                 world.setBlockState(pos, state.with(CARPET, CARPET.getNone()));
