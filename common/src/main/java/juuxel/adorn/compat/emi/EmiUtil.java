@@ -5,6 +5,7 @@ import dev.emi.emi.api.stack.EmiStack;
 import juuxel.adorn.fluid.FluidIngredient;
 import juuxel.adorn.fluid.FluidUnit;
 import juuxel.adorn.platform.FluidBridge;
+import juuxel.adorn.platform.ItemBridge;
 import net.minecraft.item.Item;
 
 public final class EmiUtil {
@@ -23,9 +24,9 @@ public final class EmiUtil {
         for (var stack : ingredient.getEmiStacks()) {
             var item = stack.getKeyOfType(Item.class);
             if (item == null) continue;
-            if (item.hasRecipeRemainder()) {
-                // TODO: Use stack-aware recipe remainders
-                stack.setRemainder(EmiStack.of(item.getRecipeRemainder()));
+            var remainder = ItemBridge.get().getRecipeRemainder(stack.getItemStack());
+            if (!remainder.isEmpty()) {
+                stack.setRemainder(EmiStack.of(remainder));
             }
         }
 

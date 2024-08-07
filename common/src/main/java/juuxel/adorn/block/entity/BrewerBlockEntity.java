@@ -5,6 +5,7 @@ import juuxel.adorn.block.BrewerBlock;
 import juuxel.adorn.fluid.FluidReference;
 import juuxel.adorn.item.AdornItems;
 import juuxel.adorn.menu.BrewerMenu;
+import juuxel.adorn.platform.ItemBridge;
 import juuxel.adorn.recipe.AdornRecipes;
 import juuxel.adorn.recipe.BrewerInput;
 import juuxel.adorn.recipe.FluidBrewingRecipe;
@@ -142,15 +143,14 @@ public abstract class BrewerBlockEntity extends BaseContainerBlockEntity impleme
 
     private static void decrementIngredient(BrewerBlockEntity brewer, int slot) {
         var stack = brewer.getStack(slot);
-        // TODO: Use stack-aware version on Fabric (and Neo if available)
-        var remainder = stack.getItem().getRecipeRemainder();
+        var remainder = ItemBridge.get().getRecipeRemainder(stack);
         stack.decrement(1);
 
-        if (remainder != null) {
+        if (!remainder.isEmpty()) {
             if (stack.isEmpty()) {
-                brewer.setStack(slot, new ItemStack(remainder));
+                brewer.setStack(slot, remainder);
             } else {
-                ItemScatterer.spawn(brewer.world, brewer.pos.getX() + 0.5, brewer.pos.getY() + 0.5, brewer.pos.getZ() + 0.5, new ItemStack(remainder));
+                ItemScatterer.spawn(brewer.world, brewer.pos.getX() + 0.5, brewer.pos.getY() + 0.5, brewer.pos.getZ() + 0.5, remainder);
             }
         }
     }
