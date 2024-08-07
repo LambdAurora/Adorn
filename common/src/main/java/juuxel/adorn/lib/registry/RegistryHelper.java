@@ -47,8 +47,7 @@ public final class RegistryHelper {
      * Registers a block with the name and without an item.
      */
     public <T extends Block> Registered<T> registerBlockWithoutItem(String name, Supplier<T> block) {
-        // TODO: no method ref
-        return blocks.register(name, block::get);
+        return blocks.register(name, block);
     }
 
     private Item makeItemForBlock(Block block, Item.Settings itemSettings) {
@@ -60,7 +59,6 @@ public final class RegistryHelper {
     // -----------------------------------------
 
     public <T extends Item> Registered<T> registerItem(String name, Supplier<T> content) {
-        // TODO: no method ref
-        return items.register(name, content::get);
+        return items.register(name, content);
     }
 }
