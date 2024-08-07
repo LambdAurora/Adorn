@@ -87,8 +87,8 @@ public abstract class FluidReference implements HasFluidAmount {
         var displayUnit = getDefaultDisplayUnit();
         return Text.translatable(
             "gui.adorn.fluid_volume.fraction",
-            FluidUnit.losslessConvert(getAmount(), getUnit(), displayUnit).resizeFraction(getUnitDenominator(getUnit(), displayUnit)),
-            FluidUnit.losslessConvert(max, maxUnit, displayUnit).resizeFraction(getUnitDenominator(maxUnit, displayUnit)),
+            FluidUnit.losslessConvert(getAmount(), getUnit(), displayUnit).resizeFraction(getUnitDenominator(getUnit(), displayUnit)).toString(),
+            FluidUnit.losslessConvert(max, maxUnit, displayUnit).resizeFraction(getUnitDenominator(maxUnit, displayUnit)).toString(),
             displayUnit.getSymbol()
         );
     }
