@@ -7,6 +7,7 @@ import juuxel.adorn.util.AdornUtil;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.font.TextRenderer;
+import net.minecraft.client.render.LightmapTextureManager;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.block.entity.BlockEntityRenderDispatcher;
 import net.minecraft.client.render.block.entity.BlockEntityRenderer;
@@ -74,13 +75,14 @@ public final class TradingStationRenderer implements BlockEntityRenderer<Trading
             matrices.push();
             matrices.translate(x + 0.5, y + 1.5, z + 0.5);
             matrices.multiply(camera.getRotation());
-            matrices.scale(-0.025f, -0.025f, +0.025f);
+            matrices.scale(+0.025f, -0.025f, +0.025f);
 
             var positionMatrix = matrices.peek().getPositionMatrix();
             float opacity = MinecraftClient.getInstance().options.getTextBackgroundOpacity(0.25f);
             int backgroundColor = Colors.color(0x000000, opacity);
             var textX = -textRenderer.getWidth(label) * 0.5f;
-            textRenderer.draw(label, textX, 0f, Colors.WHITE, false, positionMatrix, vertexConsumers, TextRenderer.TextLayerType.NORMAL, backgroundColor, light);
+            textRenderer.draw(label, textX, 0f, 0x20_FFFFFF, false, positionMatrix, vertexConsumers, TextRenderer.TextLayerType.SEE_THROUGH, backgroundColor, light);
+            textRenderer.draw(label, textX, 0f, Colors.WHITE, false, positionMatrix, vertexConsumers, TextRenderer.TextLayerType.NORMAL, Colors.TRANSPARENT, light);
 
             matrices.pop();
         }

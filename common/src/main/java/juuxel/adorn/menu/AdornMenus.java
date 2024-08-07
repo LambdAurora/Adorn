@@ -9,6 +9,7 @@ import net.minecraft.menu.Menu;
 import net.minecraft.menu.MenuType;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.resource.featuretoggle.FeatureFlags;
+import net.minecraft.util.math.BlockPos;
 
 public final class AdornMenus {
     public static final Registrar<MenuType<?>> MENUS = RegistrarFactory.get().create(RegistryKeys.SCREEN_HANDLER);
@@ -24,7 +25,7 @@ public final class AdornMenus {
     public static void init() {
     }
 
-    private static <M extends Menu> MenuType<M> createType(MenuBridge.Factory<M> factory) {
-        return PlatformBridges.get().getMenus().createType(factory);
+    private static <M extends Menu> MenuType<M> createType(MenuBridge.Factory<M, BlockPos> factory) {
+        return PlatformBridges.get().getMenus().createType(factory, BlockPos.PACKET_CODEC);
     }
 }

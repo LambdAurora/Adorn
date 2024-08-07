@@ -1,0 +1,10 @@
+{
+  "type": "stonecutting",
+  "ingredient": {
+    "item": "minecraft:deepslate_bricks"
+  },
+  "result": {
+    "id": "adorn:deepslate_brick_platform",
+    "count": 1
+  }
+}

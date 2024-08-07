@@ -24,10 +24,10 @@ import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.Properties;
-import net.minecraft.util.ActionResult;
 import net.minecraft.util.BlockMirror;
 import net.minecraft.util.BlockRotation;
 import net.minecraft.util.Hand;
+import net.minecraft.util.ItemActionResult;
 import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
@@ -103,20 +103,18 @@ public final class ShelfBlock extends VisibleBlockWithEntity implements Waterlog
     }
 
     @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+    protected ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         var be = world.getBlockEntity(pos);
-        if (!(be instanceof Inventory inventory)) return ActionResult.PASS;
+        if (!(be instanceof Inventory inventory)) return ItemActionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
 
         int slot = getSlot(state, hit);
         var existing = inventory.getStack(slot);
 
         if (existing.isEmpty()) {
-            var handStack = player.getStackInHand(hand);
-
-            if (!handStack.isEmpty()) {
-                var stack = handStack.copy();
-                stack.setCount(1);
-                inventory.setStack(slot, stack);
+            if (!stack.isEmpty()) {
+                var copy = stack.copy();
+                copy.setCount(1);
+                inventory.setStack(slot, copy);
                 be.markDirty();
                 if (!world.isClient) {
                     PlatformBridges.get().getNetwork().syncBlockEntity(be);
@@ -124,7 +122,7 @@ public final class ShelfBlock extends VisibleBlockWithEntity implements Waterlog
                 }
 
                 if (!player.getAbilities().creativeMode) {
-                    handStack.decrement(1);
+                    stack.decrement(1);
                 }
             }
         } else {
@@ -143,7 +141,7 @@ public final class ShelfBlock extends VisibleBlockWithEntity implements Waterlog
             }
         }
 
-        return ActionResult.success(world.isClient);
+        return ItemActionResult.success(world.isClient);
     }
 
     /**
@@ -208,7 +206,7 @@ public final class ShelfBlock extends VisibleBlockWithEntity implements Waterlog
     }
 
     @Override
-    public boolean canPathfindThrough(BlockState state, BlockView world, BlockPos pos, NavigationType type) {
+    public boolean canPathfindThrough(BlockState state, NavigationType type) {
         return false;
     }
 

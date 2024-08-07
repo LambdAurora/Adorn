@@ -2,40 +2,35 @@ package juuxel.adorn.fluid;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.network.PacketByteBuf;
-import org.jetbrains.annotations.Nullable;
-
-import java.util.Optional;
+import net.minecraft.component.ComponentChanges;
+import net.minecraft.network.RegistryByteBuf;
+import net.minecraft.network.codec.PacketCodec;
 
 /**
  * A fluid ingredient for crafting.
  */
-public record FluidIngredient(FluidKey fluid, long amount, @Nullable NbtCompound nbt, FluidUnit unit) implements HasFluidAmount {
+public record FluidIngredient(FluidKey fluid, long amount, ComponentChanges components, FluidUnit unit) implements HasFluidAmount {
     public static final Codec<FluidIngredient> CODEC = RecordCodecBuilder.create(instance -> instance.group(
         FluidKey.CODEC.fieldOf("fluid").forGetter(FluidIngredient::fluid),
         Codec.LONG.fieldOf("amount").forGetter(FluidIngredient::amount),
-        NbtCompound.CODEC.optionalFieldOf("nbt").forGetter(ingredient -> Optional.ofNullable(ingredient.nbt)),
+        ComponentChanges.CODEC.optionalFieldOf("components", ComponentChanges.EMPTY).forGetter(FluidIngredient::components),
         FluidUnit.CODEC.optionalFieldOf("unit", FluidUnit.LITRE).forGetter(FluidIngredient::unit)
     ).apply(instance, FluidIngredient::new));
+    public static final PacketCodec<RegistryByteBuf, FluidIngredient> PACKET_CODEC =
+        PacketCodec.of(FluidIngredient::write, FluidIngredient::load);
 
-    // for DFU
-    private FluidIngredient(FluidKey fluid, long amount, Optional<NbtCompound> nbt, FluidUnit unit) {
-        this(fluid, amount, nbt.orElse(null), unit);
-    }
-
-    public static FluidIngredient load(PacketByteBuf buf) {
+    private static FluidIngredient load(RegistryByteBuf buf) {
         var fluid = FluidKey.load(buf);
         var amount = buf.readVarLong();
-        var nbt = buf.readNbt();
+        var components = ComponentChanges.PACKET_CODEC.decode(buf);
         var unit = buf.readEnumConstant(FluidUnit.class);
-        return new FluidIngredient(fluid, amount, nbt, unit);
+        return new FluidIngredient(fluid, amount, components, unit);
     }
 
-    public void write(PacketByteBuf buf) {
+    private void write(RegistryByteBuf buf) {
         fluid.write(buf);
         buf.writeVarLong(amount);
-        buf.writeNbt(nbt);
+        ComponentChanges.PACKET_CODEC.encode(buf, components);
         buf.writeEnumConstant(unit);
     }
 

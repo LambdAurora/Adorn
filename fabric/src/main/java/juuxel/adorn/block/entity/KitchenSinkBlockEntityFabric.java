@@ -3,6 +3,7 @@ package juuxel.adorn.block.entity;
 import com.google.common.base.Predicates;
 import juuxel.adorn.fluid.FluidReference;
 import juuxel.adorn.util.FluidStorageReference;
+import juuxel.adorn.util.NbtUtil;
 import net.fabricmc.fabric.api.lookup.v1.block.BlockApiLookup;
 import net.fabricmc.fabric.api.transfer.v1.context.ContainerItemContext;
 import net.fabricmc.fabric.api.transfer.v1.fluid.FluidConstants;
@@ -17,6 +18,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.FluidTags;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
@@ -77,7 +79,7 @@ public final class KitchenSinkBlockEntityFabric extends KitchenSinkBlockEntity {
     public boolean interactWithItem(ItemStack stack, PlayerEntity player, Hand hand) {
         // StorageUtil.move will mutate the stack and we need it for correct sounds (bottles!).
         var originalStack = stack.copy();
-        var itemStorage = FluidStorage.ITEM.find(stack, ContainerItemContext.ofPlayerHand(player, hand));
+        var itemStorage = FluidStorage.ITEM.find(stack, ContainerItemContext.forPlayerInteraction(player, hand));
         if (itemStorage == null) return false;
         var hasSpace = storage.amount < storage.getCapacity();
 
@@ -123,16 +125,16 @@ public final class KitchenSinkBlockEntityFabric extends KitchenSinkBlockEntity {
     }
 
     @Override
-    public void readNbt(NbtCompound nbt) {
-        super.readNbt(nbt);
-        storage.variant = FluidVariant.fromNbt(nbt.getCompound(NBT_FLUID));
+    public void readNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registries) {
+        super.readNbt(nbt, registries);
+        storage.variant = NbtUtil.getWithCodec(nbt, NBT_FLUID, FluidVariant.CODEC, registries);
         storage.amount = nbt.getLong(NBT_VOLUME);
     }
 
     @Override
-    protected void writeNbt(NbtCompound nbt) {
-        super.writeNbt(nbt);
-        nbt.put(NBT_FLUID, storage.variant.toNbt());
+    protected void writeNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registries) {
+        super.writeNbt(nbt, registries);
+        NbtUtil.putWithCodec(nbt, NBT_FLUID, FluidVariant.CODEC, storage.variant, registries);
         nbt.putLong(NBT_VOLUME, storage.amount);
     }
 

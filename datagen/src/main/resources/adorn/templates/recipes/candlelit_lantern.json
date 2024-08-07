@@ -8,14 +8,14 @@
   ],
   "key": {
     "*": {
-      "tag": "c:iron_nuggets"
+      "tag": "c:nuggets/iron"
     },
     "|": {
       "item": "minecraft:<id.path>_candle"
     }
   },
   "result": {
-    "item": "adorn:<id.path>_candlelit_lantern",
+    "id": "adorn:<id.path>_candlelit_lantern",
     "count": 1
   }<recipe-condition>
 }

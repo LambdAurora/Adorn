@@ -1,14 +1,13 @@
 package juuxel.adorn.platform.fabric;
 
-import juuxel.adorn.fluid.FluidReference;
-import juuxel.adorn.lib.AdornNetworking;
 import juuxel.adorn.platform.NetworkBridge;
 import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.network.packet.CustomPayload;
 import net.minecraft.network.packet.Packet;
-import net.minecraft.util.Identifier;
+import net.minecraft.server.network.ServerPlayerEntity;
 
 public final class NetworkBridgeImpl implements NetworkBridge {
     public static final NetworkBridgeImpl INSTANCE = new NetworkBridgeImpl();
@@ -21,12 +20,9 @@ public final class NetworkBridgeImpl implements NetworkBridge {
     }
 
     @Override
-    public void sendOpenBookPacket(PlayerEntity player, Identifier bookId) {
-        AdornNetworking.sendOpenBookPacket(player, bookId);
-    }
-
-    @Override
-    public void sendBrewerFluidSync(PlayerEntity player, int syncId, FluidReference fluid) {
-        AdornNetworking.sendBrewerFluidSync(player, syncId, fluid);
+    public void sendToClient(PlayerEntity player, CustomPayload payload) {
+        if (player instanceof ServerPlayerEntity serverPlayer) {
+            ServerPlayNetworking.send(serverPlayer, payload);
+        }
     }
 }

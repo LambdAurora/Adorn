@@ -1,0 +1,10 @@
+{
+  "type": "stonecutting",
+  "ingredient": {
+    "item": "minecraft:bricks"
+  },
+  "result": {
+    "id": "adorn:brick_post",
+    "count": 2
+  }
+}

@@ -2,32 +2,32 @@ package juuxel.adorn.block;
 
 import com.mojang.serialization.MapCodec;
 import juuxel.adorn.block.entity.TradingStationBlockEntity;
+import juuxel.adorn.component.AdornComponentTypes;
 import juuxel.adorn.criterion.AdornCriteria;
 import juuxel.adorn.lib.AdornGameRules;
 import juuxel.adorn.lib.AdornStats;
-import juuxel.adorn.util.NbtUtil;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.BlockWithEntity;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.pathing.NavigationType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
-import net.minecraft.item.BlockItem;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.text.Text;
-import net.minecraft.util.ActionResult;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
+import net.minecraft.util.ItemActionResult;
 import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
@@ -80,8 +80,8 @@ public final class TradingStationBlock extends VisibleBlockWithEntity implements
     }
 
     @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (world.isClient) return ActionResult.SUCCESS;
+    protected ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+        if (world.isClient) return ItemActionResult.SUCCESS;
 
         if (world.getBlockEntity(pos) instanceof TradingStationBlockEntity be) {
             if (be.getOwner() == null) {
@@ -89,10 +89,9 @@ public final class TradingStationBlock extends VisibleBlockWithEntity implements
             }
 
             if (!be.isOwner(player)) {
-                var handStack = player.getStackInHand(hand);
                 var trade = be.getTrade();
-                var validPayment = ItemStack.canCombine(handStack, trade.getPrice()) &&
-                    handStack.getCount() >= trade.getPrice().getCount();
+                var validPayment = ItemStack.areItemsAndComponentsEqual(stack, trade.getPrice()) &&
+                    stack.getCount() >= trade.getPrice().getCount();
                 var canInsertPayment = be.getStorage().canInsert(trade.getPrice());
 
                 if (trade.isEmpty()) {
@@ -102,7 +101,7 @@ public final class TradingStationBlock extends VisibleBlockWithEntity implements
                 } else if (!canInsertPayment) {
                     player.sendMessage(Text.translatable("block.adorn.trading_station.storage_full"), true);
                 } else if (validPayment) {
-                    handStack.decrement(trade.getPrice().getCount());
+                    stack.decrement(trade.getPrice().getCount());
                     var soldItem = trade.getSelling().copy();
                     player.giveItemStack(soldItem);
                     be.getStorage().tryExtract(trade.getSelling());
@@ -119,7 +118,7 @@ public final class TradingStationBlock extends VisibleBlockWithEntity implements
             }
         }
 
-        return ActionResult.CONSUME;
+        return ItemActionResult.CONSUME;
     }
 
     @Override
@@ -146,7 +145,7 @@ public final class TradingStationBlock extends VisibleBlockWithEntity implements
     }
 
     @Override
-    public boolean canPathfindThrough(BlockState state, BlockView world, BlockPos pos, NavigationType type) {
+    protected boolean canPathfindThrough(BlockState state, NavigationType type) {
         return false;
     }
 
@@ -156,14 +155,12 @@ public final class TradingStationBlock extends VisibleBlockWithEntity implements
     }
 
     @Override
-    public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
-        super.appendTooltip(stack, world, tooltip, options);
+    public void appendTooltip(ItemStack stack, Item.TooltipContext context, List<Text> tooltip, TooltipType options) {
+        super.appendTooltip(stack, context, tooltip, options);
 
-        var nbt = stack.getSubNbt(BlockItem.BLOCK_ENTITY_TAG_KEY);
-        if (nbt != null && nbt.contains(TradingStationBlockEntity.NBT_TRADING_OWNER)) {
-            var owner = NbtUtil.getText(nbt, TradingStationBlockEntity.NBT_TRADING_OWNER_NAME);
-            if (owner == null) owner = TradingStationBlockEntity.UNKNOWN_OWNER;
-            tooltip.add(Text.translatable(OWNER_DESCRIPTION, owner.copy().formatted(Formatting.WHITE)).formatted(Formatting.GREEN));
+        var owner = stack.get(AdornComponentTypes.TRADE_OWNER.get());
+        if (owner != null) {
+            tooltip.add(Text.translatable(OWNER_DESCRIPTION, owner.name().copy().formatted(Formatting.WHITE)).formatted(Formatting.GREEN));
         }
     }
 

@@ -1,0 +1,10 @@
+{
+  "type": "stonecutting",
+  "ingredient": {
+    "item": "minecraft:basalt"
+  },
+  "result": {
+    "id": "adorn:basalt_step",
+    "count": 2
+  }
+}

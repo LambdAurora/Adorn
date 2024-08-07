@@ -1,0 +1,17 @@
+{
+  "type": "crafting_shaped",
+  "group": "adorn:bench",
+  "pattern": [
+    "SSS",
+    "S S"
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:dark_oak_slab"
+    }
+  },
+  "result": {
+    "id": "adorn:dark_oak_bench",
+    "count": 2
+  }
+}

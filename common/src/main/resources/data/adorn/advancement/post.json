@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "id": "adorn:cobblestone_post"
+    },
+    "title": {
+      "translate": "advancements.adorn.post.title"
+    },
+    "description": {
+      "translate": "advancements.adorn.post.description"
+    }
+  },
+  "parent": "adorn:root",
+  "criteria": {
+    "has_post": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "adorn:posts"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -11,7 +11,7 @@
     }
   },
   "result": {
-    "item": "adorn:<mod-prefix><id.path>_bench",
+    "id": "adorn:<mod-prefix><id.path>_bench",
     "count": 2
   }<recipe-condition>
 }

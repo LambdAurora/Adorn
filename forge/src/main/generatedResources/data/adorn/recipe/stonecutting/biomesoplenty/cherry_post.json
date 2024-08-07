@@ -1,0 +1,17 @@
+{
+  "type": "stonecutting",
+  "ingredient": {
+    "item": "biomesoplenty:cherry_planks"
+  },
+  "result": {
+    "id": "adorn:biomesoplenty/cherry_post",
+    "count": 2
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "biomesoplenty"
+    }
+  ]
+
+}

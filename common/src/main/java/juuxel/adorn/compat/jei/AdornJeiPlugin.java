@@ -13,11 +13,11 @@ import mezz.jei.api.registration.IRecipeCatalystRegistration;
 import mezz.jei.api.registration.IRecipeCategoryRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.inventory.Inventory;
 import net.minecraft.recipe.Recipe;
 import net.minecraft.recipe.RecipeEntry;
 import net.minecraft.recipe.RecipeManager;
 import net.minecraft.recipe.RecipeType;
+import net.minecraft.recipe.input.RecipeInput;
 import net.minecraft.util.Identifier;
 
 @JeiPlugin
@@ -40,7 +40,7 @@ public final class AdornJeiPlugin implements IModPlugin {
         registerRecipes(registration, AdornRecipes.BREWING_TYPE.get(), JeiRecipeTypes.BREWER);
     }
 
-    private <C extends Inventory, T extends Recipe<C>> void registerRecipes(
+    private <I extends RecipeInput, T extends Recipe<I>> void registerRecipes(
         IRecipeRegistration registration, RecipeType<T> type, mezz.jei.api.recipe.RecipeType<T> jeiType) {
         RecipeManager manager = MinecraftClient.getInstance().world.getRecipeManager();
         registration.addRecipes(jeiType, Lists.transform(manager.listAllOfType(type), RecipeEntry::value));

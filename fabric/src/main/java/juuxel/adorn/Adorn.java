@@ -6,6 +6,7 @@ import juuxel.adorn.block.variant.BlockVariantSets;
 import juuxel.adorn.client.ClientEvents;
 import juuxel.adorn.client.gui.screen.AdornMenuScreens;
 import juuxel.adorn.compat.Compat;
+import juuxel.adorn.component.AdornComponentTypes;
 import juuxel.adorn.config.ConfigManager;
 import juuxel.adorn.criterion.AdornCriteria;
 import juuxel.adorn.entity.AdornEntities;
@@ -31,6 +32,7 @@ import net.fabricmc.api.Environment;
 public final class Adorn {
     public static void init() {
         ConfigManager.get().init();
+        AdornComponentTypes.init();
         AdornSounds.init();
         AdornBlocks.init();
         AdornBlocksFabric.init();

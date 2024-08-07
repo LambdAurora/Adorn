@@ -1,0 +1,21 @@
+{
+  "type": "crafting_shaped",
+  "group": "adorn:post",
+  "pattern": [
+    "/",
+    "/",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:blackstone"
+    },
+    "/": {
+      "tag": "c:rods/stone"
+    }
+  },
+  "result": {
+    "id": "adorn:blackstone_post",
+    "count": 4
+  }
+}

@@ -12,7 +12,7 @@ public final class EntityBridgeImpl implements EntityBridge {
     @Override
     public EntityType<SeatEntity> createSeatType() {
         return EntityType.Builder.create(SeatEntity::new, SpawnGroup.MISC)
-            .setDimensions(0, 0)
+            .dimensions(0, 0)
             .build(AdornCommon.NAMESPACE + ":seat");
     }
 }

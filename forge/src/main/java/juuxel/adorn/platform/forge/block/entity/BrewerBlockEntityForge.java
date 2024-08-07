@@ -5,6 +5,7 @@ import juuxel.adorn.fluid.FluidReference;
 import juuxel.adorn.platform.forge.util.FluidTankReference;
 import net.minecraft.block.BlockState;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.util.math.BlockPos;
 import net.neoforged.neoforge.fluids.FluidType;
 import net.neoforged.neoforge.fluids.FluidUtil;
@@ -49,14 +50,14 @@ public final class BrewerBlockEntityForge extends BrewerBlockEntity implements B
     }
 
     @Override
-    protected void writeNbt(NbtCompound nbt) {
-        super.writeNbt(nbt);
-        tank.writeToNBT(nbt);
+    protected void writeNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registries) {
+        super.writeNbt(nbt, registries);
+        tank.writeToNBT(registries, nbt);
     }
 
     @Override
-    public void readNbt(NbtCompound nbt) {
-        super.readNbt(nbt);
-        tank.readFromNBT(nbt);
+    public void readNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registries) {
+        super.readNbt(nbt, registries);
+        tank.readFromNBT(registries, nbt);
     }
 }

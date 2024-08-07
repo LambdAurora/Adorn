@@ -90,7 +90,7 @@ public final class TagGenerator {
             .toList();
 
         GENERATORS_BY_ID.forEach((id, generator) -> {
-            for (var tagType : new String[] { "blocks", "items" }) {
+            for (var tagType : new String[] { "block", "item" }) {
                 var path = "data/%s/tags/%s/%s.json".formatted(id.namespace(), tagType, id.path());
                 output.write(path, generator.generate(materials));
             }

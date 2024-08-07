@@ -4,6 +4,7 @@ import juuxel.adorn.AdornCommon;
 import juuxel.adorn.block.AdornBlockEntities;
 import juuxel.adorn.block.AdornBlocks;
 import juuxel.adorn.block.variant.BlockVariantSets;
+import juuxel.adorn.component.AdornComponentTypes;
 import juuxel.adorn.config.ConfigManager;
 import juuxel.adorn.criterion.AdornCriteria;
 import juuxel.adorn.entity.AdornEntities;
@@ -39,6 +40,7 @@ public final class Adorn {
         var modBus = ModLoadingContext.get().getActiveContainer().getEventBus();
         ConfigManager.get().init();
         modBus.addListener(this::init);
+        register(AdornComponentTypes.DATA_COMPONENT_TYPES, modBus);
         register(AdornSounds.SOUNDS, modBus);
         register(AdornBlocks.BLOCKS, modBus);
         register(AdornBlocks.ITEMS, modBus);
@@ -53,6 +55,7 @@ public final class Adorn {
         register(AdornRecipes.RECIPE_TYPES, modBus);
         register(AdornLootConditionTypes.LOOT_CONDITION_TYPES, modBus);
         register(AdornLootFunctionTypes.LOOT_FUNCTION_TYPES, modBus);
+        register(AdornStats.CUSTOM_STATS, modBus);
         modBus.addListener(AdornNetworking::register);
         AdornCriteria.init();
         register(AdornCriteria.CRITERIA, modBus);
@@ -76,7 +79,6 @@ public final class Adorn {
     private void init(FMLCommonSetupEvent event) {
         AdornGameRules.init();
         AdornTags.init();
-        AdornStats.init();
         ConfigManager.get().finish();
     }
 }

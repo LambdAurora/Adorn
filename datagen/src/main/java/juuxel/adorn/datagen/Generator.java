@@ -192,7 +192,7 @@ public record Generator(
     private static Generator blockLootTable(String type) {
         return new Generator(
             "loot_tables/" + type,
-            "data/adorn/loot_tables/blocks/<mod-prefix><id.path>_%s.json".formatted(type),
+            "data/adorn/loot_table/blocks/<mod-prefix><id.path>_%s.json".formatted(type),
             "loot-tables/%s.json".formatted(type),
             true
         );
@@ -201,7 +201,7 @@ public record Generator(
     private static Generator recipe(String type) {
         return new Generator(
             "recipes/" + type,
-            "data/adorn/recipes/<mod-prefix><id.path>_%s.json".formatted(type),
+            "data/adorn/recipe/<mod-prefix><id.path>_%s.json".formatted(type),
             "recipes/%s.json".formatted(type),
             true
         );
@@ -210,7 +210,7 @@ public record Generator(
     private static Generator stonecuttingRecipe(String type) {
         return new Generator(
             "recipes/%s/stonecutting".formatted(type),
-            "data/adorn/recipes/stonecutting/<mod-prefix><id.path>_%s.json".formatted(type),
+            "data/adorn/recipe/stonecutting/<mod-prefix><id.path>_%s.json".formatted(type),
             "recipes/stonecutting/%s.json".formatted(type),
             true
         );
@@ -219,7 +219,7 @@ public record Generator(
     private static Generator recipeAdvancement(String type) {
         return new Generator(
             "recipe_advancements/" + type,
-            "data/adorn/advancements/recipes/<mod-prefix><id.path>_%s.json".formatted(type),
+            "data/adorn/advancement/recipes/<mod-prefix><id.path>_%s.json".formatted(type),
             "recipe-advancements/%s.json".formatted(type),
             true
         );

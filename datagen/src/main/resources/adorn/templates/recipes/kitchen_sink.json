@@ -6,11 +6,11 @@
       "item": "adorn:<mod-prefix><id.path>_kitchen_counter"
     },
     {
-      "item": "minecraft:bucket"
+      "tag": "c:buckets/empty"
     }
   ],
   "result": {
-    "item": "adorn:<mod-prefix><id.path>_kitchen_sink",
+    "id": "adorn:<mod-prefix><id.path>_kitchen_sink",
     "count": 1
   }<recipe-condition>
 }

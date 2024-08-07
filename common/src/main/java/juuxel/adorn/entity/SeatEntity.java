@@ -15,8 +15,8 @@ import net.minecraft.network.packet.s2c.play.EntityPassengersSetS2CPacket;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
-import org.joml.Vector3f;
 
 public final class SeatEntity extends Entity {
     private static final TrackedData<BlockPos> SEAT_POS = DataTracker.registerData(SeatEntity.class, TrackedDataHandlerRegistry.BLOCK_POS);
@@ -79,8 +79,8 @@ public final class SeatEntity extends Entity {
     }
 
     @Override
-    protected void initDataTracker() {
-        dataTracker.startTracking(SEAT_POS, BlockPos.ORIGIN);
+    protected void initDataTracker(DataTracker.Builder builder) {
+        builder.add(SEAT_POS, BlockPos.ORIGIN);
     }
 
     @Override
@@ -94,7 +94,7 @@ public final class SeatEntity extends Entity {
     }
 
     @Override
-    protected Vector3f getPassengerAttachmentPos(Entity passenger, EntityDimensions dimensions, float scaleFactor) {
+    protected Vec3d getPassengerAttachmentPos(Entity passenger, EntityDimensions dimensions, float scaleFactor) {
         var seatPos = dataTracker.get(SEAT_POS);
         var state = getWorld().getBlockState(seatPos);
         var block = state.getBlock();
@@ -104,6 +104,6 @@ public final class SeatEntity extends Entity {
         // Remove the inherent offset that comes from this entity not being directly where the block is
         var posOffset = getY() - seatPos.getY();
 
-        return new Vector3f(0f, (float) (blockOffset - posOffset), 0f);
+        return new Vec3d(0, blockOffset - posOffset, 0);
     }
 }

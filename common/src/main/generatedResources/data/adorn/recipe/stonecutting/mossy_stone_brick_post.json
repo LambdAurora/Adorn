@@ -1,0 +1,10 @@
+{
+  "type": "stonecutting",
+  "ingredient": {
+    "item": "minecraft:mossy_stone_bricks"
+  },
+  "result": {
+    "id": "adorn:mossy_stone_brick_post",
+    "count": 2
+  }
+}

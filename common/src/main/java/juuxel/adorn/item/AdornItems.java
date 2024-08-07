@@ -2,12 +2,13 @@ package juuxel.adorn.item;
 
 import juuxel.adorn.AdornCommon;
 import juuxel.adorn.block.AdornBlocks;
+import juuxel.adorn.component.AdornComponentTypes;
+import net.minecraft.component.type.FoodComponent;
 import juuxel.adorn.lib.registry.Registered;
 import juuxel.adorn.lib.registry.Registrar;
 import juuxel.adorn.lib.registry.RegistrarFactory;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.item.FoodComponent;
 import net.minecraft.item.Item;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Rarity;
@@ -46,10 +47,15 @@ public final class AdornItems {
         () -> new AdornBookItem(AdornCommon.id("traders_manual"), new Item.Settings()));
 
     public static final Registered<Item> COPPER_NUGGET = ITEMS.register("copper_nugget", () -> new ItemWithDescription(new Item.Settings()));
-    public static final Registered<Item> WATERING_CAN = ITEMS.register("watering_can", () -> new WateringCanItem(new Item.Settings()));
+    public static final Registered<Item> WATERING_CAN = ITEMS.register("watering_can",
+        () -> new WateringCanItem(
+            new Item.Settings()
+                .component(AdornComponentTypes.FERTILIZER_LEVEL.get(), 0)
+                .component(AdornComponentTypes.WATER_LEVEL.get(), 0)
+        ));
 
     private static FoodComponent.Builder drinkFoodComponentBuilder() {
-        return new FoodComponent.Builder().hunger(4).saturationModifier(0.3F).alwaysEdible();
+        return new FoodComponent.Builder().nutrition(4).saturationModifier(0.3F).alwaysEdible();
     }
 
     public static void init() {

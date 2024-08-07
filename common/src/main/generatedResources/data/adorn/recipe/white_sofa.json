@@ -1,0 +1,21 @@
+{
+  "type": "crafting_shaped",
+  "group": "adorn:sofa",
+  "pattern": [
+    " W",
+    "WW",
+    "SS"
+  ],
+  "key": {
+    "S": {
+      "tag": "c:rods/wooden"
+    },
+    "W": {
+      "item": "minecraft:white_wool"
+    }
+  },
+  "result": {
+    "id": "adorn:white_sofa",
+    "count": 3
+  }
+}

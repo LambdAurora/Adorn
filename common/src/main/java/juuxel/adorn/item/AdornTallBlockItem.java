@@ -2,12 +2,10 @@ package juuxel.adorn.item;
 
 import juuxel.adorn.block.BlockWithDescription;
 import net.minecraft.block.Block;
-import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.TallBlockItem;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.text.Text;
-import net.minecraft.world.World;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
@@ -17,8 +15,8 @@ public class AdornTallBlockItem extends TallBlockItem {
     }
 
     @Override
-    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        super.appendTooltip(stack, world, tooltip, context);
+    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+        super.appendTooltip(stack, context, tooltip, type);
 
         if (getBlock() instanceof BlockWithDescription withDescription) {
             tooltip.add(ItemWithDescription.createDescriptionText(withDescription.getDescriptionKey()));

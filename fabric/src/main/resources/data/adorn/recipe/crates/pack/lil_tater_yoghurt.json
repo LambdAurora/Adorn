@@ -1,0 +1,20 @@
+{
+  "type": "crafting_shaped",
+  "group": "adorn:pack_crate",
+  "pattern": [
+    "...",
+    ".#.",
+    "..."
+  ],
+  "key": {
+    ".": { "item": "ltr:lil_tater" },
+    "#": { "item": "adorn:crate" }
+  },
+  "result": {
+    "id": "adorn:lil_tater_crate"
+  },
+  "fabric:load_conditions": [{
+    "condition": "fabric:all_mods_loaded",
+    "values": ["ltr"]
+  }]
+}

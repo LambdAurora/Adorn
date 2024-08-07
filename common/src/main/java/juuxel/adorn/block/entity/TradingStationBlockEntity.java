@@ -1,13 +1,17 @@
 package juuxel.adorn.block.entity;
 
 import juuxel.adorn.block.AdornBlockEntities;
+import juuxel.adorn.component.AdornComponentTypes;
 import juuxel.adorn.menu.TradingStationMenu;
 import juuxel.adorn.trading.Trade;
+import juuxel.adorn.trading.TradeOwner;
 import juuxel.adorn.util.AdornUtil;
 import juuxel.adorn.util.InventoryComponent;
 import juuxel.adorn.util.NbtUtil;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.component.ComponentMap;
+import net.minecraft.component.DataComponentTypes;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.menu.Menu;
@@ -16,6 +20,7 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
+import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 import org.jetbrains.annotations.Nullable;
@@ -58,7 +63,7 @@ public final class TradingStationBlockEntity extends BlockEntity implements Name
     }
 
     public boolean isStorageStocked() {
-        return storage.getAmountWithNbt(trade.getSelling()) >= trade.getSelling().getCount();
+        return storage.getCountWithComponents(trade.getSelling()) >= trade.getSelling().getCount();
     }
 
     public boolean isOwner(PlayerEntity player) {
@@ -97,30 +102,30 @@ public final class TradingStationBlockEntity extends BlockEntity implements Name
     // NBT
 
     @Override
-    public void readNbt(NbtCompound nbt) {
-        super.readNbt(nbt);
+    public void readNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registries) {
+        super.readNbt(nbt, registries);
 
         if (nbt.containsUuid(NBT_TRADING_OWNER)) {
             owner = nbt.getUuid(NBT_TRADING_OWNER);
         }
 
-        ownerName = Objects.requireNonNullElse(NbtUtil.getText(nbt, NBT_TRADING_OWNER_NAME), UNKNOWN_OWNER);
-        trade.readNbt(nbt.getCompound(NBT_TRADE));
-        storage.readNbt(nbt.getCompound(NBT_STORAGE));
+        ownerName = Objects.requireNonNullElse(NbtUtil.getText(nbt, NBT_TRADING_OWNER_NAME, registries), UNKNOWN_OWNER);
+        trade.readNbt(nbt.getCompound(NBT_TRADE), registries);
+        storage.readNbt(nbt.getCompound(NBT_STORAGE), registries);
     }
 
     @Override
-    protected void writeNbt(NbtCompound nbt) {
-        super.writeNbt(nbt);
+    protected void writeNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registries) {
+        super.writeNbt(nbt, registries);
 
         if (owner != null) {
             nbt.putUuid(NBT_TRADING_OWNER, owner);
         }
 
-        NbtUtil.putText(nbt, NBT_TRADING_OWNER_NAME, ownerName);
+        NbtUtil.putText(nbt, NBT_TRADING_OWNER_NAME, ownerName, registries);
 
-        nbt.put(NBT_TRADE, trade.writeNbt(new NbtCompound()));
-        nbt.put(NBT_STORAGE, storage.writeNbt(new NbtCompound()));
+        nbt.put(NBT_TRADE, trade.writeNbt(new NbtCompound(), registries));
+        nbt.put(NBT_STORAGE, storage.writeNbt(new NbtCompound(), registries));
     }
 
     @Override
@@ -129,7 +134,42 @@ public final class TradingStationBlockEntity extends BlockEntity implements Name
     }
 
     @Override
-    public NbtCompound toInitialChunkDataNbt() {
-        return createNbt();
+    public NbtCompound toInitialChunkDataNbt(RegistryWrapper.WrapperLookup registries) {
+        return createComponentlessNbt(registries);
+    }
+
+    @Override
+    protected void readComponents(ComponentsAccess components) {
+        super.readComponents(components);
+
+        trade.copyFrom(components.get(AdornComponentTypes.TRADE.get()));
+        storage.copyFrom(components.get(DataComponentTypes.CONTAINER));
+
+        var owner = components.get(AdornComponentTypes.TRADE_OWNER.get());
+        if (owner != null) {
+            this.owner = owner.uuid();
+            this.ownerName = owner.name();
+        }
+    }
+
+    @Override
+    protected void addComponents(ComponentMap.Builder builder) {
+        super.addComponents(builder);
+
+        builder.add(AdornComponentTypes.TRADE.get(), trade);
+        builder.add(DataComponentTypes.CONTAINER, storage.toContainerComponent());
+
+        if (owner != null) {
+            builder.add(AdornComponentTypes.TRADE_OWNER.get(), new TradeOwner(owner, ownerName));
+        }
+    }
+
+    @Override
+    public void removeFromCopiedStackNbt(NbtCompound nbt) {
+        super.removeFromCopiedStackNbt(nbt);
+        nbt.remove(NBT_TRADE);
+        nbt.remove(NBT_STORAGE);
+        nbt.remove(NBT_TRADING_OWNER);
+        nbt.remove(NBT_TRADING_OWNER_NAME);
     }
 }

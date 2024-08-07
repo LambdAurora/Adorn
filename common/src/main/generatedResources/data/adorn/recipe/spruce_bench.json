@@ -1,0 +1,17 @@
+{
+  "type": "crafting_shaped",
+  "group": "adorn:bench",
+  "pattern": [
+    "SSS",
+    "S S"
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:spruce_slab"
+    }
+  },
+  "result": {
+    "id": "adorn:spruce_bench",
+    "count": 2
+  }
+}

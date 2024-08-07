@@ -1,0 +1,21 @@
+{
+  "type": "crafting_shaped",
+  "group": "adorn:table",
+  "pattern": [
+    "SSS",
+    "# #",
+    "# #"
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:cherry_slab"
+    },
+    "#": {
+      "tag": "c:rods/wooden"
+    }
+  },
+  "result": {
+    "id": "adorn:cherry_table",
+    "count": 3
+  }
+}

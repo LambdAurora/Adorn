@@ -12,6 +12,7 @@ import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.DyeItem;
 import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.item.ItemStack;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
@@ -19,9 +20,9 @@ import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.Properties;
-import net.minecraft.util.ActionResult;
 import net.minecraft.util.DyeColor;
 import net.minecraft.util.Hand;
+import net.minecraft.util.ItemActionResult;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -70,8 +71,7 @@ public final class TableLampBlock extends Block implements Waterloggable, BlockW
     }
 
     @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        var stack = player.getStackInHand(hand);
+    protected ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (stack.getItem() instanceof DyeItem dye) {
             world.setBlockState(pos, AdornBlocks.TABLE_LAMPS.get().get(dye.getColor()).getStateWithProperties(state));
             world.playSound(player, pos, SoundEvents.BLOCK_WOOL_PLACE, SoundCategory.BLOCKS, 1f, 0.8f);
@@ -84,7 +84,7 @@ public final class TableLampBlock extends Block implements Waterloggable, BlockW
             world.playSound(player, pos, SoundEvents.BLOCK_LEVER_CLICK, SoundCategory.BLOCKS, 0.3f, pitch);
             if (!world.isClient) player.incrementStat(AdornStats.INTERACT_WITH_TABLE_LAMP);
         }
-        return ActionResult.success(world.isClient);
+        return ItemActionResult.success(world.isClient);
     }
 
     @Override
@@ -115,7 +115,7 @@ public final class TableLampBlock extends Block implements Waterloggable, BlockW
     }
 
     @Override
-    public boolean canPathfindThrough(BlockState state, BlockView world, BlockPos pos, NavigationType type) {
+    public boolean canPathfindThrough(BlockState state, NavigationType type) {
         return false;
     }
 

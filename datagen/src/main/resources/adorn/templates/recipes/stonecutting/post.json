@@ -3,6 +3,8 @@
   "ingredient": {
     "item": "<planks>"
   },
-  "result": "adorn:<mod-prefix><id.path>_post",
-  "count": 2<recipe-condition>
+  "result": {
+    "id": "adorn:<mod-prefix><id.path>_post",
+    "count": 2
+  }<recipe-condition>
 }

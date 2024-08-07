@@ -1,11 +1,11 @@
 package juuxel.adorn.client;
 
-import juuxel.adorn.lib.AdornNetworking;
-import net.minecraft.item.ItemStack;
+import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
+import net.minecraft.network.packet.CustomPayload;
 
 public final class ClientNetworkBridgeFabric implements ClientNetworkBridge {
     @Override
-    public void sendSetTradeStack(int syncId, int slotId, ItemStack stack) {
-        AdornNetworking.sendSetTradeStack(syncId, slotId, stack);
+    public void sendToServer(CustomPayload payload) {
+        ClientPlayNetworking.send(payload);
     }
 }

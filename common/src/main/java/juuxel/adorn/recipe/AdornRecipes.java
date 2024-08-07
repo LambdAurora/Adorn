@@ -20,8 +20,6 @@ public final class AdornRecipes {
     public static final Registered<RecipeSerializer<FluidBrewingRecipe>> BREWING_FROM_FLUID_SERIALIZER =
         RECIPE_SERIALIZERS.register("brewing_from_fluid", FluidBrewingRecipe.Serializer::new);
 
-    // TODO: Is this type even needed? Special recipes in vanilla don't have their own.
-    public static final Registered<RecipeType<FertilizerRefillingRecipe>> FERTILIZER_REFILLING_TYPE = registerRecipeType("fertilizer_refilling");
     public static final Registered<RecipeSerializer<FertilizerRefillingRecipe>> FERTILIZER_REFILLING_SERIALIZER =
         RECIPE_SERIALIZERS.register("fertilizer_refilling", () -> new SpecialRecipeSerializer<>(FertilizerRefillingRecipe::new));
 

@@ -1,0 +1,20 @@
+{
+  "type": "crafting_shaped",
+  "group": "adorn:step",
+  "pattern": [
+    "S",
+    "#"
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:cut_sandstone_slab"
+    },
+    "#": {
+      "tag": "c:rods/stone"
+    }
+  },
+  "result": {
+    "id": "adorn:cut_sandstone_step",
+    "count": 1
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "stonecutting",
+  "ingredient": {
+    "item": "minecraft:red_nether_bricks"
+  },
+  "result": {
+    "id": "adorn:red_nether_brick_post",
+    "count": 2
+  }
+}

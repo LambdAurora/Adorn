@@ -12,7 +12,6 @@ import juuxel.adorn.util.Logging;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.ingame.MenuProvider;
-import net.minecraft.client.item.TooltipContext;
 import net.minecraft.client.render.BufferRenderer;
 import net.minecraft.client.render.GameRenderer;
 import net.minecraft.client.render.Tessellator;
@@ -20,6 +19,7 @@ import net.minecraft.client.render.VertexFormat;
 import net.minecraft.client.render.VertexFormats;
 import net.minecraft.client.texture.Sprite;
 import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
@@ -63,7 +63,7 @@ public final class BrewerScreen extends AdornMenuScreen<BrewerMenu> {
     private List<Text> getFluidTooltip(FluidReference fluid) {
         return FluidRenderingBridge.get().getTooltip(
             fluid,
-            client.options.advancedItemTooltips ? TooltipContext.ADVANCED : TooltipContext.BASIC,
+            client.options.advancedItemTooltips ? TooltipType.ADVANCED : TooltipType.BASIC,
             BrewerBlockEntity.FLUID_CAPACITY_IN_BUCKETS * 1000
         );
     }
@@ -79,20 +79,19 @@ public final class BrewerScreen extends AdornMenuScreen<BrewerMenu> {
 
     private static void drawSprite(DrawContext context, int x, float y, float width, float height, float u0, float v0, float u1, float v1, Sprite sprite, int color) {
         RenderSystem.enableBlend();
-        RenderSystem.setShader(GameRenderer::getPositionColorTexProgram);
+        RenderSystem.setShader(GameRenderer::getPositionTexColorProgram);
         RenderSystem.setShaderColor(1f, 1f, 1f, 1f);
         RenderSystem.setShaderTexture(0, sprite.getAtlasId());
-        var buffer = Tessellator.getInstance().getBuffer();
         var positionMatrix = context.getMatrices().peek().getPositionMatrix();
         var au0 = MathHelper.lerp(u0, sprite.getMinU(), sprite.getMaxU());
         var au1 = MathHelper.lerp(u1, sprite.getMinU(), sprite.getMaxU());
         var av0 = MathHelper.lerp(v0, sprite.getMinV(), sprite.getMaxV());
         var av1 = MathHelper.lerp(v1, sprite.getMinV(), sprite.getMaxV());
-        buffer.begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_COLOR_TEXTURE);
-        buffer.vertex(positionMatrix, x, y + height, 0f).color(color).texture(au0, av1).next();
-        buffer.vertex(positionMatrix, x + width, y + height, 0f).color(color).texture(au1, av1).next();
-        buffer.vertex(positionMatrix, x + width, y, 0f).color(color).texture(au1, av0).next();
-        buffer.vertex(positionMatrix, x, y, 0f).color(color).texture(au0, av0).next();
+        var buffer = Tessellator.getInstance().begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_TEXTURE_COLOR);
+        buffer.vertex(positionMatrix, x, y + height, 0f).texture(au0, av1).color(color);
+        buffer.vertex(positionMatrix, x + width, y + height, 0f).texture(au1, av1).color(color);
+        buffer.vertex(positionMatrix, x + width, y, 0f).texture(au1, av0).color(color);
+        buffer.vertex(positionMatrix, x, y, 0f).texture(au0, av0).color(color);
         BufferRenderer.drawWithGlobalProgram(buffer.end());
         RenderSystem.disableBlend();
     }
@@ -108,7 +107,7 @@ public final class BrewerScreen extends AdornMenuScreen<BrewerMenu> {
         }
 
         var color = Colors.color(bridge.getColor(fluid));
-        var height = FLUID_AREA_HEIGHT * (float) (fluid.getAmount() / (BrewerBlockEntity.FLUID_CAPACITY_IN_BUCKETS * fluid.getUnit().getBucketVolume()));
+        var height = FLUID_AREA_HEIGHT * (fluid.getAmount() / (float) (BrewerBlockEntity.FLUID_CAPACITY_IN_BUCKETS * fluid.getUnit().getBucketVolume()));
         var fluidY = 0;
 
         int tiles = MathHelper.floor(height / 16);

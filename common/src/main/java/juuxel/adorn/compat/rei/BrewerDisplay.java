@@ -51,7 +51,7 @@ public record BrewerDisplay(
         var stacks = fluidIngredient.fluid()
             .getFluids()
             .stream()
-            .map(fluid -> EntryStacks.of(FluidStack.create(fluid, amount, fluidIngredient.nbt())))
+            .map(fluid -> EntryStacks.of(FluidStack.create(fluid, amount, fluidIngredient.components())))
             .toList();
         return EntryIngredient.of(stacks);
     }

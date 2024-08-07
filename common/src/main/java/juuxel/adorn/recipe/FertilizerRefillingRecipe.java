@@ -1,14 +1,15 @@
 package juuxel.adorn.recipe;
 
+import juuxel.adorn.component.AdornComponentTypes;
 import juuxel.adorn.item.AdornItems;
 import juuxel.adorn.item.WateringCanItem;
 import juuxel.adorn.lib.AdornTags;
-import net.minecraft.inventory.RecipeInputInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.SpecialCraftingRecipe;
 import net.minecraft.recipe.book.CraftingRecipeCategory;
-import net.minecraft.registry.DynamicRegistryManager;
+import net.minecraft.recipe.input.CraftingRecipeInput;
+import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
@@ -18,29 +19,28 @@ public final class FertilizerRefillingRecipe extends SpecialCraftingRecipe {
     }
 
     @Override
-    public boolean matches(RecipeInputInventory inventory, World world) {
-        return match(inventory) != null;
+    public boolean matches(CraftingRecipeInput input, World world) {
+        return match(input) != null;
     }
 
     @Override
-    public ItemStack craft(RecipeInputInventory inventory, DynamicRegistryManager registryManager) {
-        var match = match(inventory);
+    public ItemStack craft(CraftingRecipeInput input, RegistryWrapper.WrapperLookup registries) {
+        var match = match(input);
         if (match == null) return ItemStack.EMPTY;
 
         var result = match.wateringCan().copy();
-        var nbt = result.getOrCreateNbt();
-        var fertilizerLevel = nbt.getInt(WateringCanItem.NBT_FERTILIZER_LEVEL);
-        var newFertilizerLevel = Math.min(fertilizerLevel + match.fertilizers(), WateringCanItem.MAX_FERTILIZER_LEVEL);
-        nbt.putInt(WateringCanItem.NBT_FERTILIZER_LEVEL, newFertilizerLevel);
+        int fertilizerLevel = result.getOrDefault(AdornComponentTypes.FERTILIZER_LEVEL.get(), 0);
+        int newFertilizerLevel = Math.min(fertilizerLevel + match.fertilizers(), WateringCanItem.MAX_FERTILIZER_LEVEL);
+        result.set(AdornComponentTypes.FERTILIZER_LEVEL.get(), newFertilizerLevel);
         return result;
     }
 
-    private @Nullable MatchResult match(RecipeInputInventory inventory) {
+    private @Nullable MatchResult match(CraftingRecipeInput inventory) {
         var wateringCan = ItemStack.EMPTY;
         var fertilizers = 0;
 
-        for (int slot = 0; slot < inventory.size(); slot++) {
-            var stack = inventory.getStack(slot);
+        for (int slot = 0; slot < inventory.getSize(); slot++) {
+            var stack = inventory.getStackInSlot(slot);
 
             if (stack.isOf(AdornItems.WATERING_CAN.get())) {
                 if (wateringCan.isEmpty()) {

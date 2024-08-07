@@ -1,0 +1,10 @@
+{
+  "type": "stonecutting",
+  "ingredient": {
+    "item": "minecraft:cherry_planks"
+  },
+  "result": {
+    "id": "adorn:cherry_post",
+    "count": 2
+  }
+}

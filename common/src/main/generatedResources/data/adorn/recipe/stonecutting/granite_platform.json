@@ -1,0 +1,10 @@
+{
+  "type": "stonecutting",
+  "ingredient": {
+    "item": "minecraft:granite"
+  },
+  "result": {
+    "id": "adorn:granite_platform",
+    "count": 1
+  }
+}

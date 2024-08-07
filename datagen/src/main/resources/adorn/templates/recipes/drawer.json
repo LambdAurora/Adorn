@@ -8,14 +8,14 @@
   ],
   "key": {
     "C": {
-      "tag": "c:wooden_chests"
+      "tag": "c:chests/wooden"
     },
     "S": {
       "item": "<slab>"
     }
   },
   "result": {
-    "item": "adorn:<mod-prefix><id.path>_drawer",
+    "id": "adorn:<mod-prefix><id.path>_drawer",
     "count": 2
   }<recipe-condition>
 }

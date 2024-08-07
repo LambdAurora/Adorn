@@ -1,6 +1,7 @@
 package juuxel.adorn.loot;
 
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import juuxel.adorn.util.Logging;
 import net.minecraft.loot.condition.LootCondition;
@@ -10,7 +11,7 @@ import net.minecraft.world.GameRules;
 import org.slf4j.Logger;
 
 public record GameRuleLootCondition(GameRules.Key<?> gameRule) implements LootCondition {
-    public static final Codec<GameRuleLootCondition> CODEC = RecordCodecBuilder.create(builder -> builder.group(
+    public static final MapCodec<GameRuleLootCondition> CODEC = RecordCodecBuilder.mapCodec(builder -> builder.group(
         Codec.STRING
             .<GameRules.Key<?>>xmap(name -> new GameRules.Key<>(name, GameRules.Category.MISC), GameRules.Key::getName)
             .fieldOf("game_rule")

@@ -1,0 +1,10 @@
+{
+  "type": "stonecutting",
+  "ingredient": {
+    "item": "minecraft:deepslate"
+  },
+  "result": {
+    "id": "adorn:deepslate_platform",
+    "count": 1
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "type": "crafting_shaped",
+  "group": "adorn:chair",
+  "pattern": [
+    " S",
+    "SS",
+    "##"
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:cherry_slab"
+    },
+    "#": {
+      "tag": "c:rods/wooden"
+    }
+  },
+  "result": {
+    "id": "adorn:cherry_chair",
+    "count": 2
+  }
+}

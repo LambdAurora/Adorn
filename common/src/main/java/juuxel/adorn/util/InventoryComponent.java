@@ -1,16 +1,18 @@
 package juuxel.adorn.util;
 
+import net.minecraft.component.type.ContainerComponent;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.InventoryChangedListener;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.util.collection.DefaultedList;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class InventoryComponent implements Inventory, NbtConvertible {
     private final int size;
@@ -37,7 +39,7 @@ public class InventoryComponent implements Inventory, NbtConvertible {
     }
 
     /**
-     * Checks if the stack can be extracted from this inventory. Ignores NBT, durability and tags.
+     * Checks if the stack can be extracted from this inventory. Ignores components.
      */
     public boolean canExtract(ItemStack stack) {
         int remainingAmount = stack.getCount();
@@ -53,7 +55,7 @@ public class InventoryComponent implements Inventory, NbtConvertible {
     }
 
     /**
-     * Tries to remove the stack from this inventory. Ignores tags.
+     * Tries to remove the stack from this inventory.
      *
      * @return {@code true} if extracted
      */
@@ -61,7 +63,7 @@ public class InventoryComponent implements Inventory, NbtConvertible {
         int remainingAmount = stack.getCount();
 
         for (var invStack : items) {
-            if (ItemStack.areItemsEqual(invStack, stack) && Objects.equals(invStack.getNbt(), stack.getNbt())) {
+            if (ItemStack.areItemsAndComponentsEqual(invStack, stack)) {
                 int invStackAmount = invStack.getCount();
                 invStack.decrement(Math.min(invStackAmount, remainingAmount));
                 remainingAmount -= invStackAmount;
@@ -73,13 +75,13 @@ public class InventoryComponent implements Inventory, NbtConvertible {
     }
 
     /**
-     * Checks if the stack can be inserted to this inventory. Ignores tags.
+     * Checks if the stack can be inserted to this inventory.
      */
     public boolean canInsert(ItemStack stack) {
         int remainingAmount = stack.getCount();
 
         for (var invStack : items) {
-            if (ItemStack.areItemsEqual(invStack, stack) && invStack.getCount() < invStack.getMaxCount() && Objects.equals(stack.getNbt(), invStack.getNbt())) {
+            if (ItemStack.areItemsAndComponentsEqual(invStack, stack) && invStack.getCount() < invStack.getMaxCount()) {
                 int insertionAmount = Math.min(invStack.getMaxCount() - invStack.getCount(), remainingAmount);
                 remainingAmount -= insertionAmount;
                 if (remainingAmount <= 0) return true;
@@ -92,7 +94,7 @@ public class InventoryComponent implements Inventory, NbtConvertible {
     }
 
     /**
-     * Tries to insert the stack to this inventory. Ignores tags.
+     * Tries to insert the stack to this inventory.
      *
      * @return {@code true} if inserted
      */
@@ -101,7 +103,7 @@ public class InventoryComponent implements Inventory, NbtConvertible {
 
         for (int slot = 0; slot < items.size(); slot++) {
             var invStack = items.get(slot);
-            if (ItemStack.areItemsEqual(invStack, stack) && invStack.getCount() < invStack.getMaxCount() && Objects.equals(invStack.getNbt(), stack.getNbt())) {
+            if (ItemStack.areItemsAndComponentsEqual(invStack, stack) && invStack.getCount() < invStack.getMaxCount()) {
                 int insertionAmount = Math.min(invStack.getMaxCount() - invStack.getCount(), remainingAmount);
                 remainingAmount -= insertionAmount;
                 invStack.increment(insertionAmount);
@@ -119,23 +121,32 @@ public class InventoryComponent implements Inventory, NbtConvertible {
      * Gets the count of items with the same item and NBT as the stack.
      * Ignores the stack's count.
      */
-    public int getAmountWithNbt(ItemStack stack) {
-        return CollectionUtil.sumOf(items, it -> stack.getItem() == it.getItem() && Objects.equals(stack.getNbt(), it.getNbt()) ? it.getCount() : 0);
+    public int getCountWithComponents(ItemStack stack) {
+        return CollectionUtil.sumOf(items, it -> ItemStack.areItemsAndComponentsEqual(stack, it) ? it.getCount() : 0);
     }
 
-    // -----
-    // NBT
-    // -----
+    // ------
+    // Data
+    // ------
 
     @Override
-    public NbtCompound writeNbt(NbtCompound nbt) {
-        Inventories.writeNbt(nbt, items);
+    public NbtCompound writeNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registries) {
+        Inventories.writeNbt(nbt, items, registries);
         return nbt;
     }
 
     @Override
-    public void readNbt(NbtCompound nbt) {
-        Inventories.readNbt(nbt, items);
+    public void readNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registries) {
+        Inventories.readNbt(nbt, items, registries);
+    }
+
+    public ContainerComponent toContainerComponent() {
+        return ContainerComponent.fromStacks(items);
+    }
+
+    public void copyFrom(@Nullable ContainerComponent component) {
+        if (component == null) return;
+        component.copyTo(items);
     }
 
     // -------------------------------

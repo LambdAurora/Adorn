@@ -3,6 +3,7 @@ package juuxel.adorn.client.gui.screen;
 import juuxel.adorn.AdornCommon;
 import juuxel.adorn.client.ClientNetworkBridge;
 import juuxel.adorn.menu.TradingStationMenu;
+import juuxel.adorn.networking.SetTradeStackC2SMessage;
 import juuxel.adorn.util.Colors;
 import juuxel.adorn.util.Logging;
 import net.minecraft.client.gui.DrawContext;
@@ -49,6 +50,6 @@ public final class TradingStationScreen extends AdornMenuScreen<TradingStationMe
         }
 
         slot.setStack(stack);
-        ClientNetworkBridge.get().sendSetTradeStack(menu.syncId, slot.id, stack);
+        ClientNetworkBridge.get().sendToServer(new SetTradeStackC2SMessage(menu.syncId, slot.id, stack));
     }
 }

@@ -142,7 +142,7 @@ public final class PicketFenceBlock extends Block implements Waterloggable, Bloc
     }
 
     @Override
-    public boolean canPathfindThrough(BlockState state, BlockView world, BlockPos pos, NavigationType type) {
+    public boolean canPathfindThrough(BlockState state, NavigationType type) {
         return false;
     }
 

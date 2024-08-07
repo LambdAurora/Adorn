@@ -1,29 +1,30 @@
 package juuxel.adorn.fluid;
 
+import net.minecraft.component.ComponentChanges;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.Fluids;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.network.PacketByteBuf;
-import org.jetbrains.annotations.Nullable;
+import net.minecraft.network.RegistryByteBuf;
+import net.minecraft.network.codec.PacketCodec;
 
 public final class FluidVolume extends FluidReference {
+    public static final PacketCodec<RegistryByteBuf, FluidVolume> PACKET_CODEC = PacketCodec.of(FluidVolume::write, FluidVolume::load);
     private Fluid fluid;
     private long amount;
-    private @Nullable NbtCompound nbt;
+    private ComponentChanges components;
     private final FluidUnit unit;
 
-    public FluidVolume(Fluid fluid, long amount, @Nullable NbtCompound nbt, FluidUnit unit) {
+    public FluidVolume(Fluid fluid, long amount, ComponentChanges components, FluidUnit unit) {
         this.fluid = fluid;
         this.amount = amount;
-        this.nbt = nbt;
+        this.components = components;
         this.unit = unit;
     }
 
     public static FluidVolume empty(FluidUnit unit) {
-        return new FluidVolume(Fluids.EMPTY, 0, null, unit);
+        return new FluidVolume(Fluids.EMPTY, 0, ComponentChanges.EMPTY, unit);
     }
 
-    public static FluidVolume load(PacketByteBuf buf) {
+    public static FluidVolume load(RegistryByteBuf buf) {
         var volume = empty(buf.readEnumConstant(FluidUnit.class));
         volume.readWithoutUnit(buf);
         return volume;
@@ -50,13 +51,13 @@ public final class FluidVolume extends FluidReference {
     }
 
     @Override
-    public @Nullable NbtCompound getNbt() {
-        return nbt;
+    public ComponentChanges getComponents() {
+        return components;
     }
 
     @Override
-    public void setNbt(@Nullable NbtCompound nbt) {
-        this.nbt = nbt;
+    public void setComponents(ComponentChanges components) {
+        this.components = components;
     }
 
     @Override
@@ -66,6 +67,6 @@ public final class FluidVolume extends FluidReference {
 
     @Override
     public String toString() {
-        return "FluidVolume(fluid=%s, amount=%d, nbt=%s)".formatted(fluid, amount, nbt);
+        return "FluidVolume(fluid=%s, amount=%d, components=%s)".formatted(fluid, amount, components);
     }
 }

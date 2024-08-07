@@ -6,7 +6,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.Identifier;
 
 public final class InvisibleEntityRenderer extends EntityRenderer<Entity> {
-    private static final Identifier TEXTURE = new Identifier("missingno");
+    private static final Identifier TEXTURE = Identifier.ofVanilla("missingno");
 
     public InvisibleEntityRenderer(EntityRendererFactory.Context ctx) {
         super(ctx);

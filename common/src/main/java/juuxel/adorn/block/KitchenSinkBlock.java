@@ -11,8 +11,8 @@ import net.minecraft.entity.ai.pathing.NavigationType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.ItemActionResult;
 import net.minecraft.util.function.BooleanBiFunction;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
@@ -50,10 +50,9 @@ public final class KitchenSinkBlock extends KitchenCounterBlock implements Block
     }
 
     @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+    protected ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         var entity = world.getBlockEntity(pos, AdornBlockEntities.KITCHEN_SINK.get()).orElse(null);
-        if (entity == null) return ActionResult.PASS;
-        var stack = player.getStackInHand(hand);
+        if (entity == null) return ItemActionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
         boolean successful;
 
         if (stack.isOf(Items.SPONGE)) {
@@ -73,7 +72,7 @@ public final class KitchenSinkBlock extends KitchenCounterBlock implements Block
             successful = entity.interactWithItem(stack, player, hand);
         }
 
-        return successful ? ActionResult.success(world.isClient) : ActionResult.PASS;
+        return successful ? ItemActionResult.success(world.isClient) : ItemActionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
     }
 
     @Override
@@ -92,7 +91,7 @@ public final class KitchenSinkBlock extends KitchenCounterBlock implements Block
     }
 
     @Override
-    public boolean canPathfindThrough(BlockState state, BlockView world, BlockPos pos, NavigationType type) {
+    public boolean canPathfindThrough(BlockState state, NavigationType type) {
         return false;
     }
 

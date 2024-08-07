@@ -3,7 +3,7 @@
   "group": "adorn:kitchen_cupboard",
   "ingredients": [
     {
-      "tag": "c:wooden_chests"
+      "tag": "c:chests/wooden"
     },
     {
       "item": "adorn:<mod-prefix><id.path>_kitchen_counter"
@@ -13,7 +13,7 @@
     }
   ],
   "result": {
-    "item": "adorn:<mod-prefix><id.path>_kitchen_cupboard",
+    "id": "adorn:<mod-prefix><id.path>_kitchen_cupboard",
     "count": 2
   }<recipe-condition>
 }

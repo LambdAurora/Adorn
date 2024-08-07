@@ -1,8 +1,8 @@
 package juuxel.adorn.datagen;
 
 public interface Material {
-    Id STICK = new Id("c", "wooden_rods");
-    Id STONE_ROD = new Id("c", "stone_rods");
+    Id STICK = new Id("c", "rods/wooden");
+    Id STONE_ROD = new Id("c", "rods/stone");
 
     /**
      * {@return a unique ID for this material}

@@ -24,9 +24,9 @@ public final class BoughtFromTradingStationCriterion extends AbstractCriterion<B
 
     public record Conditions(Optional<LootContextPredicate> player, Optional<ItemPredicate> soldItem) implements AbstractCriterion.Conditions {
         public static final Codec<Conditions> CODEC = RecordCodecBuilder.create(instance -> instance.group(
-            Codecs.createStrictOptionalFieldCodec(EntityPredicate.LOOT_CONTEXT_PREDICATE_CODEC, "player")
+            EntityPredicate.LOOT_CONTEXT_PREDICATE_CODEC.optionalFieldOf("player")
                 .forGetter(Conditions::player),
-            Codecs.createStrictOptionalFieldCodec(ItemPredicate.CODEC, "item")
+            ItemPredicate.CODEC.optionalFieldOf("item")
                 .forGetter(Conditions::soldItem)
         ).apply(instance, Conditions::new));
 

@@ -1,0 +1,10 @@
+{
+  "type": "stonecutting",
+  "ingredient": {
+    "item": "minecraft:warped_planks"
+  },
+  "result": {
+    "id": "adorn:warped_post",
+    "count": 2
+  }
+}

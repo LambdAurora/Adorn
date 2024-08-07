@@ -11,7 +11,6 @@ import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
@@ -34,9 +33,9 @@ public abstract class SeatBlock extends Block {
     public abstract @Nullable Identifier getSittingStat();
 
     @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+    protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
         if (!isSittingEnabled()) {
-            return super.onUse(state, world, pos, player, hand, hit);
+            return super.onUse(state, world, pos, player, hit);
         }
 
         var actualPos = getActualSeatPos(world, state, pos);
@@ -65,7 +64,7 @@ public abstract class SeatBlock extends Block {
                     AdornCriteria.SIT_ON_BLOCK.get().trigger(serverPlayer, pos);
                 }
             }
-            return ActionResult.SUCCESS;
+            return ActionResult.success(world.isClient);
         }
 
         return ActionResult.PASS;

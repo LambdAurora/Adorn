@@ -164,7 +164,7 @@ public class CopperPipeBlock extends Block implements Waterloggable, BlockWithDe
     }
 
     @Override
-    public boolean canPathfindThrough(BlockState state, BlockView world, BlockPos pos, NavigationType type) {
+    public boolean canPathfindThrough(BlockState state, NavigationType type) {
         return false;
     }
 

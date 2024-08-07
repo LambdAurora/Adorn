@@ -1,0 +1,10 @@
+{
+  "type": "stonecutting",
+  "ingredient": {
+    "item": "minecraft:polished_deepslate"
+  },
+  "result": {
+    "id": "adorn:polished_deepslate_post",
+    "count": 2
+  }
+}

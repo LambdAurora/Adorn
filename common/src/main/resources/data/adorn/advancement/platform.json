@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "id": "adorn:cobblestone_platform"
+    },
+    "title": {
+      "translate": "advancements.adorn.platform.title"
+    },
+    "description": {
+      "translate": "advancements.adorn.platform.description"
+    }
+  },
+  "parent": "adorn:post",
+  "criteria": {
+    "has_platform": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "adorn:platforms"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -91,10 +91,10 @@ subprojects {
             }
         }
 
-        // For REI.
+        // For Architectury and REI.
         maven {
-            name = "shedaniel"
-            url = uri("https://maven.shedaniel.me")
+            name = "Architectury"
+            url = uri("https://maven.architectury.dev")
         }
 
         // TerraformersMC maven for Mod Menu and EMI.
@@ -125,10 +125,10 @@ subprojects {
         // and so the Kotlin accessor method for it isn't generated for this file.
         "minecraft"("net.minecraft:minecraft:${rootProject.property("minecraft-version")}")
 
-        // Set up the layered mappings with Yarn and my Menu mappings.
-        // The average modder would have "mappings"("net.fabricmc:yarn:...") or "mappings"(loom.officialMojangMappings()).
+        // Set up the layered mappings with Yarn, a NeoForge compatibility patch and my Menu mappings.
         "mappings"(loom.layered {
             mappings("net.fabricmc:yarn:${rootProject.property("minecraft-version")}+${rootProject.property("yarn-mappings")}:v2")
+            mappings("dev.architectury:yarn-mappings-patch-neoforge:${rootProject.property("neoforge-mappings-patch-version")}")
             val menuVersion = rootProject.property("menu-mappings").toString()
             mappings("io.github.juuxel:menu:$menuVersion") {
                 enigmaMappings()

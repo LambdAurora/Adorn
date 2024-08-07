@@ -1,0 +1,27 @@
+{
+  "type": "crafting_shaped",
+  "group": "adorn:platform",
+  "pattern": [
+    "S",
+    "P"
+  ],
+  "key": {
+    "S": {
+      "item": "ecologics:walnut_slab"
+    },
+    "P": {
+      "item": "adorn:ecologics/walnut_post"
+    }
+  },
+  "result": {
+    "id": "adorn:ecologics/walnut_platform",
+    "count": 2
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "ecologics"
+    }
+  ]
+
+}

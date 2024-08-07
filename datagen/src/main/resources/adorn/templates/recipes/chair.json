@@ -15,7 +15,7 @@
     }
   },
   "result": {
-    "item": "adorn:<mod-prefix><id.path>_chair",
+    "id": "adorn:<mod-prefix><id.path>_chair",
     "count": 2
   }<recipe-condition>
 }

@@ -1,0 +1,17 @@
+{
+  "type": "stonecutting",
+  "ingredient": {
+    "item": "biomesoplenty:mahogany_planks"
+  },
+  "result": {
+    "id": "adorn:biomesoplenty/mahogany_step",
+    "count": 2
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "biomesoplenty"
+    }
+  ]
+
+}

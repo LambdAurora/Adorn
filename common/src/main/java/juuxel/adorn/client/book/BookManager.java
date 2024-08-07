@@ -32,11 +32,11 @@ public class BookManager extends JsonDataLoader {
             .stream()
             .map(entry -> {
                 var id = entry.getKey();
-                var book = Book.CODEC.decode(JsonOps.INSTANCE, entry.getValue()).get();
-                return book.map(
+                var book = Book.CODEC.decode(JsonOps.INSTANCE, entry.getValue());
+                return book.mapOrElse(
                     pair -> Pair.of(id, pair.getFirst()),
-                    partial -> {
-                        LOGGER.error("Could not load book {}: {}", id, partial.message());
+                    error -> {
+                        LOGGER.error("Could not load book {}: {}", id, error.message());
                         return null;
                     }
                 );

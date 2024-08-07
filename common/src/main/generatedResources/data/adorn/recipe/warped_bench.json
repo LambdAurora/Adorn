@@ -1,0 +1,17 @@
+{
+  "type": "crafting_shaped",
+  "group": "adorn:bench",
+  "pattern": [
+    "SSS",
+    "S S"
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:warped_slab"
+    }
+  },
+  "result": {
+    "id": "adorn:warped_bench",
+    "count": 2
+  }
+}

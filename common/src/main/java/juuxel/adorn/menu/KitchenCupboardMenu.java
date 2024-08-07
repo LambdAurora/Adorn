@@ -4,7 +4,7 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.menu.MenuContext;
-import net.minecraft.network.PacketByteBuf;
+import net.minecraft.util.math.BlockPos;
 
 public final class KitchenCupboardMenu extends SimpleMenu {
     private static final int WIDTH = 5;
@@ -14,8 +14,7 @@ public final class KitchenCupboardMenu extends SimpleMenu {
         super(AdornMenus.KITCHEN_CUPBOARD.get(), syncId, WIDTH, HEIGHT, inventory, playerInventory, context);
     }
 
-    public static KitchenCupboardMenu load(int syncId, PlayerInventory playerInventory, PacketByteBuf buf) {
-        var pos = buf.readBlockPos();
+    public static KitchenCupboardMenu load(int syncId, PlayerInventory playerInventory, BlockPos pos) {
         var context = MenuContext.create(playerInventory.player.getWorld(), pos);
         return new KitchenCupboardMenu(syncId, playerInventory, new SimpleInventory(WIDTH * HEIGHT), context);
     }

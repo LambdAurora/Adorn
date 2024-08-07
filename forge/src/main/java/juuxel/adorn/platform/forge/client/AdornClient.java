@@ -12,8 +12,8 @@ import net.minecraft.util.Identifier;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModLoadingContext;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
-import net.neoforged.neoforge.client.ConfigScreenHandler;
 import net.neoforged.neoforge.client.event.RegisterClientTooltipComponentFactoriesEvent;
+import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 
 public final class AdornClient {
     public static void init(IEventBus modBus) {
@@ -24,8 +24,8 @@ public final class AdornClient {
         resourceManager.registerReloader(PlatformBridges.get().getResources().getBookManager());
         resourceManager.registerReloader(PlatformBridges.get().getResources().getColorManager());
         ModLoadingContext.get().registerExtensionPoint(
-            ConfigScreenHandler.ConfigScreenFactory.class,
-            () -> new ConfigScreenHandler.ConfigScreenFactory((client, parent) -> new MainConfigScreen(parent))
+            IConfigScreenFactory.class,
+            () -> (container, parent) -> new MainConfigScreen(parent)
         );
     }
 

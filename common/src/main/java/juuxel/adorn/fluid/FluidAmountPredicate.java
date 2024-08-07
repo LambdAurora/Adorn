@@ -1,5 +1,6 @@
 package juuxel.adorn.fluid;
 
+import net.minecraft.component.ComponentChanges;
 import net.minecraft.fluid.Fluids;
 
 public interface FluidAmountPredicate {
@@ -9,7 +10,7 @@ public interface FluidAmountPredicate {
 
     static FluidAmountPredicate exactly(long amount, FluidUnit unit) {
         return new FluidAmountPredicate() {
-            private final FluidVolume upperBound = new FluidVolume(Fluids.EMPTY, amount, null, unit);
+            private final FluidVolume upperBound = new FluidVolume(Fluids.EMPTY, amount, ComponentChanges.EMPTY, unit);
 
             @Override
             public HasFluidAmount getUpperBound() {
@@ -25,7 +26,7 @@ public interface FluidAmountPredicate {
 
     static FluidAmountPredicate atMost(long max, FluidUnit unit) {
         return new FluidAmountPredicate() {
-            private final FluidVolume upperBound = new FluidVolume(Fluids.EMPTY, max, null, unit);
+            private final FluidVolume upperBound = new FluidVolume(Fluids.EMPTY, max, ComponentChanges.EMPTY, unit);
 
             @Override
             public HasFluidAmount getUpperBound() {

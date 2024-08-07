@@ -32,8 +32,8 @@ For wood and stone, these are:
   - For wood, this is obviously the planks block
   - For stone, this is the block form of the material
 - `stick`: the tag ID of the stick/rod used with this material
-  - For wood, this is `#c:wooden_rods`
-  - For stone, this is `#c:stone_rods`
+  - For wood, this is `#c:rods/wooden`
+  - For stone, this is `#c:rods/stone`
 - `slab`: the block/item ID of the slab of this material
 
 Wood materials also have the following properties:

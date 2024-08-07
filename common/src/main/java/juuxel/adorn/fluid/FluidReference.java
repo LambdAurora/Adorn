@@ -1,13 +1,12 @@
 package juuxel.adorn.fluid;
 
 import juuxel.adorn.config.ConfigManager;
+import net.minecraft.component.ComponentChanges;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.Fluids;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.network.PacketByteBuf;
+import net.minecraft.network.RegistryByteBuf;
 import net.minecraft.registry.Registries;
 import net.minecraft.text.Text;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.Objects;
 
@@ -22,14 +21,14 @@ public abstract class FluidReference implements HasFluidAmount {
 
     public abstract void setAmount(long amount);
 
-    public abstract @Nullable NbtCompound getNbt();
-    public abstract void setNbt(@Nullable NbtCompound nbt);
+    public abstract ComponentChanges getComponents();
+    public abstract void setComponents(ComponentChanges components);
 
     public boolean isEmpty() {
         return getFluid() == Fluids.EMPTY || getAmount() == 0;
     }
 
-    public void write(PacketByteBuf buf) {
+    public void write(RegistryByteBuf buf) {
         buf.writeEnumConstant(getUnit());
 
         if (isEmpty()) {
@@ -38,19 +37,19 @@ public abstract class FluidReference implements HasFluidAmount {
             buf.writeBoolean(true);
             buf.writeVarInt(Registries.FLUID.getRawId(getFluid()));
             buf.writeVarLong(getAmount());
-            buf.writeNbt(getNbt());
+            ComponentChanges.PACKET_CODEC.encode(buf, getComponents());
         }
     }
 
-    protected void readWithoutUnit(PacketByteBuf buf) {
+    protected void readWithoutUnit(RegistryByteBuf buf) {
         if (buf.readBoolean()) {
             setFluid(Registries.FLUID.get(buf.readVarInt()));
             setAmount(buf.readVarLong());
-            setNbt(buf.readNbt());
+            setComponents(ComponentChanges.PACKET_CODEC.decode(buf));
         } else {
             setFluid(Fluids.EMPTY);
             setAmount(0);
-            setNbt(null);
+            setComponents(ComponentChanges.EMPTY);
         }
     }
 
@@ -58,7 +57,7 @@ public abstract class FluidReference implements HasFluidAmount {
      * Creates an independent mutable snapshot of this fluid reference's current contents.
      */
     public FluidVolume createSnapshot() {
-        return new FluidVolume(getFluid(), getAmount(), getNbt(), getUnit());
+        return new FluidVolume(getFluid(), getAmount(), getComponents(), getUnit());
     }
 
     public void increment(long amount, FluidUnit unit) {
@@ -72,7 +71,7 @@ public abstract class FluidReference implements HasFluidAmount {
     public boolean matches(FluidIngredient ingredient) {
         return ingredient.fluid().matches(getFluid())
             && FluidUnit.compareVolumes(this, ingredient) >= 0
-            && Objects.equals(getNbt(), ingredient.nbt());
+            && Objects.equals(getComponents(), ingredient.components());
     }
 
     public Text getAmountText() {
@@ -106,12 +105,12 @@ public abstract class FluidReference implements HasFluidAmount {
     @Override
     public String toString() {
         return "FluidReference(fluid=%s, amount=%d, nbt=%s)"
-            .formatted(Registries.FLUID.getId(getFluid()), getAmount(), getNbt());
+            .formatted(Registries.FLUID.getId(getFluid()), getAmount(), getComponents());
     }
 
     public static boolean areFluidsEqual(FluidReference a, FluidReference b) {
         if (a.isEmpty()) return b.isEmpty();
-        return a.getFluid() == b.getFluid() && Objects.equals(a.getNbt(), b.getNbt());
+        return a.getFluid() == b.getFluid() && Objects.equals(a.getComponents(), b.getComponents());
     }
 
     public static boolean areFluidsAndAmountsEqual(FluidReference a, FluidReference b) {

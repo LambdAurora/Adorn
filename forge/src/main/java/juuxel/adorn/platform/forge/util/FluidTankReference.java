@@ -3,11 +3,10 @@ package juuxel.adorn.platform.forge.util;
 import juuxel.adorn.fluid.FluidReference;
 import juuxel.adorn.fluid.FluidUnit;
 import juuxel.adorn.fluid.FluidVolume;
+import net.minecraft.component.ComponentChanges;
 import net.minecraft.fluid.Fluid;
-import net.minecraft.nbt.NbtCompound;
 import net.neoforged.neoforge.fluids.FluidStack;
 import net.neoforged.neoforge.fluids.capability.templates.FluidTank;
-import org.jetbrains.annotations.Nullable;
 
 public final class FluidTankReference extends FluidReference {
     private final FluidTank tank;
@@ -27,7 +26,7 @@ public final class FluidTankReference extends FluidReference {
 
     @Override
     public void setFluid(Fluid fluid) {
-        tank.setFluid(new FluidStack(fluid, tank.getFluid().getAmount(), tank.getFluid().getTag()));
+        tank.setFluid(new FluidStack(fluid.getRegistryEntry(), tank.getFluid().getAmount(), tank.getFluid().getComponentsPatch()));
     }
 
     @Override
@@ -41,13 +40,13 @@ public final class FluidTankReference extends FluidReference {
     }
 
     @Override
-    public @Nullable NbtCompound getNbt() {
-        return tank.getFluid().getTag();
+    public ComponentChanges getComponents() {
+        return tank.getFluid().getComponentsPatch();
     }
 
     @Override
-    public void setNbt(@Nullable NbtCompound nbt) {
-        tank.getFluid().setTag(nbt);
+    public void setComponents(ComponentChanges changes) {
+        tank.getFluid().getComponents().setChanges(changes);
     }
 
     @Override
@@ -63,11 +62,11 @@ public final class FluidTankReference extends FluidReference {
         if (reference instanceof FluidTankReference ftr) {
             return ftr.tank.getFluid();
         } else {
-            return new FluidStack(reference.getFluid(), (int) reference.getAmount(), reference.getNbt());
+            return new FluidStack(reference.getFluid().getRegistryEntry(), (int) reference.getAmount(), reference.getComponents());
         }
     }
 
     public static FluidVolume toFluidVolume(FluidStack stack) {
-        return new FluidVolume(stack.getFluid(), stack.getAmount(), stack.getTag(), FluidUnit.LITRE);
+        return new FluidVolume(stack.getFluid(), stack.getAmount(), stack.getComponentsPatch(), FluidUnit.LITRE);
     }
 }

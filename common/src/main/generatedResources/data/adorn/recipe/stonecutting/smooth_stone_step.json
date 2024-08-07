@@ -1,0 +1,10 @@
+{
+  "type": "stonecutting",
+  "ingredient": {
+    "item": "minecraft:smooth_stone"
+  },
+  "result": {
+    "id": "adorn:smooth_stone_step",
+    "count": 2
+  }
+}

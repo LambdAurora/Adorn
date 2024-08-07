@@ -1,12 +1,12 @@
 package juuxel.adorn.platform.forge.event;
 
 import juuxel.adorn.block.SofaBlock;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.neoforged.bus.api.Event;
 import net.neoforged.neoforge.common.NeoForge;
+import net.neoforged.neoforge.event.entity.player.CanContinueSleepingEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerSetSpawnEvent;
-import net.neoforged.neoforge.event.entity.player.SleepingTimeCheckEvent;
 
 public final class EntityEvents {
     public static void init() {
@@ -14,13 +14,14 @@ public final class EntityEvents {
         NeoForge.EVENT_BUS.addListener(EntityEvents::preventSofaSpawns);
     }
 
-    private static void handleSofaSleepTime(SleepingTimeCheckEvent event) {
-        BlockPos sleepingPos = event.getSleepingLocation().orElse(null);
+    private static void handleSofaSleepTime(CanContinueSleepingEvent event) {
+        BlockPos sleepingPos = event.getEntity().getSleepingPosition().orElse(null);
         if (sleepingPos == null) return;
         World world = event.getEntity().getWorld();
 
-        if (world.isDay() && world.getBlockState(sleepingPos).getBlock() instanceof SofaBlock) {
-            event.setResult(Event.Result.ALLOW);
+        if (event.getProblem() == PlayerEntity.SleepFailureReason.NOT_POSSIBLE_NOW && world.isDay()
+            && world.getBlockState(sleepingPos).getBlock() instanceof SofaBlock) {
+            event.setContinueSleeping(true);
         }
     }
 

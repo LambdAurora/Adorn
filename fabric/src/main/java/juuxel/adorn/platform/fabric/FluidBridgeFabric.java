@@ -8,6 +8,7 @@ import net.fabricmc.fabric.api.transfer.v1.fluid.FluidStorage;
 import net.fabricmc.fabric.api.transfer.v1.fluid.FluidVariant;
 import net.fabricmc.fabric.api.transfer.v1.transaction.Transaction;
 import net.minecraft.block.BlockState;
+import net.minecraft.component.ComponentChanges;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -32,7 +33,7 @@ public final class FluidBridgeFabric implements FluidBridge {
 
                 if (extracted > 0 && amountPredicate.test(extracted, FluidUnit.DROPLET)) {
                     transaction.commit();
-                    return new FluidVolume(fluid, extracted, null, FluidUnit.DROPLET);
+                    return new FluidVolume(fluid, extracted, ComponentChanges.EMPTY, FluidUnit.DROPLET);
                 }
             }
         }

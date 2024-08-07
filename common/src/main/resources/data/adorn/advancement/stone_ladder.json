@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "id": "adorn:stone_ladder"
+    },
+    "title": {
+      "translate": "advancements.adorn.stone_ladder.title"
+    },
+    "description": {
+      "translate": "advancements.adorn.stone_ladder.description"
+    }
+  },
+  "parent": "adorn:stone_torch",
+  "criteria": {
+    "has_stone_ladder": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["adorn:stone_ladder"]
+          }
+        ]
+      }
+    }
+  }
+}

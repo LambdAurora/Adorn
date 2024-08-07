@@ -1,0 +1,10 @@
+{
+  "type": "stonecutting",
+  "ingredient": {
+    "item": "minecraft:blackstone"
+  },
+  "result": {
+    "id": "adorn:blackstone_platform",
+    "count": 1
+  }
+}

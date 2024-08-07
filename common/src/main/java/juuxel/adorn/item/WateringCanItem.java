@@ -1,5 +1,6 @@
 package juuxel.adorn.item;
 
+import juuxel.adorn.component.AdornComponentTypes;
 import juuxel.adorn.fluid.FluidUnit;
 import juuxel.adorn.fluid.StepMaximum;
 import juuxel.adorn.lib.AdornSounds;
@@ -10,12 +11,11 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.FarmlandBlock;
 import net.minecraft.block.Fertilizable;
 import net.minecraft.block.FluidDrainable;
-import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.nbt.NbtElement;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
@@ -36,8 +36,6 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public final class WateringCanItem extends ItemWithDescription {
-    private static final String NBT_WATER_LEVEL = "WaterLevel";
-    public static final String NBT_FERTILIZER_LEVEL = "FertilizerLevel";
     private static final int ITEM_BAR_STEPS = 13;
     private static final int MAX_WATER_LEVEL = 50;
     public static final int MAX_FERTILIZER_LEVEL = 32;
@@ -60,8 +58,7 @@ public final class WateringCanItem extends ItemWithDescription {
             return TypedActionResult.pass(stack);
         }
 
-        var nbt = stack.getOrCreateNbt();
-        var waterLevel = nbt.getInt(NBT_WATER_LEVEL);
+        int waterLevel = stack.getOrDefault(AdornComponentTypes.WATER_LEVEL.get(), 0);
         var pos = hitResult.getBlockPos();
         var state = world.getBlockState(pos);
         var block = state.getBlock();
@@ -72,11 +69,11 @@ public final class WateringCanItem extends ItemWithDescription {
             // Note: we have a water check because we can't revert changes for non-water fluid sources
             if (block instanceof FluidDrainable drainable && world.getFluidState(pos).isOf(Fluids.WATER)) {
                 var drained = drainable.tryDrainFluid(user, world, pos, state);
-                drainable.getBucketFillSound().ifPresent(sound ->user.playSound(sound, 1f, 1f));
+                drainable.getBucketFillSound().ifPresent(sound -> user.playSound(sound, 1f, 1f));
 
                 if (drained.isOf(Items.WATER_BUCKET)) {
                     waterLevel = Math.min(waterLevel + WATER_LEVELS_PER_BUCKET, MAX_WATER_LEVEL);
-                    nbt.putInt(NBT_WATER_LEVEL, waterLevel);
+                    stack.set(AdornComponentTypes.WATER_LEVEL.get(), waterLevel);
                     success = true;
                 }
             } else {
@@ -86,7 +83,7 @@ public final class WateringCanItem extends ItemWithDescription {
                     long amount = FluidUnit.convert(drained.getAmount(), drained.getUnit(), FluidUnit.LITRE);
                     int levels = (int) (amount / FLUID_DRAIN_PREDICATE.getStep());
                     waterLevel = Math.min(waterLevel + levels, MAX_WATER_LEVEL);
-                    nbt.putInt(NBT_WATER_LEVEL, waterLevel);
+                    stack.set(AdornComponentTypes.WATER_LEVEL.get(), waterLevel);
                     success = true;
                     user.playSound(SoundEvents.ITEM_BUCKET_FILL, 1f, 1f);
                 }
@@ -97,7 +94,7 @@ public final class WateringCanItem extends ItemWithDescription {
             success = true;
 
             waterLevel--;
-            nbt.putInt(NBT_WATER_LEVEL, waterLevel);
+            stack.set(AdornComponentTypes.WATER_LEVEL.get(), waterLevel);
             world.emitGameEvent(user, GameEvent.ITEM_INTERACT_FINISH, pos);
             world.playSound(user, pos, AdornSounds.ITEM_WATERING_CAN_WATER.get(), SoundCategory.PLAYERS);
             user.getItemCooldownManager().set(this, 10);
@@ -119,8 +116,7 @@ public final class WateringCanItem extends ItemWithDescription {
     }
 
     private void water(World world, BlockPos pos, PlayerEntity player, ItemStack stack) {
-        var nbt = stack.getOrCreateNbt();
-        var fertilizerLevel = nbt.getInt(NBT_FERTILIZER_LEVEL);
+        var fertilizerLevel = stack.getOrDefault(AdornComponentTypes.FERTILIZER_LEVEL.get(), 0);
         var state = world.getBlockState(pos);
         var block = state.getBlock();
 
@@ -133,7 +129,7 @@ public final class WateringCanItem extends ItemWithDescription {
                 world.syncWorldEvent(player, WorldEvents.BONE_MEAL_USED, pos, 5);
             }
 
-            nbt.putInt(NBT_FERTILIZER_LEVEL, fertilizerLevel - 1);
+            stack.set(AdornComponentTypes.FERTILIZER_LEVEL.get(), fertilizerLevel - 1);
         }
 
         if (!world.isClient) {
@@ -167,22 +163,14 @@ public final class WateringCanItem extends ItemWithDescription {
 
     @Override
     public int getItemBarStep(ItemStack stack) {
-        if (stack.hasNbt()) {
-            var nbt = stack.getNbt();
-            if (nbt.contains(NBT_WATER_LEVEL, NbtElement.INT_TYPE)) {
-                var waterLevel = MathHelper.clamp(nbt.getInt(NBT_WATER_LEVEL), 0, MAX_WATER_LEVEL);
-                return MathHelper.lerp(WATER_LEVEL_DIVISOR * waterLevel, 0, ITEM_BAR_STEPS);
-            }
-        }
-
-        return 0;
+        var waterLevel = MathHelper.clamp(stack.getOrDefault(AdornComponentTypes.WATER_LEVEL.get(), 0), 0, MAX_WATER_LEVEL);
+        return MathHelper.lerp(WATER_LEVEL_DIVISOR * waterLevel, 0, ITEM_BAR_STEPS);
     }
 
     @Override
     public int getItemBarColor(ItemStack stack) {
-        var nbt = stack.getOrCreateNbt();
         var rg = MathHelper.clampedMap(
-            nbt.getInt(NBT_FERTILIZER_LEVEL),
+            stack.getOrDefault(AdornComponentTypes.FERTILIZER_LEVEL.get(), 0),
             // From:
             0f, MAX_FERTILIZER_LEVEL,
             // To:
@@ -192,12 +180,12 @@ public final class WateringCanItem extends ItemWithDescription {
     }
 
     @Override
-    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        var nbt = stack.getNbt();
-        var currentLevel = Text.literal(nbt != null ? Integer.toString(nbt.getInt(NBT_FERTILIZER_LEVEL)) : "0").formatted(Formatting.DARK_AQUA);
+    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+        int fertilizerLevel = stack.getOrDefault(AdornComponentTypes.FERTILIZER_LEVEL.get(), 0);
+        var currentLevel = Text.literal(Integer.toString(fertilizerLevel)).formatted(Formatting.DARK_AQUA);
         var maxLevel = Text.literal(Integer.toString(MAX_FERTILIZER_LEVEL)).formatted(Formatting.DARK_AQUA);
         tooltip.add(Text.translatable("item.adorn.watering_can.fertilizer", currentLevel, maxLevel).formatted(Formatting.GRAY));
-        super.appendTooltip(stack, world, tooltip, context);
+        super.appendTooltip(stack, context, tooltip, type);
     }
 
     private static void spawnParticlesAt(ServerWorld world, BlockPos pos, double y) {

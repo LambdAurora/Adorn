@@ -7,8 +7,8 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.transfer.v1.client.fluid.FluidVariantRendering;
 import net.fabricmc.fabric.api.transfer.v1.fluid.FluidVariantAttributes;
-import net.minecraft.client.item.TooltipContext;
 import net.minecraft.client.texture.Sprite;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.BlockRenderView;
@@ -39,8 +39,8 @@ public final class FluidRenderingBridgeFabric implements FluidRenderingBridge {
 
     @Environment(EnvType.CLIENT)
     @Override
-    public List<Text> getTooltip(FluidReference volume, TooltipContext context, @Nullable Integer maxAmountInLitres) {
-        var result = FluidVariantRendering.getTooltip(FluidStorageReference.toFluidVariant(volume), context);
+    public List<Text> getTooltip(FluidReference volume, TooltipType type, @Nullable Integer maxAmountInLitres) {
+        var result = FluidVariantRendering.getTooltip(FluidStorageReference.toFluidVariant(volume), type);
 
         if (maxAmountInLitres != null) {
             result.add(1, volume.getAmountText(maxAmountInLitres, FluidUnit.LITRE));

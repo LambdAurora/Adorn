@@ -1,0 +1,10 @@
+{
+  "type": "stonecutting",
+  "ingredient": {
+    "item": "minecraft:stone"
+  },
+  "result": {
+    "id": "adorn:stone_platform",
+    "count": 1
+  }
+}

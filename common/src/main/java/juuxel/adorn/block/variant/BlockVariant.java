@@ -80,12 +80,7 @@ public interface BlockVariant {
 
     default Identifier nameAsIdentifier() {
         var name = this.name();
-        var separatorIndex = name.indexOf(MOD_ID_SEPARATOR);
-        if (separatorIndex >= 0) {
-            return new Identifier(name.substring(0, separatorIndex), name.substring(separatorIndex + 1));
-        } else {
-            return new Identifier(Identifier.DEFAULT_NAMESPACE, name);
-        }
+        return Identifier.splitOn(name, MOD_ID_SEPARATOR);
     }
 
     /**

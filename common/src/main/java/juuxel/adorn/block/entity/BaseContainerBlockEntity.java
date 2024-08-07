@@ -6,6 +6,7 @@ import net.minecraft.block.entity.LootableContainerBlockEntity;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.text.Text;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
@@ -25,29 +26,29 @@ public abstract class BaseContainerBlockEntity extends LootableContainerBlockEnt
     }
 
     @Override
-    protected void writeNbt(NbtCompound nbt) {
-        super.writeNbt(nbt);
+    protected void writeNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registries) {
+        super.writeNbt(nbt, registries);
         if (!writeLootTable(nbt)) {
-            Inventories.writeNbt(nbt, items);
+            Inventories.writeNbt(nbt, items, registries);
         }
     }
 
     @Override
-    public void readNbt(NbtCompound nbt) {
-        super.readNbt(nbt);
+    public void readNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registries) {
+        super.readNbt(nbt, registries);
         items = DefaultedList.ofSize(size, ItemStack.EMPTY);
         if (!readLootTable(nbt)) {
-            Inventories.readNbt(nbt, items);
+            Inventories.readNbt(nbt, items, registries);
         }
     }
 
     @Override
-    protected DefaultedList<ItemStack> method_11282() {
+    protected DefaultedList<ItemStack> getHeldStacks() {
         return items;
     }
 
     @Override
-    protected void setInvStackList(DefaultedList<ItemStack> list) {
+    protected void setHeldStacks(DefaultedList<ItemStack> list) {
         items = list;
     }
 

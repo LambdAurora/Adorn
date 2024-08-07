@@ -1,0 +1,12 @@
+{
+  "type": "adorn:brewing",
+  "first_ingredient": {
+    "tag": "c:crops/nether_wart"
+  },
+  "second_ingredient": {
+    "tag": "c:buckets/water"
+  },
+  "result": {
+    "id": "adorn:nether_wart_coffee"
+  }
+}

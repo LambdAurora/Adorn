@@ -9,7 +9,8 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.menu.Menu;
 import net.minecraft.menu.MenuType;
 import net.minecraft.menu.NamedMenuFactory;
-import net.minecraft.network.PacketByteBuf;
+import net.minecraft.network.RegistryByteBuf;
+import net.minecraft.network.codec.PacketCodec;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
@@ -31,7 +32,7 @@ public final class MenuBridgeImpl implements MenuBridge {
             // ^ technically not needed as vanilla safeguards against it,
             // but no need to create the extra factory on the client
 
-            player.openMenu(new ExtendedScreenHandlerFactory() {
+            player.openMenu(new ExtendedScreenHandlerFactory<>() {
                 @Override
                 public @Nullable Menu createMenu(int syncId, PlayerInventory playerInventory, PlayerEntity player) {
                     return factory.createMenu(syncId, playerInventory, player);
@@ -43,15 +44,15 @@ public final class MenuBridgeImpl implements MenuBridge {
                 }
 
                 @Override
-                public void writeScreenOpeningData(ServerPlayerEntity player, PacketByteBuf buf) {
-                    buf.writeBlockPos(pos);
+                public BlockPos getScreenOpeningData(ServerPlayerEntity player) {
+                    return pos;
                 }
             });
         }
     }
 
     @Override
-    public <M extends Menu> MenuType<M> createType(Factory<M> factory) {
-        return new ExtendedScreenHandlerType<>(factory::create);
+    public <M extends Menu, D> MenuType<M> createType(Factory<M, D> factory, PacketCodec<? super RegistryByteBuf, D> packetCodec) {
+        return new ExtendedScreenHandlerType<>(factory::create, packetCodec);
     }
 }

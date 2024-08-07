@@ -72,17 +72,17 @@ public abstract class KitchenSinkRenderer<T extends KitchenSinkBlockEntity> impl
 
         // Draw the sprite
 
-        var positionMatrix = matrices.peek().getPositionMatrix();
-        var normalMatrix = matrices.peek().getNormalMatrix();
+        var matrixEntry = matrices.peek();
+        var positionMatrix = matrixEntry.getPositionMatrix();
         var color = getFluidColor(entity);
         buffer.vertex(positionMatrix, X_START, computeY(X_START, Z_END), Z_END)
-            .color(color).texture(u0, v0).overlay(overlay).light(light).normal(normalMatrix, 0f, 1f, 0f).next();
+            .color(color).texture(u0, v0).overlay(overlay).light(light).normal(matrixEntry, 0f, 1f, 0f);
         buffer.vertex(positionMatrix, X_END, computeY(X_END, Z_END), Z_END)
-            .color(color).texture(u0, v1).overlay(overlay).light(light).normal(normalMatrix, 0f, 1f, 0f).next();
+            .color(color).texture(u0, v1).overlay(overlay).light(light).normal(matrixEntry, 0f, 1f, 0f);
         buffer.vertex(positionMatrix, X_END, computeY(X_END, Z_START), Z_START)
-            .color(color).texture(u1, v1).overlay(overlay).light(light).normal(normalMatrix, 0f, 1f, 0f).next();
+            .color(color).texture(u1, v1).overlay(overlay).light(light).normal(matrixEntry, 0f, 1f, 0f);
         buffer.vertex(positionMatrix, X_START, computeY(X_START, Z_START), Z_START)
-            .color(color).texture(u1, v0).overlay(overlay).light(light).normal(normalMatrix, 0f, 1f, 0f).next();
+            .color(color).texture(u1, v0).overlay(overlay).light(light).normal(matrixEntry, 0f, 1f, 0f);
         matrices.pop();
     }
 

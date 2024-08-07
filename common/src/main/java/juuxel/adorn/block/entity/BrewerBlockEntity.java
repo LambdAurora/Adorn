@@ -2,11 +2,13 @@ package juuxel.adorn.block.entity;
 
 import juuxel.adorn.block.AdornBlockEntities;
 import juuxel.adorn.block.BrewerBlock;
+import juuxel.adorn.fluid.FluidReference;
 import juuxel.adorn.item.AdornItems;
 import juuxel.adorn.menu.BrewerMenu;
 import juuxel.adorn.recipe.AdornRecipes;
-import juuxel.adorn.recipe.BrewerInventory;
+import juuxel.adorn.recipe.BrewerInput;
 import juuxel.adorn.recipe.FluidBrewingRecipe;
+import juuxel.adorn.recipe.InventoryWrappingRecipeInput;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.SidedInventory;
@@ -15,6 +17,7 @@ import net.minecraft.menu.Menu;
 import net.minecraft.menu.property.PropertyDelegate;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.recipe.RecipeEntry;
+import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -22,7 +25,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public abstract class BrewerBlockEntity extends BaseContainerBlockEntity implements SidedInventory, BrewerInventory {
+public abstract class BrewerBlockEntity extends BaseContainerBlockEntity implements SidedInventory {
     private static final String NBT_PROGRESS = "Progress";
     public static final int CONTAINER_SIZE = 4;
     public static final int INPUT_SLOT = 0;
@@ -66,14 +69,14 @@ public abstract class BrewerBlockEntity extends BaseContainerBlockEntity impleme
     }
 
     @Override
-    protected void writeNbt(NbtCompound nbt) {
-        super.writeNbt(nbt);
+    protected void writeNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registries) {
+        super.writeNbt(nbt, registries);
         nbt.putInt(NBT_PROGRESS, progress);
     }
 
     @Override
-    public void readNbt(NbtCompound nbt) {
-        super.readNbt(nbt);
+    public void readNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registries) {
+        super.readNbt(nbt, registries);
         progress = nbt.getInt(NBT_PROGRESS);
     }
 
@@ -125,6 +128,8 @@ public abstract class BrewerBlockEntity extends BaseContainerBlockEntity impleme
         return MathHelper.ceil(level);
     }
 
+    public abstract FluidReference getFluidReference();
+
     /** {@return true if you can extract the fluid container as an item} */
     protected abstract boolean canExtractFluidContainer();
 
@@ -161,13 +166,14 @@ public abstract class BrewerBlockEntity extends BaseContainerBlockEntity impleme
             world.setBlockState(pos, state.with(BrewerBlock.HAS_MUG, hasMug));
         }
 
-        var recipe = world.getRecipeManager().getFirstMatch(AdornRecipes.BREWING_TYPE.get(), brewer, world).map(RecipeEntry::value).orElse(null);
+        var input = new RecipeInputImpl(brewer);
+        var recipe = world.getRecipeManager().getFirstMatch(AdornRecipes.BREWING_TYPE.get(), input, world).map(RecipeEntry::value).orElse(null);
 
         if (recipe != null && brewer.getStack(INPUT_SLOT).isOf(AdornItems.MUG.get())) {
             if (brewer.progress++ >= MAX_PROGRESS) {
                 decrementIngredient(brewer, LEFT_INGREDIENT_SLOT);
                 decrementIngredient(brewer, RIGHT_INGREDIENT_SLOT);
-                brewer.setStack(INPUT_SLOT, recipe.craft(brewer, world.getRegistryManager()));
+                brewer.setStack(INPUT_SLOT, recipe.craft(input, world.getRegistryManager()));
 
                 if (recipe instanceof FluidBrewingRecipe fluidRecipe) {
                     brewer.getFluidReference().decrement(fluidRecipe.fluid().amount(), fluidRecipe.fluid().unit());
@@ -191,6 +197,17 @@ public abstract class BrewerBlockEntity extends BaseContainerBlockEntity impleme
 
         if (dirty) {
             markDirty(world, pos, state);
+        }
+    }
+
+    private static final class RecipeInputImpl extends InventoryWrappingRecipeInput<BrewerBlockEntity> implements BrewerInput {
+        private RecipeInputImpl(BrewerBlockEntity brewer) {
+            super(brewer);
+        }
+
+        @Override
+        public FluidReference getFluidReference() {
+            return parent.getFluidReference();
         }
     }
 }

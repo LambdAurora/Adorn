@@ -3,8 +3,8 @@ package juuxel.adorn.client;
 import juuxel.adorn.fluid.FluidReference;
 import juuxel.adorn.util.InlineServices;
 import juuxel.adorn.util.Services;
-import net.minecraft.client.item.TooltipContext;
 import net.minecraft.client.texture.Sprite;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.BlockRenderView;
@@ -24,7 +24,7 @@ public interface FluidRenderingBridge {
 
     boolean fillsFromTop(FluidReference volume);
 
-    List<Text> getTooltip(FluidReference volume, TooltipContext context, @Nullable Integer maxAmountInLitres);
+    List<Text> getTooltip(FluidReference volume, TooltipType type, @Nullable Integer maxAmountInLitres);
 
     @InlineServices.Getter
     static FluidRenderingBridge get() {

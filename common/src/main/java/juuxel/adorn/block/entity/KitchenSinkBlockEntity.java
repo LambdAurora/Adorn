@@ -6,6 +6,8 @@ import juuxel.adorn.lib.AdornGameRules;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.component.DataComponentTypes;
+import net.minecraft.component.type.PotionContentsComponent;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FlowableFluid;
 import net.minecraft.fluid.Fluid;
@@ -15,8 +17,8 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
-import net.minecraft.potion.PotionUtil;
 import net.minecraft.potion.Potions;
+import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.FluidTags;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
@@ -54,10 +56,8 @@ public abstract class KitchenSinkBlockEntity extends BlockEntity {
      * Dispatches the game event and plays the sound.
      */
     protected void onFill(ItemStack stack, PlayerEntity player) {
-        if (!world.isClient) {
-            world.emitGameEvent(player, GameEvent.FLUID_PLACE, pos);
-            player.playSound(getEmptySound(getFluidReference(), stack).event, SoundCategory.BLOCKS, 1f, 1f);
-        }
+        world.emitGameEvent(player, GameEvent.FLUID_PLACE, pos);
+        player.playSound(getEmptySound(getFluidReference(), stack).event, 1f, 1f);
     }
 
     /**
@@ -65,10 +65,8 @@ public abstract class KitchenSinkBlockEntity extends BlockEntity {
      * Dispatches the game event and plays the sound.
      */
     protected void onPickUp(FluidReference fluid, ItemStack stack, PlayerEntity player) {
-        if (!world.isClient) {
-            world.emitGameEvent(player, GameEvent.FLUID_PICKUP, pos);
-            player.playSound(getFillSound(fluid, stack).event, SoundCategory.BLOCKS, 1f, 1f);
-        }
+        world.emitGameEvent(player, GameEvent.FLUID_PICKUP, pos);
+        player.getWorld().playSound(player, player.getX(), player.getY(), player.getZ(), getFillSound(fluid, stack).event, SoundCategory.BLOCKS, 1f, 1f);
     }
 
     protected FluidItemSound getFillSound(FluidReference fluid, ItemStack stack) {
@@ -80,11 +78,17 @@ public abstract class KitchenSinkBlockEntity extends BlockEntity {
     }
 
     protected FluidItemSound getEmptySound(FluidReference fluid, ItemStack stack) {
-        if (stack.isOf(Items.POTION) && PotionUtil.getPotion(stack) == Potions.WATER) {
+        if (isWaterBottle(stack)) {
             return new FluidItemSound(SoundEvents.ITEM_BOTTLE_EMPTY, true);
         }
 
         return new FluidItemSound(fluid.getFluid().isIn(FluidTags.LAVA) ? SoundEvents.ITEM_BUCKET_EMPTY_LAVA : SoundEvents.ITEM_BUCKET_EMPTY, false);
+    }
+
+    protected static boolean isWaterBottle(ItemStack stack) {
+        if (!stack.isOf(Items.POTION)) return false;
+        var potionContents = stack.getOrDefault(DataComponentTypes.POTION_CONTENTS, PotionContentsComponent.DEFAULT);
+        return potionContents.matches(Potions.WATER);
     }
 
     protected void markDirtyAndSync() {
@@ -101,8 +105,8 @@ public abstract class KitchenSinkBlockEntity extends BlockEntity {
     }
 
     @Override
-    public NbtCompound toInitialChunkDataNbt() {
-        return createNbt();
+    public NbtCompound toInitialChunkDataNbt(RegistryWrapper.WrapperLookup registries) {
+        return createComponentlessNbt(registries);
     }
 
     /**

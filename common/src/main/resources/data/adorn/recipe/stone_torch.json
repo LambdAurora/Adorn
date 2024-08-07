@@ -1,0 +1,19 @@
+{
+  "type": "crafting_shaped",
+  "pattern": [
+    "C",
+    "R"
+  ],
+  "key": {
+    "R": {
+      "tag": "c:rods/stone"
+    },
+    "C": {
+      "tag": "minecraft:coals"
+    }
+  },
+  "result": {
+    "id": "adorn:stone_torch",
+    "count": 4
+  }
+}

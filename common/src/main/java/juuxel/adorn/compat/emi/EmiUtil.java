@@ -14,7 +14,7 @@ public final class EmiUtil {
             ingredient.fluid()
                 .getFluids()
                 .stream()
-                .map(fluid -> EmiStack.of(fluid, ingredient.nbt(), amount))
+                .map(fluid -> EmiStack.of(fluid, ingredient.components(), amount))
                 .toList()
         );
     }

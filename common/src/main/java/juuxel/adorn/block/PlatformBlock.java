@@ -59,7 +59,7 @@ public final class PlatformBlock extends Block implements BlockWithDescription, 
     }
 
     @Override
-    public boolean canPathfindThrough(BlockState state, BlockView world, BlockPos pos, NavigationType type) {
+    public boolean canPathfindThrough(BlockState state, NavigationType type) {
         return false;
     }
 

@@ -85,7 +85,7 @@ public abstract class AbstractTableBlock extends CarpetedBlock implements Waterl
     protected abstract VoxelShape getShapeForKey(byte key);
 
     @Override
-    public boolean canPathfindThrough(BlockState state, BlockView world, BlockPos pos, NavigationType type) {
+    public boolean canPathfindThrough(BlockState state, NavigationType type) {
         return false;
     }
 }

@@ -1,8 +1,0 @@
-{
-  "type": "stonecutting",
-  "ingredient": {
-    "item": "minecraft:quartz_block"
-  },
-  "result": "adorn:quartz_platform",
-  "count": 1
-}

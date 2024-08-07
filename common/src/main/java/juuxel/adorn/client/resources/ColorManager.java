@@ -6,6 +6,7 @@ import com.google.gson.JsonParseException;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.DataResult;
 import com.mojang.serialization.JsonOps;
+import com.mojang.serialization.Lifecycle;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import juuxel.adorn.AdornCommon;
 import juuxel.adorn.util.Colors;
@@ -14,7 +15,6 @@ import net.minecraft.resource.ResourceFinder;
 import net.minecraft.resource.ResourceManager;
 import net.minecraft.resource.SinglePreparationResourceReloader;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.dynamic.Codecs;
 import net.minecraft.util.profiler.Profiler;
 import org.slf4j.Logger;
 
@@ -51,7 +51,7 @@ public class ColorManager extends SinglePreparationResourceReloader<Map<Identifi
                 try (var in = resource.getReader()) {
                     jsons.add(gson.fromJson(in, JsonObject.class));
                 } catch (IOException | JsonParseException e) {
-                    LOGGER.error("[Adorn] Could not load color palette resource {} from {}", entry.getKey(), resource.getResourcePackName(), e);
+                    LOGGER.error("[Adorn] Could not load color palette resource {} from {}", entry.getKey(), resource.getPackId(), e);
                 }
             }
         }
@@ -66,13 +66,10 @@ public class ColorManager extends SinglePreparationResourceReloader<Map<Identifi
             var palette = new HashMap<Identifier, ColorPair>();
 
             for (var json : jsons) {
-                var partialPalette = PALETTE_CODEC.parse(JsonOps.INSTANCE, json).get()
-                    .map(Function.identity(), partial -> {
-                        LOGGER.error("[Adorn] Could not parse color palette {}: {}", id, partial.message());
-                        return null;
-                    });
-                if (partialPalette == null) continue;
-                palette.putAll(partialPalette);
+                switch (PALETTE_CODEC.parse(JsonOps.INSTANCE, json)) {
+                    case DataResult.Success(Map<Identifier, ColorPair> partialPalette, Lifecycle lifecycle) -> palette.putAll(partialPalette);
+                    case DataResult.Error<?> error -> LOGGER.error("[Adorn] Could not parse color palette {}: {}", id, error.message());
+                }
             }
 
             palettes.put(id, new ColorPalette(palette));
@@ -108,7 +105,7 @@ public class ColorManager extends SinglePreparationResourceReloader<Map<Identifi
 
         private static final Codec<Integer> COLOR_CODEC =
             Codec.STRING.comapFlatMap(ColorManager::parseHexColor, color -> '#' + HexFormat.of().withUpperCase().toHexDigits(color));
-        public static final Codec<ColorPair> CODEC = Codecs.alternatively(
+        public static final Codec<ColorPair> CODEC = Codec.withAlternative(
             RecordCodecBuilder.create(instance -> instance.group(
                 COLOR_CODEC.fieldOf("bg").forGetter(ColorPair::bg),
                 COLOR_CODEC.optionalFieldOf("fg", DEFAULT_FG).forGetter(ColorPair::bg)

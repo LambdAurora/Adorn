@@ -1,0 +1,10 @@
+{
+  "type": "stonecutting",
+  "ingredient": {
+    "item": "minecraft:oak_planks"
+  },
+  "result": {
+    "id": "adorn:oak_step",
+    "count": 2
+  }
+}

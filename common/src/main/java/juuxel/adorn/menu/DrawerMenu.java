@@ -4,7 +4,7 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.menu.MenuContext;
-import net.minecraft.network.PacketByteBuf;
+import net.minecraft.util.math.BlockPos;
 
 public final class DrawerMenu extends SimpleMenu {
     private static final int WIDTH = 5;
@@ -14,8 +14,7 @@ public final class DrawerMenu extends SimpleMenu {
         super(AdornMenus.DRAWER.get(), syncId, WIDTH, HEIGHT, inventory, playerInventory, context);
     }
 
-    public static DrawerMenu load(int syncId, PlayerInventory playerInventory, PacketByteBuf buf) {
-        var pos = buf.readBlockPos();
+    public static DrawerMenu load(int syncId, PlayerInventory playerInventory, BlockPos pos) {
         var context = MenuContext.create(playerInventory.player.getWorld(), pos);
         return new DrawerMenu(syncId, playerInventory, new SimpleInventory(WIDTH * HEIGHT), context);
     }

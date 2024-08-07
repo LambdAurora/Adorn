@@ -14,7 +14,7 @@
     }
   },
   "result": {
-    "item": "adorn:<mod-prefix><id.path>_step",
+    "id": "adorn:<mod-prefix><id.path>_step",
     "count": 1
   }<recipe-condition>
 }

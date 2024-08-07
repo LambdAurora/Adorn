@@ -47,7 +47,7 @@ public final class ItemGroupBridgeForge implements ItemGroupBridge {
                         var afterStack = new ItemStack(after);
                         for (ItemConvertible item : items) {
                             var stack = new ItemStack(item);
-                            event.getEntries().putAfter(afterStack, stack, DEFAULT_STACK_VISIBILITY);
+                            event.insertAfter(afterStack, stack, DEFAULT_STACK_VISIBILITY);
                             afterStack = stack;
                         }
                     }

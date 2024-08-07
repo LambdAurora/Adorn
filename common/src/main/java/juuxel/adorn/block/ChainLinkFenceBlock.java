@@ -11,7 +11,6 @@ import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
-import net.minecraft.world.BlockView;
 import net.minecraft.world.WorldAccess;
 
 public final class ChainLinkFenceBlock extends PaneBlock implements BlockWithDescription {
@@ -63,7 +62,7 @@ public final class ChainLinkFenceBlock extends PaneBlock implements BlockWithDes
     }
 
     @Override
-    public boolean canPathfindThrough(BlockState state, BlockView world, BlockPos pos, NavigationType type) {
+    public boolean canPathfindThrough(BlockState state, NavigationType type) {
         return false;
     }
 

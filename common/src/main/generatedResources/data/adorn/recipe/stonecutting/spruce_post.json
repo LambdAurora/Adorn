@@ -1,0 +1,10 @@
+{
+  "type": "stonecutting",
+  "ingredient": {
+    "item": "minecraft:spruce_planks"
+  },
+  "result": {
+    "id": "adorn:spruce_post",
+    "count": 2
+  }
+}

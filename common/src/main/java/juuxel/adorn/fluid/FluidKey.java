@@ -1,6 +1,7 @@
 package juuxel.adorn.fluid;
 
 import com.mojang.serialization.Codec;
+import juuxel.adorn.util.EntryOrTag;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.registry.Registries;
@@ -55,11 +56,11 @@ public sealed interface FluidKey permits FluidKeyImpl.Simple, FluidKeyImpl.OfArr
         var size = buf.readVarInt();
 
         if (size == 1) {
-            return new FluidKeyImpl.OfFluid(Registries.FLUID.get(buf.readVarInt()));
+            return new FluidKeyImpl.Simple(new EntryOrTag.OfEntry<>(Registries.FLUID.get(buf.readVarInt())));
         } else {
             List<FluidKeyImpl.Simple> children = new ArrayList<>(size);
             for (int i = 0; i < size; i++) {
-                children.add(new FluidKeyImpl.OfFluid(Registries.FLUID.get(buf.readVarInt())));
+                children.add(new FluidKeyImpl.Simple(new EntryOrTag.OfEntry<>(Registries.FLUID.get(buf.readVarInt()))));
             }
             return new FluidKeyImpl.OfArray(children);
         }

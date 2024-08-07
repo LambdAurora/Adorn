@@ -1,12 +1,12 @@
 [versions]
 dashloader = "2.0-pre2"
-emi = "1.0.21+1.20.2"
-fabric-loader = "0.15.2"
-fabric-api = "0.91.2+1.20.4"
+emi = "1.1.10+1.21"
+fabric-loader = "0.15.11"
+fabric-api = "0.101.2+1.21"
 jankson = "1.2.1"
-modmenu = "9.0.0-pre.1"
-neoforge = "20.4.200"
-rei = "14.0.680"
+modmenu = "11.0.1"
+neoforge = "21.0.163"
+rei = "16.0.744"
 towelette = "e5e39eb"
 
 [libraries]
@@ -23,8 +23,8 @@ dashloader = { module = "net.oskarstrom:DashLoader", version.ref = "dashloader" 
 emi-common = { module = "dev.emi:emi-xplat-intermediary", version.ref = "emi" }
 emi-fabric = { module = "dev.emi:emi-fabric", version.ref = "emi" }
 emi-forge = { module = "dev.emi:emi-forge", version.ref = "emi" }
-jei-fabric = { module = "maven.modrinth:jei", version = "7Qec2BlS" }
-jei-forge = { module = "maven.modrinth:jei", version = "YnRrj5NP" }
+jei-fabric = { module = "maven.modrinth:jei", version = "ev0nR76F" }
+jei-forge = { module = "maven.modrinth:jei", version = "4GyeMvGn" }
 modmenu = { module = "com.terraformersmc:modmenu", version.ref = "modmenu" }
 rei-annotations = { module = "me.shedaniel:REIPluginCompatibilities-forge-annotations", version = "12.0.54" }
 rei-common = { module = "me.shedaniel:RoughlyEnoughItems-api", version.ref = "rei" }

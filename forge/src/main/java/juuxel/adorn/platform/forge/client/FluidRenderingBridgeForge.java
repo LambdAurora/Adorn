@@ -5,9 +5,9 @@ import juuxel.adorn.fluid.FluidReference;
 import juuxel.adorn.fluid.FluidUnit;
 import juuxel.adorn.platform.forge.util.FluidTankReference;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.item.TooltipContext;
 import net.minecraft.client.texture.Sprite;
 import net.minecraft.client.texture.SpriteAtlasTexture;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.registry.Registries;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
@@ -52,11 +52,11 @@ public final class FluidRenderingBridgeForge implements FluidRenderingBridge {
 
     @OnlyIn(Dist.CLIENT)
     @Override
-    public List<Text> getTooltip(FluidReference volume, TooltipContext context, @Nullable Integer maxAmountInLitres) {
+    public List<Text> getTooltip(FluidReference volume, TooltipType type, @Nullable Integer maxAmountInLitres) {
         List<Text> result = new ArrayList<>();
         var fluid = volume.getFluid();
         var stack = FluidTankReference.toFluidStack(volume);
-        var name = stack.getDisplayName();
+        var name = stack.getHoverName();
         result.add(Text.empty().append(name).styled(fluid.getFluidType().getRarity(stack).getStyleModifier()));
 
         if (maxAmountInLitres != null) {
@@ -66,7 +66,7 @@ public final class FluidRenderingBridgeForge implements FluidRenderingBridge {
         }
 
         // Append ID if advanced
-        if (context.isAdvanced()) {
+        if (type.isAdvanced()) {
             result.add(Text.literal(Registries.FLUID.getId(fluid).toString()).formatted(Formatting.DARK_GRAY));
         }
         return result;

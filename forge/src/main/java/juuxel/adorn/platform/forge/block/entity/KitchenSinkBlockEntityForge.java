@@ -4,13 +4,14 @@ import juuxel.adorn.block.entity.KitchenSinkBlockEntity;
 import juuxel.adorn.fluid.FluidReference;
 import juuxel.adorn.platform.forge.util.FluidTankReference;
 import net.minecraft.block.BlockState;
+import net.minecraft.component.type.PotionContentsComponent;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.potion.PotionUtil;
 import net.minecraft.potion.Potions;
+import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.FluidTags;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
@@ -31,7 +32,7 @@ public final class KitchenSinkBlockEntityForge extends KitchenSinkBlockEntity im
         @Override
         public FluidStack drain(int maxDrain, FluidAction action) {
             if (supportsInfiniteExtraction(getWorld(), fluid.getFluid())) {
-                return new FluidStack(fluid, Math.min(getFluidAmount(), maxDrain));
+                return fluid.copyWithAmount(Math.min(getFluidAmount(), maxDrain));
             }
 
             return super.drain(maxDrain, action);
@@ -90,15 +91,14 @@ public final class KitchenSinkBlockEntityForge extends KitchenSinkBlockEntity im
                 // Execute the draining for real this time.
                 tank.drain(BOTTLE_WATER, IFluidHandler.FluidAction.EXECUTE);
                 onPickUp(tankFluid, stack, player);
-                var bottle = new ItemStack(Items.POTION);
-                PotionUtil.setPotion(bottle, Potions.WATER);
+                var bottle = PotionContentsComponent.createStack(Items.POTION, Potions.WATER);
                 setStackOrInsert(player, hand, bottle);
                 return true;
             }
         } else if (stack.isOf(Items.POTION)) {
-            var spaceForWater = tank.isEmpty() || (tank.getFluid().isFluidEqual(BOTTLE_WATER) && tank.getSpace() >= BOTTLE_LITRES);
+            var spaceForWater = tank.isEmpty() || (FluidStack.isSameFluidSameComponents(tank.getFluid(), BOTTLE_WATER) && tank.getSpace() >= BOTTLE_LITRES);
 
-            if (spaceForWater && PotionUtil.getPotion(stack) == Potions.WATER) {
+            if (spaceForWater && isWaterBottle(stack)) {
                 onFill(stack, player);
                 tank.fill(BOTTLE_WATER.copy(), IFluidHandler.FluidAction.EXECUTE);
                 setStackOrInsert(player, hand, new ItemStack(Items.GLASS_BOTTLE));
@@ -143,15 +143,15 @@ public final class KitchenSinkBlockEntityForge extends KitchenSinkBlockEntity im
     }
 
     @Override
-    public void readNbt(NbtCompound nbt) {
-        super.readNbt(nbt);
-        tank.readFromNBT(nbt);
+    public void readNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registries) {
+        super.readNbt(nbt, registries);
+        tank.readFromNBT(registries, nbt);
     }
 
     @Override
-    protected void writeNbt(NbtCompound nbt) {
-        super.writeNbt(nbt);
-        tank.writeToNBT(nbt);
+    protected void writeNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registries) {
+        super.writeNbt(nbt, registries);
+        tank.writeToNBT(registries, nbt);
     }
 
     @Override

@@ -5,6 +5,7 @@ import juuxel.adorn.fluid.FluidReference;
 import juuxel.adorn.fluid.FluidUnit;
 import juuxel.adorn.fluid.FluidVolume;
 import juuxel.adorn.item.AdornItems;
+import juuxel.adorn.networking.BrewerFluidSyncS2CMessage;
 import juuxel.adorn.platform.PlatformBridges;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -117,7 +118,7 @@ public final class BrewerMenu extends Menu {
         var last = lastFluid;
         if (last == null || !FluidReference.areFluidsAndAmountsEqual(fluid, last)) {
             lastFluid = fluid.createSnapshot();
-            PlatformBridges.get().getNetwork().sendBrewerFluidSync(player, syncId, fluid);
+            PlatformBridges.get().getNetwork().sendToClient(player, new BrewerFluidSyncS2CMessage(syncId, fluid.createSnapshot()));
         }
     }
 

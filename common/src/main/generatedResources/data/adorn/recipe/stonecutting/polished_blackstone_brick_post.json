@@ -1,0 +1,10 @@
+{
+  "type": "stonecutting",
+  "ingredient": {
+    "item": "minecraft:polished_blackstone_bricks"
+  },
+  "result": {
+    "id": "adorn:polished_blackstone_brick_post",
+    "count": 2
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "#c:foods/coffee",
+    "#c:foods/milk",
+    "#c:foods/juice",
+    "#c:foods/tea"
+  ]
+}

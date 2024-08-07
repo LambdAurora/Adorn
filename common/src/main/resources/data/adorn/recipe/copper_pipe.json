@@ -1,0 +1,18 @@
+{
+  "type": "crafting_shaped",
+  "pattern": [
+    "NIN"
+  ],
+  "key": {
+    "I": {
+      "tag": "c:ingots/copper"
+    },
+    "N": {
+      "tag": "c:nuggets/copper"
+    }
+  },
+  "result": {
+    "id": "adorn:copper_pipe",
+    "count": 3
+  }
+}

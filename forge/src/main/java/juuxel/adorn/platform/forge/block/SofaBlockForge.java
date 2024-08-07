@@ -18,7 +18,7 @@ public final class SofaBlockForge extends SofaBlock {
     }
 
     @Override
-    public boolean isBed(BlockState state, BlockView world, BlockPos pos, @Nullable Entity player) {
+    public boolean isBed(BlockState state, BlockView level, BlockPos pos, LivingEntity sleeper) {
         return true;
     }
 

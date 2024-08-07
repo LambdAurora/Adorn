@@ -17,6 +17,7 @@ import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.DyeItem;
 import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
@@ -30,6 +31,7 @@ import net.minecraft.util.BlockMirror;
 import net.minecraft.util.BlockRotation;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.ItemActionResult;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -74,17 +76,16 @@ public class SofaBlock extends SeatBlock implements Waterloggable, SneakClickHan
     }
 
     @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        var stack = player.getStackInHand(hand);
+    protected ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (stack.getItem() instanceof DyeItem dye) {
             world.setBlockState(pos, AdornBlocks.SOFAS.get().get(dye.getColor()).getStateWithProperties(state));
             world.playSound(player, pos, SoundEvents.BLOCK_WOOL_PLACE, SoundCategory.BLOCKS, 1f, 0.8f);
             if (!player.getAbilities().creativeMode) stack.decrement(1);
             if (!world.isClient) player.incrementStat(AdornStats.DYE_SOFA);
-            return ActionResult.SUCCESS;
+            return ItemActionResult.success(world.isClient);
         }
 
-        return super.onUse(state, world, pos, player, hand, hit);
+        return super.onUseWithItem(stack, state, world, pos, player, hand, hit);
     }
 
     @Override
@@ -200,7 +201,7 @@ public class SofaBlock extends SeatBlock implements Waterloggable, SneakClickHan
     }
 
     @Override
-    public boolean canPathfindThrough(BlockState state, BlockView world, BlockPos pos, NavigationType type) {
+    public boolean canPathfindThrough(BlockState state, NavigationType type) {
         return false;
     }
 

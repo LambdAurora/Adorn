@@ -3,9 +3,9 @@ package juuxel.adorn.client.book;
 import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import juuxel.adorn.util.MoreCodecs;
 import juuxel.adorn.util.Vec2i;
 import net.minecraft.text.Text;
+import net.minecraft.text.TextCodecs;
 import net.minecraft.util.Identifier;
 
 import java.util.Arrays;
@@ -41,7 +41,7 @@ public record Image(Identifier location, Vec2i size, Placement placement, List<H
         public static final Codec<HoverArea> CODEC = RecordCodecBuilder.create(instance -> instance.group(
             Vec2i.CODEC.fieldOf("position").forGetter(HoverArea::position),
             Vec2i.CODEC.fieldOf("size").forGetter(HoverArea::size),
-            MoreCodecs.TEXT.fieldOf("tooltip").forGetter(HoverArea::tooltip)
+            TextCodecs.CODEC.fieldOf("tooltip").forGetter(HoverArea::tooltip)
         ).apply(instance, HoverArea::new));
 
         public boolean contains(int x, int y) {

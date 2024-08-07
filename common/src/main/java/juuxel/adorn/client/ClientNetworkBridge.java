@@ -2,11 +2,11 @@ package juuxel.adorn.client;
 
 import juuxel.adorn.util.InlineServices;
 import juuxel.adorn.util.Services;
-import net.minecraft.item.ItemStack;
+import net.minecraft.network.packet.CustomPayload;
 
 @InlineServices
 public interface ClientNetworkBridge {
-    void sendSetTradeStack(int syncId, int slotId, ItemStack stack);
+    void sendToServer(CustomPayload payload);
 
     @InlineServices.Getter
     static ClientNetworkBridge get() {
