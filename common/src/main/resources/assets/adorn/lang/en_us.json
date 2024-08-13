@@ -1526,9 +1526,6 @@
   "tag.item.adorn.wooden_posts": "Wooden Posts",
   "tag.item.adorn.wooden_shelves": "Wooden Shelves",
   "tag.item.adorn.wooden_steps": "Wooden Steps",
-  "tag.item.c.crops": "Crops",
-  "tag.item.c.crops.cocoa_bean": "Cocoa Bean Crops",
-  "tag.item.c.crops.nether_wart": "Nether Wart Crops",
   "tag.item.c.foods.berry.glow": "Glow Berry Foods",
   "tag.item.c.foods.berry.sweet": "Sweet Berry Foods",
   "tag.item.c.foods.coffee": "Coffee Foods",
@@ -1538,7 +1535,6 @@
   "tag.item.c.honeycombs": "Honeycombs",
   "tag.item.c.lanterns": "Lanterns",
   "tag.item.c.nuggets.copper": "Copper Nuggets",
-  "tag.item.c.nuggets.iron": "Iron Nuggets",
   "tag.item.c.rods.stone": "Stone Rods",
 
   "category.adorn.brewer": "Brewer",
