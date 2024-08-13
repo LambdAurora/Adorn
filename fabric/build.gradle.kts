@@ -12,10 +12,37 @@ plugins {
 // The path to the AW file in the common subproject.
 val accessWidenerFile = project(":common").file("src/main/resources/adorn.accesswidener")
 
+sourceSets {
+    create("commonData") {
+        compileClasspath += main.get().compileClasspath
+        runtimeClasspath += main.get().runtimeClasspath
+        compileClasspath += main.get().output
+        runtimeClasspath += main.get().output
+    }
+}
+
 loom {
     // Make the Fabric project use the common access widener.
     // Technically useless, BUT this file is also needed at dev runtime of course
     accessWidenerPath.set(accessWidenerFile)
+
+    // Set up run config for data generator
+    mods {
+        register("data") {
+            sourceSet("commonData")
+        }
+    }
+
+    runs {
+        register("commonData") {
+            inherit(getByName("server"))
+            configName = "Common Data Generator"
+            source("commonData")
+            vmArg("-Dfabric-api.datagen")
+            vmArg("-Dfabric-api.datagen.output-dir=${project(":common").file("src/generated/resources")}")
+            runDir("build/commonDataGenerator")
+        }
+    }
 }
 
 emiDataGenerator {

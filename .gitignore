@@ -66,5 +66,4 @@ local.properties
 private.gradle
 
 # Generated sources
-**/src/generated/
 .cache

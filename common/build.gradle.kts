@@ -2,6 +2,12 @@ plugins {
     id("adorn-data-generator")
 }
 
+sourceSets {
+    main {
+        resources.srcDir("src/generated/resources")
+    }
+}
+
 loom {
     accessWidenerPath.set(file("src/main/resources/adorn.accesswidener"))
 }

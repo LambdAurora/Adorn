@@ -37,6 +37,14 @@ public final class AdornBlocks {
         )
     );
 
+    public static final Registered<Map<DyeColor, Block>> PLANKS = AdornUtil.associateLazily(
+        DyeColor.values(),
+        color -> HELPER.registerBlock(
+            color.asString() + "_planks",
+            () -> new Block(BlockVariant.OAK.createSettings().mapColor(color))
+        )
+    );
+
     public static final Registered<Block> BRICK_CHIMNEY = HELPER.registerBlock("brick_chimney",
         () -> new ChimneyBlock(AbstractChimneyBlock.createBlockSettings(MapColor.RED)));
     public static final Registered<Block> STONE_BRICK_CHIMNEY = HELPER.registerBlock("stone_brick_chimney",
