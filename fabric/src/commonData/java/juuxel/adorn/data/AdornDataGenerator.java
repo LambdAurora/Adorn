@@ -8,6 +8,8 @@ public final class AdornDataGenerator implements DataGeneratorEntrypoint {
     @Override
     public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
         var pack = fabricDataGenerator.createPack();
+        pack.addProvider(AdornGeneralDataGenerator::new);
+        pack.addProvider(AdornTagGenerator::new);
         pack.addProvider(AdornBlockLootTableGenerator::new);
         pack.addProvider(AdornModelGenerator::new);
         pack.addProvider(AdornRecipeGenerator::new);

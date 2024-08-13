@@ -38,9 +38,13 @@ loom {
             inherit(getByName("server"))
             configName = "Common Data Generator"
             source("commonData")
-            vmArg("-Dfabric-api.datagen")
-            vmArg("-Dfabric-api.datagen.output-dir=${project(":common").file("src/generated/resources")}")
+            property("fabric-api.datagen")
+            property("fabric-api.datagen.output-dir", project(":common").file("src/generated/resources").absolutePath)
             runDir("build/commonDataGenerator")
+
+            property("adorn.data.mainConfig", project(":common").file("src/data/vanilla.xml").absolutePath)
+            val tagConfigDirs = rootProject.subprojects.map { it.file("src/data") }
+            property("adorn.data.tagConfigDirs", tagConfigDirs.joinToString(",") { it.absolutePath })
         }
     }
 }
@@ -88,6 +92,9 @@ dependencies {
     // Bundle Jankson in the mod and use it as a regular "implementation" library.
     implementation(libs.jankson)
     include(libs.jankson)
+
+    // Data generation
+    "commonDataImplementation"("io.github.juuxel:adorn-data-generator")
 
     // Mod compat
     modCompileOnly(libs.towelette)

@@ -22,6 +22,7 @@ rootProject.name = "adorn"
 // This allows them to be accessed in the plugins block. The plugins are read from the included build automatically
 // if they're requested, so we don't need to do a dependency substitution here.
 includeBuild("build-logic")
+includeBuild("datagen")
 
 include(
     "common",

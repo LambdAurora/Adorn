@@ -1,10 +1,7 @@
-plugins {
-    id("adorn-data-generator")
-}
-
 sourceSets {
     main {
         resources.srcDir("src/generated/resources")
+        resources.exclude(".cache")
     }
 }
 
@@ -23,15 +20,4 @@ dependencies {
     modCompileOnly(libs.emi.common)
     modCompileOnly(libs.jei.fabric)
     compileOnly(libs.rei.annotations)
-}
-
-dataGenerator {
-    generateTags.set(true)
-
-    configs.register("all") {
-        rootProject.subprojects {
-            files.from(fileTree("src/data"))
-        }
-        tagsOnly.set(true)
-    }
 }
