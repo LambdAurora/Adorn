@@ -14,6 +14,7 @@ import net.minecraft.util.math.Direction;
 import org.slf4j.Logger;
 
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
@@ -67,7 +68,12 @@ public final class AdornUtil {
         var map = Suppliers.memoize(
             () -> IntStream.range(0, keys.length)
                 .boxed()
-                .collect(Collectors.toMap(index -> keys[index], index -> values.get(index).get()))
+                .collect(Collectors.toMap(
+                    index -> keys[index],
+                    index -> values.get(index).get(),
+                    (a, b) -> a,
+                    LinkedHashMap::new
+                ))
         );
         return map::get;
     }
