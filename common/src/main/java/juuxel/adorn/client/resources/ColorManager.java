@@ -3,6 +3,7 @@ package juuxel.adorn.client.resources;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
+import com.mojang.datafixers.util.Either;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.DataResult;
 import com.mojang.serialization.JsonOps;
@@ -24,7 +25,6 @@ import java.util.HashMap;
 import java.util.HexFormat;
 import java.util.List;
 import java.util.Map;
-import java.util.function.Function;
 import java.util.regex.Pattern;
 
 public class ColorManager extends SinglePreparationResourceReloader<Map<Identifier, List<JsonObject>>> {
@@ -100,17 +100,22 @@ public class ColorManager extends SinglePreparationResourceReloader<Map<Identifi
         });
     }
 
+    private static String writeHexColor(int color) {
+        var hex = HexFormat.of().withUpperCase().toHexDigits(color);
+        return '#' + (hex.startsWith("00") ? hex.substring(2) : hex);
+    }
+
     public record ColorPair(int bg, int fg) {
         private static final int DEFAULT_FG = Colors.SCREEN_TEXT;
 
         private static final Codec<Integer> COLOR_CODEC =
-            Codec.STRING.comapFlatMap(ColorManager::parseHexColor, color -> '#' + HexFormat.of().withUpperCase().toHexDigits(color));
-        public static final Codec<ColorPair> CODEC = Codec.withAlternative(
+            Codec.STRING.comapFlatMap(ColorManager::parseHexColor, ColorManager::writeHexColor);
+        public static final Codec<ColorPair> CODEC = Codec.<ColorPair, ColorPair>either(
             RecordCodecBuilder.create(instance -> instance.group(
                 COLOR_CODEC.fieldOf("bg").forGetter(ColorPair::bg),
-                COLOR_CODEC.optionalFieldOf("fg", DEFAULT_FG).forGetter(ColorPair::bg)
+                COLOR_CODEC.optionalFieldOf("fg", DEFAULT_FG).forGetter(ColorPair::fg)
             ).apply(instance, ColorPair::new)),
             COLOR_CODEC.xmap(bg -> new ColorPair(bg, DEFAULT_FG), ColorPair::bg)
-        );
+        ).xmap(Either::unwrap, pair -> pair.fg == DEFAULT_FG ? Either.right(pair) : Either.left(pair));
     }
 }
