@@ -15,6 +15,7 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
+import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.registry.OxidizableBlocksRegistry;
 import net.fabricmc.fabric.api.transfer.v1.fluid.FluidStorage;
 import net.minecraft.block.entity.BlockEntity;
@@ -51,6 +52,8 @@ public final class AdornBlocksFabric {
         OxidizableBlocksRegistry.registerWaxableBlockPair(AdornBlocks.EXPOSED_COPPER_PIPE.get(), AdornBlocks.WAXED_EXPOSED_COPPER_PIPE.get());
         OxidizableBlocksRegistry.registerWaxableBlockPair(AdornBlocks.WEATHERED_COPPER_PIPE.get(), AdornBlocks.WAXED_WEATHERED_COPPER_PIPE.get());
         OxidizableBlocksRegistry.registerWaxableBlockPair(AdornBlocks.OXIDIZED_COPPER_PIPE.get(), AdornBlocks.WAXED_OXIDIZED_COPPER_PIPE.get());
+
+        FlammableBlockRegistry.getDefaultInstance().add(AdornTags.PAINTED_PLANKS.block(), 5, 20);
     }
 
     public static void afterRegister() {

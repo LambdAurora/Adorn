@@ -41,7 +41,7 @@ public final class AdornBlocks {
         DyeColor.values(),
         color -> HELPER.registerBlock(
             color.asString() + "_planks",
-            () -> new Block(BlockVariant.OAK.createSettings().mapColor(color))
+            () -> PlatformBridges.get().getBlockFactory().createPaintedPlanks(BlockVariant.OAK.createSettings().mapColor(color))
         )
     );
 
