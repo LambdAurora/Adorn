@@ -1,5 +1,8 @@
 package juuxel.adorn.block.variant;
 
+import com.mojang.datafixers.util.Pair;
+import juuxel.adorn.AdornCommon;
+import juuxel.adorn.block.AdornBlocks;
 import juuxel.adorn.util.AdornUtil;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
@@ -11,18 +14,14 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.EnumMap;
 import java.util.Map;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public interface BlockVariant {
     char MOD_ID_SEPARATOR = '/';
 
-    Map<DyeColor, BlockVariant> WOOLS = Collections.unmodifiableMap(
-        new EnumMap<DyeColor, BlockVariant>(
-            Arrays.stream(DyeColor.values())
-                .map(color -> Map.entry(color, variant(color.asString(), Blocks.WHITE_WOOL)))
-                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue))
-        )
-    );
+    Map<DyeColor, BlockVariant> WOOLS = createBy(DyeColor.values(), color -> variant(color.asString(), Blocks.WHITE_WOOL));
+    Map<DyeColor, BlockVariant> PAINTED_WOODS = createBy(DyeColor.values(), PaintedWood::new);
 
     BlockVariant IRON = variant("iron", Blocks.IRON_BARS);
     BlockVariant OAK = variant("oak", Blocks.OAK_PLANKS);
@@ -106,6 +105,21 @@ public interface BlockVariant {
         return WOOLS.get(color);
     }
 
+    @SuppressWarnings("unchecked")
+    private static <K extends Enum<K>> Map<K, BlockVariant> createBy(K[] keys, Function<K, BlockVariant> factory) {
+        Class<K> keyType = (Class<K>) keys[0].getClass();
+        return Collections.unmodifiableMap(
+            Arrays.stream(keys)
+                .map(key -> Pair.of(key, factory.apply(key)))
+                .collect(Collectors.toMap(
+                    Pair::getFirst,
+                    Pair::getSecond,
+                    (a, b) -> a,
+                    () -> new EnumMap<>(keyType)
+                ))
+        );
+    }
+
     record Wood(String name) implements BlockVariant {
         @Override
         public AbstractBlock.Settings createSettings() {
@@ -117,6 +131,23 @@ public interface BlockVariant {
         @Override
         public AbstractBlock.Settings createSettings() {
             return AdornUtil.copySettingsSafely(Blocks.COBBLESTONE);
+        }
+    }
+
+    record PaintedWood(DyeColor color) implements BlockVariant {
+        @Override
+        public String name() {
+            return color.getName();
+        }
+
+        @Override
+        public Identifier nameAsIdentifier() {
+            return AdornCommon.id(name());
+        }
+
+        @Override
+        public AbstractBlock.Settings createSettings() {
+            return AdornUtil.copySettingsSafely(AdornBlocks.PAINTED_PLANKS.getEager(color));
         }
     }
 }

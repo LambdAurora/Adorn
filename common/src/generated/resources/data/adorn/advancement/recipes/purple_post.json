@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "adorn:purple_post"
+    ]
+  },
+  "criteria": {
+    "has_purple_planks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "adorn:purple_planks"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "adorn:purple_post"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_purple_planks",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "adorn:magenta_post"
+    ]
+  },
+  "criteria": {
+    "has_magenta_planks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "adorn:magenta_planks"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "adorn:magenta_post"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_magenta_planks",
+      "has_the_recipe"
+    ]
+  ]
+}

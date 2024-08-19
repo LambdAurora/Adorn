@@ -1,0 +1,8 @@
+{
+  "parent": "adorn:item/templates/bench",
+  "textures": {
+    "planks": "adorn:block/lime_planks",
+    "log": "adorn:block/lime_planks",
+    "end": "adorn:block/lime_planks"
+  }
+}

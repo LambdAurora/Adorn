@@ -1,0 +1,20 @@
+{
+  "type": "crafting_shaped",
+  "group": "adorn:platform",
+  "pattern": [
+    "S",
+    "P"
+  ],
+  "key": {
+    "S": {
+      "item": "adorn:orange_wood_slab"
+    },
+    "P": {
+      "item": "adorn:orange_post"
+    }
+  },
+  "result": {
+    "id": "adorn:orange_platform",
+    "count": 2
+  }
+}

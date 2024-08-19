@@ -38,13 +38,13 @@ public final class GeneratorConfigLoader {
         var stones = getElementStreamByTagName(root, Tags.STONE)
             .map(GeneratorConfigLoader::readStone)
             .collect(Collectors.toCollection(LinkedHashSet::new));
-        var wools = Boolean.parseBoolean(root.getAttribute(Attributes.WOOL)) ? ColorMaterial.values() : new ColorMaterial[0];
+        var colors = Boolean.parseBoolean(root.getAttribute(Attributes.COLOR)) ? ColorMaterial.values() : new ColorMaterial[0];
         var conditionType = ConditionType.parse(root.getAttribute(Attributes.CONDITION_TYPE));
         if (conditionType == null) throw new IllegalArgumentException("Unknown condition type in %s: %s".formatted(path, root.getAttribute(Attributes.CONDITION_TYPE)));
         var rootReplacements = getReplacements(root);
         return new GeneratorConfig(
             woods, stones,
-            Arrays.stream(wools)
+            Arrays.stream(colors)
                 .map(material -> new GeneratorConfig.MaterialEntry<>(material, Set.of(), Map.of()))
                 .collect(Collectors.toCollection(LinkedHashSet::new)),
             conditionType,
@@ -80,7 +80,7 @@ public final class GeneratorConfigLoader {
         // parseBoolean is luckily false by default (so also for empty strings)
         var fungus = Boolean.parseBoolean(element.getAttribute(Attributes.FUNGUS));
         var nonFlammable = Boolean.parseBoolean(element.getAttribute(Attributes.NON_FLAMMABLE));
-        return readMaterialEntry(element, new WoodMaterial(id, fungus, nonFlammable));
+        return readMaterialEntry(element, new SimpleWoodMaterial(id, fungus, nonFlammable));
     }
 
     private static GeneratorConfig.MaterialEntry<StoneMaterial> readStone(Element element) {
@@ -108,7 +108,7 @@ public final class GeneratorConfigLoader {
 
     private static final class Attributes {
         static final String CONDITION_TYPE = "condition_type";
-        static final String WOOL = "wool";
+        static final String COLOR = "color";
         static final String ID = "id";
         static final String FUNGUS = "fungus";
         static final String NON_FLAMMABLE = "non_flammable";

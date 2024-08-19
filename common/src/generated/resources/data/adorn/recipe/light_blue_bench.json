@@ -1,0 +1,17 @@
+{
+  "type": "crafting_shaped",
+  "group": "adorn:bench",
+  "pattern": [
+    "SSS",
+    "S S"
+  ],
+  "key": {
+    "S": {
+      "item": "adorn:light_blue_wood_slab"
+    }
+  },
+  "result": {
+    "id": "adorn:light_blue_bench",
+    "count": 2
+  }
+}

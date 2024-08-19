@@ -21,7 +21,7 @@ import java.util.TreeSet;
 import java.util.stream.Collectors;
 
 public abstract class GenerateEmi extends DefaultTask {
-    private static final String RECIPE_DIR = "/data/adorn/recipes/";
+    private static final String RECIPE_DIR = "/data/adorn/recipe/";
 
     @InputFiles
     public abstract ConfigurableFileCollection getRecipes();
@@ -86,7 +86,7 @@ public abstract class GenerateEmi extends DefaultTask {
         var type = fixType(recipeJson.get("type").toString());
         return switch (type) {
             case "minecraft:crafting_shaped", "minecraft:crafting_shapeless", "adorn:brewing", "adorn:brewing_from_fluid" ->
-                ((Map<String, ?>) recipeJson.get("result")).get("item").toString();
+                ((Map<String, ?>) recipeJson.get("result")).get("id").toString();
 
             case "minecraft:stonecutting" -> recipeJson.get("result").toString();
             case "adorn:fertilizer_refilling" -> null;

@@ -1,0 +1,20 @@
+{
+  "type": "crafting_shaped",
+  "group": "adorn:platform",
+  "pattern": [
+    "S",
+    "P"
+  ],
+  "key": {
+    "S": {
+      "item": "adorn:lime_wood_slab"
+    },
+    "P": {
+      "item": "adorn:lime_post"
+    }
+  },
+  "result": {
+    "id": "adorn:lime_platform",
+    "count": 2
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "type": "crafting_shaped",
+  "group": "adorn:coffee_table",
+  "pattern": [
+    "S-S",
+    "# #"
+  ],
+  "key": {
+    "S": {
+      "item": "adorn:red_wood_slab"
+    },
+    "#": {
+      "tag": "c:rods/wooden"
+    },
+    "-": {
+      "tag": "c:glass_panes"
+    }
+  },
+  "result": {
+    "id": "adorn:red_coffee_table",
+    "count": 2
+  }
+}

@@ -83,7 +83,7 @@ public final class TagGenerator {
             .<GeneratorConfig.MaterialEntry<?>>mapMulti((config, sink) -> {
                 config.woods().forEach(sink);
                 config.stones().forEach(sink);
-                config.wools().forEach(sink);
+                config.colors().forEach(sink);
             })
             .<Material>map(GeneratorConfig.MaterialEntry::material)
             .filter(DataUtil.distinctBy(Material::getId))

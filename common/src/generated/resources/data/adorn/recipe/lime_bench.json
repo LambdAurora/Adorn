@@ -1,0 +1,17 @@
+{
+  "type": "crafting_shaped",
+  "group": "adorn:bench",
+  "pattern": [
+    "SSS",
+    "S S"
+  ],
+  "key": {
+    "S": {
+      "item": "adorn:lime_wood_slab"
+    }
+  },
+  "result": {
+    "id": "adorn:lime_bench",
+    "count": 2
+  }
+}

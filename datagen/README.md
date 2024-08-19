@@ -68,7 +68,7 @@ Each data generator config file is an XML file in `<project dir>/src/data` with 
     - `condition_type`: which type of conditions for conditional data loading to generate
       for modded compat content
       - Values: `none` (default), `fabric`, `forge`
-    - `wool`: whether to include the wool material, this is intended for the common subproject only
+    - `color`: whether to include the colour materials, this is intended for the common subproject only
       - Values: `true`, `false` (default)
 - Material tags
   - Nested directly in the root tag

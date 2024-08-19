@@ -1,0 +1,10 @@
+{
+  "type": "stonecutting",
+  "ingredient": {
+    "item": "adorn:light_gray_planks"
+  },
+  "result": {
+    "id": "adorn:light_gray_step",
+    "count": 2
+  }
+}

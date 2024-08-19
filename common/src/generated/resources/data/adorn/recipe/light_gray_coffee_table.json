@@ -1,0 +1,23 @@
+{
+  "type": "crafting_shaped",
+  "group": "adorn:coffee_table",
+  "pattern": [
+    "S-S",
+    "# #"
+  ],
+  "key": {
+    "S": {
+      "item": "adorn:light_gray_wood_slab"
+    },
+    "#": {
+      "tag": "c:rods/wooden"
+    },
+    "-": {
+      "tag": "c:glass_panes"
+    }
+  },
+  "result": {
+    "id": "adorn:light_gray_coffee_table",
+    "count": 2
+  }
+}

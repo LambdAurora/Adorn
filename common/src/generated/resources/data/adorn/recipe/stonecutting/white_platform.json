@@ -1,0 +1,10 @@
+{
+  "type": "stonecutting",
+  "ingredient": {
+    "item": "adorn:white_planks"
+  },
+  "result": {
+    "id": "adorn:white_platform",
+    "count": 1
+  }
+}

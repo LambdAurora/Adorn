@@ -1,6 +1,6 @@
 package juuxel.adorn.datagen;
 
-public enum ColorMaterial implements Material {
+public enum ColorMaterial implements Material, WoodMaterial {
     WHITE("white"),
     ORANGE("orange"),
     MAGENTA("magenta"),
@@ -20,10 +20,14 @@ public enum ColorMaterial implements Material {
 
     private final Id id;
     private final Id wool;
+    private final Id planks;
+    private final Id slab;
 
     ColorMaterial(String color) {
         this.id = new Id("minecraft", color);
         this.wool = id.suffixed("wool");
+        this.planks = new Id("adorn", color + "_planks");
+        this.slab = new Id("adorn", color + "_wood_slab");
     }
 
     @Override
@@ -37,12 +41,32 @@ public enum ColorMaterial implements Material {
     }
 
     @Override
+    public Id getPlanks() {
+        return planks;
+    }
+
+    @Override
+    public Id getSlab() {
+        return slab;
+    }
+
+    @Override
+    public boolean isNonFlammable() {
+        return false;
+    }
+
+    @Override
     public String getSnowflake() {
-        return "wool/" + id;
+        return "color/" + id;
     }
 
     @Override
     public void appendTemplates(TemplateContext context) {
         context.set("wool", wool);
+        context.set("main-texture", "<planks.namespace>:block/%s_planks".formatted(this.id.path()));
+        context.set("planks", this.planks);
+        context.set("slab", this.slab);
+        context.set("log_side", "<main-texture>");
+        context.set("log_end", "<main-texture>");
     }
 }

@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "adorn:brown_post"
+    ]
+  },
+  "criteria": {
+    "has_brown_planks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "adorn:brown_planks"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "adorn:brown_post"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_brown_planks",
+      "has_the_recipe"
+    ]
+  ]
+}

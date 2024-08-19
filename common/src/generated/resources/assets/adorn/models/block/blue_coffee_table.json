@@ -1,0 +1,8 @@
+{
+  "parent": "adorn:block/templates/coffee_table",
+  "textures": {
+    "planks": "adorn:block/blue_planks",
+    "leg": "adorn:block/blue_planks",
+    "rim": "adorn:block/blue_planks"
+  }
+}

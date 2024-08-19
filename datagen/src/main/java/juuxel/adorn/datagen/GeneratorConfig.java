@@ -6,7 +6,7 @@ import java.util.Set;
 public record GeneratorConfig(
     Set<MaterialEntry<WoodMaterial>> woods,
     Set<MaterialEntry<StoneMaterial>> stones,
-    Set<MaterialEntry<ColorMaterial>> wools,
+    Set<MaterialEntry<ColorMaterial>> colors,
     ConditionType conditionType,
     Map<String, String> rootReplacements
 ) {

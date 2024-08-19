@@ -4,6 +4,7 @@ import juuxel.adorn.AdornCommon;
 import juuxel.adorn.block.AdornBlocks;
 import juuxel.adorn.block.variant.BlockKind;
 import juuxel.adorn.block.variant.BlockVariant;
+import juuxel.adorn.block.variant.BlockVariantSet;
 import juuxel.adorn.block.variant.BlockVariantSets;
 import juuxel.adorn.config.ConfigManager;
 import juuxel.adorn.item.AdornItems;
@@ -51,7 +52,7 @@ public final class AdornItemGroups {
         BlockKind.BENCH
     );
 
-    private static final List<DyeColor> DYE_COLORS_IN_ORDER = List.of(
+    public static final List<DyeColor> DYE_COLORS_IN_ORDER = List.of(
         DyeColor.WHITE,
         DyeColor.LIGHT_GRAY,
         DyeColor.GRAY,
@@ -119,6 +120,9 @@ public final class AdornItemGroups {
         var itemGroups = ItemGroupBridge.get();
         itemGroups.addItems(ItemGroups.BUILDING_BLOCKS, context -> {
             for (var variant : BlockVariantSets.allVariants()) {
+                // Skip painted woods, they're added to the coloured blocks group instead.
+                if (variant instanceof BlockVariant.PaintedWood) continue;
+
                 var after = findLastBuildingBlockEntry(variant);
 
                 if (after != null) {
@@ -162,13 +166,17 @@ public final class AdornItemGroups {
         var hasAllKinds = kinds.equals(Arrays.asList(BlockKind.values()));
 
         for (var variant : BlockVariantSets.allVariants()) {
-            addByKinds(context, variant, kinds);
-        }
-
-        if (hasAllKinds) {
-            for (ItemConvertible item : getPaintedWood()) {
-                context.add(item);
+            if (hasAllKinds && variant instanceof BlockVariant.PaintedWood(var color)) {
+                context.add(AdornBlocks.PAINTED_PLANKS.get(color));
+                context.add(AdornBlocks.PAINTED_WOOD_STAIRS.get(color));
+                context.add(AdornBlocks.PAINTED_WOOD_SLABS.get(color));
+                context.add(AdornBlocks.PAINTED_WOOD_FENCES.get(color));
+                context.add(AdornBlocks.PAINTED_WOOD_FENCE_GATES.get(color));
+                context.add(AdornBlocks.PAINTED_WOOD_PRESSURE_PLATES.get(color));
+                context.add(AdornBlocks.PAINTED_WOOD_BUTTONS.get(color));
             }
+
+            addByKinds(context, variant, kinds);
         }
     }
 
@@ -190,6 +198,13 @@ public final class AdornItemGroups {
             addColored(context, AdornBlocks.PAINTED_WOOD_FENCE_GATES);
             addColored(context, AdornBlocks.PAINTED_WOOD_PRESSURE_PLATES);
             addColored(context, AdornBlocks.PAINTED_WOOD_BUTTONS);
+
+            for (BlockKind kind : BlockKind.values()) {
+                for (DyeColor color : DYE_COLORS_IN_ORDER) {
+                    var item = BlockVariantSets.get(kind, BlockVariant.PAINTED_WOODS.get(color));
+                    if (item != null) context.add(item);
+                }
+            }
         }
         context.add(AdornBlocks.CANDLELIT_LANTERN);
         addColored(context, AdornBlocks.DYED_CANDLELIT_LANTERNS);

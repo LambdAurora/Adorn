@@ -20,7 +20,6 @@ public abstract class EmiDataGeneratorExtension {
     public void setupForPlatform(@Nullable File generatedResources) {
         var project = getProject();
         project.getTasks().named("generateEmi", GenerateEmi.class, task -> {
-            task.mustRunAfter(project.project(":common").getTasks().named("generateData"));
             var resourceDirs = new ArrayList<>(getSourceSets(project.project(":common")).getByName("main").getResources().getSrcDirs());
             resourceDirs.addAll(getSourceSets(project).getByName("main").getResources().getSrcDirs());
 
@@ -29,11 +28,11 @@ public abstract class EmiDataGeneratorExtension {
                 if (dir.equals(generatedResources)) continue;
 
                 task.getRecipes().from(project.fileTree(dir, tree -> {
-                    tree.include("data/adorn/recipes/**");
+                    tree.include("data/adorn/recipe/**");
 
                     // The unpacking recipes create "uncraftable" vanilla items like
                     // nether wart, so exclude them.
-                    tree.exclude("data/adorn/recipes/crates/unpack/**");
+                    tree.exclude("data/adorn/recipe/crates/unpack/**");
                 }));
             }
         });

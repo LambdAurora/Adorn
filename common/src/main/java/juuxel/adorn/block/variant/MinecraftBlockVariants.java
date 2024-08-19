@@ -1,23 +1,38 @@
 package juuxel.adorn.block.variant;
 
+import juuxel.adorn.item.group.AdornItemGroups;
+
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 
 public final class MinecraftBlockVariants implements BlockVariantSet {
     @Override
     public List<BlockVariant> getWoodVariants() {
-        return List.of(
-            BlockVariant.OAK,
-            BlockVariant.SPRUCE,
-            BlockVariant.BIRCH,
-            BlockVariant.JUNGLE,
-            BlockVariant.ACACIA,
-            BlockVariant.DARK_OAK,
-            BlockVariant.MANGROVE,
-            BlockVariant.CHERRY,
-            BlockVariant.BAMBOO,
-            BlockVariant.CRIMSON,
-            BlockVariant.WARPED
+        List<BlockVariant> result = new ArrayList<>();
+        result.add(BlockVariant.OAK);
+        result.add(BlockVariant.SPRUCE);
+        result.add(BlockVariant.BIRCH);
+        result.add(BlockVariant.JUNGLE);
+        result.add(BlockVariant.ACACIA);
+        result.add(BlockVariant.DARK_OAK);
+        result.add(BlockVariant.MANGROVE);
+        result.add(BlockVariant.CHERRY);
+        result.add(BlockVariant.BAMBOO);
+        result.add(BlockVariant.CRIMSON);
+        result.add(BlockVariant.WARPED);
+        result.addAll(
+            BlockVariant.PAINTED_WOODS
+                .entrySet()
+                .stream()
+                .sorted(Map.Entry.comparingByKey(
+                    Comparator.comparingInt(AdornItemGroups.DYE_COLORS_IN_ORDER::indexOf)
+                ))
+                .map(Map.Entry::getValue)
+                .toList()
         );
+        return result;
     }
 
     @Override

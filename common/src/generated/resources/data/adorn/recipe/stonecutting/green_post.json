@@ -1,0 +1,10 @@
+{
+  "type": "stonecutting",
+  "ingredient": {
+    "item": "adorn:green_planks"
+  },
+  "result": {
+    "id": "adorn:green_post",
+    "count": 2
+  }
+}

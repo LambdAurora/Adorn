@@ -35,7 +35,8 @@ public final class DataGenerator {
             config
         );
         generate(output, Generator.WOOD_GENERATORS, config.woods(), cache, config);
-        generate(output, Generator.WOOL_GENERATORS, config.wools(), cache, config);
+        generate(output, Generator.WOOD_GENERATORS, config.colors(), cache, config);
+        generate(output, Generator.WOOL_GENERATORS, config.colors(), cache, config);
     }
 
     private static <M extends Material> void generate(DataOutput dataOutput, List<Generator> gens, Iterable<GeneratorConfig.MaterialEntry<M>> mats, TemplateCache templateCache, GeneratorConfig config) {
