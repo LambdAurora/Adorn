@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "wooden_slab",
+  "key": {
+    "#": {
+      "tag": "minecraft:wooden_slabs"
+    },
+    "*": {
+      "tag": "c:dyes/light_blue"
+    }
+  },
+  "pattern": [
+    "###",
+    "#*#",
+    "###"
+  ],
+  "result": {
+    "count": 8,
+    "id": "adorn:light_blue_wood_slab"
+  }
+}

@@ -37,11 +37,19 @@ public final class AdornBlocks {
         )
     );
 
-    public static final Registered<Map<DyeColor, Block>> PLANKS = AdornUtil.associateLazily(
+    public static final Registered<Map<DyeColor, Block>> PAINTED_PLANKS = AdornUtil.associateLazily(
         DyeColor.values(),
         color -> HELPER.registerBlock(
             color.asString() + "_planks",
             () -> PlatformBridges.get().getBlockFactory().createPaintedPlanks(BlockVariant.OAK.createSettings().mapColor(color))
+        )
+    );
+
+    public static final Registered<Map<DyeColor, Block>> PAINTED_WOOD_SLABS = AdornUtil.associateLazily(
+        DyeColor.values(),
+        color -> HELPER.registerBlock(
+            color.asString() + "_wood_slab",
+            () -> PlatformBridges.get().getBlockFactory().createPaintedWoodSlab(BlockVariant.OAK.createSettings().mapColor(color))
         )
     );
 

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "wooden_slabs",
+  "key": {
+    "#": {
+      "item": "adorn:gray_planks"
+    }
+  },
+  "pattern": [
+    "###"
+  ],
+  "result": {
+    "count": 6,
+    "id": "adorn:gray_wood_slab"
+  }
+}

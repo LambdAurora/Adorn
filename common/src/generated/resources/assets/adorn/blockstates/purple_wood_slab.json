@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "adorn:block/purple_wood_slab"
+    },
+    "type=double": {
+      "model": "adorn:block/purple_planks"
+    },
+    "type=top": {
+      "model": "adorn:block/purple_wood_slab_top"
+    }
+  }
+}

@@ -54,6 +54,7 @@ public final class AdornBlocksFabric {
         OxidizableBlocksRegistry.registerWaxableBlockPair(AdornBlocks.OXIDIZED_COPPER_PIPE.get(), AdornBlocks.WAXED_OXIDIZED_COPPER_PIPE.get());
 
         FlammableBlockRegistry.getDefaultInstance().add(AdornTags.PAINTED_PLANKS.block(), 5, 20);
+        FlammableBlockRegistry.getDefaultInstance().add(AdornTags.PAINTED_WOOD_SLABS.block(), 5, 20);
     }
 
     public static void afterRegister() {

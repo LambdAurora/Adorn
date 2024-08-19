@@ -7,8 +7,11 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.world.BlockView;
 
 public final class PaintedPlanksBlockNeo extends Block {
-    public PaintedPlanksBlockNeo(Settings arg) {
-        super(arg);
+    public static final int BURN_CHANCE = 5;
+    public static final int SPREAD_CHANCE = 20;
+
+    public PaintedPlanksBlockNeo(Settings settings) {
+        super(settings);
     }
 
     // getFireSpreadSpeed = burnChance
@@ -16,11 +19,11 @@ public final class PaintedPlanksBlockNeo extends Block {
 
     @Override
     public int getFireSpreadSpeed(BlockState state, BlockView level, BlockPos pos, Direction direction) {
-        return 5;
+        return BURN_CHANCE;
     }
 
     @Override
     public int getFlammability(BlockState state, BlockView level, BlockPos pos, Direction direction) {
-        return 20;
+        return SPREAD_CHANCE;
     }
 }

@@ -17,7 +17,9 @@ public final class AdornItemTagGenerator extends FabricTagProvider.ItemTagProvid
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
         copy(AdornTags.PAINTED_PLANKS);
+        copy(AdornTags.PAINTED_WOOD_SLABS);
         copy(BlockTags.PLANKS, ItemTags.PLANKS);
+        copy(BlockTags.WOODEN_SLABS, ItemTags.WOODEN_SLABS);
     }
 
     private void copy(AdornTags.TagPair tagPair) {
