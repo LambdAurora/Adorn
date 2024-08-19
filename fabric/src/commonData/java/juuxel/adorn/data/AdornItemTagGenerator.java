@@ -19,9 +19,13 @@ public final class AdornItemTagGenerator extends FabricTagProvider.ItemTagProvid
         copy(AdornTags.PAINTED_PLANKS);
         copy(AdornTags.PAINTED_WOOD_SLABS);
         copy(AdornTags.PAINTED_WOOD_STAIRS);
+        copy(AdornTags.PAINTED_WOOD_FENCES);
+        copy(AdornTags.PAINTED_WOOD_FENCE_GATES);
         copy(BlockTags.PLANKS, ItemTags.PLANKS);
         copy(BlockTags.WOODEN_SLABS, ItemTags.WOODEN_SLABS);
         copy(BlockTags.WOODEN_STAIRS, ItemTags.WOODEN_STAIRS);
+        copy(BlockTags.WOODEN_FENCES, ItemTags.WOODEN_FENCES);
+        copy(BlockTags.FENCE_GATES, ItemTags.FENCE_GATES);
     }
 
     private void copy(AdornTags.TagPair tagPair) {

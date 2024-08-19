@@ -30,6 +30,10 @@ public final class AdornRecipeGenerator extends FabricRecipeProvider {
         AdornBlocks.PAINTED_WOOD_SLABS.get().forEach((color, block) -> offerSlabDyeingRecipe(exporter, block, color));
         AdornBlocks.PAINTED_WOOD_STAIRS.get().forEach((color, block) -> offerPaintedStairsRecipe(exporter, block, color));
         AdornBlocks.PAINTED_WOOD_STAIRS.get().forEach((color, block) -> offerStairDyeingRecipe(exporter, block, color));
+        AdornBlocks.PAINTED_WOOD_FENCES.get().forEach((color, block) -> offerPaintedFenceRecipe(exporter, block, color));
+        AdornBlocks.PAINTED_WOOD_FENCES.get().forEach((color, block) -> offerFenceDyeingRecipe(exporter, block, color));
+        AdornBlocks.PAINTED_WOOD_FENCE_GATES.get().forEach((color, block) -> offerPaintedFenceGateRecipe(exporter, block, color));
+        AdornBlocks.PAINTED_WOOD_FENCE_GATES.get().forEach((color, block) -> offerFenceGateDyeingRecipe(exporter, block, color));
     }
 
     private static void offerPlankDyeingRecipe(RecipeExporter exporter, ItemConvertible output, DyeColor color) {
@@ -58,6 +62,30 @@ public final class AdornRecipeGenerator extends FabricRecipeProvider {
 
     private static void offerStairDyeingRecipe(RecipeExporter exporter, ItemConvertible output, DyeColor color) {
         offerDyeingRecipe(exporter, output, color, ItemTags.WOODEN_STAIRS, "stairs", true);
+    }
+
+    private static void offerPaintedFenceRecipe(RecipeExporter exporter, ItemConvertible output, DyeColor color) {
+        var planks = AdornBlocks.PAINTED_PLANKS.get().get(color);
+        createFenceRecipe(output, Ingredient.ofItems(planks))
+            .group("wooden_fence")
+            .criterion("has_planks", conditionsFromItem(planks))
+            .offerTo(exporter);
+    }
+
+    private static void offerFenceDyeingRecipe(RecipeExporter exporter, ItemConvertible output, DyeColor color) {
+        offerDyeingRecipe(exporter, output, color, ItemTags.WOODEN_FENCES, "fence", true);
+    }
+
+    private static void offerPaintedFenceGateRecipe(RecipeExporter exporter, ItemConvertible output, DyeColor color) {
+        var planks = AdornBlocks.PAINTED_PLANKS.get().get(color);
+        createFenceGateRecipe(output, Ingredient.ofItems(planks))
+            .group("wooden_fence")
+            .criterion("has_planks", conditionsFromItem(planks))
+            .offerTo(exporter);
+    }
+
+    private static void offerFenceGateDyeingRecipe(RecipeExporter exporter, ItemConvertible output, DyeColor color) {
+        offerDyeingRecipe(exporter, output, color, ItemTags.FENCE_GATES, "fence_gate", true);
     }
 
     private static void offerDyeingRecipe(RecipeExporter exporter, ItemConvertible output, DyeColor color, TagKey<Item> ingredient, String kind, boolean suffix) {

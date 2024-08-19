@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "wooden_fence_gate",
+  "key": {
+    "#": {
+      "tag": "minecraft:fence_gates"
+    },
+    "*": {
+      "tag": "c:dyes/brown"
+    }
+  },
+  "pattern": [
+    "###",
+    "#*#",
+    "###"
+  ],
+  "result": {
+    "count": 8,
+    "id": "adorn:brown_wood_fence_gate"
+  }
+}

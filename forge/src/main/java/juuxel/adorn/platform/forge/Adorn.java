@@ -1,8 +1,10 @@
 package juuxel.adorn.platform.forge;
 
+import juuxel.adorn.AdornBlockSetTypes;
 import juuxel.adorn.AdornCommon;
 import juuxel.adorn.block.AdornBlockEntities;
 import juuxel.adorn.block.AdornBlocks;
+import juuxel.adorn.block.AdornWoodTypes;
 import juuxel.adorn.block.variant.BlockVariantSets;
 import juuxel.adorn.component.AdornComponentTypes;
 import juuxel.adorn.config.ConfigManager;
@@ -42,6 +44,8 @@ public final class Adorn {
         modBus.addListener(this::init);
         register(AdornComponentTypes.DATA_COMPONENT_TYPES, modBus);
         register(AdornSounds.SOUNDS, modBus);
+        AdornBlockSetTypes.init();
+        AdornWoodTypes.init();
         register(AdornBlocks.BLOCKS, modBus);
         register(AdornBlocks.ITEMS, modBus);
         register(AdornItems.ITEMS, modBus);

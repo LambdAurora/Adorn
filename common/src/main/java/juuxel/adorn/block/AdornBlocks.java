@@ -64,6 +64,25 @@ public final class AdornBlocks {
         }
     );
 
+    public static final Registered<Map<DyeColor, Block>> PAINTED_WOOD_FENCES = AdornUtil.associateLazily(
+        DyeColor.values(),
+        color -> HELPER.registerBlock(
+            color.asString() + "_wood_fence",
+            () -> PlatformBridges.get().getBlockFactory().createPaintedWoodFence(BlockVariant.OAK.createSettings().mapColor(color))
+        )
+    );
+
+    public static final Registered<Map<DyeColor, Block>> PAINTED_WOOD_FENCE_GATES = AdornUtil.associateLazily(
+        DyeColor.values(),
+        color -> HELPER.registerBlock(
+            color.asString() + "_wood_fence_gate",
+            () -> PlatformBridges.get().getBlockFactory().createPaintedWoodFenceGate(
+                AdornWoodTypes.PAINTED_WOODS.get(color),
+                BlockVariant.OAK.createSettings().mapColor(color)
+            )
+        )
+    );
+
     public static final Registered<Block> BRICK_CHIMNEY = HELPER.registerBlock("brick_chimney",
         () -> new ChimneyBlock(AbstractChimneyBlock.createBlockSettings(MapColor.RED)));
     public static final Registered<Block> STONE_BRICK_CHIMNEY = HELPER.registerBlock("stone_brick_chimney",

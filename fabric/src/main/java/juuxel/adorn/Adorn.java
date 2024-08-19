@@ -2,6 +2,7 @@ package juuxel.adorn;
 
 import juuxel.adorn.block.AdornBlockEntities;
 import juuxel.adorn.block.AdornBlocks;
+import juuxel.adorn.block.AdornWoodTypes;
 import juuxel.adorn.block.variant.BlockVariantSets;
 import juuxel.adorn.client.AdornClientNetworking;
 import juuxel.adorn.client.ClientEvents;
@@ -35,6 +36,8 @@ public final class Adorn {
         ConfigManager.get().init();
         AdornComponentTypes.init();
         AdornSounds.init();
+        AdornBlockSetTypes.init();
+        AdornWoodTypes.init();
         AdornBlocks.init();
         AdornBlocksFabric.init();
         AdornBlockEntities.init();

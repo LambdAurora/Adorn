@@ -89,6 +89,8 @@ public final class AdornItemGroups {
                         addColored(context, AdornBlocks.PAINTED_PLANKS.get());
                         addColored(context, AdornBlocks.PAINTED_WOOD_STAIRS.get());
                         addColored(context, AdornBlocks.PAINTED_WOOD_SLABS.get());
+                        addColored(context, AdornBlocks.PAINTED_WOOD_FENCES.get());
+                        addColored(context, AdornBlocks.PAINTED_WOOD_FENCE_GATES.get());
                     }
                 }
                 addColoredBlocks(context, false);
@@ -182,6 +184,8 @@ public final class AdornItemGroups {
             addColored(context, AdornBlocks.PAINTED_PLANKS.get());
             addColored(context, AdornBlocks.PAINTED_WOOD_STAIRS.get());
             addColored(context, AdornBlocks.PAINTED_WOOD_SLABS.get());
+            addColored(context, AdornBlocks.PAINTED_WOOD_FENCES.get());
+            addColored(context, AdornBlocks.PAINTED_WOOD_FENCE_GATES.get());
         }
         context.add(AdornBlocks.CANDLELIT_LANTERN);
         addColored(context, AdornBlocks.DYED_CANDLELIT_LANTERNS.get());
@@ -276,11 +280,15 @@ public final class AdornItemGroups {
         var planks = AdornBlocks.PAINTED_PLANKS.get();
         var slabs = AdornBlocks.PAINTED_WOOD_SLABS.get();
         var stairs = AdornBlocks.PAINTED_WOOD_STAIRS.get();
+        var fences = AdornBlocks.PAINTED_WOOD_FENCES.get();
+        var fenceGates = AdornBlocks.PAINTED_WOOD_FENCE_GATES.get();
 
         for (DyeColor color : DYE_COLORS_IN_ORDER) {
             items.add(planks.get(color));
             items.add(stairs.get(color));
             items.add(slabs.get(color));
+            items.add(fences.get(color));
+            items.add(fenceGates.get(color));
         }
 
         return items;
