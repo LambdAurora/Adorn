@@ -34,6 +34,10 @@ public final class AdornRecipeGenerator extends FabricRecipeProvider {
         AdornBlocks.PAINTED_WOOD_FENCES.get().forEach((color, block) -> offerFenceDyeingRecipe(exporter, block, color));
         AdornBlocks.PAINTED_WOOD_FENCE_GATES.get().forEach((color, block) -> offerPaintedFenceGateRecipe(exporter, block, color));
         AdornBlocks.PAINTED_WOOD_FENCE_GATES.get().forEach((color, block) -> offerFenceGateDyeingRecipe(exporter, block, color));
+        AdornBlocks.PAINTED_WOOD_PRESSURE_PLATES.get().forEach((color, block) -> offerPaintedPressurePlateRecipe(exporter, block, color));
+        AdornBlocks.PAINTED_WOOD_PRESSURE_PLATES.get().forEach((color, block) -> offerPressurePlateDyeingRecipe(exporter, block, color));
+        AdornBlocks.PAINTED_WOOD_BUTTONS.get().forEach((color, block) -> offerPaintedButtonRecipe(exporter, block, color));
+        AdornBlocks.PAINTED_WOOD_BUTTONS.get().forEach((color, block) -> offerButtonDyeingRecipe(exporter, block, color));
     }
 
     private static void offerPlankDyeingRecipe(RecipeExporter exporter, ItemConvertible output, DyeColor color) {
@@ -86,6 +90,30 @@ public final class AdornRecipeGenerator extends FabricRecipeProvider {
 
     private static void offerFenceGateDyeingRecipe(RecipeExporter exporter, ItemConvertible output, DyeColor color) {
         offerDyeingRecipe(exporter, output, color, ItemTags.FENCE_GATES, "fence_gate", true);
+    }
+
+    private static void offerPaintedPressurePlateRecipe(RecipeExporter exporter, ItemConvertible output, DyeColor color) {
+        var planks = AdornBlocks.PAINTED_PLANKS.get().get(color);
+        createPressurePlateRecipe(RecipeCategory.REDSTONE, output, Ingredient.ofItems(planks))
+            .group("wooden_pressure_plate")
+            .criterion("has_planks", conditionsFromItem(planks))
+            .offerTo(exporter);
+    }
+
+    private static void offerPressurePlateDyeingRecipe(RecipeExporter exporter, ItemConvertible output, DyeColor color) {
+        offerDyeingRecipe(exporter, output, color, ItemTags.WOODEN_PRESSURE_PLATES, "pressure_plate", true);
+    }
+
+    private static void offerPaintedButtonRecipe(RecipeExporter exporter, ItemConvertible output, DyeColor color) {
+        var planks = AdornBlocks.PAINTED_PLANKS.get().get(color);
+        createTransmutationRecipe(output, Ingredient.ofItems(planks))
+            .group("wooden_button")
+            .criterion("has_planks", conditionsFromItem(planks))
+            .offerTo(exporter);
+    }
+
+    private static void offerButtonDyeingRecipe(RecipeExporter exporter, ItemConvertible output, DyeColor color) {
+        offerDyeingRecipe(exporter, output, color, ItemTags.WOODEN_BUTTONS, "button", true);
     }
 
     private static void offerDyeingRecipe(RecipeExporter exporter, ItemConvertible output, DyeColor color, TagKey<Item> ingredient, String kind, boolean suffix) {

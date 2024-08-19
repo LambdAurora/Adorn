@@ -1,6 +1,7 @@
 package juuxel.adorn;
 
 import juuxel.adorn.block.AdornBlockEntities;
+import juuxel.adorn.block.AdornBlockSetTypes;
 import juuxel.adorn.block.AdornBlocks;
 import juuxel.adorn.block.AdornWoodTypes;
 import juuxel.adorn.block.variant.BlockVariantSets;

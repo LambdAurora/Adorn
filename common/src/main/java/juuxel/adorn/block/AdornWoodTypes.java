@@ -1,6 +1,5 @@
 package juuxel.adorn.block;
 
-import juuxel.adorn.AdornBlockSetTypes;
 import juuxel.adorn.AdornCommon;
 import net.minecraft.block.BlockSetType;
 import net.minecraft.block.WoodType;

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "wooden_pressure_plate",
+  "key": {
+    "#": {
+      "tag": "minecraft:wooden_pressure_plates"
+    },
+    "*": {
+      "tag": "c:dyes/gray"
+    }
+  },
+  "pattern": [
+    "###",
+    "#*#",
+    "###"
+  ],
+  "result": {
+    "count": 8,
+    "id": "adorn:gray_wood_pressure_plate"
+  }
+}

@@ -27,10 +27,16 @@ public final class AdornBlockTagGenerator extends FabricTagProvider.BlockTagProv
             .add(AdornBlocks.PAINTED_WOOD_FENCES.get().values().toArray(Block[]::new));
         getOrCreateTagBuilder(AdornTags.PAINTED_WOOD_FENCE_GATES.block())
             .add(AdornBlocks.PAINTED_WOOD_FENCE_GATES.get().values().toArray(Block[]::new));
+        getOrCreateTagBuilder(AdornTags.PAINTED_WOOD_PRESSURE_PLATES.block())
+            .add(AdornBlocks.PAINTED_WOOD_PRESSURE_PLATES.get().values().toArray(Block[]::new));
+        getOrCreateTagBuilder(AdornTags.PAINTED_WOOD_BUTTONS.block())
+            .add(AdornBlocks.PAINTED_WOOD_BUTTONS.get().values().toArray(Block[]::new));
         getOrCreateTagBuilder(BlockTags.PLANKS).addTag(AdornTags.PAINTED_PLANKS.block());
         getOrCreateTagBuilder(BlockTags.WOODEN_SLABS).addTag(AdornTags.PAINTED_WOOD_SLABS.block());
         getOrCreateTagBuilder(BlockTags.WOODEN_STAIRS).addTag(AdornTags.PAINTED_WOOD_STAIRS.block());
         getOrCreateTagBuilder(BlockTags.WOODEN_FENCES).addTag(AdornTags.PAINTED_WOOD_FENCES.block());
         getOrCreateTagBuilder(BlockTags.FENCE_GATES).addTag(AdornTags.PAINTED_WOOD_FENCE_GATES.block());
+        getOrCreateTagBuilder(BlockTags.WOODEN_PRESSURE_PLATES).addTag(AdornTags.PAINTED_WOOD_PRESSURE_PLATES.block());
+        getOrCreateTagBuilder(BlockTags.WOODEN_BUTTONS).addTag(AdornTags.PAINTED_WOOD_BUTTONS.block());
     }
 }

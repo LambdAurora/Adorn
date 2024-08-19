@@ -14,6 +14,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.MapColor;
 import net.minecraft.block.Oxidizable;
+import net.minecraft.block.PressurePlateBlock;
 import net.minecraft.block.TorchBlock;
 import net.minecraft.block.WallTorchBlock;
 import net.minecraft.item.Item;
@@ -80,6 +81,25 @@ public final class AdornBlocks {
                 AdornWoodTypes.PAINTED_WOODS.get(color),
                 BlockVariant.OAK.createSettings().mapColor(color)
             )
+        )
+    );
+
+    public static final Registered<Map<DyeColor, Block>> PAINTED_WOOD_PRESSURE_PLATES = AdornUtil.associateLazily(
+        DyeColor.values(),
+        color -> HELPER.registerBlock(
+            color.asString() + "_wood_pressure_plate",
+            () -> new PressurePlateBlock(
+                AdornBlockSetTypes.PAINTED_WOODS.get(color),
+                BlockVariant.OAK.createSettings().mapColor(color)
+            )
+        )
+    );
+
+    public static final Registered<Map<DyeColor, Block>> PAINTED_WOOD_BUTTONS = AdornUtil.associateLazily(
+        DyeColor.values(),
+        color -> HELPER.registerBlock(
+            color.asString() + "_wood_button",
+            () -> Blocks.createWoodenButtonBlock(AdornBlockSetTypes.PAINTED_WOODS.get(color))
         )
     );
 

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "wooden_button",
+  "key": {
+    "#": {
+      "tag": "minecraft:wooden_buttons"
+    },
+    "*": {
+      "tag": "c:dyes/yellow"
+    }
+  },
+  "pattern": [
+    "###",
+    "#*#",
+    "###"
+  ],
+  "result": {
+    "count": 8,
+    "id": "adorn:yellow_wood_button"
+  }
+}

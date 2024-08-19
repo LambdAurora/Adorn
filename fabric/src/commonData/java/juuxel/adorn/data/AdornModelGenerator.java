@@ -18,7 +18,9 @@ public final class AdornModelGenerator extends FabricModelProvider {
                 .slab(AdornBlocks.PAINTED_WOOD_SLABS.get().get(color))
                 .stairs(AdornBlocks.PAINTED_WOOD_STAIRS.get().get(color))
                 .fence(AdornBlocks.PAINTED_WOOD_FENCES.get().get(color))
-                .fenceGate(AdornBlocks.PAINTED_WOOD_FENCE_GATES.get().get(color));
+                .fenceGate(AdornBlocks.PAINTED_WOOD_FENCE_GATES.get().get(color))
+                .pressurePlate(AdornBlocks.PAINTED_WOOD_PRESSURE_PLATES.get().get(color))
+                .button(AdornBlocks.PAINTED_WOOD_BUTTONS.get().get(color));
         });
     }
 

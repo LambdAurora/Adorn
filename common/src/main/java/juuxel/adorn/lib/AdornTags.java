@@ -38,6 +38,8 @@ public final class AdornTags {
     public static final TagPair PAINTED_WOOD_STAIRS = blockAndItem("painted_wood_stairs");
     public static final TagPair PAINTED_WOOD_FENCES = blockAndItem("painted_wood_fences");
     public static final TagPair PAINTED_WOOD_FENCE_GATES = blockAndItem("painted_wood_fence_gates");
+    public static final TagPair PAINTED_WOOD_PRESSURE_PLATES = blockAndItem("painted_wood_pressure_plates");
+    public static final TagPair PAINTED_WOOD_BUTTONS = blockAndItem("painted_wood_buttons");
     public static final TagKey<Block> COPPER_PIPES_CONNECT_TO = block("copper_pipes_connect_to");
     public static final TagKey<Item> WATERING_CAN_FERTILIZERS = item("watering_can_fertilizers");
 
