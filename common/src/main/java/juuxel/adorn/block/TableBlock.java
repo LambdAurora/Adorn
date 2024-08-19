@@ -59,6 +59,11 @@ public final class TableBlock extends AbstractTableBlock implements BlockWithDes
     }
 
     @Override
+    protected boolean isSittingEnabled() {
+        return false;
+    }
+
+    @Override
     protected boolean canConnectTo(BlockState state, Direction sideOfSelf) {
         return state.getBlock() instanceof TableBlock;
     }
