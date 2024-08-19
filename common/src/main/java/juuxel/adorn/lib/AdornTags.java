@@ -40,6 +40,18 @@ public final class AdornTags {
     public static final TagPair PAINTED_WOOD_FENCE_GATES = blockAndItem("painted_wood_fence_gates");
     public static final TagPair PAINTED_WOOD_PRESSURE_PLATES = blockAndItem("painted_wood_pressure_plates");
     public static final TagPair PAINTED_WOOD_BUTTONS = blockAndItem("painted_wood_buttons");
+    public static final TagPair PAINTED_CHAIRS = blockAndItem("painted_chairs");
+    public static final TagPair PAINTED_TABLES = blockAndItem("painted_tables");
+    public static final TagPair PAINTED_DRAWERS = blockAndItem("painted_drawers");
+    public static final TagPair PAINTED_BENCHES = blockAndItem("painted_benches");
+    public static final TagPair PAINTED_KITCHEN_COUNTERS = blockAndItem("painted_kitchen_counters");
+    public static final TagPair PAINTED_KITCHEN_CUPBOARDS = blockAndItem("painted_kitchen_cupboards");
+    public static final TagPair PAINTED_KITCHEN_SINKS = blockAndItem("painted_kitchen_sinks");
+    public static final TagPair PAINTED_WOOD_POSTS = blockAndItem("painted_wood_posts");
+    public static final TagPair PAINTED_WOOD_PLATFORMS = blockAndItem("painted_wood_platforms");
+    public static final TagPair PAINTED_WOOD_STEPS = blockAndItem("painted_wood_steps");
+    public static final TagPair PAINTED_WOOD_SHELVES = blockAndItem("painted_wood_shelves");
+    public static final TagPair PAINTED_COFFEE_TABLES = blockAndItem("painted_coffee_tables");
     public static final TagKey<Block> COPPER_PIPES_CONNECT_TO = block("copper_pipes_connect_to");
     public static final TagKey<Item> WATERING_CAN_FERTILIZERS = item("watering_can_fertilizers");
 

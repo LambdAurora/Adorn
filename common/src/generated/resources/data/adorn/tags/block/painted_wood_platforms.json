@@ -1,0 +1,20 @@
+{
+  "values": [
+    "adorn:white_platform",
+    "adorn:orange_platform",
+    "adorn:magenta_platform",
+    "adorn:light_blue_platform",
+    "adorn:yellow_platform",
+    "adorn:lime_platform",
+    "adorn:pink_platform",
+    "adorn:gray_platform",
+    "adorn:light_gray_platform",
+    "adorn:cyan_platform",
+    "adorn:purple_platform",
+    "adorn:blue_platform",
+    "adorn:brown_platform",
+    "adorn:green_platform",
+    "adorn:red_platform",
+    "adorn:black_platform"
+  ]
+}

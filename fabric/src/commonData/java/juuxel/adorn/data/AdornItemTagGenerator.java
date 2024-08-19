@@ -23,6 +23,18 @@ public final class AdornItemTagGenerator extends FabricTagProvider.ItemTagProvid
         copy(AdornTags.PAINTED_WOOD_FENCE_GATES);
         copy(AdornTags.PAINTED_WOOD_PRESSURE_PLATES);
         copy(AdornTags.PAINTED_WOOD_BUTTONS);
+        copy(AdornTags.PAINTED_CHAIRS);
+        copy(AdornTags.PAINTED_TABLES);
+        copy(AdornTags.PAINTED_DRAWERS);
+        copy(AdornTags.PAINTED_BENCHES);
+        copy(AdornTags.PAINTED_KITCHEN_COUNTERS);
+        copy(AdornTags.PAINTED_KITCHEN_CUPBOARDS);
+        copy(AdornTags.PAINTED_KITCHEN_SINKS);
+        copy(AdornTags.PAINTED_WOOD_POSTS);
+        copy(AdornTags.PAINTED_WOOD_PLATFORMS);
+        copy(AdornTags.PAINTED_WOOD_STEPS);
+        copy(AdornTags.PAINTED_WOOD_SHELVES);
+        copy(AdornTags.PAINTED_COFFEE_TABLES);
         copy(BlockTags.PLANKS, ItemTags.PLANKS);
         copy(BlockTags.WOODEN_SLABS, ItemTags.WOODEN_SLABS);
         copy(BlockTags.WOODEN_STAIRS, ItemTags.WOODEN_STAIRS);

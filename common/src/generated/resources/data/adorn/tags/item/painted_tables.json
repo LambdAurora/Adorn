@@ -1,0 +1,20 @@
+{
+  "values": [
+    "adorn:white_table",
+    "adorn:orange_table",
+    "adorn:magenta_table",
+    "adorn:light_blue_table",
+    "adorn:yellow_table",
+    "adorn:lime_table",
+    "adorn:pink_table",
+    "adorn:gray_table",
+    "adorn:light_gray_table",
+    "adorn:cyan_table",
+    "adorn:purple_table",
+    "adorn:blue_table",
+    "adorn:brown_table",
+    "adorn:green_table",
+    "adorn:red_table",
+    "adorn:black_table"
+  ]
+}
