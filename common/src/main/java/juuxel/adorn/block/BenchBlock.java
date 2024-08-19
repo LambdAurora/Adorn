@@ -1,7 +1,5 @@
 package juuxel.adorn.block;
 
-import it.unimi.dsi.fastutil.bytes.Byte2ObjectArrayMap;
-import it.unimi.dsi.fastutil.bytes.Byte2ObjectMap;
 import juuxel.adorn.block.variant.BlockVariant;
 import juuxel.adorn.lib.AdornStats;
 import juuxel.adorn.util.AdornUtil;
@@ -38,7 +36,7 @@ public final class BenchBlock extends SeatBlock implements Waterloggable, BlockW
     private static final String DESCRIPTION_KEY = "block.adorn.bench.description";
     private static final VoxelShape X_TOP_SHAPE = createCuboidShape(0.0, 8.0, 1.0, 16.0, 10.0, 15.0);
     private static final VoxelShape Z_TOP_SHAPE = createCuboidShape(1.0, 8.0, 0.0, 15.0, 10.0, 16.0);
-    private static final Byte2ObjectMap<VoxelShape> SHAPES = new Byte2ObjectArrayMap<>();
+    private static final VoxelShape[] SHAPES = new VoxelShape[8];
 
     static {
         var legShapes = Shapes.buildShapeRotationsFromNorth(2, 0, 2, 14, 8, 4);
@@ -61,8 +59,8 @@ public final class BenchBlock extends SeatBlock implements Waterloggable, BlockW
                         parts.add(positiveLeg);
                     }
 
-                    var key = getShapeKey(axis, connectedN, connectedP);
-                    SHAPES.put(key, VoxelShapes.union(topShape, parts.toArray(VoxelShape[]::new)));
+                    int key = getShapeKey(axis, connectedN, connectedP);
+                    SHAPES[key] = VoxelShapes.union(topShape, parts.toArray(VoxelShape[]::new));
                 }
             }
         }
@@ -106,11 +104,11 @@ public final class BenchBlock extends SeatBlock implements Waterloggable, BlockW
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return SHAPES.get(getShapeKey(state.get(AXIS), state.get(CONNECTED_N), state.get(CONNECTED_P)));
+        return SHAPES[getShapeKey(state.get(AXIS), state.get(CONNECTED_N), state.get(CONNECTED_P))];
     }
 
-    private static byte getShapeKey(Direction.Axis axis, boolean connectedN, boolean connectedP) {
-        return (byte) ((axis == Direction.Axis.X ? 1 : 0) << 2 | (connectedN ? 1 : 0) << 1 | (connectedP ? 1 : 0));
+    private static int getShapeKey(Direction.Axis axis, boolean connectedN, boolean connectedP) {
+        return (axis == Direction.Axis.X ? 1 : 0) << 2 | (connectedN ? 1 : 0) << 1 | (connectedP ? 1 : 0);
     }
 
     @Override

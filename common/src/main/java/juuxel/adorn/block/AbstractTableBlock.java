@@ -78,11 +78,11 @@ public abstract class AbstractTableBlock extends CarpetedBlock implements Waterl
         );
     }
 
-    protected static byte getShapeKey(boolean north, boolean east, boolean south, boolean west, boolean hasCarpet) {
-        return (byte) ((north ? 1 : 0) << 4 | (east ? 1 : 0) << 3 | (south ? 1 : 0) << 2 | (west ? 1 : 0) << 1 | (hasCarpet ? 1 : 0));
+    protected static int getShapeKey(boolean north, boolean east, boolean south, boolean west, boolean hasCarpet) {
+        return (north ? 1 : 0) << 4 | (east ? 1 : 0) << 3 | (south ? 1 : 0) << 2 | (west ? 1 : 0) << 1 | (hasCarpet ? 1 : 0);
     }
 
-    protected abstract VoxelShape getShapeForKey(byte key);
+    protected abstract VoxelShape getShapeForKey(int key);
 
     @Override
     public boolean canPathfindThrough(BlockState state, NavigationType type) {

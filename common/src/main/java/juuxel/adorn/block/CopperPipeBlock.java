@@ -1,7 +1,5 @@
 package juuxel.adorn.block;
 
-import it.unimi.dsi.fastutil.bytes.Byte2ObjectMap;
-import it.unimi.dsi.fastutil.bytes.Byte2ObjectOpenHashMap;
 import juuxel.adorn.lib.AdornTags;
 import juuxel.adorn.util.Shapes;
 import net.minecraft.block.Block;
@@ -35,7 +33,7 @@ public class CopperPipeBlock extends Block implements Waterloggable, BlockWithDe
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
 
     private static final String DESCRIPTION_KEY = "block.adorn.copper_pipe.description";
-    private static final Byte2ObjectMap<VoxelShape> SHAPES = new Byte2ObjectOpenHashMap<>();
+    private static final VoxelShape[] SHAPES = new VoxelShape[64];
 
     static {
         var center = createCuboidShape(6.0, 6.0, 6.0, 10.0, 10.0, 10.0);
@@ -92,7 +90,7 @@ public class CopperPipeBlock extends Block implements Waterloggable, BlockWithDe
                                 if (up) shape = VoxelShapes.union(shape, pipes.get(Direction.UP));
                                 if (down) shape = VoxelShapes.union(shape, pipes.get(Direction.DOWN));
 
-                                SHAPES.put(getShapeKey(north, east, south, west, up, down), shape);
+                                SHAPES[getShapeKey(north, east, south, west, up, down)] = shape;
                             }
                         }
                     }
@@ -112,10 +110,10 @@ public class CopperPipeBlock extends Block implements Waterloggable, BlockWithDe
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return SHAPES.get(getShapeKey(state.get(NORTH), state.get(EAST), state.get(SOUTH), state.get(WEST), state.get(UP), state.get(DOWN)));
+        return SHAPES[getShapeKey(state.get(NORTH), state.get(EAST), state.get(SOUTH), state.get(WEST), state.get(UP), state.get(DOWN))];
     }
 
-    private static byte getShapeKey(boolean north, boolean east, boolean south, boolean west, boolean up, boolean down) {
+    private static int getShapeKey(boolean north, boolean east, boolean south, boolean west, boolean up, boolean down) {
         int northB = north ? 1 : 0;
         int eastB = east ? 1 : 0;
         int southB = south ? 1 : 0;
@@ -123,7 +121,7 @@ public class CopperPipeBlock extends Block implements Waterloggable, BlockWithDe
         int upB = up ? 1 : 0;
         int downB = down ? 1 : 0;
 
-        return (byte) (northB << 5 | eastB << 4 | southB << 3 | westB << 2 | upB << 1 | downB);
+        return northB << 5 | eastB << 4 | southB << 3 | westB << 2 | upB << 1 | downB;
     }
 
     @Override

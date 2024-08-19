@@ -1,7 +1,5 @@
 package juuxel.adorn.block;
 
-import it.unimi.dsi.fastutil.bytes.Byte2ObjectMap;
-import it.unimi.dsi.fastutil.bytes.Byte2ObjectOpenHashMap;
 import juuxel.adorn.block.variant.BlockVariant;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.Identifier;
@@ -15,7 +13,7 @@ import java.util.List;
 
 public final class TableBlock extends AbstractTableBlock implements BlockWithDescription {
     private static final String DESCRIPTION_KEY = "block.adorn.table.description";
-    private static final Byte2ObjectMap<VoxelShape> SHAPES = new Byte2ObjectOpenHashMap<>();
+    private static final VoxelShape[] SHAPES = new VoxelShape[32];
 
     static {
         var topShape = createCuboidShape(0.0, 14.0, 0.0, 16.0, 16.0, 16.0);
@@ -32,7 +30,7 @@ public final class TableBlock extends AbstractTableBlock implements BlockWithDes
                         for (var hasCarpet : booleans) {
                             var key = getShapeKey(north, east, south, west, hasCarpet);
                             var shape = makeShape(north, east, south, west, hasCarpet, topShape, legX0Z0, legX1Z0, legX0Z1, legX1Z1);
-                            SHAPES.put(key, shape);
+                            SHAPES[key] = shape;
                         }
                     }
                 }
@@ -69,8 +67,8 @@ public final class TableBlock extends AbstractTableBlock implements BlockWithDes
     }
 
     @Override
-    protected VoxelShape getShapeForKey(byte key) {
-        return SHAPES.get(key);
+    protected VoxelShape getShapeForKey(int key) {
+        return SHAPES[key];
     }
 
     private static VoxelShape makeShape(

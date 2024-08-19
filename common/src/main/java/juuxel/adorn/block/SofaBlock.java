@@ -1,7 +1,5 @@
 package juuxel.adorn.block;
 
-import it.unimi.dsi.fastutil.bytes.Byte2ObjectMap;
-import it.unimi.dsi.fastutil.bytes.Byte2ObjectOpenHashMap;
 import juuxel.adorn.block.property.FrontConnection;
 import juuxel.adorn.block.variant.BlockVariant;
 import juuxel.adorn.lib.AdornStats;
@@ -52,8 +50,8 @@ public class SofaBlock extends SeatBlock implements Waterloggable, SneakClickHan
     public static final EnumProperty<FrontConnection> FRONT_CONNECTION = EnumProperty.of("front", FrontConnection.class);
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
 
-    private static final Byte2ObjectMap<VoxelShape> OUTLINE_SHAPE_MAP = buildShapeMap(false);
-    private static final Byte2ObjectMap<VoxelShape> COLLISION_SHAPE_MAP = buildShapeMap(true);
+    private static final VoxelShape[] OUTLINE_SHAPES = buildShapes(false);
+    private static final VoxelShape[] COLLISION_SHAPES = buildShapes(true);
     private static final String DESCRIPTION_KEY = "block.adorn.sofa.description";
 
     public SofaBlock(BlockVariant variant) {
@@ -168,26 +166,26 @@ public class SofaBlock extends SeatBlock implements Waterloggable, SneakClickHan
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return OUTLINE_SHAPE_MAP.get(
+        return OUTLINE_SHAPES[
             getShapeKey(
                 state.get(FACING),
                 state.get(CONNECTED_LEFT),
                 state.get(CONNECTED_RIGHT),
                 state.get(FRONT_CONNECTION)
             )
-        );
+        ];
     }
 
     @Override
     public VoxelShape getCollisionShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return COLLISION_SHAPE_MAP.get(
+        return COLLISION_SHAPES[
             getShapeKey(
                 state.get(FACING),
                 state.get(CONNECTED_LEFT),
                 state.get(CONNECTED_RIGHT),
                 state.get(FRONT_CONNECTION)
             )
-        );
+        ];
     }
 
     @Override
@@ -210,7 +208,7 @@ public class SofaBlock extends SeatBlock implements Waterloggable, SneakClickHan
         return 0.4375; // 7/16
     }
 
-    private static Byte2ObjectMap<VoxelShape> buildShapeMap(boolean thin) {
+    private static VoxelShape[] buildShapes(boolean thin) {
         var bottom = createCuboidShape(0.0, 2.0, 0.0, 16.0, 7.0, 16.0);
         var leftArms = Shapes.buildShapeRotations(5, 7, 13, 16, 13, 16);
         var rightArms = Shapes.buildShapeRotations(5, 7, 0, 16, 13, 3);
@@ -220,7 +218,7 @@ public class SofaBlock extends SeatBlock implements Waterloggable, SneakClickHan
         var leftCorners = Shapes.buildShapeRotations(5, 7, 11, 16, 16, 16);
         var rightCorners = Shapes.buildShapeRotations(5, 7, 0, 16, 16, 5);
         var booleans = new boolean[] { true, false };
-        Byte2ObjectMap<VoxelShape> result = new Byte2ObjectOpenHashMap<>();
+        var result = new VoxelShape[48];
         for (var facing : FACING.getValues()) {
             for (var left : booleans) {
                 for (var right : booleans) {
@@ -240,9 +238,9 @@ public class SofaBlock extends SeatBlock implements Waterloggable, SneakClickHan
                             case RIGHT -> parts.add(rightCorners.get(facing));
                         }
 
-                        var key = getShapeKey(facing, left, right, front);
+                        int key = getShapeKey(facing, left, right, front);
                         var shape = VoxelShapes.union(bottom, parts.toArray(VoxelShape[]::new));
-                        result.put(key, shape);
+                        result[key] = shape;
                     }
                 }
             }
@@ -250,8 +248,8 @@ public class SofaBlock extends SeatBlock implements Waterloggable, SneakClickHan
         return result;
     }
 
-    private static byte getShapeKey(Direction facing, boolean left, boolean right, FrontConnection front) {
-        return (byte) (facing.getHorizontal() << 5 | (left ? 1 : 0) << 3 | (right ? 1 : 0) << 2 | front.ordinal());
+    private static int getShapeKey(Direction facing, boolean left, boolean right, FrontConnection front) {
+        return front.ordinal() << 4 | (left ? 1 : 0) << 3 | (right ? 1 : 0) << 2 | facing.getHorizontal();
     }
 
     public static @Nullable Direction getSleepingDirection(BlockView world, BlockPos pos) {
