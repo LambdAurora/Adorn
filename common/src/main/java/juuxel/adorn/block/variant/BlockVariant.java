@@ -71,6 +71,9 @@ public interface BlockVariant {
     BlockVariant POLISHED_DEEPSLATE = variant("polished_deepslate", Blocks.POLISHED_DEEPSLATE);
     BlockVariant DEEPSLATE_BRICK = variant("deepslate_brick", Blocks.DEEPSLATE_BRICKS);
     BlockVariant DEEPSLATE_TILE = variant("deepslate_tile", Blocks.DEEPSLATE_TILES);
+    BlockVariant TUFF = variant("tuff", Blocks.TUFF);
+    BlockVariant POLISHED_TUFF = variant("polished_tuff", Blocks.POLISHED_TUFF);
+    BlockVariant TUFF_BRICK = variant("tuff_brick", Blocks.TUFF_BRICKS);
 
     /**
      * The name of this variant. Must be a valid identifier path.

@@ -73,7 +73,10 @@ public final class MinecraftBlockVariants implements BlockVariantSet {
             BlockVariant.COBBLED_DEEPSLATE,
             BlockVariant.POLISHED_DEEPSLATE,
             BlockVariant.DEEPSLATE_BRICK,
-            BlockVariant.DEEPSLATE_TILE
+            BlockVariant.DEEPSLATE_TILE,
+            BlockVariant.TUFF,
+            BlockVariant.POLISHED_TUFF,
+            BlockVariant.TUFF_BRICK
         );
     }
 

@@ -1,0 +1,10 @@
+{
+  "type": "stonecutting",
+  "ingredient": {
+    "item": "minecraft:tuff"
+  },
+  "result": {
+    "id": "adorn:tuff_platform",
+    "count": 1
+  }
+}

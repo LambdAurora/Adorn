@@ -64,6 +64,7 @@
     <stone id="minecraft:polished_deepslate"/>
     <stone id="minecraft:polished_diorite"/>
     <stone id="minecraft:polished_granite"/>
+    <stone id="minecraft:polished_tuff"/>
     <stone id="minecraft:prismarine"/>
     <stone id="minecraft:prismarine_brick" bricks="true"/>
     <stone id="minecraft:purpur">
@@ -95,4 +96,6 @@
     <stone id="minecraft:smooth_stone"/>
     <stone id="minecraft:stone_brick" bricks="true"/>
     <stone id="minecraft:stone"/>
+    <stone id="minecraft:tuff"/>
+    <stone id="minecraft:tuff_brick" bricks="true"/>
 </data_generators>

@@ -1,0 +1,20 @@
+{
+  "type": "crafting_shaped",
+  "group": "adorn:platform",
+  "pattern": [
+    "S",
+    "P"
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:tuff_slab"
+    },
+    "P": {
+      "item": "adorn:tuff_post"
+    }
+  },
+  "result": {
+    "id": "adorn:tuff_platform",
+    "count": 2
+  }
+}
