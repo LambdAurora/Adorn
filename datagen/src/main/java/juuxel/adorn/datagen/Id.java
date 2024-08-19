@@ -29,6 +29,14 @@ public record Id(String namespace, String path) {
         return rawSuffixed("_" + suffix);
     }
 
+    public Id rawPrefixed(String prefix) {
+        return new Id(namespace, prefix + path);
+    }
+
+    public Id prefixed(String prefix) {
+        return rawPrefixed(prefix + "_");
+    }
+
     @Override
     public String toString() {
         return namespace + ':' + path;
