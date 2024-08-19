@@ -15,12 +15,12 @@ public final class AdornModelGenerator extends FabricModelProvider {
     public void generateBlockStateModels(BlockStateModelGenerator generator) {
         AdornBlocks.PAINTED_PLANKS.get().forEach((color, planks) -> {
             generator.registerCubeAllModelTexturePool(planks)
-                .slab(AdornBlocks.PAINTED_WOOD_SLABS.get().get(color))
-                .stairs(AdornBlocks.PAINTED_WOOD_STAIRS.get().get(color))
-                .fence(AdornBlocks.PAINTED_WOOD_FENCES.get().get(color))
-                .fenceGate(AdornBlocks.PAINTED_WOOD_FENCE_GATES.get().get(color))
-                .pressurePlate(AdornBlocks.PAINTED_WOOD_PRESSURE_PLATES.get().get(color))
-                .button(AdornBlocks.PAINTED_WOOD_BUTTONS.get().get(color));
+                .slab(AdornBlocks.PAINTED_WOOD_SLABS.getEager(color))
+                .stairs(AdornBlocks.PAINTED_WOOD_STAIRS.getEager(color))
+                .fence(AdornBlocks.PAINTED_WOOD_FENCES.getEager(color))
+                .fenceGate(AdornBlocks.PAINTED_WOOD_FENCE_GATES.getEager(color))
+                .pressurePlate(AdornBlocks.PAINTED_WOOD_PRESSURE_PLATES.getEager(color))
+                .button(AdornBlocks.PAINTED_WOOD_BUTTONS.getEager(color));
         });
     }
 

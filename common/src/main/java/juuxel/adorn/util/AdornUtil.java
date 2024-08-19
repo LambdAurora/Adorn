@@ -65,24 +65,6 @@ public final class AdornUtil {
         };
     }
 
-    public static <K, V> Registered<Map<K, V>> associateLazily(K[] keys, Function<K, Registered<V>> mapper) {
-        List<Registered<V>> values = new ArrayList<>();
-        for (K key : keys) {
-            values.add(mapper.apply(key));
-        }
-        var map = Suppliers.memoize(
-            () -> IntStream.range(0, keys.length)
-                .boxed()
-                .collect(Collectors.toMap(
-                    index -> keys[index],
-                    index -> values.get(index).get(),
-                    (a, b) -> a,
-                    LinkedHashMap::new
-                ))
-        );
-        return map::get;
-    }
-
     public static MenuContext menuContextOf(BlockEntity blockEntity) {
         return MenuContext.create(blockEntity.getWorld(), blockEntity.getPos());
     }

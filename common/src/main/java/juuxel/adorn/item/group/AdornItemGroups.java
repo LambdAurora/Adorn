@@ -8,6 +8,7 @@ import juuxel.adorn.block.variant.BlockVariantSets;
 import juuxel.adorn.config.ConfigManager;
 import juuxel.adorn.item.AdornItems;
 import juuxel.adorn.lib.registry.Registered;
+import juuxel.adorn.lib.registry.RegisteredMap;
 import juuxel.adorn.lib.registry.Registrar;
 import juuxel.adorn.lib.registry.RegistrarFactory;
 import juuxel.adorn.platform.ItemGroupBridge;
@@ -27,7 +28,6 @@ import org.jetbrains.annotations.Nullable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 public final class AdornItemGroups {
@@ -74,7 +74,7 @@ public final class AdornItemGroups {
     public static final Registered<ItemGroup> GROUP = ITEM_GROUPS.register(GROUP_ID,
         () -> ItemGroupBridge.get().builder()
             .displayName(Text.translatable(Util.createTranslationKey("itemGroup", AdornCommon.id(GROUP_ID))))
-            .icon(() -> new ItemStack(AdornBlocks.SOFAS.get().get(DyeColor.LIME)))
+            .icon(() -> new ItemStack(AdornBlocks.SOFAS.getEager(DyeColor.LIME)))
             .entries((displayContext, entries) -> {
                 ItemGroupBuildContext context = entries::add;
                 switch (ConfigManager.config().groupItems) {
@@ -86,13 +86,13 @@ public final class AdornItemGroups {
                             }
                         }
 
-                        addColored(context, AdornBlocks.PAINTED_PLANKS.get());
-                        addColored(context, AdornBlocks.PAINTED_WOOD_STAIRS.get());
-                        addColored(context, AdornBlocks.PAINTED_WOOD_SLABS.get());
-                        addColored(context, AdornBlocks.PAINTED_WOOD_FENCES.get());
-                        addColored(context, AdornBlocks.PAINTED_WOOD_FENCE_GATES.get());
-                        addColored(context, AdornBlocks.PAINTED_WOOD_PRESSURE_PLATES.get());
-                        addColored(context, AdornBlocks.PAINTED_WOOD_SLABS.get());
+                        addColored(context, AdornBlocks.PAINTED_PLANKS);
+                        addColored(context, AdornBlocks.PAINTED_WOOD_STAIRS);
+                        addColored(context, AdornBlocks.PAINTED_WOOD_SLABS);
+                        addColored(context, AdornBlocks.PAINTED_WOOD_FENCES);
+                        addColored(context, AdornBlocks.PAINTED_WOOD_FENCE_GATES);
+                        addColored(context, AdornBlocks.PAINTED_WOOD_PRESSURE_PLATES);
+                        addColored(context, AdornBlocks.PAINTED_WOOD_SLABS);
                     }
                 }
                 addColoredBlocks(context, false);
@@ -180,22 +180,22 @@ public final class AdornItemGroups {
     }
 
     private static void addColoredBlocks(ItemGroupBuildContext context, boolean includeWood) {
-        addColored(context, AdornBlocks.SOFAS.get());
-        addColored(context, AdornBlocks.TABLE_LAMPS.get());
+        addColored(context, AdornBlocks.SOFAS);
+        addColored(context, AdornBlocks.TABLE_LAMPS);
         if (includeWood) {
-            addColored(context, AdornBlocks.PAINTED_PLANKS.get());
-            addColored(context, AdornBlocks.PAINTED_WOOD_STAIRS.get());
-            addColored(context, AdornBlocks.PAINTED_WOOD_SLABS.get());
-            addColored(context, AdornBlocks.PAINTED_WOOD_FENCES.get());
-            addColored(context, AdornBlocks.PAINTED_WOOD_FENCE_GATES.get());
-            addColored(context, AdornBlocks.PAINTED_WOOD_PRESSURE_PLATES.get());
-            addColored(context, AdornBlocks.PAINTED_WOOD_BUTTONS.get());
+            addColored(context, AdornBlocks.PAINTED_PLANKS);
+            addColored(context, AdornBlocks.PAINTED_WOOD_STAIRS);
+            addColored(context, AdornBlocks.PAINTED_WOOD_SLABS);
+            addColored(context, AdornBlocks.PAINTED_WOOD_FENCES);
+            addColored(context, AdornBlocks.PAINTED_WOOD_FENCE_GATES);
+            addColored(context, AdornBlocks.PAINTED_WOOD_PRESSURE_PLATES);
+            addColored(context, AdornBlocks.PAINTED_WOOD_BUTTONS);
         }
         context.add(AdornBlocks.CANDLELIT_LANTERN);
-        addColored(context, AdornBlocks.DYED_CANDLELIT_LANTERNS.get());
+        addColored(context, AdornBlocks.DYED_CANDLELIT_LANTERNS);
     }
 
-    private static void addColored(ItemGroupBuildContext context, Map<DyeColor, ? extends ItemConvertible> items) {
+    private static void addColored(ItemGroupBuildContext context, RegisteredMap<DyeColor, ? extends ItemConvertible> items) {
         for (DyeColor color : DYE_COLORS_IN_ORDER) {
             context.add(items.get(color));
         }
@@ -281,22 +281,14 @@ public final class AdornItemGroups {
     private static List<ItemConvertible> getPaintedWood() {
         List<ItemConvertible> items = new ArrayList<>();
 
-        var planks = AdornBlocks.PAINTED_PLANKS.get();
-        var slabs = AdornBlocks.PAINTED_WOOD_SLABS.get();
-        var stairs = AdornBlocks.PAINTED_WOOD_STAIRS.get();
-        var fences = AdornBlocks.PAINTED_WOOD_FENCES.get();
-        var fenceGates = AdornBlocks.PAINTED_WOOD_FENCE_GATES.get();
-        var pressurePlates = AdornBlocks.PAINTED_WOOD_PRESSURE_PLATES.get();
-        var buttons = AdornBlocks.PAINTED_WOOD_BUTTONS.get();
-
         for (DyeColor color : DYE_COLORS_IN_ORDER) {
-            items.add(planks.get(color));
-            items.add(stairs.get(color));
-            items.add(slabs.get(color));
-            items.add(fences.get(color));
-            items.add(fenceGates.get(color));
-            items.add(pressurePlates.get(color));
-            items.add(buttons.get(color));
+            items.add(AdornBlocks.PAINTED_PLANKS.getEager(color));
+            items.add(AdornBlocks.PAINTED_WOOD_SLABS.getEager(color));
+            items.add(AdornBlocks.PAINTED_WOOD_STAIRS.getEager(color));
+            items.add(AdornBlocks.PAINTED_WOOD_FENCES.getEager(color));
+            items.add(AdornBlocks.PAINTED_WOOD_FENCE_GATES.getEager(color));
+            items.add(AdornBlocks.PAINTED_WOOD_PRESSURE_PLATES.getEager(color));
+            items.add(AdornBlocks.PAINTED_WOOD_BUTTONS.getEager(color));
         }
 
         return items;
