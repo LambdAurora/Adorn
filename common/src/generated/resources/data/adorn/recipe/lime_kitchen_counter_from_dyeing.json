@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "adorn:kitchen_counter",
+  "key": {
+    "#": {
+      "tag": "adorn:kitchen_counters"
+    },
+    "*": {
+      "tag": "c:dyes/lime"
+    }
+  },
+  "pattern": [
+    "###",
+    "#*#",
+    "###"
+  ],
+  "result": {
+    "count": 8,
+    "id": "adorn:lime_kitchen_counter"
+  }
+}

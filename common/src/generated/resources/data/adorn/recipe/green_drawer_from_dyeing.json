@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "adorn:drawer",
+  "key": {
+    "#": {
+      "tag": "adorn:drawers"
+    },
+    "*": {
+      "tag": "c:dyes/green"
+    }
+  },
+  "pattern": [
+    "###",
+    "#*#",
+    "###"
+  ],
+  "result": {
+    "count": 8,
+    "id": "adorn:green_drawer"
+  }
+}

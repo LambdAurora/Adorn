@@ -1,6 +1,11 @@
 package juuxel.adorn.data;
 
+import juuxel.adorn.AdornCommon;
 import juuxel.adorn.block.AdornBlocks;
+import juuxel.adorn.block.variant.BlockKind;
+import juuxel.adorn.block.variant.BlockVariant;
+import juuxel.adorn.block.variant.BlockVariantSets;
+import juuxel.adorn.lib.AdornTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.data.server.recipe.RecipeExporter;
@@ -38,6 +43,21 @@ public final class AdornRecipeGenerator extends FabricRecipeProvider {
         AdornBlocks.PAINTED_WOOD_PRESSURE_PLATES.forEach((color, block) -> offerPressurePlateDyeingRecipe(exporter, block, color));
         AdornBlocks.PAINTED_WOOD_BUTTONS.forEach((color, block) -> offerPaintedButtonRecipe(exporter, block, color));
         AdornBlocks.PAINTED_WOOD_BUTTONS.forEach((color, block) -> offerButtonDyeingRecipe(exporter, block, color));
+
+        for (DyeColor color : DyeColor.values()) {
+            offerDyeingRecipe(exporter, color, AdornTags.CHAIRS.item(), BlockKind.CHAIR);
+            offerDyeingRecipe(exporter, color, AdornTags.TABLES.item(), BlockKind.TABLE);
+            offerDyeingRecipe(exporter, color, AdornTags.DRAWERS.item(), BlockKind.DRAWER);
+            offerDyeingRecipe(exporter, color, AdornTags.KITCHEN_COUNTERS.item(), BlockKind.KITCHEN_COUNTER);
+            offerDyeingRecipe(exporter, color, AdornTags.KITCHEN_CUPBOARDS.item(), BlockKind.KITCHEN_CUPBOARD);
+            offerDyeingRecipe(exporter, color, AdornTags.KITCHEN_SINKS.item(), BlockKind.KITCHEN_SINK);
+            offerDyeingRecipe(exporter, color, AdornTags.WOODEN_POSTS.item(), BlockKind.POST);
+            offerDyeingRecipe(exporter, color, AdornTags.WOODEN_PLATFORMS.item(), BlockKind.PLATFORM);
+            offerDyeingRecipe(exporter, color, AdornTags.WOODEN_STEPS.item(), BlockKind.STEP);
+            offerDyeingRecipe(exporter, color, AdornTags.WOODEN_SHELVES.item(), BlockKind.SHELF);
+            offerDyeingRecipe(exporter, color, AdornTags.COFFEE_TABLES.item(), BlockKind.COFFEE_TABLE);
+            offerDyeingRecipe(exporter, color, AdornTags.BENCHES.item(), BlockKind.BENCH);
+        }
     }
 
     private static void offerPlankDyeingRecipe(RecipeExporter exporter, ItemConvertible output, DyeColor color) {
@@ -116,14 +136,24 @@ public final class AdornRecipeGenerator extends FabricRecipeProvider {
         offerDyeingRecipe(exporter, output, color, ItemTags.WOODEN_BUTTONS, "button", true);
     }
 
+    private static void offerDyeingRecipe(RecipeExporter exporter, DyeColor color, TagKey<Item> ingredient, BlockKind kind) {
+        var variant = BlockVariant.PAINTED_WOODS.get(color);
+        var group = AdornCommon.NAMESPACE + ':' + kind.id();
+        offerDyeingRecipe(exporter, BlockVariantSets.get(kind, variant).get(), color, ingredient, kind.id(), group, true);
+    }
+
     private static void offerDyeingRecipe(RecipeExporter exporter, ItemConvertible output, DyeColor color, TagKey<Item> ingredient, String kind, boolean suffix) {
+        offerDyeingRecipe(exporter, output, color, ingredient, kind, "wooden_" + kind, suffix);
+    }
+
+    private static void offerDyeingRecipe(RecipeExporter exporter, ItemConvertible output, DyeColor color, TagKey<Item> ingredient, String kind, String group, boolean suffix) {
         ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, output, 8)
             .input('*', TagKey.of(RegistryKeys.ITEM, Identifier.of("c", "dyes/" + color.asString())))
             .input('#', ingredient)
             .pattern("###")
             .pattern("#*#")
             .pattern("###")
-            .group("wooden_" + kind)
+            .group(group)
             .criterion("has_" + kind, conditionsFromTag(ingredient))
             .offerTo(exporter, suffix ? getItemPath(output) + "_from_dyeing" : getItemPath(output));
     }

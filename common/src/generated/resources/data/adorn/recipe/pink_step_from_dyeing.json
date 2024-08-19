@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "adorn:step",
+  "key": {
+    "#": {
+      "tag": "adorn:wooden_steps"
+    },
+    "*": {
+      "tag": "c:dyes/pink"
+    }
+  },
+  "pattern": [
+    "###",
+    "#*#",
+    "###"
+  ],
+  "result": {
+    "count": 8,
+    "id": "adorn:pink_step"
+  }
+}

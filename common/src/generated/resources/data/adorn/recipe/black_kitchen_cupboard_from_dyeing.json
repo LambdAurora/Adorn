@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "adorn:kitchen_cupboard",
+  "key": {
+    "#": {
+      "tag": "adorn:kitchen_cupboards"
+    },
+    "*": {
+      "tag": "c:dyes/black"
+    }
+  },
+  "pattern": [
+    "###",
+    "#*#",
+    "###"
+  ],
+  "result": {
+    "count": 8,
+    "id": "adorn:black_kitchen_cupboard"
+  }
+}

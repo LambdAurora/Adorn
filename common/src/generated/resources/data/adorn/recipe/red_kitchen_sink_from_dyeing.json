@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "adorn:kitchen_sink",
+  "key": {
+    "#": {
+      "tag": "adorn:kitchen_sinks"
+    },
+    "*": {
+      "tag": "c:dyes/red"
+    }
+  },
+  "pattern": [
+    "###",
+    "#*#",
+    "###"
+  ],
+  "result": {
+    "count": 8,
+    "id": "adorn:red_kitchen_sink"
+  }
+}

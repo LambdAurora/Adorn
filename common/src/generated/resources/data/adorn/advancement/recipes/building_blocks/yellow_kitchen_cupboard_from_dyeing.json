@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_kitchen_cupboard": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#adorn:kitchen_cupboards"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:yellow_kitchen_cupboard_from_dyeing"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_kitchen_cupboard"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:yellow_kitchen_cupboard_from_dyeing"
+    ]
+  }
+}

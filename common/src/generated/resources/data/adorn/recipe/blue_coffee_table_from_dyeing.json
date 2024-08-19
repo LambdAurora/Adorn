@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "adorn:coffee_table",
+  "key": {
+    "#": {
+      "tag": "adorn:coffee_tables"
+    },
+    "*": {
+      "tag": "c:dyes/blue"
+    }
+  },
+  "pattern": [
+    "###",
+    "#*#",
+    "###"
+  ],
+  "result": {
+    "count": 8,
+    "id": "adorn:blue_coffee_table"
+  }
+}

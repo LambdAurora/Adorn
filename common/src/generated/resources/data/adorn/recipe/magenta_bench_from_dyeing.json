@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "adorn:bench",
+  "key": {
+    "#": {
+      "tag": "adorn:benches"
+    },
+    "*": {
+      "tag": "c:dyes/magenta"
+    }
+  },
+  "pattern": [
+    "###",
+    "#*#",
+    "###"
+  ],
+  "result": {
+    "count": 8,
+    "id": "adorn:magenta_bench"
+  }
+}

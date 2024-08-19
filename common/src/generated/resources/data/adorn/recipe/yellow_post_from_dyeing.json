@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "adorn:post",
+  "key": {
+    "#": {
+      "tag": "adorn:wooden_posts"
+    },
+    "*": {
+      "tag": "c:dyes/yellow"
+    }
+  },
+  "pattern": [
+    "###",
+    "#*#",
+    "###"
+  ],
+  "result": {
+    "count": 8,
+    "id": "adorn:yellow_post"
+  }
+}

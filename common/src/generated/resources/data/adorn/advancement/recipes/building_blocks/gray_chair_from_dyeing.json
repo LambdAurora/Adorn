@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_chair": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#adorn:chairs"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:gray_chair_from_dyeing"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_chair"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:gray_chair_from_dyeing"
+    ]
+  }
+}

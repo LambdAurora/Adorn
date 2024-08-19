@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "adorn:step",
+  "key": {
+    "#": {
+      "tag": "adorn:wooden_steps"
+    },
+    "*": {
+      "tag": "c:dyes/lime"
+    }
+  },
+  "pattern": [
+    "###",
+    "#*#",
+    "###"
+  ],
+  "result": {
+    "count": 8,
+    "id": "adorn:lime_step"
+  }
+}

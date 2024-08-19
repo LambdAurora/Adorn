@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "adorn:chair",
+  "key": {
+    "#": {
+      "tag": "adorn:chairs"
+    },
+    "*": {
+      "tag": "c:dyes/purple"
+    }
+  },
+  "pattern": [
+    "###",
+    "#*#",
+    "###"
+  ],
+  "result": {
+    "count": 8,
+    "id": "adorn:purple_chair"
+  }
+}

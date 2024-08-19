@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "adorn:platform",
+  "key": {
+    "#": {
+      "tag": "adorn:wooden_platforms"
+    },
+    "*": {
+      "tag": "c:dyes/light_gray"
+    }
+  },
+  "pattern": [
+    "###",
+    "#*#",
+    "###"
+  ],
+  "result": {
+    "count": 8,
+    "id": "adorn:light_gray_platform"
+  }
+}

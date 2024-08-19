@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "adorn:shelf",
+  "key": {
+    "#": {
+      "tag": "adorn:wooden_shelves"
+    },
+    "*": {
+      "tag": "c:dyes/cyan"
+    }
+  },
+  "pattern": [
+    "###",
+    "#*#",
+    "###"
+  ],
+  "result": {
+    "count": 8,
+    "id": "adorn:cyan_shelf"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_post": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#adorn:wooden_posts"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:brown_post_from_dyeing"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_post"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:brown_post_from_dyeing"
+    ]
+  }
+}
