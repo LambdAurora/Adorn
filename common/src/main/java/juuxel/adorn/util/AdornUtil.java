@@ -1,7 +1,5 @@
 package juuxel.adorn.util;
 
-import com.google.common.base.Suppliers;
-import juuxel.adorn.lib.registry.Registered;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.entity.BlockEntity;
@@ -12,14 +10,6 @@ import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.Direction;
 import org.slf4j.Logger;
-
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.function.Function;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 public final class AdornUtil {
     private static final Logger LOGGER = Logging.logger();
