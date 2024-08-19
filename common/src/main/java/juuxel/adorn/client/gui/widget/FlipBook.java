@@ -54,7 +54,7 @@ public final class FlipBook extends WidgetEnvelope implements PageContainer<Elem
 
     @Override
     public void showNextPage() {
-        if (hasPreviousPage()) {
+        if (hasNextPage()) {
             currentPage++;
             pageUpdateListener.run();
         }
