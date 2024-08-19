@@ -27,6 +27,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 public final class AdornItemGroups {
@@ -50,6 +51,25 @@ public final class AdornItemGroups {
         BlockKind.BENCH
     );
 
+    private static final List<DyeColor> DYE_COLORS_IN_ORDER = List.of(
+        DyeColor.WHITE,
+        DyeColor.LIGHT_GRAY,
+        DyeColor.GRAY,
+        DyeColor.BLACK,
+        DyeColor.BROWN,
+        DyeColor.RED,
+        DyeColor.ORANGE,
+        DyeColor.YELLOW,
+        DyeColor.LIME,
+        DyeColor.GREEN,
+        DyeColor.CYAN,
+        DyeColor.LIGHT_BLUE,
+        DyeColor.BLUE,
+        DyeColor.PURPLE,
+        DyeColor.MAGENTA,
+        DyeColor.PINK
+    );
+
     private static final String GROUP_ID = "items";
     public static final Registered<ItemGroup> GROUP = ITEM_GROUPS.register(GROUP_ID,
         () -> ItemGroupBridge.get().builder()
@@ -66,12 +86,12 @@ public final class AdornItemGroups {
                             }
                         }
 
-                        AdornBlocks.PAINTED_PLANKS.get().values().forEach(context::add);
-                        AdornBlocks.PAINTED_WOOD_STAIRS.get().values().forEach(context::add);
-                        AdornBlocks.PAINTED_WOOD_SLABS.get().values().forEach(context::add);
+                        addColored(context, AdornBlocks.PAINTED_PLANKS.get());
+                        addColored(context, AdornBlocks.PAINTED_WOOD_STAIRS.get());
+                        addColored(context, AdornBlocks.PAINTED_WOOD_SLABS.get());
                     }
                 }
-                addColoredBlocks(context);
+                addColoredBlocks(context, false);
                 addChimneys(context);
                 addFences(context);
                 addCopperPipes(context);
@@ -118,10 +138,10 @@ public final class AdornItemGroups {
             context.addAfter(Items.WAXED_WEATHERED_CUT_COPPER_SLAB, AdornBlocks.WAXED_WEATHERED_COPPER_PIPE);
             context.addAfter(Items.WAXED_OXIDIZED_CUT_COPPER_SLAB, AdornBlocks.WAXED_OXIDIZED_COPPER_PIPE);
         });
-        itemGroups.addItems(ItemGroups.COLORED_BLOCKS, AdornItemGroups::addColoredBlocks);
+        itemGroups.addItems(ItemGroups.COLORED_BLOCKS, context -> addColoredBlocks(context, true));
         itemGroups.addItems(ItemGroups.FUNCTIONAL, context -> {
             addByKinds(context, FUNCTIONAL_KINDS);
-            addColoredBlocks(context);
+            addColoredBlocks(context, false);
             addChimneys(context);
             addFences(context);
             addCrates(context);
@@ -135,12 +155,16 @@ public final class AdornItemGroups {
     }
 
     private static void addByKinds(ItemGroupBuildContext context, List<BlockKind> kinds) {
+        var hasAllKinds = kinds.equals(Arrays.asList(BlockKind.values()));
+
         for (var variant : BlockVariantSets.allVariants()) {
             addByKinds(context, variant, kinds);
         }
 
-        for (ItemConvertible item : getPaintedWood()) {
-            context.add(item);
+        if (hasAllKinds) {
+            for (ItemConvertible item : getPaintedWood()) {
+                context.add(item);
+            }
         }
     }
 
@@ -151,19 +175,21 @@ public final class AdornItemGroups {
         }
     }
 
-    private static void addColoredBlocks(ItemGroupBuildContext context) {
-        for (var sofa : AdornBlocks.SOFAS.get().values()) {
-            context.add(sofa);
+    private static void addColoredBlocks(ItemGroupBuildContext context, boolean includeWood) {
+        addColored(context, AdornBlocks.SOFAS.get());
+        addColored(context, AdornBlocks.TABLE_LAMPS.get());
+        if (includeWood) {
+            addColored(context, AdornBlocks.PAINTED_PLANKS.get());
+            addColored(context, AdornBlocks.PAINTED_WOOD_STAIRS.get());
+            addColored(context, AdornBlocks.PAINTED_WOOD_SLABS.get());
         }
-        for (var lamp : AdornBlocks.TABLE_LAMPS.get().values()) {
-            context.add(lamp);
-        }
-        AdornBlocks.PAINTED_PLANKS.get().values().forEach(context::add);
-        AdornBlocks.PAINTED_WOOD_STAIRS.get().values().forEach(context::add);
-        AdornBlocks.PAINTED_WOOD_SLABS.get().values().forEach(context::add);
         context.add(AdornBlocks.CANDLELIT_LANTERN);
-        for (var lantern : AdornBlocks.DYED_CANDLELIT_LANTERNS.get().values()) {
-            context.add(lantern);
+        addColored(context, AdornBlocks.DYED_CANDLELIT_LANTERNS.get());
+    }
+
+    private static void addColored(ItemGroupBuildContext context, Map<DyeColor, ? extends ItemConvertible> items) {
+        for (DyeColor color : DYE_COLORS_IN_ORDER) {
+            context.add(items.get(color));
         }
     }
 
@@ -251,7 +277,7 @@ public final class AdornItemGroups {
         var slabs = AdornBlocks.PAINTED_WOOD_SLABS.get();
         var stairs = AdornBlocks.PAINTED_WOOD_STAIRS.get();
 
-        for (DyeColor color : DyeColor.values()) {
+        for (DyeColor color : DYE_COLORS_IN_ORDER) {
             items.add(planks.get(color));
             items.add(stairs.get(color));
             items.add(slabs.get(color));
