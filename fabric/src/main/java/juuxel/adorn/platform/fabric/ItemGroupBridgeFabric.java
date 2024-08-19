@@ -27,6 +27,11 @@ public final class ItemGroupBridgeFabric implements ItemGroupBridge {
                 }
 
                 @Override
+                public void addBefore(ItemConvertible before, List<? extends ItemConvertible> items) {
+                    entries.addBefore(before, items.toArray(ItemConvertible[]::new));
+                }
+
+                @Override
                 public void addAfter(ItemConvertible after, List<? extends ItemConvertible> items) {
                     entries.addAfter(after, items.toArray(ItemConvertible[]::new));
                 }

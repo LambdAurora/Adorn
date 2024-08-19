@@ -42,6 +42,18 @@ public final class ItemGroupBridgeForge implements ItemGroupBridge {
                 }
 
                 @Override
+                public void addBefore(ItemConvertible before, List<? extends ItemConvertible> items) {
+                    if (event.getTabKey().equals(group)) {
+                        var beforeStack = new ItemStack(before);
+                        for (ItemConvertible item : items.reversed()) {
+                            var stack = new ItemStack(item);
+                            event.insertBefore(beforeStack, stack, DEFAULT_STACK_VISIBILITY);
+                            beforeStack = stack;
+                        }
+                    }
+                }
+
+                @Override
                 public void addAfter(ItemConvertible after, List<? extends ItemConvertible> items) {
                     if (event.getTabKey().equals(group)) {
                         var afterStack = new ItemStack(after);

@@ -65,6 +65,10 @@ public final class AdornItemGroups {
                                 context.add(block);
                             }
                         }
+
+                        AdornBlocks.PAINTED_PLANKS.get().values().forEach(context::add);
+                        AdornBlocks.PAINTED_WOOD_STAIRS.get().values().forEach(context::add);
+                        AdornBlocks.PAINTED_WOOD_SLABS.get().values().forEach(context::add);
                     }
                 }
                 addColoredBlocks(context);
@@ -134,6 +138,10 @@ public final class AdornItemGroups {
         for (var variant : BlockVariantSets.allVariants()) {
             addByKinds(context, variant, kinds);
         }
+
+        for (ItemConvertible item : getPaintedWood()) {
+            context.add(item);
+        }
     }
 
     private static void addByKinds(ItemGroupBuildContext context, BlockVariant variant, List<BlockKind> kinds) {
@@ -150,6 +158,9 @@ public final class AdornItemGroups {
         for (var lamp : AdornBlocks.TABLE_LAMPS.get().values()) {
             context.add(lamp);
         }
+        AdornBlocks.PAINTED_PLANKS.get().values().forEach(context::add);
+        AdornBlocks.PAINTED_WOOD_STAIRS.get().values().forEach(context::add);
+        AdornBlocks.PAINTED_WOOD_SLABS.get().values().forEach(context::add);
         context.add(AdornBlocks.CANDLELIT_LANTERN);
         for (var lantern : AdornBlocks.DYED_CANDLELIT_LANTERNS.get().values()) {
             context.add(lantern);
@@ -231,6 +242,22 @@ public final class AdornItemGroups {
     private static void addMiscDecorations(ItemGroupBuildContext context) {
         context.add(AdornItems.STONE_TORCH);
         context.add(AdornBlocks.STONE_LADDER);
+    }
+
+    private static List<ItemConvertible> getPaintedWood() {
+        List<ItemConvertible> items = new ArrayList<>();
+
+        var planks = AdornBlocks.PAINTED_PLANKS.get();
+        var slabs = AdornBlocks.PAINTED_WOOD_SLABS.get();
+        var stairs = AdornBlocks.PAINTED_WOOD_STAIRS.get();
+
+        for (DyeColor color : DyeColor.values()) {
+            items.add(planks.get(color));
+            items.add(stairs.get(color));
+            items.add(slabs.get(color));
+        }
+
+        return items;
     }
 
     private static @Nullable Block findLastBuildingBlockEntry(BlockVariant variant) {
