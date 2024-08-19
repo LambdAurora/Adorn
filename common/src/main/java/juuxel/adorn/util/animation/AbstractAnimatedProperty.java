@@ -34,7 +34,7 @@ public abstract class AbstractAnimatedProperty<T> {
 
     // https://easings.net/#easeOutQuint
     private static float ease(float delta) {
-        return (float) Math.pow(1 - (1 - delta), 5);
+        return 1 - (float) Math.pow(1 - delta, 5);
     }
 
     private final class Task implements AnimationTask {
