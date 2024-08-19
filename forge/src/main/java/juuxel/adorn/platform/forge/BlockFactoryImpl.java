@@ -8,6 +8,7 @@ import juuxel.adorn.platform.forge.block.PaintedWoodSlabBlockNeo;
 import juuxel.adorn.platform.forge.block.SofaBlockForge;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
 
 public final class BlockFactoryImpl implements BlockFactory {
     public static final BlockFactoryImpl INSTANCE = new BlockFactoryImpl();
@@ -25,5 +26,10 @@ public final class BlockFactoryImpl implements BlockFactory {
     @Override
     public Block createPaintedWoodSlab(AbstractBlock.Settings settings) {
         return new PaintedWoodSlabBlockNeo(settings);
+    }
+
+    @Override
+    public Block createPaintedWoodStairs(BlockState baseBlockState, AbstractBlock.Settings settings) {
+        return BlockFactory.super.createPaintedWoodStairs(baseBlockState, settings);
     }
 }

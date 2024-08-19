@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "adorn:light_gray_planks"
+        "recipe": "minecraft:light_gray_planks"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "adorn:light_gray_planks"
+      "minecraft:light_gray_planks"
     ]
   }
 }

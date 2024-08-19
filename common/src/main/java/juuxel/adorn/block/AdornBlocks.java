@@ -53,6 +53,17 @@ public final class AdornBlocks {
         )
     );
 
+    public static final Registered<Map<DyeColor, Block>> PAINTED_WOOD_STAIRS = AdornUtil.associateLazily(
+        DyeColor.values(),
+        color -> {
+            var planks = PAINTED_PLANKS.get().get(color);
+            return HELPER.registerBlock(
+                color.asString() + "_wood_stairs",
+                () -> PlatformBridges.get().getBlockFactory().createPaintedWoodStairs(planks.getDefaultState(), BlockVariant.OAK.createSettings().mapColor(color))
+            );
+        }
+    );
+
     public static final Registered<Block> BRICK_CHIMNEY = HELPER.registerBlock("brick_chimney",
         () -> new ChimneyBlock(AbstractChimneyBlock.createBlockSettings(MapColor.RED)));
     public static final Registered<Block> STONE_BRICK_CHIMNEY = HELPER.registerBlock("stone_brick_chimney",

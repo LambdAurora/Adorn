@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.data.server.recipe.RecipeExporter;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.book.RecipeCategory;
@@ -27,18 +28,12 @@ public final class AdornRecipeGenerator extends FabricRecipeProvider {
         AdornBlocks.PAINTED_PLANKS.get().forEach((color, block) -> offerPlankDyeingRecipe(exporter, block, color));
         AdornBlocks.PAINTED_WOOD_SLABS.get().forEach((color, block) -> offerPaintedSlabRecipe(exporter, block, color));
         AdornBlocks.PAINTED_WOOD_SLABS.get().forEach((color, block) -> offerSlabDyeingRecipe(exporter, block, color));
+        AdornBlocks.PAINTED_WOOD_STAIRS.get().forEach((color, block) -> offerPaintedStairsRecipe(exporter, block, color));
+        AdornBlocks.PAINTED_WOOD_STAIRS.get().forEach((color, block) -> offerStairDyeingRecipe(exporter, block, color));
     }
 
     private static void offerPlankDyeingRecipe(RecipeExporter exporter, ItemConvertible output, DyeColor color) {
-        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, output, 8)
-            .input('*', TagKey.of(RegistryKeys.ITEM, Identifier.of("c", "dyes/" + color.asString())))
-            .input('#', ItemTags.PLANKS)
-            .pattern("###")
-            .pattern("#*#")
-            .pattern("###")
-            .group("planks")
-            .criterion("has_planks", conditionsFromTag(ItemTags.PLANKS))
-            .offerTo(exporter);
+        offerDyeingRecipe(exporter, output, color, ItemTags.PLANKS, "planks", false);
     }
 
     private static void offerPaintedSlabRecipe(RecipeExporter exporter, ItemConvertible output, DyeColor color) {
@@ -50,14 +45,30 @@ public final class AdornRecipeGenerator extends FabricRecipeProvider {
     }
 
     private static void offerSlabDyeingRecipe(RecipeExporter exporter, ItemConvertible output, DyeColor color) {
+        offerDyeingRecipe(exporter, output, color, ItemTags.WOODEN_SLABS, "slab", true);
+    }
+
+    private static void offerPaintedStairsRecipe(RecipeExporter exporter, ItemConvertible output, DyeColor color) {
+        var planks = AdornBlocks.PAINTED_PLANKS.get().get(color);
+        createStairsRecipe(output, Ingredient.ofItems(planks))
+            .group("wooden_stairs")
+            .criterion("has_planks", conditionsFromItem(planks))
+            .offerTo(exporter);
+    }
+
+    private static void offerStairDyeingRecipe(RecipeExporter exporter, ItemConvertible output, DyeColor color) {
+        offerDyeingRecipe(exporter, output, color, ItemTags.WOODEN_STAIRS, "stairs", true);
+    }
+
+    private static void offerDyeingRecipe(RecipeExporter exporter, ItemConvertible output, DyeColor color, TagKey<Item> ingredient, String kind, boolean suffix) {
         ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, output, 8)
             .input('*', TagKey.of(RegistryKeys.ITEM, Identifier.of("c", "dyes/" + color.asString())))
-            .input('#', ItemTags.WOODEN_SLABS)
+            .input('#', ingredient)
             .pattern("###")
             .pattern("#*#")
             .pattern("###")
-            .group("wooden_slab")
-            .criterion("has_slab", conditionsFromTag(ItemTags.WOODEN_SLABS))
-            .offerTo(exporter, getItemPath(output) + "_from_dyeing");
+            .group("wooden_" + kind)
+            .criterion("has_" + kind, conditionsFromTag(ingredient))
+            .offerTo(exporter, suffix ? getItemPath(output) + "_from_dyeing" : getItemPath(output));
     }
 }

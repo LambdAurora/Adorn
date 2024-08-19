@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "adorn:yellow_planks"
+        "recipe": "minecraft:yellow_planks"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "adorn:yellow_planks"
+      "minecraft:yellow_planks"
     ]
   }
 }

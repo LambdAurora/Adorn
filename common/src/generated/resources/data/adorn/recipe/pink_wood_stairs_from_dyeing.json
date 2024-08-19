@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "wooden_stairs",
+  "key": {
+    "#": {
+      "tag": "minecraft:wooden_stairs"
+    },
+    "*": {
+      "tag": "c:dyes/pink"
+    }
+  },
+  "pattern": [
+    "###",
+    "#*#",
+    "###"
+  ],
+  "result": {
+    "count": 8,
+    "id": "adorn:pink_wood_stairs"
+  }
+}

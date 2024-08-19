@@ -21,7 +21,10 @@ public final class AdornBlockTagGenerator extends FabricTagProvider.BlockTagProv
             .add(AdornBlocks.PAINTED_PLANKS.get().values().toArray(Block[]::new));
         getOrCreateTagBuilder(AdornTags.PAINTED_WOOD_SLABS.block())
             .add(AdornBlocks.PAINTED_WOOD_SLABS.get().values().toArray(Block[]::new));
+        getOrCreateTagBuilder(AdornTags.PAINTED_WOOD_STAIRS.block())
+            .add(AdornBlocks.PAINTED_WOOD_STAIRS.get().values().toArray(Block[]::new));
         getOrCreateTagBuilder(BlockTags.PLANKS).addTag(AdornTags.PAINTED_PLANKS.block());
         getOrCreateTagBuilder(BlockTags.WOODEN_SLABS).addTag(AdornTags.PAINTED_WOOD_SLABS.block());
+        getOrCreateTagBuilder(BlockTags.WOODEN_STAIRS).addTag(AdornTags.PAINTED_WOOD_STAIRS.block());
     }
 }

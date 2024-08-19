@@ -55,6 +55,7 @@ public final class AdornBlocksFabric {
 
         FlammableBlockRegistry.getDefaultInstance().add(AdornTags.PAINTED_PLANKS.block(), 5, 20);
         FlammableBlockRegistry.getDefaultInstance().add(AdornTags.PAINTED_WOOD_SLABS.block(), 5, 20);
+        FlammableBlockRegistry.getDefaultInstance().add(AdornTags.PAINTED_WOOD_STAIRS.block(), 5, 20);
     }
 
     public static void afterRegister() {

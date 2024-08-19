@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "adorn:black_planks"
+        "recipe": "minecraft:black_planks"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "adorn:black_planks"
+      "minecraft:black_planks"
     ]
   }
 }

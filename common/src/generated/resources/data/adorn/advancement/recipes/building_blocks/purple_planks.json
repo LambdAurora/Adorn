@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "adorn:purple_planks"
+        "recipe": "minecraft:purple_planks"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "adorn:purple_planks"
+      "minecraft:purple_planks"
     ]
   }
 }
