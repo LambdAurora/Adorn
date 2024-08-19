@@ -14,12 +14,12 @@ public final class AdornBlockLootTableGenerator extends FabricBlockLootTableProv
 
     @Override
     public void generate() {
-        AdornBlocks.PAINTED_PLANKS.get().values().forEach(this::addDrop);
-        AdornBlocks.PAINTED_WOOD_SLABS.get().values().forEach(this::slabDrops);
-        AdornBlocks.PAINTED_WOOD_STAIRS.get().values().forEach(this::addDrop);
-        AdornBlocks.PAINTED_WOOD_FENCES.get().values().forEach(this::addDrop);
-        AdornBlocks.PAINTED_WOOD_FENCE_GATES.get().values().forEach(this::addDrop);
-        AdornBlocks.PAINTED_WOOD_PRESSURE_PLATES.get().values().forEach(this::addDrop);
-        AdornBlocks.PAINTED_WOOD_BUTTONS.get().values().forEach(this::addDrop);
+        AdornBlocks.PAINTED_PLANKS.values().forEach(this::addDrop);
+        AdornBlocks.PAINTED_WOOD_SLABS.values().forEach(this::slabDrops);
+        AdornBlocks.PAINTED_WOOD_STAIRS.values().forEach(this::addDrop);
+        AdornBlocks.PAINTED_WOOD_FENCES.values().forEach(this::addDrop);
+        AdornBlocks.PAINTED_WOOD_FENCE_GATES.values().forEach(this::addDrop);
+        AdornBlocks.PAINTED_WOOD_PRESSURE_PLATES.values().forEach(this::addDrop);
+        AdornBlocks.PAINTED_WOOD_BUTTONS.values().forEach(this::addDrop);
     }
 }

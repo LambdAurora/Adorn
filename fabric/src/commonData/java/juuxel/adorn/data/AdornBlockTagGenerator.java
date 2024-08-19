@@ -18,19 +18,19 @@ public final class AdornBlockTagGenerator extends FabricTagProvider.BlockTagProv
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
         getOrCreateTagBuilder(AdornTags.PAINTED_PLANKS.block())
-            .add(AdornBlocks.PAINTED_PLANKS.get().values().toArray(Block[]::new));
+            .add(AdornBlocks.PAINTED_PLANKS.values().toArray(Block[]::new));
         getOrCreateTagBuilder(AdornTags.PAINTED_WOOD_SLABS.block())
-            .add(AdornBlocks.PAINTED_WOOD_SLABS.get().values().toArray(Block[]::new));
+            .add(AdornBlocks.PAINTED_WOOD_SLABS.values().toArray(Block[]::new));
         getOrCreateTagBuilder(AdornTags.PAINTED_WOOD_STAIRS.block())
-            .add(AdornBlocks.PAINTED_WOOD_STAIRS.get().values().toArray(Block[]::new));
+            .add(AdornBlocks.PAINTED_WOOD_STAIRS.values().toArray(Block[]::new));
         getOrCreateTagBuilder(AdornTags.PAINTED_WOOD_FENCES.block())
-            .add(AdornBlocks.PAINTED_WOOD_FENCES.get().values().toArray(Block[]::new));
+            .add(AdornBlocks.PAINTED_WOOD_FENCES.values().toArray(Block[]::new));
         getOrCreateTagBuilder(AdornTags.PAINTED_WOOD_FENCE_GATES.block())
-            .add(AdornBlocks.PAINTED_WOOD_FENCE_GATES.get().values().toArray(Block[]::new));
+            .add(AdornBlocks.PAINTED_WOOD_FENCE_GATES.values().toArray(Block[]::new));
         getOrCreateTagBuilder(AdornTags.PAINTED_WOOD_PRESSURE_PLATES.block())
-            .add(AdornBlocks.PAINTED_WOOD_PRESSURE_PLATES.get().values().toArray(Block[]::new));
+            .add(AdornBlocks.PAINTED_WOOD_PRESSURE_PLATES.values().toArray(Block[]::new));
         getOrCreateTagBuilder(AdornTags.PAINTED_WOOD_BUTTONS.block())
-            .add(AdornBlocks.PAINTED_WOOD_BUTTONS.get().values().toArray(Block[]::new));
+            .add(AdornBlocks.PAINTED_WOOD_BUTTONS.values().toArray(Block[]::new));
         getOrCreateTagBuilder(BlockTags.PLANKS).addTag(AdornTags.PAINTED_PLANKS.block());
         getOrCreateTagBuilder(BlockTags.WOODEN_SLABS).addTag(AdornTags.PAINTED_WOOD_SLABS.block());
         getOrCreateTagBuilder(BlockTags.WOODEN_STAIRS).addTag(AdornTags.PAINTED_WOOD_STAIRS.block());

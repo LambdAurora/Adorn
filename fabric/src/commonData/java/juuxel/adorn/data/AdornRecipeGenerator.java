@@ -25,19 +25,19 @@ public final class AdornRecipeGenerator extends FabricRecipeProvider {
 
     @Override
     public void generate(RecipeExporter exporter) {
-        AdornBlocks.PAINTED_PLANKS.get().forEach((color, block) -> offerPlankDyeingRecipe(exporter, block, color));
-        AdornBlocks.PAINTED_WOOD_SLABS.get().forEach((color, block) -> offerPaintedSlabRecipe(exporter, block, color));
-        AdornBlocks.PAINTED_WOOD_SLABS.get().forEach((color, block) -> offerSlabDyeingRecipe(exporter, block, color));
-        AdornBlocks.PAINTED_WOOD_STAIRS.get().forEach((color, block) -> offerPaintedStairsRecipe(exporter, block, color));
-        AdornBlocks.PAINTED_WOOD_STAIRS.get().forEach((color, block) -> offerStairDyeingRecipe(exporter, block, color));
-        AdornBlocks.PAINTED_WOOD_FENCES.get().forEach((color, block) -> offerPaintedFenceRecipe(exporter, block, color));
-        AdornBlocks.PAINTED_WOOD_FENCES.get().forEach((color, block) -> offerFenceDyeingRecipe(exporter, block, color));
-        AdornBlocks.PAINTED_WOOD_FENCE_GATES.get().forEach((color, block) -> offerPaintedFenceGateRecipe(exporter, block, color));
-        AdornBlocks.PAINTED_WOOD_FENCE_GATES.get().forEach((color, block) -> offerFenceGateDyeingRecipe(exporter, block, color));
-        AdornBlocks.PAINTED_WOOD_PRESSURE_PLATES.get().forEach((color, block) -> offerPaintedPressurePlateRecipe(exporter, block, color));
-        AdornBlocks.PAINTED_WOOD_PRESSURE_PLATES.get().forEach((color, block) -> offerPressurePlateDyeingRecipe(exporter, block, color));
-        AdornBlocks.PAINTED_WOOD_BUTTONS.get().forEach((color, block) -> offerPaintedButtonRecipe(exporter, block, color));
-        AdornBlocks.PAINTED_WOOD_BUTTONS.get().forEach((color, block) -> offerButtonDyeingRecipe(exporter, block, color));
+        AdornBlocks.PAINTED_PLANKS.forEach((color, block) -> offerPlankDyeingRecipe(exporter, block, color));
+        AdornBlocks.PAINTED_WOOD_SLABS.forEach((color, block) -> offerPaintedSlabRecipe(exporter, block, color));
+        AdornBlocks.PAINTED_WOOD_SLABS.forEach((color, block) -> offerSlabDyeingRecipe(exporter, block, color));
+        AdornBlocks.PAINTED_WOOD_STAIRS.forEach((color, block) -> offerPaintedStairsRecipe(exporter, block, color));
+        AdornBlocks.PAINTED_WOOD_STAIRS.forEach((color, block) -> offerStairDyeingRecipe(exporter, block, color));
+        AdornBlocks.PAINTED_WOOD_FENCES.forEach((color, block) -> offerPaintedFenceRecipe(exporter, block, color));
+        AdornBlocks.PAINTED_WOOD_FENCES.forEach((color, block) -> offerFenceDyeingRecipe(exporter, block, color));
+        AdornBlocks.PAINTED_WOOD_FENCE_GATES.forEach((color, block) -> offerPaintedFenceGateRecipe(exporter, block, color));
+        AdornBlocks.PAINTED_WOOD_FENCE_GATES.forEach((color, block) -> offerFenceGateDyeingRecipe(exporter, block, color));
+        AdornBlocks.PAINTED_WOOD_PRESSURE_PLATES.forEach((color, block) -> offerPaintedPressurePlateRecipe(exporter, block, color));
+        AdornBlocks.PAINTED_WOOD_PRESSURE_PLATES.forEach((color, block) -> offerPressurePlateDyeingRecipe(exporter, block, color));
+        AdornBlocks.PAINTED_WOOD_BUTTONS.forEach((color, block) -> offerPaintedButtonRecipe(exporter, block, color));
+        AdornBlocks.PAINTED_WOOD_BUTTONS.forEach((color, block) -> offerButtonDyeingRecipe(exporter, block, color));
     }
 
     private static void offerPlankDyeingRecipe(RecipeExporter exporter, ItemConvertible output, DyeColor color) {

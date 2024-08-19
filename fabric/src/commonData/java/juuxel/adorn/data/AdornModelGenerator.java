@@ -13,7 +13,7 @@ public final class AdornModelGenerator extends FabricModelProvider {
 
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator generator) {
-        AdornBlocks.PAINTED_PLANKS.get().forEach((color, planks) -> {
+        AdornBlocks.PAINTED_PLANKS.forEach((color, planks) -> {
             generator.registerCubeAllModelTexturePool(planks)
                 .slab(AdornBlocks.PAINTED_WOOD_SLABS.getEager(color))
                 .stairs(AdornBlocks.PAINTED_WOOD_STAIRS.getEager(color))

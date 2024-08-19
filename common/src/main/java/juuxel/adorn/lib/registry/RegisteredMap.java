@@ -6,7 +6,9 @@ import java.util.Collections;
 import java.util.EnumMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.function.BiConsumer;
 import java.util.function.Supplier;
+import java.util.stream.Stream;
 
 public final class RegisteredMap<K, V> implements Registered<Map<K, V>> {
     private final Map<K, Registered<? extends V>> map;
@@ -32,6 +34,14 @@ public final class RegisteredMap<K, V> implements Registered<Map<K, V>> {
     @Override
     public Map<K, V> get() {
         return builtMap.get();
+    }
+
+    public Stream<V> values() {
+        return map.values().stream().map(Registered::get);
+    }
+
+    public void forEach(BiConsumer<? super K, ? super V> action) {
+        map.forEach((key, value) -> action.accept(key, value.get()));
     }
 
     public static <K, V> Builder<K, V> builder(MapFactory<K> mapFactory) {
