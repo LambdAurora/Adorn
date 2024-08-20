@@ -1691,6 +1691,7 @@
   "item.adorn.watering_can.fertilizer": "Fertilizer: %s/%s",
 
   "item.adorn.guide_book": "Decorating Your Home",
+  "item.adorn.guide_book.author": "Alex",
   "guide.adorn.topic.brewer.title": "Brewers",
   "guide.adorn.topic.brewer.text": "Brewers cook various beverages for you to enjoy. Hover over the diagram below for details!",
   "guide.adorn.topic.brewer.input_slot": "Put your input ingredients here.",
@@ -1729,6 +1730,7 @@
 
   "item.adorn.traders_manual": "Trader's Manual",
   "item.adorn.traders_manual.subtitle": "Using trading stations",
+  "item.adorn.traders_manual.author": "Steve",
   "item.adorn.traders_manual.buying.title": "Buying",
   "item.adorn.traders_manual.buying.text": "You can buy items from trading stations by using the station with the payment item.",
   "item.adorn.traders_manual.selling.title": "Selling",

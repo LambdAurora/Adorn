@@ -37,7 +37,7 @@ public final class BookGenerator extends FabricCodecDataProvider<Book> {
                 .title(Text.literal("Adorn"))
                 .titleScale(1.5f)
                 .subtitle(AdornItems.GUIDE_BOOK.get().getName().copy().formatted(Formatting.ITALIC))
-                .author(Text.literal("Juuz"))
+                .author(Text.translatable("item.adorn.guide_book.author"))
                 .pageTree(pageTree -> pageTree
                     .page(Page.builder()
                         .icon(AdornTags.TABLES.item())
@@ -163,7 +163,7 @@ public final class BookGenerator extends FabricCodecDataProvider<Book> {
             Book.builder()
                 .title(AdornItems.TRADERS_MANUAL.get().getName().copy().formatted(Formatting.UNDERLINE, Formatting.BOLD))
                 .subtitle(Text.translatable("item.adorn.traders_manual.subtitle").formatted(Formatting.ITALIC))
-                .author(Text.literal("Juuz"))
+                .author(Text.translatable("item.adorn.traders_manual.author"))
                 .page(Page.builder()
                     .icon(Items.EMERALD)
                     .title(Text.translatable("item.adorn.traders_manual.buying.title"))

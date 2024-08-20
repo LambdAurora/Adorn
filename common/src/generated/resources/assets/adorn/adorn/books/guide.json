@@ -1,6 +1,8 @@
 {
   "title": "Adorn",
-  "author": "Juuz",
+  "author": {
+    "translate": "item.adorn.guide_book.author"
+  },
   "pages": [
     {
       "title": {

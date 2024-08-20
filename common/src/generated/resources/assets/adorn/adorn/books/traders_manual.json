@@ -4,7 +4,9 @@
     "bold": true,
     "underlined": true
   },
-  "author": "Juuz",
+  "author": {
+    "translate": "item.adorn.traders_manual.author"
+  },
   "pages": [
     {
       "title": {
