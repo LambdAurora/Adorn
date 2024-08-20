@@ -20,3 +20,6 @@ accessible class net/minecraft/menu/MenuType$Factory
 accessible method net/minecraft/menu/MenuType <init> (Lnet/minecraft/menu/MenuType$Factory;Lnet/minecraft/resource/featuretoggle/FeatureSet;)V
 accessible class net/minecraft/client/gui/screen/ingame/MenuScreens$Provider
 accessible method net/minecraft/client/gui/screen/ingame/MenuScreens register (Lnet/minecraft/menu/MenuType;Lnet/minecraft/client/gui/screen/ingame/MenuScreens$Provider;)V
+
+# Texts
+accessible method net/minecraft/text/TextCodecs combine (Ljava/util/List;)Lnet/minecraft/text/MutableText;

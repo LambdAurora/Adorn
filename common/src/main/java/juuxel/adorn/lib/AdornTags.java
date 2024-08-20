@@ -28,6 +28,8 @@ public final class AdornTags {
     public static final TagPair SHELVES = blockAndItem("shelves");
     public static final TagPair WOODEN_SHELVES = blockAndItem("wooden_shelves");
     public static final TagPair CHIMNEYS = blockAndItem("chimneys");
+    public static final TagPair REGULAR_CHIMNEYS = blockAndItem("regular_chimneys");
+    public static final TagPair PRISMARINE_CHIMNEYS = blockAndItem("prismarine_chimneys");
     public static final TagPair CRATES = blockAndItem("crates");
     public static final TagPair COFFEE_TABLES = blockAndItem("coffee_tables");
     public static final TagPair TABLE_LAMPS = blockAndItem("table_lamps");

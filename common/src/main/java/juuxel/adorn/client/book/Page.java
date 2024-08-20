@@ -4,15 +4,18 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import juuxel.adorn.util.EntryOrTag;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.tag.TagKey;
 import net.minecraft.text.Text;
 import net.minecraft.text.TextCodecs;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 public record Page(List<Icon> icons, Text title, Text text, @Nullable Image image) {
@@ -26,6 +29,52 @@ public record Page(List<Icon> icons, Text title, Text text, @Nullable Image imag
     // For DFU
     private Page(List<Icon> icons, Text title, Text text, Optional<Image> image) {
         this(icons, title, text, image.orElse(null));
+    }
+
+    public static Builder builder() {
+        return new Builder();
+    }
+
+    public static final class Builder {
+        private final List<Icon> icons = new ArrayList<>();
+        private @Nullable Text title;
+        private @Nullable Text text;
+        private @Nullable Image image;
+
+        private Builder() {
+        }
+
+        public Builder icon(ItemConvertible item) {
+            icons.add(new Icon(new EntryOrTag.OfEntry<>(item.asItem())));
+            return this;
+        }
+
+        public Builder icon(TagKey<Item> tag) {
+            icons.add(new Icon(new EntryOrTag.OfTag<>(tag)));
+            return this;
+        }
+
+        public Builder title(Text title) {
+            this.title = title;
+            return this;
+        }
+
+        public Builder content(Text text) {
+            this.text = text;
+            return this;
+        }
+
+        public Builder image(Image image) {
+            this.image = image;
+            return this;
+        }
+
+        public Page build() {
+            if (icons.isEmpty()) throw new IllegalArgumentException("Page has no icons");
+            Objects.requireNonNull(title);
+            Objects.requireNonNull(text);
+            return new Page(icons, title, text, image);
+        }
     }
 
     public record Icon(EntryOrTag<Item> items) {

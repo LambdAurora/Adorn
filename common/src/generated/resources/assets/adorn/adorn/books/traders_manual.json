@@ -1,0 +1,37 @@
+{
+  "title": {
+    "translate": "item.adorn.traders_manual",
+    "bold": true,
+    "underlined": true
+  },
+  "author": "Juuz",
+  "pages": [
+    {
+      "title": {
+        "translate": "item.adorn.traders_manual.buying.title"
+      },
+      "icons": [
+        "minecraft:emerald"
+      ],
+      "text": {
+        "translate": "item.adorn.traders_manual.buying.text"
+      }
+    },
+    {
+      "title": {
+        "translate": "item.adorn.traders_manual.selling.title"
+      },
+      "icons": [
+        "minecraft:gold_ingot"
+      ],
+      "text": {
+        "translate": "item.adorn.traders_manual.selling.text"
+      }
+    }
+  ],
+  "subtitle": {
+    "translate": "item.adorn.traders_manual.subtitle",
+    "italic": true
+  },
+  "titleScale": 1.0
+}

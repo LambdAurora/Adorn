@@ -1,0 +1,611 @@
+{
+  "title": "Adorn",
+  "author": "Juuz",
+  "pages": [
+    {
+      "title": {
+        "translate": "guide.adorn.contents.title"
+      },
+      "icons": [
+        "minecraft:book"
+      ],
+      "text": {
+        "extra": [
+          {
+            "translate": "guide.adorn.topic.table.title",
+            "clickEvent": {
+              "action": "change_page",
+              "value": "3"
+            },
+            "hoverEvent": {
+              "action": "show_text",
+              "contents": {
+                "translate": "guide.adorn.contents.jump_to_page",
+                "italic": true,
+                "with": [
+                  3
+                ]
+              }
+            },
+            "underlined": true
+          },
+          "\n",
+          {
+            "translate": "guide.adorn.topic.chair.title",
+            "clickEvent": {
+              "action": "change_page",
+              "value": "4"
+            },
+            "hoverEvent": {
+              "action": "show_text",
+              "contents": {
+                "translate": "guide.adorn.contents.jump_to_page",
+                "italic": true,
+                "with": [
+                  4
+                ]
+              }
+            },
+            "underlined": true
+          },
+          "\n",
+          {
+            "translate": "guide.adorn.topic.building_blocks.title",
+            "clickEvent": {
+              "action": "change_page",
+              "value": "5"
+            },
+            "hoverEvent": {
+              "action": "show_text",
+              "contents": {
+                "translate": "guide.adorn.contents.jump_to_page",
+                "italic": true,
+                "with": [
+                  5
+                ]
+              }
+            },
+            "underlined": true
+          },
+          "\n",
+          "  ",
+          {
+            "translate": "guide.adorn.topic.post.title",
+            "clickEvent": {
+              "action": "change_page",
+              "value": "6"
+            },
+            "hoverEvent": {
+              "action": "show_text",
+              "contents": {
+                "translate": "guide.adorn.contents.jump_to_page",
+                "italic": true,
+                "with": [
+                  6
+                ]
+              }
+            },
+            "underlined": true
+          },
+          "\n",
+          "  ",
+          {
+            "translate": "guide.adorn.topic.platform.title",
+            "clickEvent": {
+              "action": "change_page",
+              "value": "7"
+            },
+            "hoverEvent": {
+              "action": "show_text",
+              "contents": {
+                "translate": "guide.adorn.contents.jump_to_page",
+                "italic": true,
+                "with": [
+                  7
+                ]
+              }
+            },
+            "underlined": true
+          },
+          "\n",
+          "  ",
+          {
+            "translate": "guide.adorn.topic.step.title",
+            "clickEvent": {
+              "action": "change_page",
+              "value": "8"
+            },
+            "hoverEvent": {
+              "action": "show_text",
+              "contents": {
+                "translate": "guide.adorn.contents.jump_to_page",
+                "italic": true,
+                "with": [
+                  8
+                ]
+              }
+            },
+            "underlined": true
+          },
+          "\n",
+          {
+            "translate": "guide.adorn.topic.kitchen.title",
+            "clickEvent": {
+              "action": "change_page",
+              "value": "9"
+            },
+            "hoverEvent": {
+              "action": "show_text",
+              "contents": {
+                "translate": "guide.adorn.contents.jump_to_page",
+                "italic": true,
+                "with": [
+                  9
+                ]
+              }
+            },
+            "underlined": true
+          },
+          "\n",
+          {
+            "translate": "guide.adorn.topic.kitchen_sink.title",
+            "clickEvent": {
+              "action": "change_page",
+              "value": "10"
+            },
+            "hoverEvent": {
+              "action": "show_text",
+              "contents": {
+                "translate": "guide.adorn.contents.jump_to_page",
+                "italic": true,
+                "with": [
+                  10
+                ]
+              }
+            },
+            "underlined": true
+          },
+          "\n",
+          {
+            "translate": "guide.adorn.topic.sofa.title",
+            "clickEvent": {
+              "action": "change_page",
+              "value": "11"
+            },
+            "hoverEvent": {
+              "action": "show_text",
+              "contents": {
+                "translate": "guide.adorn.contents.jump_to_page",
+                "italic": true,
+                "with": [
+                  11
+                ]
+              }
+            },
+            "underlined": true
+          },
+          "\n",
+          {
+            "translate": "guide.adorn.topic.trading_station.title",
+            "clickEvent": {
+              "action": "change_page",
+              "value": "12"
+            },
+            "hoverEvent": {
+              "action": "show_text",
+              "contents": {
+                "translate": "guide.adorn.contents.jump_to_page",
+                "italic": true,
+                "with": [
+                  12
+                ]
+              }
+            },
+            "underlined": true
+          },
+          "\n",
+          {
+            "translate": "guide.adorn.topic.shelf.title",
+            "clickEvent": {
+              "action": "change_page",
+              "value": "13"
+            },
+            "hoverEvent": {
+              "action": "show_text",
+              "contents": {
+                "translate": "guide.adorn.contents.jump_to_page",
+                "italic": true,
+                "with": [
+                  13
+                ]
+              }
+            },
+            "underlined": true
+          },
+          "\n",
+          {
+            "translate": "guide.adorn.topic.drawer.title",
+            "clickEvent": {
+              "action": "change_page",
+              "value": "14"
+            },
+            "hoverEvent": {
+              "action": "show_text",
+              "contents": {
+                "translate": "guide.adorn.contents.jump_to_page",
+                "italic": true,
+                "with": [
+                  14
+                ]
+              }
+            },
+            "underlined": true
+          },
+          "\n",
+          {
+            "translate": "guide.adorn.topic.chimney.title",
+            "clickEvent": {
+              "action": "change_page",
+              "value": "15"
+            },
+            "hoverEvent": {
+              "action": "show_text",
+              "contents": {
+                "translate": "guide.adorn.contents.jump_to_page",
+                "italic": true,
+                "with": [
+                  15
+                ]
+              }
+            },
+            "underlined": true
+          },
+          "\n",
+          {
+            "translate": "guide.adorn.topic.prismarine_chimney.title",
+            "clickEvent": {
+              "action": "change_page",
+              "value": "16"
+            },
+            "hoverEvent": {
+              "action": "show_text",
+              "contents": {
+                "translate": "guide.adorn.contents.jump_to_page",
+                "italic": true,
+                "with": [
+                  16
+                ]
+              }
+            },
+            "underlined": true
+          },
+          "\n",
+          {
+            "translate": "guide.adorn.topic.brewer.title",
+            "clickEvent": {
+              "action": "change_page",
+              "value": "17"
+            },
+            "hoverEvent": {
+              "action": "show_text",
+              "contents": {
+                "translate": "guide.adorn.contents.jump_to_page",
+                "italic": true,
+                "with": [
+                  17
+                ]
+              }
+            },
+            "underlined": true
+          }
+        ],
+        "text": ""
+      }
+    },
+    {
+      "title": {
+        "translate": "guide.adorn.topic.table.title"
+      },
+      "icons": [
+        "#adorn:tables"
+      ],
+      "text": {
+        "translate": "guide.adorn.topic.table.text"
+      }
+    },
+    {
+      "title": {
+        "translate": "guide.adorn.topic.chair.title"
+      },
+      "icons": [
+        "#adorn:chairs"
+      ],
+      "text": {
+        "translate": "guide.adorn.topic.chair.text"
+      }
+    },
+    {
+      "title": {
+        "translate": "guide.adorn.topic.building_blocks.title"
+      },
+      "icons": [
+        "#adorn:posts",
+        "#adorn:steps",
+        "#adorn:platforms"
+      ],
+      "text": {
+        "extra": [
+          {
+            "translate": "guide.adorn.topic.post.title",
+            "clickEvent": {
+              "action": "change_page",
+              "value": "6"
+            },
+            "hoverEvent": {
+              "action": "show_text",
+              "contents": {
+                "translate": "guide.adorn.contents.jump_to_page",
+                "italic": true,
+                "with": [
+                  6
+                ]
+              }
+            },
+            "underlined": true
+          },
+          "\n",
+          {
+            "translate": "guide.adorn.topic.platform.title",
+            "clickEvent": {
+              "action": "change_page",
+              "value": "7"
+            },
+            "hoverEvent": {
+              "action": "show_text",
+              "contents": {
+                "translate": "guide.adorn.contents.jump_to_page",
+                "italic": true,
+                "with": [
+                  7
+                ]
+              }
+            },
+            "underlined": true
+          },
+          "\n",
+          {
+            "translate": "guide.adorn.topic.step.title",
+            "clickEvent": {
+              "action": "change_page",
+              "value": "8"
+            },
+            "hoverEvent": {
+              "action": "show_text",
+              "contents": {
+                "translate": "guide.adorn.contents.jump_to_page",
+                "italic": true,
+                "with": [
+                  8
+                ]
+              }
+            },
+            "underlined": true
+          }
+        ],
+        "text": ""
+      }
+    },
+    {
+      "title": {
+        "translate": "guide.adorn.topic.post.title"
+      },
+      "icons": [
+        "#adorn:posts"
+      ],
+      "text": {
+        "translate": "guide.adorn.topic.post.text"
+      }
+    },
+    {
+      "title": {
+        "translate": "guide.adorn.topic.platform.title"
+      },
+      "icons": [
+        "#adorn:platforms"
+      ],
+      "text": {
+        "translate": "guide.adorn.topic.platform.text"
+      }
+    },
+    {
+      "title": {
+        "translate": "guide.adorn.topic.step.title"
+      },
+      "icons": [
+        "#adorn:steps"
+      ],
+      "text": {
+        "translate": "guide.adorn.topic.step.text"
+      }
+    },
+    {
+      "title": {
+        "translate": "guide.adorn.topic.kitchen.title"
+      },
+      "icons": [
+        "#adorn:kitchen_counters",
+        "#adorn:kitchen_cupboards"
+      ],
+      "text": {
+        "translate": "guide.adorn.topic.kitchen.text"
+      }
+    },
+    {
+      "title": {
+        "translate": "guide.adorn.topic.kitchen_sink.title"
+      },
+      "icons": [
+        "#adorn:kitchen_sinks"
+      ],
+      "text": {
+        "translate": "guide.adorn.topic.kitchen_sink.text"
+      }
+    },
+    {
+      "title": {
+        "translate": "guide.adorn.topic.sofa.title"
+      },
+      "icons": [
+        "#adorn:sofas"
+      ],
+      "text": {
+        "translate": "guide.adorn.topic.sofa.text"
+      }
+    },
+    {
+      "title": {
+        "translate": "guide.adorn.topic.trading_station.title"
+      },
+      "icons": [
+        "adorn:trading_station"
+      ],
+      "text": {
+        "translate": "guide.adorn.topic.trading_station.text"
+      }
+    },
+    {
+      "title": {
+        "translate": "guide.adorn.topic.shelf.title"
+      },
+      "icons": [
+        "#adorn:shelves"
+      ],
+      "text": {
+        "translate": "guide.adorn.topic.shelf.text"
+      }
+    },
+    {
+      "title": {
+        "translate": "guide.adorn.topic.drawer.title"
+      },
+      "icons": [
+        "#adorn:drawers"
+      ],
+      "text": {
+        "translate": "guide.adorn.topic.drawer.text"
+      }
+    },
+    {
+      "title": {
+        "translate": "guide.adorn.topic.chimney.title"
+      },
+      "icons": [
+        "#adorn:regular_chimneys"
+      ],
+      "text": {
+        "translate": "guide.adorn.topic.chimney.text"
+      }
+    },
+    {
+      "title": {
+        "translate": "guide.adorn.topic.prismarine_chimney.title"
+      },
+      "icons": [
+        "#adorn:prismarine_chimneys"
+      ],
+      "text": {
+        "translate": "guide.adorn.topic.prismarine_chimney.text"
+      }
+    },
+    {
+      "title": {
+        "translate": "guide.adorn.topic.brewer.title"
+      },
+      "icons": [
+        "adorn:brewer"
+      ],
+      "image": {
+        "hoverAreas": [
+          {
+            "position": [
+              1,
+              1
+            ],
+            "size": [
+              16,
+              16
+            ],
+            "tooltip": {
+              "translate": "guide.adorn.topic.brewer.input_slot"
+            }
+          },
+          {
+            "position": [
+              61,
+              1
+            ],
+            "size": [
+              16,
+              16
+            ],
+            "tooltip": {
+              "translate": "guide.adorn.topic.brewer.input_slot"
+            }
+          },
+          {
+            "position": [
+              27,
+              36
+            ],
+            "size": [
+              24,
+              24
+            ],
+            "tooltip": {
+              "translate": "guide.adorn.topic.brewer.mug_slot"
+            }
+          },
+          {
+            "position": [
+              74,
+              44
+            ],
+            "size": [
+              16,
+              16
+            ],
+            "tooltip": {
+              "translate": "guide.adorn.topic.brewer.tank_slot"
+            }
+          },
+          {
+            "position": [
+              96,
+              1
+            ],
+            "size": [
+              16,
+              59
+            ],
+            "tooltip": {
+              "translate": "guide.adorn.topic.brewer.tank"
+            }
+          }
+        ],
+        "location": "adorn:textures/gui/brewer_guide.png",
+        "size": [
+          113,
+          61
+        ]
+      },
+      "text": {
+        "translate": "guide.adorn.topic.brewer.text"
+      }
+    }
+  ],
+  "subtitle": {
+    "translate": "item.adorn.guide_book",
+    "italic": true
+  },
+  "titleScale": 1.5
+}

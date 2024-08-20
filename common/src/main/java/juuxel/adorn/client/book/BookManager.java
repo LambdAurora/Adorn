@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 
 public class BookManager extends JsonDataLoader {
     private static final Logger LOGGER = Logging.logger();
-    private static final String DATA_TYPE = "adorn/books";
+    public static final String DATA_TYPE = "adorn/books";
     private static final Gson GSON = new Gson();
 
     private Map<Identifier, Book> books = Map.of();
