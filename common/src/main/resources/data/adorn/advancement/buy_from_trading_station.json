@@ -15,8 +15,5 @@
     "bought_item": {
       "trigger": "adorn:bought_from_trading_station"
     }
-  },
-  "rewards": {
-    "loot": ["adorn:rewards/traders_manual"]
   }
 }

@@ -22,8 +22,5 @@
         ]
       }
     }
-  },
-  "rewards": {
-    "loot": ["adorn:rewards/guide_book"]
   }
 }
