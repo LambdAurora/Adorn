@@ -51,6 +51,14 @@ public class AdornReiClient implements REIClientPlugin {
         add(registry, AdornTags.CRATES.item());
         add(registry, AdornTags.TABLE_LAMPS.item());
         add(registry, AdornTags.CANDLELIT_LANTERNS.item());
+        add(registry, AdornTags.COPPER_PIPES.item());
+        add(registry, AdornTags.PAINTED_PLANKS.item());
+        add(registry, AdornTags.PAINTED_WOOD_SLABS.item());
+        add(registry, AdornTags.PAINTED_WOOD_STAIRS.item());
+        add(registry, AdornTags.PAINTED_WOOD_FENCES.item());
+        add(registry, AdornTags.PAINTED_WOOD_FENCE_GATES.item());
+        add(registry, AdornTags.PAINTED_WOOD_PRESSURE_PLATES.item());
+        add(registry, AdornTags.PAINTED_WOOD_BUTTONS.item());
     }
 
     private static void add(CollapsibleEntryRegistry registry, TagKey<Item> tag) {
