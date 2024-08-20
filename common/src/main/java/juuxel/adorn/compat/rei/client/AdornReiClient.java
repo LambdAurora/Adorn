@@ -55,7 +55,7 @@ public class AdornReiClient implements REIClientPlugin {
 
     private static void add(CollapsibleEntryRegistry registry, TagKey<Item> tag) {
         // matches the translation keys used by EMI as well
-        var name = Text.translatable(Util.createTranslationKey("tag", tag.id()));
+        var name = Text.translatable(Util.createTranslationKey("tag.item", tag.id()));
         registry.group(tag.id(), name, EntryIngredients.ofItemTag(tag));
     }
 
