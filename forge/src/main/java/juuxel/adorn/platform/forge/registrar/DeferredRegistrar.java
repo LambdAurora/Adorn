@@ -6,6 +6,7 @@ import juuxel.adorn.lib.registry.Registered;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.common.extensions.IHolderExtension;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -31,7 +32,17 @@ public final class DeferredRegistrar<T> implements ForgeRegistrar<T> {
     public <U extends T> Registered<U> register(String id, Supplier<? extends U> provider) {
         var registryObject = register.register(id, provider);
         objects.add(registryObject);
-        return registryObject::get;
+        return new Registered<>() {
+            @Override
+            public RegistryKey<? super U> key() {
+                return ((IHolderExtension<T>) registryObject).getKey();
+            }
+
+            @Override
+            public U get() {
+                return registryObject.get();
+            }
+        };
     }
 
     @Override

@@ -4,6 +4,7 @@ import juuxel.adorn.AdornCommon;
 import juuxel.adorn.lib.registry.Registered;
 import juuxel.adorn.lib.registry.Registrar;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -20,9 +21,20 @@ public final class RegistrarImpl<T> implements Registrar<T> {
 
     @Override
     public <U extends T> Registered<U> register(String id, Supplier<? extends U> provider) {
-        var registered = Registry.register(registry, AdornCommon.id(id), provider.get());
+        var key = RegistryKey.of(registry.getKey(), AdornCommon.id(id));
+        var registered = Registry.register(registry, key, provider.get());
         objects.add(registered);
-        return () -> registered;
+        return new Registered<>() {
+            @Override
+            public U get() {
+                return registered;
+            }
+
+            @Override
+            public RegistryKey<? super U> key() {
+                return key;
+            }
+        };
     }
 
     @Override
