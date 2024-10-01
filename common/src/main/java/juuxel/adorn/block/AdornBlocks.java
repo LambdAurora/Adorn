@@ -56,10 +56,10 @@ public final class AdornBlocks {
     public static final RegisteredMap<DyeColor, Block> PAINTED_WOOD_STAIRS = BLOCKS.registerBy(
         DyeColor.values(),
         color -> {
-            var planks = PAINTED_PLANKS.getEager(color);
+            var planks = PAINTED_PLANKS.get(color);
             return HELPER.registerBlock(
                 color.asString() + "_wood_stairs",
-                () -> PlatformBridges.get().getBlockFactory().createPaintedWoodStairs(planks.getDefaultState(), BlockVariant.OAK.createSettings().mapColor(color))
+                () -> PlatformBridges.get().getBlockFactory().createPaintedWoodStairs(planks.get().getDefaultState(), BlockVariant.OAK.createSettings().mapColor(color))
             );
         }
     );
