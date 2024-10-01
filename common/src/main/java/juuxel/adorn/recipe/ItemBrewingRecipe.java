@@ -47,7 +47,7 @@ public record ItemBrewingRecipe(Ingredient firstIngredient, Ingredient secondIng
 
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return AdornRecipes.BREWING_SERIALIZER.get();
+        return AdornRecipeSerializers.BREWING.get();
     }
 
     public static final class Serializer implements RecipeSerializer<ItemBrewingRecipe> {

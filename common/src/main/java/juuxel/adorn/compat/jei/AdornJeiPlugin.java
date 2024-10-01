@@ -4,7 +4,7 @@ import com.google.common.collect.Lists;
 import juuxel.adorn.AdornCommon;
 import juuxel.adorn.block.AdornBlocks;
 import juuxel.adorn.client.gui.screen.TradingStationScreen;
-import juuxel.adorn.recipe.AdornRecipes;
+import juuxel.adorn.recipe.AdornRecipeTypes;
 import me.shedaniel.rei.plugincompatibilities.api.REIPluginCompatIgnore;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
@@ -37,7 +37,7 @@ public final class AdornJeiPlugin implements IModPlugin {
 
     @Override
     public void registerRecipes(IRecipeRegistration registration) {
-        registerRecipes(registration, AdornRecipes.BREWING_TYPE.get(), JeiRecipeTypes.BREWER);
+        registerRecipes(registration, AdornRecipeTypes.BREWING.get(), JeiRecipeTypes.BREWER);
     }
 
     private <I extends RecipeInput, T extends Recipe<I>> void registerRecipes(

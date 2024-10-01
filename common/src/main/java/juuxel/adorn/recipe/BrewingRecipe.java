@@ -6,6 +6,6 @@ import net.minecraft.recipe.RecipeType;
 public sealed interface BrewingRecipe extends Recipe<BrewerInput> permits FluidBrewingRecipe, ItemBrewingRecipe {
     @Override
     default RecipeType<?> getType() {
-        return AdornRecipes.BREWING_TYPE.get();
+        return AdornRecipeTypes.BREWING.get();
     }
 }

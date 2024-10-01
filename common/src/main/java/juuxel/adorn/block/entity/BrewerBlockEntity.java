@@ -6,7 +6,7 @@ import juuxel.adorn.fluid.FluidReference;
 import juuxel.adorn.item.AdornItems;
 import juuxel.adorn.menu.BrewerMenu;
 import juuxel.adorn.platform.ItemBridge;
-import juuxel.adorn.recipe.AdornRecipes;
+import juuxel.adorn.recipe.AdornRecipeTypes;
 import juuxel.adorn.recipe.BrewerInput;
 import juuxel.adorn.recipe.FluidBrewingRecipe;
 import juuxel.adorn.recipe.InventoryWrappingRecipeInput;
@@ -167,7 +167,7 @@ public abstract class BrewerBlockEntity extends BaseContainerBlockEntity impleme
         }
 
         var input = new RecipeInputImpl(brewer);
-        var recipe = world.getRecipeManager().getFirstMatch(AdornRecipes.BREWING_TYPE.get(), input, world).map(RecipeEntry::value).orElse(null);
+        var recipe = world.getRecipeManager().getFirstMatch(AdornRecipeTypes.BREWING.get(), input, world).map(RecipeEntry::value).orElse(null);
 
         if (recipe != null && brewer.getStack(INPUT_SLOT).isOf(AdornItems.MUG.get())) {
             if (brewer.progress++ >= MAX_PROGRESS) {

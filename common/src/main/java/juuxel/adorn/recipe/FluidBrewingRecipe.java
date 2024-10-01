@@ -50,7 +50,7 @@ public record FluidBrewingRecipe(Ingredient firstIngredient, Ingredient secondIn
 
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return AdornRecipes.BREWING_FROM_FLUID_SERIALIZER.get();
+        return AdornRecipeSerializers.BREWING_FROM_FLUID.get();
     }
 
     public static final class Serializer implements RecipeSerializer<FluidBrewingRecipe> {

@@ -72,7 +72,7 @@ public final class FertilizerRefillingRecipe extends SpecialCraftingRecipe {
 
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return AdornRecipes.FERTILIZER_REFILLING_SERIALIZER.get();
+        return AdornRecipeSerializers.FERTILIZER_REFILLING.get();
     }
 
     private record MatchResult(ItemStack wateringCan, int fertilizers) {

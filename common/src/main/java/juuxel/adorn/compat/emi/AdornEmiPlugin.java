@@ -9,7 +9,7 @@ import dev.emi.emi.api.stack.EmiStack;
 import juuxel.adorn.AdornCommon;
 import juuxel.adorn.block.AdornBlocks;
 import juuxel.adorn.client.gui.screen.TradingStationScreen;
-import juuxel.adorn.recipe.AdornRecipes;
+import juuxel.adorn.recipe.AdornRecipeTypes;
 import juuxel.adorn.recipe.FluidBrewingRecipe;
 import juuxel.adorn.recipe.ItemBrewingRecipe;
 
@@ -28,7 +28,7 @@ public final class AdornEmiPlugin implements EmiPlugin {
 
         var recipeManager = registry.getRecipeManager();
 
-        for (var entry : recipeManager.listAllOfType(AdornRecipes.BREWING_TYPE.get())) {
+        for (var entry : recipeManager.listAllOfType(AdornRecipeTypes.BREWING.get())) {
             BrewingEmiRecipe emiRecipe = switch (entry.value()) {
                 case ItemBrewingRecipe recipe -> new BrewingEmiRecipe(entry.id(), recipe);
                 case FluidBrewingRecipe recipe -> new BrewingEmiRecipe(entry.id(), recipe);
