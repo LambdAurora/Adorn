@@ -10,7 +10,7 @@ import java.util.function.BiConsumer;
 import java.util.function.Supplier;
 import java.util.stream.Stream;
 
-public final class RegisteredMap<K, V> implements Supplier<Map<K, V>> {
+public final class RegisteredMap<K, V> implements Registered<Map<K, V>> {
     private final Map<K, Registered<? extends V>> map;
     private final Supplier<Map<K, V>> builtMap;
 

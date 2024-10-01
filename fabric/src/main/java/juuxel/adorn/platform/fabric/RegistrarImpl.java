@@ -20,18 +20,18 @@ public final class RegistrarImpl<T> implements Registrar<T> {
     }
 
     @Override
-    public <U extends T> Registered<U> register(String id, Supplier<? extends U> provider) {
+    public <U extends T> Registered.WithKey<T, U> register(String id, Supplier<? extends U> provider) {
         var key = RegistryKey.of(registry.getKey(), AdornCommon.id(id));
         var registered = Registry.register(registry, key, provider.get());
         objects.add(registered);
-        return new Registered<>() {
+        return new Registered.WithKey<>() {
             @Override
             public U get() {
                 return registered;
             }
 
             @Override
-            public RegistryKey<? super U> key() {
+            public RegistryKey<T> key() {
                 return key;
             }
         };

@@ -29,12 +29,12 @@ public final class DeferredRegistrar<T> implements ForgeRegistrar<T> {
     }
 
     @Override
-    public <U extends T> Registered<U> register(String id, Supplier<? extends U> provider) {
+    public <U extends T> Registered.WithKey<T, U> register(String id, Supplier<? extends U> provider) {
         var registryObject = register.register(id, provider);
         objects.add(registryObject);
-        return new Registered<>() {
+        return new Registered.WithKey<>() {
             @Override
-            public RegistryKey<? super U> key() {
+            public RegistryKey<T> key() {
                 return ((IHolderExtension<T>) registryObject).getKey();
             }
 

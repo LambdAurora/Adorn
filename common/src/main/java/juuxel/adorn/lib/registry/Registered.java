@@ -4,6 +4,9 @@ import net.minecraft.registry.RegistryKey;
 
 import java.util.function.Supplier;
 
+@FunctionalInterface
 public interface Registered<T> extends Supplier<T> {
-    RegistryKey<? super T> key();
+    interface WithKey<R, T extends R> extends Registered<T> {
+        RegistryKey<R> key();
+    }
 }
