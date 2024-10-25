@@ -1,20 +1,17 @@
 package juuxel.adorn.platform.forge.block;
 
 import juuxel.adorn.block.SofaBlock;
-import juuxel.adorn.block.variant.BlockVariant;
 import net.minecraft.block.BlockState;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
-import org.jetbrains.annotations.Nullable;
 
 public final class SofaBlockForge extends SofaBlock {
-    public SofaBlockForge(BlockVariant variant) {
-        super(variant);
+    public SofaBlockForge(Settings settings) {
+        super(settings);
     }
 
     @Override

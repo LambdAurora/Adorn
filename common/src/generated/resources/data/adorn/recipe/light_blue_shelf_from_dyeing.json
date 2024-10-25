@@ -3,12 +3,8 @@
   "category": "building",
   "group": "adorn:shelf",
   "key": {
-    "#": {
-      "tag": "adorn:wooden_shelves"
-    },
-    "*": {
-      "tag": "c:dyes/light_blue"
-    }
+    "#": "#adorn:wooden_shelves",
+    "*": "#c:dyes/light_blue"
   },
   "pattern": [
     "###",

@@ -1,7 +1,6 @@
 package juuxel.adorn.block;
 
 import juuxel.adorn.block.property.FrontConnection;
-import juuxel.adorn.block.variant.BlockVariant;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.item.ItemPlacementContext;
@@ -9,14 +8,17 @@ import net.minecraft.state.StateManager;
 import net.minecraft.state.property.EnumProperty;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
-import net.minecraft.world.WorldAccess;
+import net.minecraft.util.math.random.Random;
+import net.minecraft.world.BlockView;
+import net.minecraft.world.WorldView;
+import net.minecraft.world.tick.ScheduledTickView;
 
 public class KitchenCounterBlock extends AbstractKitchenCounterBlock implements BlockWithDescription {
     public static final EnumProperty<FrontConnection> FRONT = EnumProperty.of("front", FrontConnection.class);
     private static final String DESCRIPTION_KEY = "block.adorn.kitchen_counter.description";
 
-    public KitchenCounterBlock(BlockVariant variant) {
-        super(variant);
+    public KitchenCounterBlock(Settings settings) {
+        super(settings);
         setDefaultState(getDefaultState().with(FRONT, FrontConnection.NONE));
     }
 
@@ -28,14 +30,15 @@ public class KitchenCounterBlock extends AbstractKitchenCounterBlock implements 
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return getStateForNeighborUpdate(
-            super.getPlacementState(ctx),
-            null, null, ctx.getWorld(), ctx.getBlockPos(), null
-        );
+        return updateConnections(super.getPlacementState(ctx), ctx.getWorld(), ctx.getBlockPos());
     }
 
     @Override
-    public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
+    protected BlockState getStateForNeighborUpdate(BlockState state, WorldView world, ScheduledTickView tickView, BlockPos pos, Direction direction, BlockPos neighborPos, BlockState neighborState, Random random) {
+        return updateConnections(state, world, pos);
+    }
+
+    private BlockState updateConnections(BlockState state, BlockView world, BlockPos pos) {
         var facing = state.get(FACING);
         var frontState = world.getBlockState(pos.offset(facing));
         var frontConnection = FrontConnection.NONE;

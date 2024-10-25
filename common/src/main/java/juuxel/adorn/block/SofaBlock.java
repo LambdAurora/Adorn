@@ -1,7 +1,6 @@
 package juuxel.adorn.block;
 
 import juuxel.adorn.block.property.FrontConnection;
-import juuxel.adorn.block.variant.BlockVariant;
 import juuxel.adorn.lib.AdornStats;
 import juuxel.adorn.util.Shapes;
 import net.minecraft.block.BedBlock;
@@ -20,7 +19,6 @@ import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
-import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.text.Text;
@@ -29,22 +27,23 @@ import net.minecraft.util.BlockMirror;
 import net.minecraft.util.BlockRotation;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.ItemActionResult;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldAccess;
+import net.minecraft.world.WorldView;
+import net.minecraft.world.tick.ScheduledTickView;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class SofaBlock extends SeatBlock implements Waterloggable, SneakClickHandler, BlockWithDescription {
-    public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
+    public static final EnumProperty<Direction> FACING = Properties.HORIZONTAL_FACING;
     public static final BooleanProperty CONNECTED_LEFT = BooleanProperty.of("connected_left");
     public static final BooleanProperty CONNECTED_RIGHT = BooleanProperty.of("connected_right");
     public static final EnumProperty<FrontConnection> FRONT_CONNECTION = EnumProperty.of("front", FrontConnection.class);
@@ -54,8 +53,8 @@ public class SofaBlock extends SeatBlock implements Waterloggable, SneakClickHan
     private static final VoxelShape[] COLLISION_SHAPES = buildShapes(true);
     private static final String DESCRIPTION_KEY = "block.adorn.sofa.description";
 
-    public SofaBlock(BlockVariant variant) {
-        super(variant.createSettings());
+    public SofaBlock(Settings settings) {
+        super(settings);
         setDefaultState(getDefaultState()
             .with(FRONT_CONNECTION, FrontConnection.NONE)
             .with(CONNECTED_LEFT, false)
@@ -74,13 +73,13 @@ public class SofaBlock extends SeatBlock implements Waterloggable, SneakClickHan
     }
 
     @Override
-    protected ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+    protected ActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (stack.getItem() instanceof DyeItem dye) {
             world.setBlockState(pos, AdornBlocks.SOFAS.getEager(dye.getColor()).getStateWithProperties(state));
             world.playSound(player, pos, SoundEvents.BLOCK_WOOL_PLACE, SoundCategory.BLOCKS, 1f, 0.8f);
             if (!player.getAbilities().creativeMode) stack.decrement(1);
             if (!world.isClient) player.incrementStat(AdornStats.DYE_SOFA);
-            return ItemActionResult.success(world.isClient);
+            return ActionResult.SUCCESS;
         }
 
         return super.onUseWithItem(stack, state, world, pos, player, hand, hit);
@@ -92,7 +91,7 @@ public class SofaBlock extends SeatBlock implements Waterloggable, SneakClickHan
 
         if (state.get(OCCUPIED)) {
             player.sendMessage(Text.translatable("block.adorn.sofa.occupied"), true);
-            return ActionResult.success(world.isClient);
+            return ActionResult.SUCCESS;
         }
 
         if (BedBlock.isBedWorking(world) && sleepingDirection != null) {
@@ -104,7 +103,7 @@ public class SofaBlock extends SeatBlock implements Waterloggable, SneakClickHan
                 });
             }
 
-            return ActionResult.success(world.isClient);
+            return ActionResult.SUCCESS;
         } else {
             return ActionResult.PASS;
         }
@@ -132,15 +131,15 @@ public class SofaBlock extends SeatBlock implements Waterloggable, SneakClickHan
     }
 
     @Override
-    public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
+    protected BlockState getStateForNeighborUpdate(BlockState state, WorldView world, ScheduledTickView tickView, BlockPos pos, Direction direction, BlockPos neighborPos, BlockState neighborState, Random random) {
         if (state.get(WATERLOGGED)) {
-            world.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
+            tickView.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
         }
 
         return updateConnections(state, world, pos);
     }
 
-    private BlockState updateConnections(BlockState state, WorldAccess world, BlockPos pos) {
+    private BlockState updateConnections(BlockState state, BlockView world, BlockPos pos) {
         var direction = state.get(FACING);
         var leftState = world.getBlockState(pos.offset(direction.rotateYClockwise()));
         var rightState = world.getBlockState(pos.offset(direction.rotateYCounterclockwise()));

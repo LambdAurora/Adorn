@@ -3,6 +3,7 @@ package juuxel.adorn.block.variant;
 import com.mojang.datafixers.util.Pair;
 import juuxel.adorn.AdornCommon;
 import juuxel.adorn.block.AdornBlocks;
+import juuxel.adorn.lib.registry.RegistryHelper;
 import juuxel.adorn.util.AdornUtil;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
@@ -17,7 +18,7 @@ import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-public interface BlockVariant {
+public interface BlockVariant extends RegistryHelper.BlockSettingsProvider {
     char MOD_ID_SEPARATOR = '/';
 
     Map<DyeColor, BlockVariant> WOOLS = createBy(DyeColor.values(), color -> variant(color.asString(), Blocks.WHITE_WOOL));
@@ -88,7 +89,8 @@ public interface BlockVariant {
     /**
      * Creates a <em>new</em> {@code AbstractBlock.Settings}.
      */
-    AbstractBlock.Settings createSettings();
+    @Override
+    AbstractBlock.Settings createBlockSettings();
 
     static BlockVariant variant(String name, Block base) {
         return new BlockVariant() {
@@ -98,7 +100,7 @@ public interface BlockVariant {
             }
 
             @Override
-            public AbstractBlock.Settings createSettings() {
+            public AbstractBlock.Settings createBlockSettings() {
                 return AdornUtil.copySettingsSafely(base);
             }
         };
@@ -125,14 +127,14 @@ public interface BlockVariant {
 
     record Wood(String name) implements BlockVariant {
         @Override
-        public AbstractBlock.Settings createSettings() {
+        public AbstractBlock.Settings createBlockSettings() {
             return AdornUtil.copySettingsSafely(Blocks.OAK_PLANKS);
         }
     }
 
     record Stone(String name) implements BlockVariant {
         @Override
-        public AbstractBlock.Settings createSettings() {
+        public AbstractBlock.Settings createBlockSettings() {
             return AdornUtil.copySettingsSafely(Blocks.COBBLESTONE);
         }
     }
@@ -149,7 +151,7 @@ public interface BlockVariant {
         }
 
         @Override
-        public AbstractBlock.Settings createSettings() {
+        public AbstractBlock.Settings createBlockSettings() {
             return AdornUtil.copySettingsSafely(AdornBlocks.PAINTED_PLANKS.getEager(color));
         }
     }

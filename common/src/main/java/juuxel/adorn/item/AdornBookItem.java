@@ -8,10 +8,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.stat.Stats;
 import net.minecraft.text.Text;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 
 import java.util.List;
@@ -25,13 +25,13 @@ public final class AdornBookItem extends Item {
     }
 
     @Override
-    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
+    public ActionResult use(World world, PlayerEntity user, Hand hand) {
         if (!world.isClient) {
             PlatformBridges.get().getNetwork().sendToClient(user, new OpenBookS2CMessage(bookId));
         }
         user.incrementStat(Stats.USED.getOrCreateStat(this));
 
-        return TypedActionResult.success(user.getStackInHand(hand), world.isClient);
+        return ActionResult.SUCCESS;
     }
 
     @Override

@@ -9,6 +9,7 @@ import net.minecraft.registry.RegistryKey;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.function.Function;
 import java.util.function.Supplier;
 
 public final class RegistrarImpl<T> implements Registrar<T> {
@@ -21,13 +22,25 @@ public final class RegistrarImpl<T> implements Registrar<T> {
 
     @Override
     public <U extends T> Registered.WithKey<T, U> register(String id, Supplier<? extends U> provider) {
-        var key = RegistryKey.of(registry.getKey(), AdornCommon.id(id));
-        var registered = Registry.register(registry, key, provider.get());
-        objects.add(registered);
+        var key = createKey(id);
+        U value = provider.get();
+        return register(key, value);
+    }
+
+    @Override
+    public <U extends T> Registered.WithKey<T, U> register(String id, Function<? super RegistryKey<T>, ? extends U> provider) {
+        var key = createKey(id);
+        U value = provider.apply(key);
+        return register(key, value);
+    }
+
+    private <U extends T> Registered.WithKey<T, U> register(RegistryKey<T> key, U value) {
+        Registry.register(registry, key, value);
+        objects.add(value);
         return new Registered.WithKey<>() {
             @Override
             public U get() {
-                return registered;
+                return value;
             }
 
             @Override
@@ -35,6 +48,10 @@ public final class RegistrarImpl<T> implements Registrar<T> {
                 return key;
             }
         };
+    }
+
+    private RegistryKey<T> createKey(String id) {
+        return RegistryKey.of(registry.getKey(), AdornCommon.id(id));
     }
 
     @Override

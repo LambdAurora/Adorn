@@ -7,8 +7,8 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.Direction;
 
 public final class ChairBlockItem extends AdornTallBlockItem {
-    public ChairBlockItem(Block block) {
-        super(block, new Settings());
+    public ChairBlockItem(Block block, Settings settings) {
+        super(block, settings);
     }
 
     @Override

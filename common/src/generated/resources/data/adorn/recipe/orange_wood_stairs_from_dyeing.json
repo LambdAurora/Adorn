@@ -3,12 +3,8 @@
   "category": "building",
   "group": "wooden_stairs",
   "key": {
-    "#": {
-      "tag": "minecraft:wooden_stairs"
-    },
-    "*": {
-      "tag": "c:dyes/orange"
-    }
+    "#": "#minecraft:wooden_stairs",
+    "*": "#c:dyes/orange"
   },
   "pattern": [
     "###",

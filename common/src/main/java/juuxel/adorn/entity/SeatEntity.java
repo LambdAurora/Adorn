@@ -6,18 +6,21 @@ import juuxel.adorn.util.NbtUtil;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.packet.s2c.play.EntityPassengersSetS2CPacket;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
+// TODO: Rewrite using BlockAttachedEntity
 public final class SeatEntity extends Entity {
     private static final TrackedData<BlockPos> SEAT_POS = DataTracker.registerData(SeatEntity.class, TrackedDataHandlerRegistry.BLOCK_POS);
     private static final String NBT_SEAT_POS = "SeatPos";
@@ -46,22 +49,29 @@ public final class SeatEntity extends Entity {
     @Override
     public ActionResult interact(PlayerEntity player, Hand hand) {
         player.startRiding(this);
-        return ActionResult.success(getWorld().isClient);
+        return ActionResult.SUCCESS;
     }
 
     @Override
     protected void removePassenger(Entity passenger) {
         super.removePassenger(passenger);
-        kill();
+        if (getWorld() instanceof ServerWorld world) {
+            kill(world);
+        }
     }
 
     @Override
-    public void kill() {
+    public boolean damage(ServerWorld world, DamageSource source, float amount) {
+        return false;
+    }
+
+    @Override
+    public void kill(ServerWorld world) {
         removeAllPassengers();
         if (!getWorld().isClient) {
             PlatformBridges.get().getNetwork().sendToTracking(this, new EntityPassengersSetS2CPacket(this));
         }
-        super.kill();
+        super.kill(world);
         var state = getWorld().getBlockState(seatPos);
         if (state.getBlock() instanceof SeatBlock) {
             getWorld().setBlockState(seatPos, state.with(SeatBlock.OCCUPIED, false));

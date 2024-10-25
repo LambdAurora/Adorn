@@ -37,7 +37,7 @@ public final class ChimneyBlock extends AbstractChimneyBlock implements BlockWit
     @Override
     protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
         world.setBlockState(pos, state.cycle(SMOKE_TYPE));
-        return ActionResult.success(world.isClient);
+        return ActionResult.SUCCESS;
     }
 
     @Override

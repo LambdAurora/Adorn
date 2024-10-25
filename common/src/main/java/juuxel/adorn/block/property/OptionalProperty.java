@@ -5,8 +5,8 @@ import net.minecraft.state.property.Property;
 import net.minecraft.util.StringIdentifiable;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.Collection;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -16,13 +16,14 @@ public final class OptionalProperty<T extends Enum<T> & StringIdentifiable> exte
     private final EnumProperty<T> delegate;
     private final Value.None<T> none = new Value.None<>();
     private final Map<@Nullable T, Value<T>> values;
+    private final List<Value<T>> boxedValues;
 
     @SuppressWarnings("unchecked")
     public OptionalProperty(EnumProperty<T> delegate) {
         super(delegate.getName(), (Class<Value<T>>) (Class<?>) Value.class);
         this.delegate = delegate;
 
-        values = new HashMap<>();
+        values = new LinkedHashMap<>();
         values.put(null, none);
         for (T value : delegate.getValues()) {
             if (NONE_NAME.equals(value.asString())) {
@@ -31,6 +32,7 @@ public final class OptionalProperty<T extends Enum<T> & StringIdentifiable> exte
 
             values.put(value, new Value.Some<>(value));
         }
+        boxedValues = List.copyOf(values.values());
     }
 
     @Override
@@ -39,8 +41,13 @@ public final class OptionalProperty<T extends Enum<T> & StringIdentifiable> exte
     }
 
     @Override
-    public Collection<Value<T>> getValues() {
-        return values.values();
+    public List<Value<T>> getValues() {
+        return boxedValues;
+    }
+
+    @Override
+    public int ordinal(Value<T> value) {
+        return boxedValues.indexOf(value);
     }
 
     @Override
@@ -97,6 +104,16 @@ public final class OptionalProperty<T extends Enum<T> & StringIdentifiable> exte
             @Override
             public int compareTo(Value<T> o) {
                 return o instanceof None<T> ? 0 : -1;
+            }
+
+            @Override
+            public int hashCode() {
+                return 0;
+            }
+
+            @Override
+            public boolean equals(Object obj) {
+                return obj instanceof None<?>;
             }
         }
     }

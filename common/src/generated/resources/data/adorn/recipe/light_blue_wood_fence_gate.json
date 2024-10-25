@@ -3,12 +3,8 @@
   "category": "redstone",
   "group": "wooden_fence",
   "key": {
-    "#": {
-      "item": "minecraft:stick"
-    },
-    "W": {
-      "item": "adorn:light_blue_planks"
-    }
+    "#": "minecraft:stick",
+    "W": "adorn:light_blue_planks"
   },
   "pattern": [
     "#W#",

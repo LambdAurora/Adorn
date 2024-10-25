@@ -2,7 +2,7 @@ accessWidener	v1	named
 
 # Blocks
 accessible method net/minecraft/block/AbstractCandleBlock spawnCandleParticles (Lnet/minecraft/world/World;Lnet/minecraft/util/math/Vec3d;Lnet/minecraft/util/math/random/Random;)V
-accessible method net/minecraft/block/Blocks createWoodenButtonBlock (Lnet/minecraft/block/BlockSetType;)Lnet/minecraft/block/Block;
+accessible method net/minecraft/block/Blocks createButtonSettings ()Lnet/minecraft/block/AbstractBlock$Settings;
 accessible method net/minecraft/block/BlockSetType register (Lnet/minecraft/block/BlockSetType;)Lnet/minecraft/block/BlockSetType;
 extendable method net/minecraft/block/PaneBlock connectsTo (Lnet/minecraft/block/BlockState;Z)Z
 accessible method net/minecraft/block/TallPlantBlock onBreakInCreative (Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/BlockState;Lnet/minecraft/entity/player/PlayerEntity;)V
@@ -13,7 +13,7 @@ accessible method net/minecraft/world/GameRules register (Ljava/lang/String;Lnet
 accessible method net/minecraft/world/GameRules$BooleanRule create (Z)Lnet/minecraft/world/GameRules$Type;
 
 # Fluids
-accessible method net/minecraft/fluid/FlowableFluid isInfinite (Lnet/minecraft/world/World;)Z
+accessible method net/minecraft/fluid/FlowableFluid isInfinite (Lnet/minecraft/server/world/ServerWorld;)Z
 
 # Menus
 accessible class net/minecraft/menu/MenuType$Factory
@@ -23,3 +23,9 @@ accessible method net/minecraft/client/gui/screen/ingame/MenuScreens register (L
 
 # Texts
 accessible method net/minecraft/text/TextCodecs combine (Ljava/util/List;)Lnet/minecraft/text/MutableText;
+
+# Block entities
+accessible method net/minecraft/block/entity/BlockEntityType <init> (Lnet/minecraft/block/entity/BlockEntityType$BlockEntityFactory;Ljava/util/Set;)V
+
+# Screens
+accessible field net/minecraft/client/gui/DrawContext vertexConsumers Lnet/minecraft/client/render/VertexConsumerProvider$Immediate;

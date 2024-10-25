@@ -39,7 +39,7 @@ public final class FertilizerRefillingRecipe extends SpecialCraftingRecipe {
         var wateringCan = ItemStack.EMPTY;
         var fertilizers = 0;
 
-        for (int slot = 0; slot < inventory.getSize(); slot++) {
+        for (int slot = 0; slot < inventory.size(); slot++) {
             var stack = inventory.getStackInSlot(slot);
 
             if (stack.isOf(AdornItems.WATERING_CAN.get())) {
@@ -66,12 +66,7 @@ public final class FertilizerRefillingRecipe extends SpecialCraftingRecipe {
     }
 
     @Override
-    public boolean fits(int width, int height) {
-        return width * height >= 2;
-    }
-
-    @Override
-    public RecipeSerializer<?> getSerializer() {
+    public RecipeSerializer<FertilizerRefillingRecipe> getSerializer() {
         return AdornRecipeSerializers.FERTILIZER_REFILLING.get();
     }
 

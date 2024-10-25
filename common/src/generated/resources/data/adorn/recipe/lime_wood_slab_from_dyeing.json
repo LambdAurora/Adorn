@@ -3,12 +3,8 @@
   "category": "building",
   "group": "wooden_slab",
   "key": {
-    "#": {
-      "tag": "minecraft:wooden_slabs"
-    },
-    "*": {
-      "tag": "c:dyes/lime"
-    }
+    "#": "#minecraft:wooden_slabs",
+    "*": "#c:dyes/lime"
   },
   "pattern": [
     "###",

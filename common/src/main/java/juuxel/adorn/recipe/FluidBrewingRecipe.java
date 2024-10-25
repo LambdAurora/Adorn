@@ -7,30 +7,30 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.network.RegistryByteBuf;
 import net.minecraft.network.codec.PacketCodec;
 import net.minecraft.recipe.Ingredient;
+import net.minecraft.recipe.IngredientPlacement;
 import net.minecraft.recipe.RecipeSerializer;
+import net.minecraft.recipe.book.RecipeBookCategory;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.world.World;
+
+import java.util.Optional;
 
 import static juuxel.adorn.block.entity.BrewerBlockEntity.LEFT_INGREDIENT_SLOT;
 import static juuxel.adorn.block.entity.BrewerBlockEntity.RIGHT_INGREDIENT_SLOT;
 
-public record FluidBrewingRecipe(Ingredient firstIngredient, Ingredient secondIngredient, FluidIngredient fluid, ItemStack result) implements BrewingRecipe {
+public record FluidBrewingRecipe(Ingredient firstIngredient, Optional<Ingredient> secondIngredient, FluidIngredient fluid, ItemStack result) implements BrewingRecipe {
     public static final MapCodec<FluidBrewingRecipe> CODEC = RecordCodecBuilder.mapCodec(builder -> builder.group(
-        Ingredient.DISALLOW_EMPTY_CODEC.fieldOf("first_ingredient").forGetter(FluidBrewingRecipe::firstIngredient),
-        Ingredient.ALLOW_EMPTY_CODEC.optionalFieldOf("second_ingredient", Ingredient.empty()).forGetter(FluidBrewingRecipe::secondIngredient),
+        Ingredient.CODEC.fieldOf("first_ingredient").forGetter(FluidBrewingRecipe::firstIngredient),
+        Ingredient.CODEC.optionalFieldOf("second_ingredient").forGetter(FluidBrewingRecipe::secondIngredient),
         FluidIngredient.CODEC.fieldOf("fluid").forGetter(FluidBrewingRecipe::fluid),
         ItemStack.VALIDATED_CODEC.fieldOf("result").forGetter(FluidBrewingRecipe::result)
     ).apply(builder, FluidBrewingRecipe::new));
 
     @Override
     public boolean matches(BrewerInput input, World world) {
-        var itemsMatch = (matches(input, LEFT_INGREDIENT_SLOT, firstIngredient) && matches(input, RIGHT_INGREDIENT_SLOT, secondIngredient)) ||
-            (matches(input, RIGHT_INGREDIENT_SLOT, firstIngredient) && matches(input, LEFT_INGREDIENT_SLOT, firstIngredient));
+        var itemsMatch = (input.matches(LEFT_INGREDIENT_SLOT, firstIngredient) && input.matches(RIGHT_INGREDIENT_SLOT, secondIngredient)) ||
+            (input.matches(RIGHT_INGREDIENT_SLOT, firstIngredient) && input.matches(LEFT_INGREDIENT_SLOT, firstIngredient));
         return itemsMatch && input.getFluidReference().matches(fluid);
-    }
-
-    private static boolean matches(BrewerInput input, int index, Ingredient ingredient) {
-        return ingredient.test(input.getStackInSlot(index));
     }
 
     @Override
@@ -39,17 +39,17 @@ public record FluidBrewingRecipe(Ingredient firstIngredient, Ingredient secondIn
     }
 
     @Override
-    public boolean fits(int width, int height) {
-        return true;
+    public IngredientPlacement getIngredientPlacement() {
+        return IngredientPlacement.NONE;
     }
 
     @Override
-    public ItemStack getResult(RegistryWrapper.WrapperLookup registries) {
-        return result;
+    public RecipeBookCategory getRecipeBookCategory() {
+        return AdornRecipeBookCategories.BREWING.get();
     }
 
     @Override
-    public RecipeSerializer<?> getSerializer() {
+    public RecipeSerializer<FluidBrewingRecipe> getSerializer() {
         return AdornRecipeSerializers.BREWING_FROM_FLUID.get();
     }
 
@@ -57,7 +57,7 @@ public record FluidBrewingRecipe(Ingredient firstIngredient, Ingredient secondIn
         private static final PacketCodec<RegistryByteBuf, FluidBrewingRecipe> PACKET_CODEC = PacketCodec.tuple(
             Ingredient.PACKET_CODEC,
             FluidBrewingRecipe::firstIngredient,
-            Ingredient.PACKET_CODEC,
+            Ingredient.OPTIONAL_PACKET_CODEC,
             FluidBrewingRecipe::secondIngredient,
             FluidIngredient.PACKET_CODEC,
             FluidBrewingRecipe::fluid,

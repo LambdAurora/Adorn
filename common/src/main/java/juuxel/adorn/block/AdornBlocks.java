@@ -13,6 +13,7 @@ import juuxel.adorn.util.AdornUtil;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.ButtonBlock;
 import net.minecraft.block.MapColor;
 import net.minecraft.block.Oxidizable;
 import net.minecraft.block.PressurePlateBlock;
@@ -33,7 +34,8 @@ public final class AdornBlocks {
         DyeColor.values(),
         color -> HELPER.registerBlock(
             color.asString() + "_sofa",
-            () -> PlatformBridges.get().getBlockFactory().createSofa(BlockVariant.wool(color))
+            settings -> PlatformBridges.get().getBlockFactory().createSofa(settings),
+            BlockVariant.wool(color)
         )
     );
 
@@ -41,7 +43,8 @@ public final class AdornBlocks {
         DyeColor.values(),
         color -> HELPER.registerBlock(
             color.asString() + "_planks",
-            () -> PlatformBridges.get().getBlockFactory().createPaintedPlanks(BlockVariant.OAK.createSettings().mapColor(color))
+            settings -> PlatformBridges.get().getBlockFactory().createPaintedPlanks(settings),
+            () -> BlockVariant.OAK.createBlockSettings().mapColor(color)
         )
     );
 
@@ -49,7 +52,8 @@ public final class AdornBlocks {
         DyeColor.values(),
         color -> HELPER.registerBlock(
             color.asString() + "_wood_slab",
-            () -> PlatformBridges.get().getBlockFactory().createPaintedWoodSlab(BlockVariant.OAK.createSettings().mapColor(color))
+            settings -> PlatformBridges.get().getBlockFactory().createPaintedWoodSlab(settings),
+            () -> BlockVariant.OAK.createBlockSettings().mapColor(color)
         )
     );
 
@@ -59,7 +63,8 @@ public final class AdornBlocks {
             var planks = PAINTED_PLANKS.get(color);
             return HELPER.registerBlock(
                 color.asString() + "_wood_stairs",
-                () -> PlatformBridges.get().getBlockFactory().createPaintedWoodStairs(planks.get().getDefaultState(), BlockVariant.OAK.createSettings().mapColor(color))
+                settings -> PlatformBridges.get().getBlockFactory().createPaintedWoodStairs(planks.get().getDefaultState(), settings),
+                () -> BlockVariant.OAK.createBlockSettings().mapColor(color)
             );
         }
     );
@@ -68,7 +73,8 @@ public final class AdornBlocks {
         DyeColor.values(),
         color -> HELPER.registerBlock(
             color.asString() + "_wood_fence",
-            () -> PlatformBridges.get().getBlockFactory().createPaintedWoodFence(BlockVariant.OAK.createSettings().mapColor(color))
+            settings -> PlatformBridges.get().getBlockFactory().createPaintedWoodFence(settings),
+            () -> BlockVariant.OAK.createBlockSettings().mapColor(color)
         )
     );
 
@@ -76,10 +82,11 @@ public final class AdornBlocks {
         DyeColor.values(),
         color -> HELPER.registerBlock(
             color.asString() + "_wood_fence_gate",
-            () -> PlatformBridges.get().getBlockFactory().createPaintedWoodFenceGate(
+            settings -> PlatformBridges.get().getBlockFactory().createPaintedWoodFenceGate(
                 AdornWoodTypes.PAINTED_WOODS.get(color),
-                BlockVariant.OAK.createSettings().mapColor(color)
-            )
+                settings
+            ),
+            () -> BlockVariant.OAK.createBlockSettings().mapColor(color)
         )
     );
 
@@ -87,10 +94,8 @@ public final class AdornBlocks {
         DyeColor.values(),
         color -> HELPER.registerBlock(
             color.asString() + "_wood_pressure_plate",
-            () -> new PressurePlateBlock(
-                AdornBlockSetTypes.PAINTED_WOODS.get(color),
-                BlockVariant.OAK.createSettings().mapColor(color)
-            )
+            settings -> new PressurePlateBlock(AdornBlockSetTypes.PAINTED_WOODS.get(color), settings),
+            () -> BlockVariant.OAK.createBlockSettings().mapColor(color)
         )
     );
 
@@ -98,54 +103,72 @@ public final class AdornBlocks {
         DyeColor.values(),
         color -> HELPER.registerBlock(
             color.asString() + "_wood_button",
-            () -> Blocks.createWoodenButtonBlock(AdornBlockSetTypes.PAINTED_WOODS.get(color))
+            settings -> new ButtonBlock(AdornBlockSetTypes.PAINTED_WOODS.get(color), 30, settings),
+            () -> Blocks.createButtonSettings().mapColor(color)
         )
     );
 
     public static final Registered<Block> BRICK_CHIMNEY = HELPER.registerBlock("brick_chimney",
-        () -> new ChimneyBlock(AbstractChimneyBlock.createBlockSettings(MapColor.RED)));
+        ChimneyBlock::new,
+        () -> AbstractChimneyBlock.createBlockSettings(MapColor.RED)
+    );
     public static final Registered<Block> STONE_BRICK_CHIMNEY = HELPER.registerBlock("stone_brick_chimney",
-        () -> new ChimneyBlock(AbstractChimneyBlock.createBlockSettings(MapColor.STONE_GRAY)));
+        ChimneyBlock::new,
+        () -> AbstractChimneyBlock.createBlockSettings(MapColor.STONE_GRAY)
+    );
     public static final Registered<Block> NETHER_BRICK_CHIMNEY = HELPER.registerBlock("nether_brick_chimney",
-        () -> new ChimneyBlock(AbstractChimneyBlock.createBlockSettings(MapColor.DARK_RED)));
+        ChimneyBlock::new,
+        () -> AbstractChimneyBlock.createBlockSettings(MapColor.DARK_RED)
+    );
     public static final Registered<Block> RED_NETHER_BRICK_CHIMNEY = HELPER.registerBlock("red_nether_brick_chimney",
-        () -> new ChimneyBlock(AbstractChimneyBlock.createBlockSettings(MapColor.DARK_RED)));
+        ChimneyBlock::new,
+        () -> AbstractChimneyBlock.createBlockSettings(MapColor.DARK_RED)
+    );
     public static final Registered<Block> COBBLESTONE_CHIMNEY = HELPER.registerBlock("cobblestone_chimney",
-        () -> new ChimneyBlock(AbstractChimneyBlock.createBlockSettings(MapColor.STONE_GRAY)));
+        ChimneyBlock::new,
+        () -> AbstractChimneyBlock.createBlockSettings(MapColor.STONE_GRAY)
+    );
     public static final Registered<Block> PRISMARINE_CHIMNEY = HELPER.registerBlock("prismarine_chimney",
-        () -> new PrismarineChimneyBlock(AbstractChimneyBlock.createBlockSettings(MapColor.CYAN, 1.5f)));
+        PrismarineChimneyBlock::new,
+        () -> AbstractChimneyBlock.createBlockSettings(MapColor.CYAN, 1.5f)
+    );
     public static final Registered<Block> MAGMATIC_PRISMARINE_CHIMNEY = HELPER.registerBlock("magmatic_prismarine_chimney",
-        () -> new PrismarineChimneyBlock.WithColumn(true, AbstractChimneyBlock.createBlockSettings(MapColor.CYAN, 1.5f).luminance(state -> 3)));
+        settings -> new PrismarineChimneyBlock.WithColumn(true, settings),
+        () -> AbstractChimneyBlock.createBlockSettings(MapColor.CYAN, 1.5f).luminance(state -> 3)
+    );
     public static final Registered<Block> SOULFUL_PRISMARINE_CHIMNEY = HELPER.registerBlock("soulful_prismarine_chimney",
-        () -> new PrismarineChimneyBlock.WithColumn(false, AbstractChimneyBlock.createBlockSettings(MapColor.CYAN, 1.5f)));
+        settings -> new PrismarineChimneyBlock.WithColumn(false, settings),
+        () -> AbstractChimneyBlock.createBlockSettings(MapColor.CYAN, 1.5f)
+    );
 
     public static final RegisteredMap<DyeColor, Block> TABLE_LAMPS = BLOCKS.registerBy(
         DyeColor.values(),
-        color -> HELPER.registerBlock(color.asString() + "_table_lamp", () -> new TableLampBlock(TableLampBlock.createBlockSettings(color)))
+        color -> HELPER.registerBlock(color.asString() + "_table_lamp", TableLampBlock::new, () -> TableLampBlock.createBlockSettings(color))
     );
 
     public static final Registered<Block> TRADING_STATION = HELPER.registerBlock(
         "trading_station",
-        block -> new TradingStationItem(block, new Item.Settings()),
-        () -> new TradingStationBlock(AbstractBlock.Settings.create().mapColor(MapColor.GREEN).strength(2.5f).sounds(BlockSoundGroup.WOOD))
+        TradingStationItem::new,
+        TradingStationBlock::new,
+        () -> AbstractBlock.Settings.create().mapColor(MapColor.GREEN).strength(2.5f).sounds(BlockSoundGroup.WOOD)
     );
 
     public static final Registered<Block> STONE_TORCH_GROUND = HELPER.registerBlockWithoutItem("stone_torch",
-        () -> new TorchBlock(
-            ParticleTypes.FLAME,
-            AbstractBlock.Settings.copy(Blocks.TORCH)
-                .sounds(BlockSoundGroup.STONE)
-                .luminance(state -> 15)
-        ));
+        settings -> new TorchBlock(ParticleTypes.FLAME, settings),
+        () -> AbstractBlock.Settings.copy(Blocks.TORCH)
+            .sounds(BlockSoundGroup.STONE)
+            .luminance(state -> 15)
+    );
 
     public static final Registered<Block> STONE_TORCH_WALL = HELPER.registerBlockWithoutItem("wall_stone_torch",
-        () -> new WallTorchBlock(
-            ParticleTypes.FLAME,
-            AbstractBlock.Settings.copy(STONE_TORCH_GROUND.get()).dropsLike(STONE_TORCH_GROUND.get())
-        ));
+        settings -> new WallTorchBlock(ParticleTypes.FLAME, settings),
+        () -> alternativeFormOf(AbstractBlock.Settings.copy(STONE_TORCH_GROUND.get()), STONE_TORCH_GROUND.get())
+    );
 
     public static final Registered<Block> CRATE = HELPER.registerBlock("crate",
-        () -> new Block(AdornUtil.copySettingsSafely(Blocks.OAK_PLANKS)));
+        Block::new,
+        () -> AdornUtil.copySettingsSafely(Blocks.OAK_PLANKS)
+    );
     public static final Registered<Block> APPLE_CRATE = registerCrate("apple_crate");
     public static final Registered<Block> WHEAT_CRATE = registerCrate("wheat_crate");
     public static final Registered<Block> CARROT_CRATE = registerCrate("carrot_crate");
@@ -165,82 +188,97 @@ public final class AdornBlocks {
     public static final Registered<Block> LIL_TATER_CRATE = registerCrate("lil_tater_crate");
 
     public static final Registered<Block> PICKET_FENCE = HELPER.registerBlock("picket_fence",
-        () -> new PicketFenceBlock(AbstractBlock.Settings.copy(Blocks.OAK_FENCE).nonOpaque()));
+        PicketFenceBlock::new,
+        () -> AbstractBlock.Settings.copy(Blocks.OAK_FENCE).nonOpaque()
+    );
     public static final Registered<Block> CHAIN_LINK_FENCE = HELPER.registerBlock("chain_link_fence",
-        () -> new ChainLinkFenceBlock(
-            AbstractBlock.Settings.copy(Blocks.IRON_BARS)
-                .sounds(AdornSounds.CHAIN_LINK_FENCE)
-        ));
+        ChainLinkFenceBlock::new,
+        () -> AbstractBlock.Settings.copy(Blocks.IRON_BARS)
+            .sounds(AdornSounds.CHAIN_LINK_FENCE)
+    );
     public static final Registered<Block> STONE_LADDER = HELPER.registerBlock("stone_ladder",
-        () -> new StoneLadderBlock(AbstractBlock.Settings.copy(Blocks.STONE).nonOpaque()));
+        StoneLadderBlock::new,
+        () -> AbstractBlock.Settings.copy(Blocks.STONE).nonOpaque()
+    );
     public static final Registered<Block> BREWER = HELPER.registerBlock("brewer",
-        () -> new BrewerBlock(
-            AbstractBlock.Settings.create()
-                .mapColor(MapColor.DEEPSLATE_GRAY)
-                .solid()
-                .strength(0.8F)
-                .requiresTool()
-        ));
+        BrewerBlock::new,
+        () -> AbstractBlock.Settings.create()
+            .mapColor(MapColor.DEEPSLATE_GRAY)
+            .solid()
+            .strength(0.8F)
+            .requiresTool()
+    );
 
     public static final Registered<Block> CANDLELIT_LANTERN = HELPER.registerBlock("candlelit_lantern",
-        () -> new CandlelitLanternBlock(CandlelitLanternBlock.createBlockSettings()));
+        CandlelitLanternBlock::new,
+        CandlelitLanternBlock::createBlockSettings
+    );
     public static final RegisteredMap<DyeColor, Block> DYED_CANDLELIT_LANTERNS = BLOCKS.registerBy(
         DyeColor.values(),
         color -> HELPER.registerBlock(
             color.asString() + "_candlelit_lantern",
-            () -> new CandlelitLanternBlock(CandlelitLanternBlock.createBlockSettings())
+            CandlelitLanternBlock::new,
+            CandlelitLanternBlock::createBlockSettings
         )
     );
 
     public static final Registered<Block> COPPER_PIPE = HELPER.registerBlock("copper_pipe",
-        () -> new OxidizableCopperPipeBlock(
-            Oxidizable.OxidationLevel.UNAFFECTED,
-            AbstractBlock.Settings.create()
-                .requiresTool()
-                .strength(3f, 5f)
-                .sounds(BlockSoundGroup.COPPER)
-                .mapColor(MapColor.ORANGE)
-        ));
+        settings -> new OxidizableCopperPipeBlock(Oxidizable.OxidationLevel.UNAFFECTED, settings),
+        () -> AbstractBlock.Settings.create()
+            .requiresTool()
+            .strength(3f, 5f)
+            .sounds(BlockSoundGroup.COPPER)
+            .mapColor(MapColor.ORANGE)
+    );
     public static final Registered<Block> EXPOSED_COPPER_PIPE = HELPER.registerBlock("exposed_copper_pipe",
-        () -> new OxidizableCopperPipeBlock(
-            Oxidizable.OxidationLevel.EXPOSED,
-            AbstractBlock.Settings.create()
-                .requiresTool()
-                .strength(3f, 5f)
-                .sounds(BlockSoundGroup.COPPER)
-                .mapColor(MapColor.TERRACOTTA_LIGHT_GRAY)
-        ));
+        settings -> new OxidizableCopperPipeBlock(Oxidizable.OxidationLevel.EXPOSED, settings),
+        () -> AbstractBlock.Settings.create()
+            .requiresTool()
+            .strength(3f, 5f)
+            .sounds(BlockSoundGroup.COPPER)
+            .mapColor(MapColor.TERRACOTTA_LIGHT_GRAY)
+    );
     public static final Registered<Block> WEATHERED_COPPER_PIPE = HELPER.registerBlock("weathered_copper_pipe",
-        () -> new OxidizableCopperPipeBlock(
-            Oxidizable.OxidationLevel.WEATHERED,
-            AbstractBlock.Settings.create()
-                .requiresTool()
-                .strength(3f, 5f)
-                .sounds(BlockSoundGroup.COPPER)
-                .mapColor(MapColor.DARK_AQUA)
-        ));
+        settings -> new OxidizableCopperPipeBlock(Oxidizable.OxidationLevel.WEATHERED, settings),
+        () -> AbstractBlock.Settings.create()
+            .requiresTool()
+            .strength(3f, 5f)
+            .sounds(BlockSoundGroup.COPPER)
+            .mapColor(MapColor.DARK_AQUA)
+    );
     public static final Registered<Block> OXIDIZED_COPPER_PIPE = HELPER.registerBlock("oxidized_copper_pipe",
-        () -> new OxidizableCopperPipeBlock(
-            Oxidizable.OxidationLevel.OXIDIZED,
-            AbstractBlock.Settings.create()
-                .requiresTool()
-                .strength(3f, 5f)
-                .sounds(BlockSoundGroup.COPPER)
-                .mapColor(MapColor.TEAL)
-        ));
+        settings -> new OxidizableCopperPipeBlock(Oxidizable.OxidationLevel.OXIDIZED, settings),
+        () -> AbstractBlock.Settings.create()
+            .requiresTool()
+            .strength(3f, 5f)
+            .sounds(BlockSoundGroup.COPPER)
+            .mapColor(MapColor.TEAL)
+    );
     public static final Registered<Block> WAXED_COPPER_PIPE = HELPER.registerBlock("waxed_copper_pipe",
-        () -> new CopperPipeBlock(AbstractBlock.Settings.copy(COPPER_PIPE.get())));
+        CopperPipeBlock::new,
+        () -> AbstractBlock.Settings.copy(COPPER_PIPE.get())
+    );
     public static final Registered<Block> WAXED_EXPOSED_COPPER_PIPE = HELPER.registerBlock("waxed_exposed_copper_pipe",
-        () -> new CopperPipeBlock(AbstractBlock.Settings.copy(EXPOSED_COPPER_PIPE.get())));
+        CopperPipeBlock::new,
+        () -> AbstractBlock.Settings.copy(EXPOSED_COPPER_PIPE.get())
+    );
     public static final Registered<Block> WAXED_WEATHERED_COPPER_PIPE = HELPER.registerBlock("waxed_weathered_copper_pipe",
-        () -> new CopperPipeBlock(AbstractBlock.Settings.copy(WEATHERED_COPPER_PIPE.get())));
+        CopperPipeBlock::new,
+        () -> AbstractBlock.Settings.copy(WEATHERED_COPPER_PIPE.get())
+    );
     public static final Registered<Block> WAXED_OXIDIZED_COPPER_PIPE = HELPER.registerBlock("waxed_oxidized_copper_pipe",
-        () -> new CopperPipeBlock(AbstractBlock.Settings.copy(OXIDIZED_COPPER_PIPE.get())));
+        CopperPipeBlock::new,
+        () -> AbstractBlock.Settings.copy(OXIDIZED_COPPER_PIPE.get())
+    );
 
     public static void init() {
     }
 
     private static Registered<Block> registerCrate(String name) {
-        return HELPER.registerBlock(name, () -> new Item.Settings().recipeRemainder(CRATE.get().asItem()), () -> new Block(AdornUtil.copySettingsSafely(CRATE.get())));
+        return HELPER.registerBlock(name, () -> new Item.Settings().recipeRemainder(CRATE.get().asItem()), Block::new, () -> AdornUtil.copySettingsSafely(CRATE.get()));
+    }
+
+    private static AbstractBlock.Settings alternativeFormOf(AbstractBlock.Settings settings, Block other) {
+        return settings.lootTable(other.getLootTableKey()).overrideTranslationKey(other.getTranslationKey());
     }
 }

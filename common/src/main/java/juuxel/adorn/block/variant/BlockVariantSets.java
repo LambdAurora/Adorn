@@ -132,54 +132,50 @@ public final class BlockVariantSets {
     }
 
     private static Registered<Block> registerPost(BlockVariant variant) {
-        return HELPER.registerBlock(variant.name() + "_post", () -> new PostBlock(variant));
+        return HELPER.registerBlock(variant.name() + "_post", PostBlock::new, variant);
     }
 
     private static Registered<Block> registerPlatform(BlockVariant variant) {
-        return HELPER.registerBlock(variant.name() + "_platform", () -> new PlatformBlock(variant));
+        return HELPER.registerBlock(variant.name() + "_platform", PlatformBlock::new, variant);
     }
 
     private static Registered<Block> registerStep(BlockVariant variant) {
-        return HELPER.registerBlock(variant.name() + "_step", () -> new StepBlock(variant));
+        return HELPER.registerBlock(variant.name() + "_step", StepBlock::new, variant);
     }
 
     private static Registered<Block> registerDrawer(BlockVariant variant) {
-        return HELPER.registerBlock(variant.name() + "_drawer", () -> new DrawerBlock(variant));
+        return HELPER.registerBlock(variant.name() + "_drawer", DrawerBlock::new, variant);
     }
 
     private static Registered<Block> registerChair(BlockVariant variant) {
-        Registered<Block> block = HELPER.registerBlockWithoutItem(variant.name() + "_chair", () -> new ChairBlock(variant));
-        HELPER.registerItem(variant.name() + "_chair", () -> new ChairBlockItem(block.get()));
-        return block;
+        return HELPER.registerBlock(variant.name() + "_chair", ChairBlockItem::new, ChairBlock::new, variant);
     }
 
     private static Registered<Block> registerTable(BlockVariant variant) {
-        Registered<Block> block = HELPER.registerBlockWithoutItem(variant.name() + "_table", () -> new TableBlock(variant));
-        HELPER.registerItem(variant.name() + "_table", () -> new TableBlockItem(block.get()));
-        return block;
+        return HELPER.registerBlock(variant.name() + "_table", TableBlockItem::new, TableBlock::new, variant);
     }
 
     private static Registered<Block> registerKitchenCounter(BlockVariant variant) {
-        return HELPER.registerBlock(variant.name() + "_kitchen_counter", () -> new KitchenCounterBlock(variant));
+        return HELPER.registerBlock(variant.name() + "_kitchen_counter", KitchenCounterBlock::new, variant);
     }
 
     private static Registered<Block> registerKitchenCupboard(BlockVariant variant) {
-        return HELPER.registerBlock(variant.name() + "_kitchen_cupboard", () -> new KitchenCupboardBlock(variant));
+        return HELPER.registerBlock(variant.name() + "_kitchen_cupboard", KitchenCupboardBlock::new, variant);
     }
 
     private static Registered<Block> registerKitchenSink(BlockVariant variant) {
-        return HELPER.registerBlock(variant.name() + "_kitchen_sink", () -> new KitchenSinkBlock(variant));
+        return HELPER.registerBlock(variant.name() + "_kitchen_sink", KitchenSinkBlock::new, variant);
     }
 
     private static Registered<Block> registerShelf(BlockVariant variant) {
-        return HELPER.registerBlock(variant.name() + "_shelf", () -> new ShelfBlock(variant));
+        return HELPER.registerBlock(variant.name() + "_shelf", ShelfBlock::new, variant);
     }
 
     private static Registered<Block> registerCoffeeTable(BlockVariant variant) {
-        return HELPER.registerBlock(variant.name() + "_coffee_table", () -> new CoffeeTableBlock(variant));
+        return HELPER.registerBlock(variant.name() + "_coffee_table", CoffeeTableBlock::new, variant);
     }
 
     private static Registered<Block> registerBench(BlockVariant variant) {
-        return HELPER.registerBlock(variant.name() + "_bench", () -> new BenchBlock(variant));
+        return HELPER.registerBlock(variant.name() + "_bench", BenchBlock::new, variant);
     }
 }

@@ -3,12 +3,8 @@
   "category": "building",
   "group": "adorn:drawer",
   "key": {
-    "#": {
-      "tag": "adorn:drawers"
-    },
-    "*": {
-      "tag": "c:dyes/black"
-    }
+    "#": "#adorn:drawers",
+    "*": "#c:dyes/black"
   },
   "pattern": [
     "###",

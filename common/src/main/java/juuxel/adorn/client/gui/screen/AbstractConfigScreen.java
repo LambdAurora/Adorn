@@ -14,6 +14,7 @@ import net.minecraft.client.gui.screen.NoticeScreen;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.tooltip.Tooltip;
 import net.minecraft.client.gui.widget.CyclingButtonWidget;
+import net.minecraft.client.render.RenderLayer;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
@@ -87,7 +88,7 @@ public abstract class AbstractConfigScreen extends Screen {
             var angle = MathHelper.lerp(delta, heart.previousAngle, heart.angle);
             matrices.multiply(RotationAxis.POSITIVE_Z.rotation((float) angle));
             matrices.translate(-0.5 * HEART_SIZE, -0.5 * HEART_SIZE, 0.0);
-            context.drawTexture(HEART_TEXTURE, 0, 0, HEART_SIZE, HEART_SIZE, 0f, 0f, 8, 8, 8, 8);
+            context.drawTexture(RenderLayer::getGuiTextured, HEART_TEXTURE, 0, 0, 0f, 0f, HEART_SIZE, HEART_SIZE, 8, 8, 8, 8);
             matrices.pop();
         }
 

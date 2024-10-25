@@ -14,9 +14,10 @@ import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
-import net.minecraft.state.property.DirectionProperty;
+import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.BlockMirror;
@@ -34,7 +35,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Map;
 
 public final class BrewerBlock extends VisibleBlockWithEntity implements BlockWithDescription {
-    public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
+    public static final EnumProperty<Direction> FACING = Properties.HORIZONTAL_FACING;
     public static final BooleanProperty HAS_MUG = BooleanProperty.of("has_mug");
     public static final BooleanProperty ACTIVE = BooleanProperty.of("active");
 
@@ -85,8 +86,12 @@ public final class BrewerBlock extends VisibleBlockWithEntity implements BlockWi
     }
 
     @Override
-    public <T extends BlockEntity> @Nullable BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return !world.isClient ? validateTicker(type, AdornBlockEntities.BREWER.get(), BrewerBlockEntity::tick) : null;
+    public <T extends BlockEntity> @Nullable BlockEntityTicker<T> getTicker(World world, BlockState stateUnused, BlockEntityType<T> type) {
+        return world instanceof ServerWorld serverWorld ? validateTicker(
+            type,
+            AdornBlockEntities.BREWER.get(),
+            (worldUnused, pos, state, blockEntity) -> BrewerBlockEntity.tick(serverWorld, pos, state, blockEntity)
+        ) : null;
     }
 
     @Override

@@ -6,7 +6,6 @@
 
   "mixins": [
     "BlockMixin",
-    "BlocksMixin",
     "BubbleColumnBlockMixin",
     "FenceGateBlockMixin"
   ],

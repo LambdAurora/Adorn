@@ -3,12 +3,8 @@
   "category": "building",
   "group": "adorn:kitchen_sink",
   "key": {
-    "#": {
-      "tag": "adorn:kitchen_sinks"
-    },
-    "*": {
-      "tag": "c:dyes/magenta"
-    }
+    "#": "#adorn:kitchen_sinks",
+    "*": "#c:dyes/magenta"
   },
   "pattern": [
     "###",

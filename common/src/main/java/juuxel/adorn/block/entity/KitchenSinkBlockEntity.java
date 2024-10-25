@@ -20,6 +20,7 @@ import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
 import net.minecraft.potion.Potions;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.FluidTags;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
@@ -114,11 +115,11 @@ public abstract class KitchenSinkBlockEntity extends BlockEntity {
      */
     public abstract int calculateComparatorOutput();
 
-    private static boolean isInfinite(Fluid fluid, World world) {
+    private static boolean isInfinite(Fluid fluid, ServerWorld world) {
         return fluid instanceof FlowableFluid flowable && flowable.isInfinite(world);
     }
 
-    public static boolean supportsInfiniteExtraction(World world, Fluid fluid) {
+    public static boolean supportsInfiniteExtraction(ServerWorld world, Fluid fluid) {
         return isInfinite(fluid, world) && world.getGameRules().getBoolean(AdornGameRules.INFINITE_KITCHEN_SINKS);
     }
 

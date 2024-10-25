@@ -3,12 +3,8 @@
   "category": "building",
   "group": "wooden_button",
   "key": {
-    "#": {
-      "tag": "minecraft:wooden_buttons"
-    },
-    "*": {
-      "tag": "c:dyes/lime"
-    }
+    "#": "#minecraft:wooden_buttons",
+    "*": "#c:dyes/lime"
   },
   "pattern": [
     "###",

@@ -13,7 +13,7 @@ public final class AdornDataGenerator implements DataGeneratorEntrypoint {
         pack.addProvider(AdornTagGenerator::new);
         pack.addProvider(AdornBlockLootTableGenerator::new);
         pack.addProvider(AdornModelGenerator::new);
-        pack.addProvider(AdornRecipeGenerator::new);
+        pack.addProvider(AdornRecipeGenerator.Provider::new);
         pack.addProvider(BookGenerator::new);
         var blockTags = pack.addProvider(AdornBlockTagGenerator::new);
         pack.addProvider((output, registriesFuture) -> new AdornItemTagGenerator(output, registriesFuture, blockTags));

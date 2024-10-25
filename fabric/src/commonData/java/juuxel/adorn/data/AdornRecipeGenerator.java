@@ -9,6 +9,7 @@ import juuxel.adorn.lib.AdornTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.data.server.recipe.RecipeExporter;
+import net.minecraft.data.server.recipe.RecipeGenerator;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
@@ -23,13 +24,13 @@ import net.minecraft.util.Identifier;
 
 import java.util.concurrent.CompletableFuture;
 
-public final class AdornRecipeGenerator extends FabricRecipeProvider {
-    public AdornRecipeGenerator(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
-        super(output, registriesFuture);
+public final class AdornRecipeGenerator extends RecipeGenerator {
+    private AdornRecipeGenerator(RegistryWrapper.WrapperLookup registries, RecipeExporter exporter) {
+        super(registries, exporter);
     }
 
     @Override
-    public void generate(RecipeExporter exporter) {
+    public void generate() {
         AdornBlocks.PAINTED_PLANKS.forEach((color, block) -> offerPlankDyeingRecipe(exporter, block, color));
         AdornBlocks.PAINTED_WOOD_SLABS.forEach((color, block) -> offerPaintedSlabRecipe(exporter, block, color));
         AdornBlocks.PAINTED_WOOD_SLABS.forEach((color, block) -> offerSlabDyeingRecipe(exporter, block, color));
@@ -60,11 +61,11 @@ public final class AdornRecipeGenerator extends FabricRecipeProvider {
         }
     }
 
-    private static void offerPlankDyeingRecipe(RecipeExporter exporter, ItemConvertible output, DyeColor color) {
+    private void offerPlankDyeingRecipe(RecipeExporter exporter, ItemConvertible output, DyeColor color) {
         offerDyeingRecipe(exporter, output, color, ItemTags.PLANKS, "planks", false);
     }
 
-    private static void offerPaintedSlabRecipe(RecipeExporter exporter, ItemConvertible output, DyeColor color) {
+    private void offerPaintedSlabRecipe(RecipeExporter exporter, ItemConvertible output, DyeColor color) {
         var planks = AdornBlocks.PAINTED_PLANKS.getEager(color);
         createSlabRecipe(RecipeCategory.BUILDING_BLOCKS, output, Ingredient.ofItems(planks))
             .group("wooden_slabs")
@@ -72,11 +73,11 @@ public final class AdornRecipeGenerator extends FabricRecipeProvider {
             .offerTo(exporter);
     }
 
-    private static void offerSlabDyeingRecipe(RecipeExporter exporter, ItemConvertible output, DyeColor color) {
+    private void offerSlabDyeingRecipe(RecipeExporter exporter, ItemConvertible output, DyeColor color) {
         offerDyeingRecipe(exporter, output, color, ItemTags.WOODEN_SLABS, "slab", true);
     }
 
-    private static void offerPaintedStairsRecipe(RecipeExporter exporter, ItemConvertible output, DyeColor color) {
+    private void offerPaintedStairsRecipe(RecipeExporter exporter, ItemConvertible output, DyeColor color) {
         var planks = AdornBlocks.PAINTED_PLANKS.getEager(color);
         createStairsRecipe(output, Ingredient.ofItems(planks))
             .group("wooden_stairs")
@@ -84,11 +85,11 @@ public final class AdornRecipeGenerator extends FabricRecipeProvider {
             .offerTo(exporter);
     }
 
-    private static void offerStairDyeingRecipe(RecipeExporter exporter, ItemConvertible output, DyeColor color) {
+    private void offerStairDyeingRecipe(RecipeExporter exporter, ItemConvertible output, DyeColor color) {
         offerDyeingRecipe(exporter, output, color, ItemTags.WOODEN_STAIRS, "stairs", true);
     }
 
-    private static void offerPaintedFenceRecipe(RecipeExporter exporter, ItemConvertible output, DyeColor color) {
+    private void offerPaintedFenceRecipe(RecipeExporter exporter, ItemConvertible output, DyeColor color) {
         var planks = AdornBlocks.PAINTED_PLANKS.getEager(color);
         createFenceRecipe(output, Ingredient.ofItems(planks))
             .group("wooden_fence")
@@ -96,11 +97,11 @@ public final class AdornRecipeGenerator extends FabricRecipeProvider {
             .offerTo(exporter);
     }
 
-    private static void offerFenceDyeingRecipe(RecipeExporter exporter, ItemConvertible output, DyeColor color) {
+    private void offerFenceDyeingRecipe(RecipeExporter exporter, ItemConvertible output, DyeColor color) {
         offerDyeingRecipe(exporter, output, color, ItemTags.WOODEN_FENCES, "fence", true);
     }
 
-    private static void offerPaintedFenceGateRecipe(RecipeExporter exporter, ItemConvertible output, DyeColor color) {
+    private void offerPaintedFenceGateRecipe(RecipeExporter exporter, ItemConvertible output, DyeColor color) {
         var planks = AdornBlocks.PAINTED_PLANKS.getEager(color);
         createFenceGateRecipe(output, Ingredient.ofItems(planks))
             .group("wooden_fence")
@@ -108,11 +109,11 @@ public final class AdornRecipeGenerator extends FabricRecipeProvider {
             .offerTo(exporter);
     }
 
-    private static void offerFenceGateDyeingRecipe(RecipeExporter exporter, ItemConvertible output, DyeColor color) {
+    private void offerFenceGateDyeingRecipe(RecipeExporter exporter, ItemConvertible output, DyeColor color) {
         offerDyeingRecipe(exporter, output, color, ItemTags.FENCE_GATES, "fence_gate", true);
     }
 
-    private static void offerPaintedPressurePlateRecipe(RecipeExporter exporter, ItemConvertible output, DyeColor color) {
+    private void offerPaintedPressurePlateRecipe(RecipeExporter exporter, ItemConvertible output, DyeColor color) {
         var planks = AdornBlocks.PAINTED_PLANKS.getEager(color);
         createPressurePlateRecipe(RecipeCategory.REDSTONE, output, Ingredient.ofItems(planks))
             .group("wooden_pressure_plate")
@@ -120,34 +121,34 @@ public final class AdornRecipeGenerator extends FabricRecipeProvider {
             .offerTo(exporter);
     }
 
-    private static void offerPressurePlateDyeingRecipe(RecipeExporter exporter, ItemConvertible output, DyeColor color) {
+    private void offerPressurePlateDyeingRecipe(RecipeExporter exporter, ItemConvertible output, DyeColor color) {
         offerDyeingRecipe(exporter, output, color, ItemTags.WOODEN_PRESSURE_PLATES, "pressure_plate", true);
     }
 
-    private static void offerPaintedButtonRecipe(RecipeExporter exporter, ItemConvertible output, DyeColor color) {
+    private void offerPaintedButtonRecipe(RecipeExporter exporter, ItemConvertible output, DyeColor color) {
         var planks = AdornBlocks.PAINTED_PLANKS.getEager(color);
-        createTransmutationRecipe(output, Ingredient.ofItems(planks))
+        createButtonRecipe(output, Ingredient.ofItems(planks))
             .group("wooden_button")
             .criterion("has_planks", conditionsFromItem(planks))
             .offerTo(exporter);
     }
 
-    private static void offerButtonDyeingRecipe(RecipeExporter exporter, ItemConvertible output, DyeColor color) {
+    private void offerButtonDyeingRecipe(RecipeExporter exporter, ItemConvertible output, DyeColor color) {
         offerDyeingRecipe(exporter, output, color, ItemTags.WOODEN_BUTTONS, "button", true);
     }
 
-    private static void offerDyeingRecipe(RecipeExporter exporter, DyeColor color, TagKey<Item> ingredient, BlockKind kind) {
+    private void offerDyeingRecipe(RecipeExporter exporter, DyeColor color, TagKey<Item> ingredient, BlockKind kind) {
         var variant = BlockVariant.PAINTED_WOODS.get(color);
         var group = AdornCommon.NAMESPACE + ':' + kind.id();
         offerDyeingRecipe(exporter, BlockVariantSets.get(kind, variant).get(), color, ingredient, kind.id(), group, true);
     }
 
-    private static void offerDyeingRecipe(RecipeExporter exporter, ItemConvertible output, DyeColor color, TagKey<Item> ingredient, String kind, boolean suffix) {
+    private void offerDyeingRecipe(RecipeExporter exporter, ItemConvertible output, DyeColor color, TagKey<Item> ingredient, String kind, boolean suffix) {
         offerDyeingRecipe(exporter, output, color, ingredient, kind, "wooden_" + kind, suffix);
     }
 
-    private static void offerDyeingRecipe(RecipeExporter exporter, ItemConvertible output, DyeColor color, TagKey<Item> ingredient, String kind, String group, boolean suffix) {
-        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, output, 8)
+    private void offerDyeingRecipe(RecipeExporter exporter, ItemConvertible output, DyeColor color, TagKey<Item> ingredient, String kind, String group, boolean suffix) {
+        createShaped(RecipeCategory.BUILDING_BLOCKS, output, 8)
             .input('*', TagKey.of(RegistryKeys.ITEM, Identifier.of("c", "dyes/" + color.asString())))
             .input('#', ingredient)
             .pattern("###")
@@ -156,5 +157,21 @@ public final class AdornRecipeGenerator extends FabricRecipeProvider {
             .group(group)
             .criterion("has_" + kind, conditionsFromTag(ingredient))
             .offerTo(exporter, suffix ? getItemPath(output) + "_from_dyeing" : getItemPath(output));
+    }
+
+    public static final class Provider extends FabricRecipeProvider {
+        public Provider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
+            super(output, registriesFuture);
+        }
+
+        @Override
+        protected RecipeGenerator getRecipeGenerator(RegistryWrapper.WrapperLookup registries, RecipeExporter exporter) {
+            return new AdornRecipeGenerator(registries, exporter);
+        }
+
+        @Override
+        public String getName() {
+            return "Adorn Recipes";
+        }
     }
 }

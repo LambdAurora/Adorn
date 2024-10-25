@@ -3,12 +3,8 @@
   "category": "building",
   "group": "adorn:post",
   "key": {
-    "#": {
-      "tag": "adorn:wooden_posts"
-    },
-    "*": {
-      "tag": "c:dyes/purple"
-    }
+    "#": "#adorn:wooden_posts",
+    "*": "#c:dyes/purple"
   },
   "pattern": [
     "###",

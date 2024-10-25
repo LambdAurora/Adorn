@@ -3,12 +3,8 @@
   "category": "building",
   "group": "wooden_fence_gate",
   "key": {
-    "#": {
-      "tag": "minecraft:fence_gates"
-    },
-    "*": {
-      "tag": "c:dyes/green"
-    }
+    "#": "#minecraft:fence_gates",
+    "*": "#c:dyes/green"
   },
   "pattern": [
     "###",

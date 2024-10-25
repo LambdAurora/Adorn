@@ -3,10 +3,12 @@ package juuxel.adorn.block;
 import com.google.common.base.Predicates;
 import juuxel.adorn.criterion.AdornCriteria;
 import juuxel.adorn.entity.AdornEntities;
+import juuxel.adorn.entity.SeatEntity;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.Properties;
@@ -49,7 +51,7 @@ public abstract class SeatBlock extends Block {
 
         if (!occupied) {
             if (!world.isClient) {
-                var entity = AdornEntities.SEAT.get().create(world);
+                var entity = new SeatEntity(AdornEntities.SEAT.get(), world);
                 entity.setPos(actualPos);
                 world.spawnEntity(entity);
                 world.setBlockState(actualPos, actualState.with(OCCUPIED, true));
@@ -64,7 +66,7 @@ public abstract class SeatBlock extends Block {
                     AdornCriteria.SIT_ON_BLOCK.get().trigger(serverPlayer, pos);
                 }
             }
-            return ActionResult.success(world.isClient);
+            return ActionResult.SUCCESS;
         }
 
         return ActionResult.PASS;
@@ -75,7 +77,7 @@ public abstract class SeatBlock extends Block {
         super.onStateReplaced(state, world, pos, newState, moved);
 
         if (!state.isOf(newState.getBlock())) {
-            if (world.isClient || !isSittingEnabled()) return;
+            if (!(world instanceof ServerWorld serverWorld) || !isSittingEnabled()) return;
             var seats = world.getEntitiesByType(
                 AdornEntities.SEAT.get(),
                 new Box(getActualSeatPos(world, state, pos)),
@@ -83,7 +85,7 @@ public abstract class SeatBlock extends Block {
             );
             for (var seat : seats) {
                 seat.removeAllPassengers();
-                seat.kill();
+                seat.kill(serverWorld);
             }
         }
     }

@@ -3,9 +3,7 @@
   "category": "building",
   "group": "wooden_slabs",
   "key": {
-    "#": {
-      "item": "adorn:blue_planks"
-    }
+    "#": "adorn:blue_planks"
   },
   "pattern": [
     "###"

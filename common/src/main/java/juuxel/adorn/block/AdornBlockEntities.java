@@ -17,6 +17,7 @@ import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.block.entity.BlockEntityType.BlockEntityFactory;
 import net.minecraft.registry.RegistryKeys;
 
+import java.util.Set;
 import java.util.function.Supplier;
 
 public final class AdornBlockEntities {
@@ -34,7 +35,7 @@ public final class AdornBlockEntities {
         register("brewer", PlatformBridges.get().getBlockEntities()::createBrewer, AdornBlocks.BREWER);
 
     private static <E extends BlockEntity> Registered<BlockEntityType<E>> register(String name, BlockEntityFactory<E> factory, Supplier<? extends Block> block) {
-        return BLOCK_ENTITIES.register(name, () -> BlockEntityType.Builder.create(factory, block.get()).build(null));
+        return BLOCK_ENTITIES.register(name, () -> new BlockEntityType<>(factory, Set.of(block.get())));
     }
 
     private static <E extends BlockEntity> Registered<BlockEntityType<E>> register(String name, BlockEntityFactory<E> factory, Class<? extends Block> blockClass) {

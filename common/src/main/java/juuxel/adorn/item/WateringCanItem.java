@@ -21,9 +21,9 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
-import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -31,7 +31,6 @@ import net.minecraft.world.RaycastContext;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldEvents;
 import net.minecraft.world.event.GameEvent;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
@@ -49,13 +48,13 @@ public final class WateringCanItem extends ItemWithDescription {
     }
 
     @Override
-    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
+    public ActionResult use(World world, PlayerEntity user, Hand hand) {
         var stack = user.getStackInHand(hand);
         var success = false;
 
         var hitResult = raycast(world, user, RaycastContext.FluidHandling.SOURCE_ONLY);
         if (hitResult.getType() != HitResult.Type.BLOCK) {
-            return TypedActionResult.pass(stack);
+            return ActionResult.PASS;
         }
 
         int waterLevel = stack.getOrDefault(AdornComponentTypes.WATER_LEVEL.get(), 0);
@@ -97,7 +96,8 @@ public final class WateringCanItem extends ItemWithDescription {
             stack.set(AdornComponentTypes.WATER_LEVEL.get(), waterLevel);
             world.emitGameEvent(user, GameEvent.ITEM_INTERACT_FINISH, pos);
             world.playSound(user, pos, AdornSounds.ITEM_WATERING_CAN_WATER.get(), SoundCategory.PLAYERS);
-            user.getItemCooldownManager().set(this, 10);
+
+            user.getItemCooldownManager().set(stack, 10);
 
             var mut = new BlockPos.Mutable();
             for (int xo = -1; xo <= 1; xo++) {
@@ -112,7 +112,7 @@ public final class WateringCanItem extends ItemWithDescription {
             }
         }
 
-        return success ? TypedActionResult.success(stack, world.isClient()) : TypedActionResult.pass(stack);
+        return success ? ActionResult.SUCCESS : ActionResult.PASS;
     }
 
     private void water(World world, BlockPos pos, PlayerEntity player, ItemStack stack) {

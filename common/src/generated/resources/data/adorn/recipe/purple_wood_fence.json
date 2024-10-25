@@ -3,12 +3,8 @@
   "category": "misc",
   "group": "wooden_fence",
   "key": {
-    "#": {
-      "item": "minecraft:stick"
-    },
-    "W": {
-      "item": "adorn:purple_planks"
-    }
+    "#": "minecraft:stick",
+    "W": "adorn:purple_planks"
   },
   "pattern": [
     "W#W",

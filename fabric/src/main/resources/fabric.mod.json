@@ -24,16 +24,16 @@
     "modmenu": [
       "juuxel.adorn.compat.modmenu.AdornModMenuPlugin"
     ],
-    "rei_common": [
+    "rei_common_disabled": [
       "juuxel.adorn.compat.rei.AdornReiServer"
     ],
-    "rei_client": [
+    "rei_client_disabled": [
       "juuxel.adorn.compat.rei.client.AdornReiClient"
     ],
-    "emi": [
+    "emi_disabled": [
       "juuxel.adorn.compat.emi.AdornEmiPlugin"
     ],
-    "jei_mod_plugin": [
+    "jei_mod_plugin_disabled": [
       "juuxel.adorn.compat.jei.AdornJeiPlugin"
     ]
   },

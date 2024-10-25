@@ -12,7 +12,7 @@ public final class AdornBlockEntityType<E extends BlockEntity> extends BlockEnti
     private final Predicate<Block> blockPredicate;
 
     public AdornBlockEntityType(BlockEntityFactory<? extends E> factory, Predicate<Block> blockPredicate) {
-        super(factory, Set.of(), null);
+        super(factory, Set.of());
         this.blockPredicate = blockPredicate;
     }
 

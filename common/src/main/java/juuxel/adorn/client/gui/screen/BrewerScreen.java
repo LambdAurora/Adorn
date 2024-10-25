@@ -1,6 +1,5 @@
 package juuxel.adorn.client.gui.screen;
 
-import com.mojang.blaze3d.systems.RenderSystem;
 import juuxel.adorn.AdornCommon;
 import juuxel.adorn.block.entity.BrewerBlockEntity;
 import juuxel.adorn.client.FluidRenderingBridge;
@@ -12,11 +11,7 @@ import juuxel.adorn.util.Logging;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.ingame.MenuProvider;
-import net.minecraft.client.render.BufferRenderer;
-import net.minecraft.client.render.GameRenderer;
-import net.minecraft.client.render.Tessellator;
-import net.minecraft.client.render.VertexFormat;
-import net.minecraft.client.render.VertexFormats;
+import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.texture.Sprite;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.tooltip.TooltipType;
@@ -38,14 +33,14 @@ public final class BrewerScreen extends AdornMenuScreen<BrewerMenu> {
 
     @Override
     protected void drawBackground(DrawContext context, float delta, int mouseX, int mouseY) {
-        context.drawTexture(TEXTURE, x, y, 0, 0, backgroundWidth, backgroundHeight);
+        context.drawTexture(RenderLayer::getGuiTextured, TEXTURE, x, y, 0f, 0f, backgroundWidth, backgroundHeight, 256, 256);
         drawFluid(context, x + 145, y + 17, menu.getFluid());
-        context.drawTexture(TEXTURE, x + 145, y + 21, 176, 25, 16, 51);
+        context.drawTexture(RenderLayer::getGuiTextured, TEXTURE, x + 145, y + 21, 176, 25, 16, 51, 256, 256);
 
         var progress = menu.getProgress();
         if (progress > 0) {
             float progressFract = (float) progress / (float) BrewerBlockEntity.MAX_PROGRESS;
-            context.drawTexture(TEXTURE, x + 84, y + 24, 176, 0, 8, MathHelper.ceil(progressFract * 25));
+            context.drawTexture(RenderLayer::getGuiTextured, TEXTURE, x + 84, y + 24, 176, 0, 8, MathHelper.ceil(progressFract * 25), 256, 256);
         }
     }
 
@@ -78,22 +73,17 @@ public final class BrewerScreen extends AdornMenuScreen<BrewerMenu> {
     }
 
     private static void drawSprite(DrawContext context, int x, float y, float width, float height, float u0, float v0, float u1, float v1, Sprite sprite, int color) {
-        RenderSystem.enableBlend();
-        RenderSystem.setShader(GameRenderer::getPositionTexColorProgram);
-        RenderSystem.setShaderColor(1f, 1f, 1f, 1f);
-        RenderSystem.setShaderTexture(0, sprite.getAtlasId());
         var positionMatrix = context.getMatrices().peek().getPositionMatrix();
         var au0 = MathHelper.lerp(u0, sprite.getMinU(), sprite.getMaxU());
         var au1 = MathHelper.lerp(u1, sprite.getMinU(), sprite.getMaxU());
         var av0 = MathHelper.lerp(v0, sprite.getMinV(), sprite.getMaxV());
         var av1 = MathHelper.lerp(v1, sprite.getMinV(), sprite.getMaxV());
-        var buffer = Tessellator.getInstance().begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_TEXTURE_COLOR);
+        var renderLayer = RenderLayer.getGuiTextured(sprite.getAtlasId());
+        var buffer = context.vertexConsumers.getBuffer(renderLayer);
         buffer.vertex(positionMatrix, x, y + height, 0f).texture(au0, av1).color(color);
         buffer.vertex(positionMatrix, x + width, y + height, 0f).texture(au1, av1).color(color);
         buffer.vertex(positionMatrix, x + width, y, 0f).texture(au1, av0).color(color);
         buffer.vertex(positionMatrix, x, y, 0f).texture(au0, av0).color(color);
-        BufferRenderer.drawWithGlobalProgram(buffer.end());
-        RenderSystem.disableBlend();
     }
 
     public static void drawFluid(DrawContext context, int x, int y, FluidReference fluid) {

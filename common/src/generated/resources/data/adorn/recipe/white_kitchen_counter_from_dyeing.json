@@ -3,12 +3,8 @@
   "category": "building",
   "group": "adorn:kitchen_counter",
   "key": {
-    "#": {
-      "tag": "adorn:kitchen_counters"
-    },
-    "*": {
-      "tag": "c:dyes/white"
-    }
+    "#": "#adorn:kitchen_counters",
+    "*": "#c:dyes/white"
   },
   "pattern": [
     "###",

@@ -3,12 +3,8 @@
   "category": "building",
   "group": "adorn:chair",
   "key": {
-    "#": {
-      "tag": "adorn:chairs"
-    },
-    "*": {
-      "tag": "c:dyes/purple"
-    }
+    "#": "#adorn:chairs",
+    "*": "#c:dyes/purple"
   },
   "pattern": [
     "###",

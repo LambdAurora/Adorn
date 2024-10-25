@@ -7,8 +7,8 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.Direction;
 
 public final class TableBlockItem extends BaseBlockItem {
-    public TableBlockItem(Block block) {
-        super(block, new Settings());
+    public TableBlockItem(Block block, Settings settings) {
+        super(block, settings);
     }
 
     @Override

@@ -3,12 +3,8 @@
   "category": "building",
   "group": "wooden_planks",
   "key": {
-    "#": {
-      "tag": "minecraft:planks"
-    },
-    "*": {
-      "tag": "c:dyes/white"
-    }
+    "#": "#minecraft:planks",
+    "*": "#c:dyes/white"
   },
   "pattern": [
     "###",

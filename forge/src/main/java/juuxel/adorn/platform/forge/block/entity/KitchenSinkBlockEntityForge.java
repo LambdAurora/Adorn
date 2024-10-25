@@ -13,6 +13,7 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.potion.Potions;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.FluidTags;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -31,7 +32,7 @@ public final class KitchenSinkBlockEntityForge extends KitchenSinkBlockEntity im
     private final FluidTank tank = new FluidTank(FluidType.BUCKET_VOLUME) {
         @Override
         public FluidStack drain(int maxDrain, FluidAction action) {
-            if (supportsInfiniteExtraction(getWorld(), fluid.getFluid())) {
+            if (getWorld() instanceof ServerWorld world && supportsInfiniteExtraction(world, fluid.getFluid())) {
                 return fluid.copyWithAmount(Math.min(getFluidAmount(), maxDrain));
             }
 

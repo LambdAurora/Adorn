@@ -3,12 +3,8 @@
   "category": "building",
   "group": "adorn:kitchen_cupboard",
   "key": {
-    "#": {
-      "tag": "adorn:kitchen_cupboards"
-    },
-    "*": {
-      "tag": "c:dyes/lime"
-    }
+    "#": "#adorn:kitchen_cupboards",
+    "*": "#c:dyes/lime"
   },
   "pattern": [
     "###",

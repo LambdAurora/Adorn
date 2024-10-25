@@ -63,8 +63,8 @@ public final class Trade implements NbtConvertible, TooltipData {
 
     @Override
     public NbtCompound writeNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registries) {
-        nbt.put(NBT_SELLING, selling.encodeAllowEmpty(registries));
-        nbt.put(NBT_PRICE, price.encodeAllowEmpty(registries));
+        nbt.put(NBT_SELLING, selling.toNbtAllowEmpty(registries));
+        nbt.put(NBT_PRICE, price.toNbtAllowEmpty(registries));
         return nbt;
     }
 

@@ -3,6 +3,7 @@ package juuxel.adorn.lib;
 import juuxel.adorn.block.SofaBlock;
 import net.fabricmc.fabric.api.entity.event.v1.EntitySleepEvents;
 import net.minecraft.block.BedBlock;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.ActionResult;
 
 public final class SofaSleeping {
@@ -38,7 +39,7 @@ public final class SofaSleeping {
                 if (player.getWorld().isDay()) {
                     return false;
                 } else {
-                    return player.getWorld().getGameRules().getBoolean(AdornGameRules.SKIP_NIGHT_ON_SOFAS);
+                    return player.getWorld() instanceof ServerWorld world && world.getGameRules().getBoolean(AdornGameRules.SKIP_NIGHT_ON_SOFAS);
                 }
             } else {
                 return true; // go on

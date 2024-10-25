@@ -7,7 +7,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.DyedCarpetBlock;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
-import net.minecraft.loot.context.LootContextParameterSet;
+import net.minecraft.loot.context.LootWorldContext;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.EnumProperty;
@@ -16,7 +16,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.world.WorldAccess;
+import net.minecraft.world.WorldView;
+import net.minecraft.world.tick.ScheduledTickView;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
@@ -86,19 +87,19 @@ public abstract class CarpetedBlock extends SeatBlock {
     }
 
     @Override
-    public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
+    protected BlockState getStateForNeighborUpdate(BlockState state, WorldView world, ScheduledTickView tickView, BlockPos pos, Direction direction, BlockPos neighborPos, BlockState neighborState, Random random) {
         if (isCarpetingEnabled()) {
             var carpet = state.get(CARPET);
             if (carpet.isPresent() && !COLORS_TO_BLOCKS.get(carpet.value()).getDefaultState().canPlaceAt(world, pos)) {
-                world.scheduleBlockTick(pos, this, 1);
+                tickView.scheduleBlockTick(pos, this, 1);
             }
         }
 
-        return super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
+        return super.getStateForNeighborUpdate(state, world, tickView, pos, direction, neighborPos, neighborState, random);
     }
 
     @Override
-    public List<ItemStack> getDroppedStacks(BlockState state, LootContextParameterSet.Builder builder) {
+    protected List<ItemStack> getDroppedStacks(BlockState state, LootWorldContext.Builder builder) {
         if (isCarpetingEnabled() && state.get(CARPET).isPresent()) {
             var stacks = new ArrayList<>(super.getDroppedStacks(state, builder));
             stacks.addAll(COLORS_TO_BLOCKS.get(state.get(CARPET).value()).getDefaultState().getDroppedStacks(builder));

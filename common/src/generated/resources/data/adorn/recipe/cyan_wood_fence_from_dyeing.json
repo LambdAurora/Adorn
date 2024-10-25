@@ -3,12 +3,8 @@
   "category": "building",
   "group": "wooden_fence",
   "key": {
-    "#": {
-      "tag": "minecraft:wooden_fences"
-    },
-    "*": {
-      "tag": "c:dyes/cyan"
-    }
+    "#": "#minecraft:wooden_fences",
+    "*": "#c:dyes/cyan"
   },
   "pattern": [
     "###",

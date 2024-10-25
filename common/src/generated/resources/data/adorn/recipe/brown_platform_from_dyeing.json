@@ -3,12 +3,8 @@
   "category": "building",
   "group": "adorn:platform",
   "key": {
-    "#": {
-      "tag": "adorn:wooden_platforms"
-    },
-    "*": {
-      "tag": "c:dyes/brown"
-    }
+    "#": "#adorn:wooden_platforms",
+    "*": "#c:dyes/brown"
   },
   "pattern": [
     "###",

@@ -22,6 +22,7 @@ import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.ingame.BookScreen;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.gui.widget.PageTurnWidget;
+import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.sound.PositionedSoundInstance;
 import net.minecraft.item.ItemStack;
 import net.minecraft.screen.ScreenTexts;
@@ -97,7 +98,7 @@ public final class GuideBookScreen extends Screen {
         super.renderBackground(context, mouseX, mouseY, delta);
         int x = (width - BOOK_SIZE) / 2;
         int y = (height - BOOK_SIZE) / 2;
-        context.drawTexture(BookScreen.BOOK_TEXTURE, x, y, 0, 0, BOOK_SIZE, BOOK_SIZE);
+        context.drawTexture(RenderLayer::getGuiTextured, BookScreen.BOOK_TEXTURE, x, y, 0, 0, BOOK_SIZE, BOOK_SIZE, 256, 256);
     }
 
     @Override
@@ -316,7 +317,7 @@ public final class GuideBookScreen extends Screen {
             };
 
             RenderSystem.enableBlend();
-            context.drawTexture(image.location(), imageX, imageY, 0f, 0f, image.size().x(), image.size().y(), image.size().x(), image.size().y());
+            context.drawTexture(RenderLayer::getGuiTextured, image.location(), imageX, imageY, 0f, 0f, image.size().x(), image.size().y(), image.size().x(), image.size().y());
             RenderSystem.disableBlend();
 
             for (var hoverArea : image.hoverAreas()) {
@@ -364,7 +365,7 @@ public final class GuideBookScreen extends Screen {
         @Override
         protected void renderWidget(DrawContext context, int mouseX, int mouseY, float delta) {
             var texture = isHovered() ? CLOSE_BOOK_ACTIVE_TEXTURE : CLOSE_BOOK_INACTIVE_TEXTURE;
-            context.drawTexture(texture, getX(), getY(), 0f, 0f, 8, 8, 8, 8);
+            context.drawTexture(RenderLayer::getGuiTextured, texture, getX(), getY(), 0f, 0f, 8, 8, 8, 8, 256, 256);
         }
     }
 }

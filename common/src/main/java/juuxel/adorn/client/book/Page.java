@@ -83,14 +83,13 @@ public record Page(List<Icon> icons, Text title, Text text, @Nullable Image imag
         public List<ItemStack> createStacks() {
             return switch (items) {
                 case EntryOrTag.OfEntry(var item) -> List.of(item.getDefaultStack());
-                case EntryOrTag.OfTag(var tag) -> {
-                    var entries = Registries.ITEM.getOrCreateEntryList(tag);
+                case EntryOrTag.OfTag(var tag) -> Registries.ITEM.getOptional(tag).map(entries -> {
                     List<ItemStack> result = new ArrayList<>(entries.size());
                     for (var entry : entries) {
                         result.add(entry.value().getDefaultStack());
                     }
-                    yield result;
-                }
+                    return result;
+                }).orElse(List.of());
             };
         }
     }

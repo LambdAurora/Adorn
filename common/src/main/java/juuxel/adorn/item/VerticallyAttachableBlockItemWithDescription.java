@@ -10,8 +10,8 @@ import net.minecraft.util.math.Direction;
 import java.util.List;
 
 public final class VerticallyAttachableBlockItemWithDescription extends VerticallyAttachableBlockItem {
-    public VerticallyAttachableBlockItemWithDescription(Block standingBlock, Block wallBlock, Settings settings, Direction verticalAttachmentDirection) {
-        super(standingBlock, wallBlock, settings, verticalAttachmentDirection);
+    public VerticallyAttachableBlockItemWithDescription(Block standingBlock, Block wallBlock, Direction verticalAttachmentDirection, Settings settings) {
+        super(standingBlock, wallBlock, verticalAttachmentDirection, settings);
     }
 
     @Override

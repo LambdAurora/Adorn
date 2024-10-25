@@ -1,6 +1,5 @@
 package juuxel.adorn.block;
 
-import juuxel.adorn.block.variant.BlockVariant;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Direction;
@@ -38,12 +37,8 @@ public final class TableBlock extends AbstractTableBlock implements BlockWithDes
         }
     }
 
-    public TableBlock(BlockVariant variant) {
-        super(createSettings(variant));
-    }
-
-    private static Settings createSettings(BlockVariant variant) {
-        return variant.createSettings().solid();
+    public TableBlock(Settings settings) {
+        super(settings.solid());
     }
 
     @Override

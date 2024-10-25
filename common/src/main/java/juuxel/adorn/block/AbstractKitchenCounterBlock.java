@@ -1,6 +1,5 @@
 package juuxel.adorn.block;
 
-import juuxel.adorn.block.variant.BlockVariant;
 import juuxel.adorn.util.Shapes;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -9,7 +8,7 @@ import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
-import net.minecraft.state.property.DirectionProperty;
+import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.BlockMirror;
 import net.minecraft.util.BlockRotation;
@@ -21,7 +20,7 @@ import net.minecraft.world.BlockView;
 import java.util.Map;
 
 public abstract class AbstractKitchenCounterBlock extends Block {
-    public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
+    public static final EnumProperty<Direction> FACING = Properties.HORIZONTAL_FACING;
     public static final BlockSoundGroup SOUND_GROUP = new BlockSoundGroup(
         1.0F, 1.0F,
         SoundEvents.BLOCK_WOOD_BREAK,
@@ -42,11 +41,7 @@ public abstract class AbstractKitchenCounterBlock extends Block {
     );
 
     public AbstractKitchenCounterBlock(Settings settings) {
-        super(settings);
-    }
-
-    public AbstractKitchenCounterBlock(BlockVariant variant) {
-        this(variant.createSettings().sounds(SOUND_GROUP));
+        super(settings.sounds(SOUND_GROUP));
     }
 
     @Override

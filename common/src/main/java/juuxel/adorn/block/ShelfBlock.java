@@ -1,7 +1,6 @@
 package juuxel.adorn.block;
 
 import com.mojang.serialization.MapCodec;
-import juuxel.adorn.block.variant.BlockVariant;
 import juuxel.adorn.lib.AdornStats;
 import juuxel.adorn.platform.PlatformBridges;
 import juuxel.adorn.util.Shapes;
@@ -22,33 +21,34 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.menu.Menu;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
-import net.minecraft.state.property.DirectionProperty;
+import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.Properties;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.BlockMirror;
 import net.minecraft.util.BlockRotation;
 import net.minecraft.util.Hand;
-import net.minecraft.util.ItemActionResult;
 import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
+import net.minecraft.world.tick.ScheduledTickView;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Map;
 
 public final class ShelfBlock extends VisibleBlockWithEntity implements Waterloggable, BlockWithDescription {
-    public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
+    public static final EnumProperty<Direction> FACING = Properties.HORIZONTAL_FACING;
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
     private static final String DESCRIPTION_KEY = "block.adorn.shelf.description";
     private static final Map<Direction, VoxelShape> SHAPES = Shapes.buildShapeRotations(0, 5, 0, 7, 6, 16);
 
-    public ShelfBlock(BlockVariant variant) {
-        super(variant.createSettings());
+    public ShelfBlock(Settings settings) {
+        super(settings);
         setDefaultState(getDefaultState().with(WATERLOGGED, false));
     }
 
@@ -94,18 +94,18 @@ public final class ShelfBlock extends VisibleBlockWithEntity implements Waterlog
 
     // Based on WallTorchBlock.getStateForNeighborUpdate
     @Override
-    public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
+    protected BlockState getStateForNeighborUpdate(BlockState state, WorldView world, ScheduledTickView tickView, BlockPos pos, Direction direction, BlockPos neighborPos, BlockState neighborState, Random random) {
         if (state.get(WATERLOGGED)) {
-            world.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
+            tickView.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
         }
 
         return state.get(FACING).getOpposite() == direction && !state.canPlaceAt(world, pos) ? Blocks.AIR.getDefaultState() : state;
     }
 
     @Override
-    protected ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+    protected ActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         var be = world.getBlockEntity(pos);
-        if (!(be instanceof Inventory inventory)) return ItemActionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+        if (!(be instanceof Inventory inventory)) return ActionResult.PASS_TO_DEFAULT_BLOCK_ACTION;
 
         int slot = getSlot(state, hit);
         var existing = inventory.getStack(slot);
@@ -141,7 +141,7 @@ public final class ShelfBlock extends VisibleBlockWithEntity implements Waterlog
             }
         }
 
-        return ItemActionResult.success(world.isClient);
+        return ActionResult.SUCCESS;
     }
 
     /**

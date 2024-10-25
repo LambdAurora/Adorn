@@ -3,12 +3,8 @@
   "category": "building",
   "group": "adorn:bench",
   "key": {
-    "#": {
-      "tag": "adorn:benches"
-    },
-    "*": {
-      "tag": "c:dyes/orange"
-    }
+    "#": "#adorn:benches",
+    "*": "#c:dyes/orange"
   },
   "pattern": [
     "###",

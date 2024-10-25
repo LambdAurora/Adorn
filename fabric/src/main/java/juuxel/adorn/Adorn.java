@@ -27,6 +27,7 @@ import juuxel.adorn.lib.SofaSleeping;
 import juuxel.adorn.loot.AdornLootConditionTypes;
 import juuxel.adorn.loot.AdornLootFunctionTypes;
 import juuxel.adorn.menu.AdornMenus;
+import juuxel.adorn.recipe.AdornRecipeBookCategories;
 import juuxel.adorn.recipe.AdornRecipeSerializers;
 import juuxel.adorn.recipe.AdornRecipeTypes;
 import juuxel.adorn.resources.AdornResources;
@@ -54,6 +55,7 @@ public final class Adorn {
         AdornStats.init();
         SofaSleeping.init();
         AdornCriteria.init();
+        AdornRecipeBookCategories.init();
         AdornRecipeTypes.init();
         AdornRecipeSerializers.init();
         AdornLootConditionTypes.init();

@@ -21,13 +21,14 @@ import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.text.Text;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
-import net.minecraft.util.ItemActionResult;
 import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
@@ -80,8 +81,8 @@ public final class TradingStationBlock extends VisibleBlockWithEntity implements
     }
 
     @Override
-    protected ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (world.isClient) return ItemActionResult.SUCCESS;
+    protected ActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+        if (world.isClient) return ActionResult.SUCCESS_SERVER;
 
         if (world.getBlockEntity(pos) instanceof TradingStationBlockEntity be) {
             if (be.getOwner() == null) {
@@ -118,13 +119,13 @@ public final class TradingStationBlock extends VisibleBlockWithEntity implements
             }
         }
 
-        return ItemActionResult.CONSUME;
+        return ActionResult.SUCCESS_SERVER;
     }
 
     @Override
     public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
         if (!state.isOf(newState.getBlock()) && world.getBlockEntity(pos) instanceof TradingStationBlockEntity tradingStation) {
-            if (!world.getGameRules().getBoolean(AdornGameRules.DROP_LOCKED_TRADING_STATIONS)) {
+            if (world instanceof ServerWorld serverWorld && !serverWorld.getGameRules().getBoolean(AdornGameRules.DROP_LOCKED_TRADING_STATIONS)) {
                 ItemScatterer.spawn(world, pos, tradingStation.getStorage());
             }
 

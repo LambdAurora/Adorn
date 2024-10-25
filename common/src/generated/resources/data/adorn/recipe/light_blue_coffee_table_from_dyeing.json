@@ -3,12 +3,8 @@
   "category": "building",
   "group": "adorn:coffee_table",
   "key": {
-    "#": {
-      "tag": "adorn:coffee_tables"
-    },
-    "*": {
-      "tag": "c:dyes/light_blue"
-    }
+    "#": "#adorn:coffee_tables",
+    "*": "#c:dyes/light_blue"
   },
   "pattern": [
     "###",

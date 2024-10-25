@@ -19,6 +19,7 @@ import net.minecraft.menu.property.PropertyDelegate;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.recipe.RecipeEntry;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -155,7 +156,7 @@ public abstract class BrewerBlockEntity extends BaseContainerBlockEntity impleme
         }
     }
 
-    public static void tick(World world, BlockPos pos, BlockState state, BrewerBlockEntity brewer) {
+    public static void tick(ServerWorld world, BlockPos pos, BlockState state, BrewerBlockEntity brewer) {
         var originallyActive = brewer.isActive();
         brewer.tryExtractFluidContainer();
 

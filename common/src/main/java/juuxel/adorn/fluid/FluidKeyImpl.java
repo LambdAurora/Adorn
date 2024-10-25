@@ -7,6 +7,7 @@ import net.minecraft.fluid.Fluid;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.entry.RegistryEntry;
+import net.minecraft.registry.entry.RegistryEntryList;
 
 import java.util.List;
 import java.util.Set;
@@ -31,8 +32,9 @@ final class FluidKeyImpl {
         public Set<Fluid> getFluids() {
             return switch (fluids) {
                 case EntryOrTag.OfEntry(var fluid) -> Set.of(fluid);
-                case EntryOrTag.OfTag(var tag) -> Registries.FLUID.getOrCreateEntryList(tag)
+                case EntryOrTag.OfTag(var tag) -> Registries.FLUID.getOptional(tag)
                     .stream()
+                    .flatMap(RegistryEntryList::stream)
                     .map(RegistryEntry::value)
                     .collect(Collectors.toSet());
             };

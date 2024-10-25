@@ -3,7 +3,6 @@ package juuxel.adorn.block;
 import com.mojang.serialization.MapCodec;
 import juuxel.adorn.block.entity.DrawerBlockEntity;
 import juuxel.adorn.block.entity.SimpleContainerBlockEntity;
-import juuxel.adorn.block.variant.BlockVariant;
 import juuxel.adorn.lib.AdornStats;
 import juuxel.adorn.platform.PlatformBridges;
 import juuxel.adorn.util.Shapes;
@@ -17,7 +16,7 @@ import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.menu.Menu;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
-import net.minecraft.state.property.DirectionProperty;
+import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.BlockMirror;
@@ -35,7 +34,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Map;
 
 public final class DrawerBlock extends VisibleBlockWithEntity implements BlockWithDescription {
-    public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
+    public static final EnumProperty<Direction> FACING = Properties.HORIZONTAL_FACING;
     private static final Map<Direction, VoxelShape> SHAPES = Shapes.mergeShapeMaps(
         Shapes.buildShapeRotationsFromNorth(0, 0, 3, 16, 16, 16),
         // Top drawer
@@ -45,8 +44,8 @@ public final class DrawerBlock extends VisibleBlockWithEntity implements BlockWi
     );
     private static final String DESCRIPTION_KEY = "block.adorn.drawer.description";
 
-    public DrawerBlock(BlockVariant variant) {
-        super(variant.createSettings().nonOpaque());
+    public DrawerBlock(Settings settings) {
+        super(settings.nonOpaque());
     }
 
     @Override

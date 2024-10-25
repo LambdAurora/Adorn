@@ -3,12 +3,8 @@
   "category": "building",
   "group": "adorn:step",
   "key": {
-    "#": {
-      "tag": "adorn:wooden_steps"
-    },
-    "*": {
-      "tag": "c:dyes/lime"
-    }
+    "#": "#adorn:wooden_steps",
+    "*": "#c:dyes/lime"
   },
   "pattern": [
     "###",

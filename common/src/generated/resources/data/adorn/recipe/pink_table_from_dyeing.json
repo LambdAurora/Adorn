@@ -3,12 +3,8 @@
   "category": "building",
   "group": "adorn:table",
   "key": {
-    "#": {
-      "tag": "adorn:tables"
-    },
-    "*": {
-      "tag": "c:dyes/pink"
-    }
+    "#": "#adorn:tables",
+    "*": "#c:dyes/pink"
   },
   "pattern": [
     "###",

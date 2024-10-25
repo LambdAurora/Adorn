@@ -17,7 +17,7 @@ public class InventoryWrappingRecipeInput<I extends Inventory> implements Recipe
     }
 
     @Override
-    public int getSize() {
+    public int size() {
         return parent.size();
     }
 

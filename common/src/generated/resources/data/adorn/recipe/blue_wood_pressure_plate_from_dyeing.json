@@ -3,12 +3,8 @@
   "category": "building",
   "group": "wooden_pressure_plate",
   "key": {
-    "#": {
-      "tag": "minecraft:wooden_pressure_plates"
-    },
-    "*": {
-      "tag": "c:dyes/blue"
-    }
+    "#": "#minecraft:wooden_pressure_plates",
+    "*": "#c:dyes/blue"
   },
   "pattern": [
     "###",

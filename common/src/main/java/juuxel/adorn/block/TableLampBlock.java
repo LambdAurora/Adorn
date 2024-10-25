@@ -18,25 +18,27 @@ import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
-import net.minecraft.state.property.DirectionProperty;
+import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.Properties;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.DyeColor;
 import net.minecraft.util.Hand;
-import net.minecraft.util.ItemActionResult;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldAccess;
+import net.minecraft.world.WorldView;
+import net.minecraft.world.tick.ScheduledTickView;
 
 import java.util.Map;
 
 public final class TableLampBlock extends Block implements Waterloggable, BlockWithDescription {
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
     public static final BooleanProperty LIT = Properties.LIT;
-    public static final DirectionProperty FACING = Properties.FACING;
+    public static final EnumProperty<Direction> FACING = Properties.FACING;
     private static final String DESCRIPTION_KEY = "block.adorn.table_lamp.description";
     private static final Map<Direction, VoxelShape> SHAPES = Shapes.buildShapeRotationsFromNorth(3, 3, 2, 13, 13, 16);
 
@@ -71,7 +73,7 @@ public final class TableLampBlock extends Block implements Waterloggable, BlockW
     }
 
     @Override
-    protected ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+    protected ActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (stack.getItem() instanceof DyeItem dye) {
             world.setBlockState(pos, AdornBlocks.TABLE_LAMPS.getEager(dye.getColor()).getStateWithProperties(state));
             world.playSound(player, pos, SoundEvents.BLOCK_WOOL_PLACE, SoundCategory.BLOCKS, 1f, 0.8f);
@@ -84,7 +86,7 @@ public final class TableLampBlock extends Block implements Waterloggable, BlockW
             world.playSound(player, pos, SoundEvents.BLOCK_LEVER_CLICK, SoundCategory.BLOCKS, 0.3f, pitch);
             if (!world.isClient) player.incrementStat(AdornStats.INTERACT_WITH_TABLE_LAMP);
         }
-        return ItemActionResult.success(world.isClient);
+        return ActionResult.SUCCESS;
     }
 
     @Override
@@ -120,12 +122,12 @@ public final class TableLampBlock extends Block implements Waterloggable, BlockW
     }
 
     @Override
-    public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
+    protected BlockState getStateForNeighborUpdate(BlockState state, WorldView world, ScheduledTickView tickView, BlockPos pos, Direction direction, BlockPos neighborPos, BlockState neighborState, Random random) {
         if (state.get(WATERLOGGED)) {
-            world.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
+            tickView.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
         }
 
-        return super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
+        return super.getStateForNeighborUpdate(state, world, tickView, pos, direction, neighborPos, neighborState, random);
     }
 
     public static Settings createBlockSettings(DyeColor color) {

@@ -3,9 +3,7 @@
   "category": "building",
   "group": "wooden_stairs",
   "key": {
-    "#": {
-      "item": "adorn:brown_planks"
-    }
+    "#": "adorn:brown_planks"
   },
   "pattern": [
     "#  ",

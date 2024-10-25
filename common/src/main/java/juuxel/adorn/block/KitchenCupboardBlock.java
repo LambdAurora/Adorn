@@ -5,6 +5,7 @@ import juuxel.adorn.block.entity.SimpleContainerBlockEntity;
 import juuxel.adorn.block.variant.BlockVariant;
 import juuxel.adorn.lib.AdornStats;
 import juuxel.adorn.platform.PlatformBridges;
+import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.BlockEntityProvider;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
@@ -22,8 +23,8 @@ import org.jetbrains.annotations.Nullable;
 public final class KitchenCupboardBlock extends AbstractKitchenCounterBlock implements BlockEntityProvider, BlockWithDescription {
     private static final String DESCRIPTION_KEY = "block.adorn.kitchen_cupboard.description";
 
-    public KitchenCupboardBlock(BlockVariant variant) {
-        super(variant);
+    public KitchenCupboardBlock(AbstractBlock.Settings settings) {
+        super(settings);
     }
 
     @Override

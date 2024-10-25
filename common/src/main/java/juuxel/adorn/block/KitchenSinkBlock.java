@@ -1,7 +1,6 @@
 package juuxel.adorn.block;
 
 import juuxel.adorn.block.entity.KitchenSinkBlockEntity;
-import juuxel.adorn.block.variant.BlockVariant;
 import juuxel.adorn.util.Shapes;
 import net.minecraft.block.BlockEntityProvider;
 import net.minecraft.block.BlockState;
@@ -11,8 +10,8 @@ import net.minecraft.entity.ai.pathing.NavigationType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
-import net.minecraft.util.ItemActionResult;
 import net.minecraft.util.function.BooleanBiFunction;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
@@ -40,8 +39,8 @@ public final class KitchenSinkBlock extends KitchenCounterBlock implements Block
         });
     }
 
-    public KitchenSinkBlock(BlockVariant variant) {
-        super(variant);
+    public KitchenSinkBlock(Settings settings) {
+        super(settings);
     }
 
     @Override
@@ -50,9 +49,9 @@ public final class KitchenSinkBlock extends KitchenCounterBlock implements Block
     }
 
     @Override
-    protected ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+    protected ActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         var entity = world.getBlockEntity(pos, AdornBlockEntities.KITCHEN_SINK.get()).orElse(null);
-        if (entity == null) return ItemActionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+        if (entity == null) return ActionResult.PASS_TO_DEFAULT_BLOCK_ACTION;
         boolean successful;
 
         if (stack.isOf(Items.SPONGE)) {
@@ -72,7 +71,7 @@ public final class KitchenSinkBlock extends KitchenCounterBlock implements Block
             successful = entity.interactWithItem(stack, player, hand);
         }
 
-        return successful ? ItemActionResult.success(world.isClient) : ItemActionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+        return successful ? ActionResult.SUCCESS : ActionResult.PASS_TO_DEFAULT_BLOCK_ACTION;
     }
 
     @Override

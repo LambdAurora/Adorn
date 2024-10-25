@@ -11,7 +11,6 @@ import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
-import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.BlockMirror;
@@ -19,15 +18,17 @@ import net.minecraft.util.BlockRotation;
 import net.minecraft.util.StringIdentifiable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
-import net.minecraft.world.WorldAccess;
+import net.minecraft.world.WorldView;
+import net.minecraft.world.tick.ScheduledTickView;
 
 import java.util.Map;
 
 public final class PicketFenceBlock extends Block implements Waterloggable, BlockWithDescription {
     public static final EnumProperty<Shape> SHAPE = EnumProperty.of("shape", Shape.class);
-    public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
+    public static final EnumProperty<Direction> FACING = Properties.HORIZONTAL_FACING;
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
 
     private static final Map<Direction, VoxelShape> STRAIGHT_OUTLINE_SHAPES = Shapes.buildShapeRotationsFromNorth(0, 0, 7, 16, 16, 9);
@@ -66,7 +67,7 @@ public final class PicketFenceBlock extends Block implements Waterloggable, Bloc
     }
 
     @Override
-    public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
+    protected BlockState getStateForNeighborUpdate(BlockState state, WorldView world, ScheduledTickView tickView, BlockPos pos, Direction direction, BlockPos neighborPos, BlockState neighborState, Random random) {
         if (direction.getAxis() == state.get(FACING).getAxis()) {
             return updateShape(world, pos, state);
         }
@@ -74,7 +75,7 @@ public final class PicketFenceBlock extends Block implements Waterloggable, Bloc
         return state;
     }
 
-    private BlockState updateShape(WorldAccess world, BlockPos pos, BlockState state) {
+    private BlockState updateShape(BlockView world, BlockPos pos, BlockState state) {
         var fenceFacing = state.get(FACING);
         for (var side : new Direction[] { fenceFacing.getOpposite(), fenceFacing }) {
             var inner = side == fenceFacing;

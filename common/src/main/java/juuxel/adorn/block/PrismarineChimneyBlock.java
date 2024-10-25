@@ -10,6 +10,8 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
+import net.minecraft.world.block.WireOrientation;
+import org.jetbrains.annotations.Nullable;
 
 public class PrismarineChimneyBlock extends AbstractChimneyBlock implements BlockWithDescription {
     private static final String DESCRIPTION_KEY = "block.adorn.prismarine_chimney.description";
@@ -59,7 +61,7 @@ public class PrismarineChimneyBlock extends AbstractChimneyBlock implements Bloc
         }
 
         @Override
-        public void neighborUpdate(BlockState state, World world, BlockPos pos, Block sourceBlock, BlockPos sourcePos, boolean notify) {
+        protected void neighborUpdate(BlockState state, World world, BlockPos pos, Block sourceBlock, @Nullable WireOrientation wireOrientation, boolean notify) {
             world.scheduleBlockTick(pos, this, 20);
         }
 

@@ -3,9 +3,7 @@
   "category": "redstone",
   "group": "wooden_pressure_plate",
   "key": {
-    "#": {
-      "item": "adorn:cyan_planks"
-    }
+    "#": "adorn:cyan_planks"
   },
   "pattern": [
     "##"
