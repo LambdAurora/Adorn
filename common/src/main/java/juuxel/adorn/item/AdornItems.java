@@ -53,7 +53,7 @@ public final class AdornItems {
             AdornBlocks.STONE_TORCH_GROUND.get(),
             AdornBlocks.STONE_TORCH_WALL.get(),
             Direction.DOWN,
-            new Item.Settings().registryKey(key)
+            new Item.Settings().registryKey(key).useBlockPrefixedTranslationKey()
         ));
 
     public static final Registered<Item> GUIDE_BOOK = register("guide_book",

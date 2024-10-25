@@ -64,7 +64,12 @@ public final class RegistryHelper {
         BlockSettingsProvider settings
     ) {
         var registered = registerBlockWithoutItem(name, block, settings);
-        items.register(name, key -> itemProvider.apply(registered.get(), itemSettings.createItemSettings().registryKey(key)));
+        items.register(name, key -> itemProvider.apply(
+            registered.get(),
+            itemSettings.createItemSettings()
+                .registryKey(key)
+                .useBlockPrefixedTranslationKey()
+        ));
         return registered;
     }
 
