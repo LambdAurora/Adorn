@@ -6,9 +6,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.network.RegistryByteBuf;
 import net.minecraft.network.codec.PacketCodec;
 import net.minecraft.recipe.Ingredient;
-import net.minecraft.recipe.IngredientPlacement;
 import net.minecraft.recipe.RecipeSerializer;
-import net.minecraft.recipe.book.RecipeBookCategory;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.world.World;
 
@@ -33,16 +31,6 @@ public record ItemBrewingRecipe(Ingredient firstIngredient, Optional<Ingredient>
     @Override
     public ItemStack craft(BrewerInput input, RegistryWrapper.WrapperLookup registries) {
         return result.copy();
-    }
-
-    @Override
-    public IngredientPlacement getIngredientPlacement() {
-        return IngredientPlacement.NONE;
-    }
-
-    @Override
-    public RecipeBookCategory getRecipeBookCategory() {
-        return AdornRecipeBookCategories.BREWING.get();
     }
 
     @Override
