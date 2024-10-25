@@ -7,12 +7,8 @@
     "SS"
   ],
   "key": {
-    "S": {
-      "tag": "<stick>"
-    },
-    "W": {
-      "item": "<wool>"
-    }
+    "S": "#<stick>",
+    "W": "<wool>"
   },
   "result": {
     "id": "adorn:<id.path>_sofa",

@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "byg:white_mangrove_slab"
-    },
-    "P": {
-      "item": "adorn:byg/white_mangrove_post"
-    }
+    "S": "byg:white_mangrove_slab",
+    "P": "adorn:byg/white_mangrove_post"
   },
   "result": {
     "id": "adorn:byg/white_mangrove_platform",

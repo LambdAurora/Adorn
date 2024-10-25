@@ -6,12 +6,8 @@
     "#"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:polished_granite_slab"
-    },
-    "#": {
-      "tag": "c:rods/stone"
-    }
+    "S": "minecraft:polished_granite_slab",
+    "#": "#c:rods/stone"
   },
   "result": {
     "id": "adorn:polished_granite_step",

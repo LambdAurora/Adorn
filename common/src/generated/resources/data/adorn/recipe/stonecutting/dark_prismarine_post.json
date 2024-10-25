@@ -1,8 +1,6 @@
 {
   "type": "stonecutting",
-  "ingredient": {
-    "item": "minecraft:dark_prismarine"
-  },
+  "ingredient": "minecraft:dark_prismarine",
   "result": {
     "id": "adorn:dark_prismarine_post",
     "count": 2

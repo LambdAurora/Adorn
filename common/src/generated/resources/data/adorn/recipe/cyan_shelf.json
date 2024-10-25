@@ -6,12 +6,8 @@
     "/ /"
   ],
   "key": {
-    "-": {
-      "item": "adorn:cyan_wood_slab"
-    },
-    "/": {
-      "tag": "c:rods/wooden"
-    }
+    "-": "adorn:cyan_wood_slab",
+    "/": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:cyan_shelf",

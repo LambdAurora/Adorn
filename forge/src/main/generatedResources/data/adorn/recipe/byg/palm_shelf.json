@@ -6,12 +6,8 @@
     "/ /"
   ],
   "key": {
-    "-": {
-      "item": "byg:palm_slab"
-    },
-    "/": {
-      "tag": "c:rods/wooden"
-    }
+    "-": "byg:palm_slab",
+    "/": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:byg/palm_shelf",

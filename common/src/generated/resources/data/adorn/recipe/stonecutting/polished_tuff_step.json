@@ -1,8 +1,6 @@
 {
   "type": "stonecutting",
-  "ingredient": {
-    "item": "minecraft:polished_tuff"
-  },
+  "ingredient": "minecraft:polished_tuff",
   "result": {
     "id": "adorn:polished_tuff_step",
     "count": 2

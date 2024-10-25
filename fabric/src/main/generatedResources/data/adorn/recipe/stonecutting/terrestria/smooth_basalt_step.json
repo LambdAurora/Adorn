@@ -1,8 +1,6 @@
 {
   "type": "stonecutting",
-  "ingredient": {
-    "item": "terrestria:smooth_basalt"
-  },
+  "ingredient": "terrestria:smooth_basalt",
   "result": {
     "id": "adorn:terrestria/smooth_basalt_step",
     "count": 2

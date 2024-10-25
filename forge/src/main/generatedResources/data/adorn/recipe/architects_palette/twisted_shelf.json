@@ -6,12 +6,8 @@
     "/ /"
   ],
   "key": {
-    "-": {
-      "item": "architects_palette:twisted_slab"
-    },
-    "/": {
-      "tag": "c:rods/wooden"
-    }
+    "-": "architects_palette:twisted_slab",
+    "/": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:architects_palette/twisted_shelf",

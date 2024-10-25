@@ -1,8 +1,6 @@
 {
   "type": "stonecutting",
-  "ingredient": {
-    "item": "biomesoplenty:jacaranda_planks"
-  },
+  "ingredient": "biomesoplenty:jacaranda_planks",
   "result": {
     "id": "adorn:biomesoplenty/jacaranda_post",
     "count": 2

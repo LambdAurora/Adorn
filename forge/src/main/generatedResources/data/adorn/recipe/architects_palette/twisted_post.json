@@ -7,12 +7,8 @@
     "#"
   ],
   "key": {
-    "#": {
-      "item": "architects_palette:twisted_planks"
-    },
-    "/": {
-      "tag": "c:rods/wooden"
-    }
+    "#": "architects_palette:twisted_planks",
+    "/": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:architects_palette/twisted_post",

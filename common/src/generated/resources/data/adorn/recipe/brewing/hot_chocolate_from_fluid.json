@@ -1,0 +1,21 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:tags_populated",
+      "registry": "minecraft:fluid",
+      "values": [
+        "c:milk"
+      ]
+    }
+  ],
+  "type": "adorn:brewing_from_fluid",
+  "first_ingredient": "#c:crops/cocoa_bean",
+  "fluid": {
+    "amount": 250,
+    "fluid": "#c:milk"
+  },
+  "result": {
+    "count": 1,
+    "id": "adorn:hot_chocolate"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "minecraft:soul_sand",
+    "-": "minecraft:prismarine_shard"
+  },
+  "pattern": [
+    " - ",
+    "-#-",
+    " - "
+  ],
+  "result": {
+    "count": 1,
+    "id": "adorn:soulful_prismarine_chimney"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "B": "#c:buckets/empty",
+    "I": "#c:ingots/copper"
+  },
+  "pattern": [
+    " I ",
+    "IBI",
+    " II"
+  ],
+  "result": {
+    "count": 1,
+    "id": "adorn:watering_can"
+  }
+}

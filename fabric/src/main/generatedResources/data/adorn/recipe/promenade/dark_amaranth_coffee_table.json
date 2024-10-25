@@ -6,15 +6,9 @@
     "# #"
   ],
   "key": {
-    "S": {
-      "item": "promenade:dark_amaranth_slab"
-    },
-    "#": {
-      "tag": "c:rods/wooden"
-    },
-    "-": {
-      "tag": "c:glass_panes"
-    }
+    "S": "promenade:dark_amaranth_slab",
+    "#": "#c:rods/wooden",
+    "-": "#c:glass_panes"
   },
   "result": {
     "id": "adorn:promenade/dark_amaranth_coffee_table",

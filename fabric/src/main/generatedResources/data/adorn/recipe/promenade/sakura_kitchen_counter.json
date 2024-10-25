@@ -6,12 +6,8 @@
     "PP"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:polished_andesite_slab"
-    },
-    "P": {
-      "item": "promenade:sakura_planks"
-    }
+    "S": "minecraft:polished_andesite_slab",
+    "P": "promenade:sakura_planks"
   },
   "result": {
     "id": "adorn:promenade/sakura_kitchen_counter",

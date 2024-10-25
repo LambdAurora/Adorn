@@ -6,12 +6,8 @@
     "PP"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:polished_andesite_slab"
-    },
-    "P": {
-      "item": "byg:bulbis_planks"
-    }
+    "S": "minecraft:polished_andesite_slab",
+    "P": "byg:bulbis_planks"
   },
   "result": {
     "id": "adorn:byg/bulbis_kitchen_counter",

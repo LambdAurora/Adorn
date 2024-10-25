@@ -6,12 +6,8 @@
     "PP"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:polished_andesite_slab"
-    },
-    "P": {
-      "item": "minecraft:dark_oak_planks"
-    }
+    "S": "minecraft:polished_andesite_slab",
+    "P": "minecraft:dark_oak_planks"
   },
   "result": {
     "id": "adorn:dark_oak_kitchen_counter",

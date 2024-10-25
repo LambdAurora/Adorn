@@ -7,12 +7,8 @@
     "#"
   ],
   "key": {
-    "#": {
-      "item": "byg:mahogany_planks"
-    },
-    "/": {
-      "tag": "c:rods/wooden"
-    }
+    "#": "byg:mahogany_planks",
+    "/": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:byg/mahogany_post",

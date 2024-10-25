@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "biomesoplenty:smooth_black_sandstone_slab"
-    },
-    "P": {
-      "item": "adorn:biomesoplenty/smooth_black_sandstone_post"
-    }
+    "S": "biomesoplenty:smooth_black_sandstone_slab",
+    "P": "adorn:biomesoplenty/smooth_black_sandstone_post"
   },
   "result": {
     "id": "adorn:biomesoplenty/smooth_black_sandstone_platform",

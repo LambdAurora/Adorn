@@ -6,12 +6,8 @@
     "#"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:oak_slab"
-    },
-    "#": {
-      "tag": "c:rods/wooden"
-    }
+    "S": "minecraft:oak_slab",
+    "#": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:oak_step",

@@ -7,12 +7,8 @@
     "#"
   ],
   "key": {
-    "#": {
-      "item": "byg:imparius_planks"
-    },
-    "/": {
-      "tag": "c:rods/wooden"
-    }
+    "#": "byg:imparius_planks",
+    "/": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:byg/imparius_post",

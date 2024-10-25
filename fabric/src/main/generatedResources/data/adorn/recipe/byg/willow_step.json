@@ -6,12 +6,8 @@
     "#"
   ],
   "key": {
-    "S": {
-      "item": "byg:willow_slab"
-    },
-    "#": {
-      "tag": "c:rods/wooden"
-    }
+    "S": "byg:willow_slab",
+    "#": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:byg/willow_step",

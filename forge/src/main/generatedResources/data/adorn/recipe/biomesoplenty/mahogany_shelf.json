@@ -6,12 +6,8 @@
     "/ /"
   ],
   "key": {
-    "-": {
-      "item": "biomesoplenty:mahogany_slab"
-    },
-    "/": {
-      "tag": "c:rods/wooden"
-    }
+    "-": "biomesoplenty:mahogany_slab",
+    "/": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:biomesoplenty/mahogany_shelf",

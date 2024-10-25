@@ -7,12 +7,8 @@
     "# #"
   ],
   "key": {
-    "S": {
-      "item": "adorn:magenta_wood_slab"
-    },
-    "#": {
-      "tag": "c:rods/wooden"
-    }
+    "S": "adorn:magenta_wood_slab",
+    "#": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:magenta_table",

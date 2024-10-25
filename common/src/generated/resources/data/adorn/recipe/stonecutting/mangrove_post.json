@@ -1,8 +1,6 @@
 {
   "type": "stonecutting",
-  "ingredient": {
-    "item": "minecraft:mangrove_planks"
-  },
+  "ingredient": "minecraft:mangrove_planks",
   "result": {
     "id": "adorn:mangrove_post",
     "count": 2

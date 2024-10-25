@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "architects_palette:myonite_slab"
-    },
-    "P": {
-      "item": "adorn:architects_palette/myonite_post"
-    }
+    "S": "architects_palette:myonite_slab",
+    "P": "adorn:architects_palette/myonite_post"
   },
   "result": {
     "id": "adorn:architects_palette/myonite_platform",

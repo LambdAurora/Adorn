@@ -6,12 +6,8 @@
     "/ /"
   ],
   "key": {
-    "-": {
-      "item": "biomesoplenty:magic_slab"
-    },
-    "/": {
-      "tag": "c:rods/wooden"
-    }
+    "-": "biomesoplenty:magic_slab",
+    "/": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:biomesoplenty/magic_shelf",

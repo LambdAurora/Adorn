@@ -6,12 +6,8 @@
     "#"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:red_nether_brick_slab"
-    },
-    "#": {
-      "tag": "c:rods/stone"
-    }
+    "S": "minecraft:red_nether_brick_slab",
+    "#": "#c:rods/stone"
   },
   "result": {
     "id": "adorn:red_nether_brick_step",

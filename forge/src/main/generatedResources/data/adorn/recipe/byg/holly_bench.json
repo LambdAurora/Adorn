@@ -6,9 +6,7 @@
     "S S"
   ],
   "key": {
-    "S": {
-      "item": "byg:holly_slab"
-    }
+    "S": "byg:holly_slab"
   },
   "result": {
     "id": "adorn:byg/holly_bench",

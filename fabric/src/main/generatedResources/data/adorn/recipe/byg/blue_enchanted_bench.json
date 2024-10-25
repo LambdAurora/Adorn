@@ -6,9 +6,7 @@
     "S S"
   ],
   "key": {
-    "S": {
-      "item": "byg:blue_enchanted_slab"
-    }
+    "S": "byg:blue_enchanted_slab"
   },
   "result": {
     "id": "adorn:byg/blue_enchanted_bench",

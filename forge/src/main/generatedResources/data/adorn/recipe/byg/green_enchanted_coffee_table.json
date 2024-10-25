@@ -6,15 +6,9 @@
     "# #"
   ],
   "key": {
-    "S": {
-      "item": "byg:green_enchanted_slab"
-    },
-    "#": {
-      "tag": "c:rods/wooden"
-    },
-    "-": {
-      "tag": "c:glass_panes"
-    }
+    "S": "byg:green_enchanted_slab",
+    "#": "#c:rods/wooden",
+    "-": "#c:glass_panes"
   },
   "result": {
     "id": "adorn:byg/green_enchanted_coffee_table",

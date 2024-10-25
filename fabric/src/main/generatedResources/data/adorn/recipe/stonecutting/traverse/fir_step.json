@@ -1,8 +1,6 @@
 {
   "type": "stonecutting",
-  "ingredient": {
-    "item": "traverse:fir_planks"
-  },
+  "ingredient": "traverse:fir_planks",
   "result": {
     "id": "adorn:traverse/fir_step",
     "count": 2

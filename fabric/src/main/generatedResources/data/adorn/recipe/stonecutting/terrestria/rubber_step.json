@@ -1,8 +1,6 @@
 {
   "type": "stonecutting",
-  "ingredient": {
-    "item": "terrestria:rubber_planks"
-  },
+  "ingredient": "terrestria:rubber_planks",
   "result": {
     "id": "adorn:terrestria/rubber_step",
     "count": 2

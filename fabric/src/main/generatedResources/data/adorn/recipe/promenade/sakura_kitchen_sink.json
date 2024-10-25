@@ -2,12 +2,8 @@
   "type": "crafting_shapeless",
   "group": "adorn:kitchen_sink",
   "ingredients": [
-    {
-      "item": "adorn:promenade/sakura_kitchen_counter"
-    },
-    {
-      "tag": "c:buckets/empty"
-    }
+    "adorn:promenade/sakura_kitchen_counter",
+    "#c:buckets/empty"
   ],
   "result": {
     "id": "adorn:promenade/sakura_kitchen_sink",

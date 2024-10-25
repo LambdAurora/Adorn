@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "byg:ether_slab"
-    },
-    "P": {
-      "item": "adorn:byg/ether_post"
-    }
+    "S": "byg:ether_slab",
+    "P": "adorn:byg/ether_post"
   },
   "result": {
     "id": "adorn:byg/ether_platform",

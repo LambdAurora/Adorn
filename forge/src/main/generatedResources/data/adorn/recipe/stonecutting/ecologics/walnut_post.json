@@ -1,8 +1,6 @@
 {
   "type": "stonecutting",
-  "ingredient": {
-    "item": "ecologics:walnut_planks"
-  },
+  "ingredient": "ecologics:walnut_planks",
   "result": {
     "id": "adorn:ecologics/walnut_post",
     "count": 2

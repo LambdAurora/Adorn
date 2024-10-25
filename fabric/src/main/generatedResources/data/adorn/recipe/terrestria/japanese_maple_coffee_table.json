@@ -6,15 +6,9 @@
     "# #"
   ],
   "key": {
-    "S": {
-      "item": "terrestria:japanese_maple_slab"
-    },
-    "#": {
-      "tag": "c:rods/wooden"
-    },
-    "-": {
-      "tag": "c:glass_panes"
-    }
+    "S": "terrestria:japanese_maple_slab",
+    "#": "#c:rods/wooden",
+    "-": "#c:glass_panes"
   },
   "result": {
     "id": "adorn:terrestria/japanese_maple_coffee_table",

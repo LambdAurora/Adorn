@@ -7,12 +7,8 @@
     "##"
   ],
   "key": {
-    "S": {
-      "item": "biomesoplenty:jacaranda_slab"
-    },
-    "#": {
-      "tag": "c:rods/wooden"
-    }
+    "S": "biomesoplenty:jacaranda_slab",
+    "#": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:biomesoplenty/jacaranda_chair",

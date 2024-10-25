@@ -6,12 +6,8 @@
     "PP"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:polished_andesite_slab"
-    },
-    "P": {
-      "item": "byg:rainbow_eucalyptus_planks"
-    }
+    "S": "minecraft:polished_andesite_slab",
+    "P": "byg:rainbow_eucalyptus_planks"
   },
   "result": {
     "id": "adorn:byg/rainbow_eucalyptus_kitchen_counter",

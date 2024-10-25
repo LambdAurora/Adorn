@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:smooth_stone_slab"
-    },
-    "P": {
-      "item": "adorn:smooth_stone_post"
-    }
+    "S": "minecraft:smooth_stone_slab",
+    "P": "adorn:smooth_stone_post"
   },
   "result": {
     "id": "adorn:smooth_stone_platform",

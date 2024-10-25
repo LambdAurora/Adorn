@@ -7,12 +7,8 @@
     "S"
   ],
   "key": {
-    "C": {
-      "tag": "c:chests/wooden"
-    },
-    "S": {
-      "item": "byg:blue_enchanted_slab"
-    }
+    "C": "#c:chests/wooden",
+    "S": "byg:blue_enchanted_slab"
   },
   "result": {
     "id": "adorn:byg/blue_enchanted_drawer",

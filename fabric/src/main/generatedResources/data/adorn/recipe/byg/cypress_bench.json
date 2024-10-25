@@ -6,9 +6,7 @@
     "S S"
   ],
   "key": {
-    "S": {
-      "item": "byg:cypress_slab"
-    }
+    "S": "byg:cypress_slab"
   },
   "result": {
     "id": "adorn:byg/cypress_bench",

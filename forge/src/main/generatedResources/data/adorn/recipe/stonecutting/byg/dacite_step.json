@@ -1,8 +1,6 @@
 {
   "type": "stonecutting",
-  "ingredient": {
-    "item": "byg:dacite"
-  },
+  "ingredient": "byg:dacite",
   "result": {
     "id": "adorn:byg/dacite_step",
     "count": 2

@@ -6,9 +6,7 @@
     "S S"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:warped_slab"
-    }
+    "S": "minecraft:warped_slab"
   },
   "result": {
     "id": "adorn:warped_bench",

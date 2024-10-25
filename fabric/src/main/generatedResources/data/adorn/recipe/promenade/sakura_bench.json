@@ -6,9 +6,7 @@
     "S S"
   ],
   "key": {
-    "S": {
-      "item": "promenade:sakura_slab"
-    }
+    "S": "promenade:sakura_slab"
   },
   "result": {
     "id": "adorn:promenade/sakura_bench",

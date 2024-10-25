@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "byg:holly_slab"
-    },
-    "P": {
-      "item": "adorn:byg/holly_post"
-    }
+    "S": "byg:holly_slab",
+    "P": "adorn:byg/holly_post"
   },
   "result": {
     "id": "adorn:byg/holly_platform",

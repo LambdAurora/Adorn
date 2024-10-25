@@ -1,8 +1,6 @@
 {
   "type": "stonecutting",
-  "ingredient": {
-    "item": "techreborn:rubber_planks"
-  },
+  "ingredient": "techreborn:rubber_planks",
   "result": {
     "id": "adorn:techreborn/rubber_step",
     "count": 2

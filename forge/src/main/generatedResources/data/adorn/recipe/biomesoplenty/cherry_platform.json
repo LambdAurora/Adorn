@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "biomesoplenty:cherry_slab"
-    },
-    "P": {
-      "item": "adorn:biomesoplenty/cherry_post"
-    }
+    "S": "biomesoplenty:cherry_slab",
+    "P": "adorn:biomesoplenty/cherry_post"
   },
   "result": {
     "id": "adorn:biomesoplenty/cherry_platform",

@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "biomemakeover:willow_slab"
-    },
-    "P": {
-      "item": "adorn:biomemakeover/willow_post"
-    }
+    "S": "biomemakeover:willow_slab",
+    "P": "adorn:biomemakeover/willow_post"
   },
   "result": {
     "id": "adorn:biomemakeover/willow_platform",

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": "#minecraft:coals",
+    "R": "#c:rods/stone"
+  },
+  "pattern": [
+    "C",
+    "R"
+  ],
+  "result": {
+    "count": 4,
+    "id": "adorn:stone_torch"
+  }
+}

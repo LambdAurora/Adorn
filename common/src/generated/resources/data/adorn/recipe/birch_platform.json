@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:birch_slab"
-    },
-    "P": {
-      "item": "adorn:birch_post"
-    }
+    "S": "minecraft:birch_slab",
+    "P": "adorn:birch_post"
   },
   "result": {
     "id": "adorn:birch_platform",

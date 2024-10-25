@@ -6,15 +6,9 @@
     "# #"
   ],
   "key": {
-    "S": {
-      "item": "woods_and_mires:pine_slab"
-    },
-    "#": {
-      "tag": "c:rods/wooden"
-    },
-    "-": {
-      "tag": "c:glass_panes"
-    }
+    "S": "woods_and_mires:pine_slab",
+    "#": "#c:rods/wooden",
+    "-": "#c:glass_panes"
   },
   "result": {
     "id": "adorn:woods_and_mires/pine_coffee_table",

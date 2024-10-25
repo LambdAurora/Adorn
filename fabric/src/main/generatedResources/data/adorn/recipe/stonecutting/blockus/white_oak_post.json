@@ -1,8 +1,6 @@
 {
   "type": "stonecutting",
-  "ingredient": {
-    "item": "blockus:white_oak_planks"
-  },
+  "ingredient": "blockus:white_oak_planks",
   "result": {
     "id": "adorn:blockus/white_oak_post",
     "count": 2

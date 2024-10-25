@@ -1,8 +1,6 @@
 {
   "type": "stonecutting",
-  "ingredient": {
-    "item": "byg:witch_hazel_planks"
-  },
+  "ingredient": "byg:witch_hazel_planks",
   "result": {
     "id": "adorn:byg/witch_hazel_post",
     "count": 2

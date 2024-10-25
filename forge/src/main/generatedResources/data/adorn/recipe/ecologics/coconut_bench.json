@@ -6,9 +6,7 @@
     "S S"
   ],
   "key": {
-    "S": {
-      "item": "ecologics:coconut_slab"
-    }
+    "S": "ecologics:coconut_slab"
   },
   "result": {
     "id": "adorn:ecologics/coconut_bench",

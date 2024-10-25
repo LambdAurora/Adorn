@@ -6,9 +6,7 @@
     "S S"
   ],
   "key": {
-    "S": {
-      "item": "terrestria:sakura_slab"
-    }
+    "S": "terrestria:sakura_slab"
   },
   "result": {
     "id": "adorn:terrestria/sakura_bench",

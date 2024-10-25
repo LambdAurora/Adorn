@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:acacia_slab"
-    },
-    "P": {
-      "item": "adorn:acacia_post"
-    }
+    "S": "minecraft:acacia_slab",
+    "P": "adorn:acacia_post"
   },
   "result": {
     "id": "adorn:acacia_platform",

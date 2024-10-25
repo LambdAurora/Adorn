@@ -6,9 +6,7 @@
     "S S"
   ],
   "key": {
-    "S": {
-      "item": "byg:skyris_slab"
-    }
+    "S": "byg:skyris_slab"
   },
   "result": {
     "id": "adorn:byg/skyris_bench",

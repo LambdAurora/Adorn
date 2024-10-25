@@ -7,12 +7,8 @@
     "S"
   ],
   "key": {
-    "C": {
-      "tag": "c:chests/wooden"
-    },
-    "S": {
-      "item": "byg:imparius_slab"
-    }
+    "C": "#c:chests/wooden",
+    "S": "byg:imparius_slab"
   },
   "result": {
     "id": "adorn:byg/imparius_drawer",

@@ -6,12 +6,8 @@
     "/ /"
   ],
   "key": {
-    "-": {
-      "item": "blockus:white_oak_slab"
-    },
-    "/": {
-      "tag": "c:rods/wooden"
-    }
+    "-": "blockus:white_oak_slab",
+    "/": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:blockus/white_oak_shelf",

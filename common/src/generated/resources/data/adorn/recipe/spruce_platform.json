@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:spruce_slab"
-    },
-    "P": {
-      "item": "adorn:spruce_post"
-    }
+    "S": "minecraft:spruce_slab",
+    "P": "adorn:spruce_post"
   },
   "result": {
     "id": "adorn:spruce_platform",

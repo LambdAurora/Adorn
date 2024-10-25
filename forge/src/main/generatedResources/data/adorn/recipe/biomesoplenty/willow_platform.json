@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "biomesoplenty:willow_slab"
-    },
-    "P": {
-      "item": "adorn:biomesoplenty/willow_post"
-    }
+    "S": "biomesoplenty:willow_slab",
+    "P": "adorn:biomesoplenty/willow_post"
   },
   "result": {
     "id": "adorn:biomesoplenty/willow_platform",

@@ -7,12 +7,8 @@
     "##"
   ],
   "key": {
-    "S": {
-      "item": "byg:blue_enchanted_slab"
-    },
-    "#": {
-      "tag": "c:rods/wooden"
-    }
+    "S": "byg:blue_enchanted_slab",
+    "#": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:byg/blue_enchanted_chair",

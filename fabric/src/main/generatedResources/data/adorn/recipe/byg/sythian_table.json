@@ -7,12 +7,8 @@
     "# #"
   ],
   "key": {
-    "S": {
-      "item": "byg:sythian_slab"
-    },
-    "#": {
-      "tag": "c:rods/wooden"
-    }
+    "S": "byg:sythian_slab",
+    "#": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:byg/sythian_table",

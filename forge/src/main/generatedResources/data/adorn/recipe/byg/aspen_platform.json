@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "byg:aspen_slab"
-    },
-    "P": {
-      "item": "adorn:byg/aspen_post"
-    }
+    "S": "byg:aspen_slab",
+    "P": "adorn:byg/aspen_post"
   },
   "result": {
     "id": "adorn:byg/aspen_platform",

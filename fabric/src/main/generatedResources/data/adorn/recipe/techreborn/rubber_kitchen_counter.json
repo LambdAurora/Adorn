@@ -6,12 +6,8 @@
     "PP"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:polished_andesite_slab"
-    },
-    "P": {
-      "item": "techreborn:rubber_planks"
-    }
+    "S": "minecraft:polished_andesite_slab",
+    "P": "techreborn:rubber_planks"
   },
   "result": {
     "id": "adorn:techreborn/rubber_kitchen_counter",

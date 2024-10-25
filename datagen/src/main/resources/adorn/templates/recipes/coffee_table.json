@@ -6,15 +6,9 @@
     "# #"
   ],
   "key": {
-    "S": {
-      "item": "<slab>"
-    },
-    "#": {
-      "tag": "<stick>"
-    },
-    "-": {
-      "tag": "c:glass_panes"
-    }
+    "S": "<slab>",
+    "#": "#<stick>",
+    "-": "#c:glass_panes"
   },
   "result": {
     "id": "adorn:<mod-prefix><id.path>_coffee_table",

@@ -6,12 +6,8 @@
     "#"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:mangrove_slab"
-    },
-    "#": {
-      "tag": "c:rods/wooden"
-    }
+    "S": "minecraft:mangrove_slab",
+    "#": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:mangrove_step",

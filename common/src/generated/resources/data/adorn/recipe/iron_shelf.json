@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "-": "#c:ingots/iron",
+    "/": "#c:rods/stone"
+  },
+  "pattern": [
+    "---",
+    "/ /"
+  ],
+  "result": {
+    "count": 3,
+    "id": "adorn:iron_shelf"
+  }
+}

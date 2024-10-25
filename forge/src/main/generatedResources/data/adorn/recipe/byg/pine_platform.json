@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "byg:pine_slab"
-    },
-    "P": {
-      "item": "adorn:byg/pine_post"
-    }
+    "S": "byg:pine_slab",
+    "P": "adorn:byg/pine_post"
   },
   "result": {
     "id": "adorn:byg/pine_platform",

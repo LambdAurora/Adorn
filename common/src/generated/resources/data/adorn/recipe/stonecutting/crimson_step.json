@@ -1,8 +1,6 @@
 {
   "type": "stonecutting",
-  "ingredient": {
-    "item": "minecraft:crimson_planks"
-  },
+  "ingredient": "minecraft:crimson_planks",
   "result": {
     "id": "adorn:crimson_step",
     "count": 2

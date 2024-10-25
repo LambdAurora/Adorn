@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "promenade:sakura_slab"
-    },
-    "P": {
-      "item": "adorn:promenade/sakura_post"
-    }
+    "S": "promenade:sakura_slab",
+    "P": "adorn:promenade/sakura_post"
   },
   "result": {
     "id": "adorn:promenade/sakura_platform",

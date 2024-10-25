@@ -2,15 +2,9 @@
   "type": "crafting_shapeless",
   "group": "adorn:kitchen_cupboard",
   "ingredients": [
-    {
-      "tag": "c:chests/wooden"
-    },
-    {
-      "item": "adorn:terrestria/hemlock_kitchen_counter"
-    },
-    {
-      "item": "adorn:terrestria/hemlock_kitchen_counter"
-    }
+    "#c:chests/wooden",
+    "adorn:terrestria/hemlock_kitchen_counter",
+    "adorn:terrestria/hemlock_kitchen_counter"
   ],
   "result": {
     "id": "adorn:terrestria/hemlock_kitchen_cupboard",

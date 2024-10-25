@@ -6,12 +6,8 @@
     "/ /"
   ],
   "key": {
-    "-": {
-      "item": "byg:jacaranda_slab"
-    },
-    "/": {
-      "tag": "c:rods/wooden"
-    }
+    "-": "byg:jacaranda_slab",
+    "/": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:byg/jacaranda_shelf",

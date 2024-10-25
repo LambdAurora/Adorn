@@ -1,8 +1,6 @@
 {
   "type": "stonecutting",
-  "ingredient": {
-    "item": "cinderscapes:scorched_planks"
-  },
+  "ingredient": "cinderscapes:scorched_planks",
   "result": {
     "id": "adorn:cinderscapes/scorched_platform",
     "count": 1

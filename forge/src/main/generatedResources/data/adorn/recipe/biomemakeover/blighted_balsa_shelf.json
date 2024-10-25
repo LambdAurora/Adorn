@@ -6,12 +6,8 @@
     "/ /"
   ],
   "key": {
-    "-": {
-      "item": "biomemakeover:blighted_balsa_slab"
-    },
-    "/": {
-      "tag": "c:rods/wooden"
-    }
+    "-": "biomemakeover:blighted_balsa_slab",
+    "/": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:biomemakeover/blighted_balsa_shelf",

@@ -6,9 +6,7 @@
     "S S"
   ],
   "key": {
-    "S": {
-      "item": "terrestria:hemlock_slab"
-    }
+    "S": "terrestria:hemlock_slab"
   },
   "result": {
     "id": "adorn:terrestria/hemlock_bench",

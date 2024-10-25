@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "byg:cracked_red_rock_brick_slab"
-    },
-    "P": {
-      "item": "adorn:byg/cracked_red_rock_brick_post"
-    }
+    "S": "byg:cracked_red_rock_brick_slab",
+    "P": "adorn:byg/cracked_red_rock_brick_post"
   },
   "result": {
     "id": "adorn:byg/cracked_red_rock_brick_platform",

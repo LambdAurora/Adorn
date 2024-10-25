@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "cinderscapes:umbral_slab"
-    },
-    "P": {
-      "item": "adorn:cinderscapes/umbral_post"
-    }
+    "S": "cinderscapes:umbral_slab",
+    "P": "adorn:cinderscapes/umbral_post"
   },
   "result": {
     "id": "adorn:cinderscapes/umbral_platform",

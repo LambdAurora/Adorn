@@ -6,12 +6,8 @@
     "PP"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:polished_andesite_slab"
-    },
-    "P": {
-      "item": "terrestria:sakura_planks"
-    }
+    "S": "minecraft:polished_andesite_slab",
+    "P": "terrestria:sakura_planks"
   },
   "result": {
     "id": "adorn:terrestria/sakura_kitchen_counter",

@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "terrestria:basalt_slab"
-    },
-    "P": {
-      "item": "adorn:terrestria/basalt_post"
-    }
+    "S": "terrestria:basalt_slab",
+    "P": "adorn:terrestria/basalt_post"
   },
   "result": {
     "id": "adorn:terrestria/basalt_platform",

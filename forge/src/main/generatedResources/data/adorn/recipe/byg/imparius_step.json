@@ -6,12 +6,8 @@
     "#"
   ],
   "key": {
-    "S": {
-      "item": "byg:imparius_slab"
-    },
-    "#": {
-      "tag": "c:rods/wooden"
-    }
+    "S": "byg:imparius_slab",
+    "#": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:byg/imparius_step",

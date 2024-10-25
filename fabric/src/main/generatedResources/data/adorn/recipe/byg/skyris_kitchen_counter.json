@@ -6,12 +6,8 @@
     "PP"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:polished_andesite_slab"
-    },
-    "P": {
-      "item": "byg:skyris_planks"
-    }
+    "S": "minecraft:polished_andesite_slab",
+    "P": "byg:skyris_planks"
   },
   "result": {
     "id": "adorn:byg/skyris_kitchen_counter",

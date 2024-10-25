@@ -6,9 +6,7 @@
     "S S"
   ],
   "key": {
-    "S": {
-      "item": "techreborn:rubber_slab"
-    }
+    "S": "techreborn:rubber_slab"
   },
   "result": {
     "id": "adorn:techreborn/rubber_bench",

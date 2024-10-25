@@ -6,9 +6,7 @@
     "S S"
   ],
   "key": {
-    "S": {
-      "item": "biomesoplenty:umbran_slab"
-    }
+    "S": "biomesoplenty:umbran_slab"
   },
   "result": {
     "id": "adorn:biomesoplenty/umbran_bench",

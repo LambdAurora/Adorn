@@ -6,12 +6,8 @@
     "/ /"
   ],
   "key": {
-    "-": {
-      "item": "byg:lament_slab"
-    },
-    "/": {
-      "tag": "c:rods/wooden"
-    }
+    "-": "byg:lament_slab",
+    "/": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:byg/lament_shelf",

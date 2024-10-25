@@ -6,12 +6,8 @@
     "PP"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:polished_andesite_slab"
-    },
-    "P": {
-      "item": "cinderscapes:umbral_planks"
-    }
+    "S": "minecraft:polished_andesite_slab",
+    "P": "cinderscapes:umbral_planks"
   },
   "result": {
     "id": "adorn:cinderscapes/umbral_kitchen_counter",

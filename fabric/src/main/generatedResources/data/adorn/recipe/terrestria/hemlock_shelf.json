@@ -6,12 +6,8 @@
     "/ /"
   ],
   "key": {
-    "-": {
-      "item": "terrestria:hemlock_slab"
-    },
-    "/": {
-      "tag": "c:rods/wooden"
-    }
+    "-": "terrestria:hemlock_slab",
+    "/": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:terrestria/hemlock_shelf",

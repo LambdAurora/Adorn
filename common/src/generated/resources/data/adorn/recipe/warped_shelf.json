@@ -6,12 +6,8 @@
     "/ /"
   ],
   "key": {
-    "-": {
-      "item": "minecraft:warped_slab"
-    },
-    "/": {
-      "tag": "c:rods/wooden"
-    }
+    "-": "minecraft:warped_slab",
+    "/": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:warped_shelf",

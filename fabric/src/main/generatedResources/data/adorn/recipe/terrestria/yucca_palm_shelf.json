@@ -6,12 +6,8 @@
     "/ /"
   ],
   "key": {
-    "-": {
-      "item": "terrestria:yucca_palm_slab"
-    },
-    "/": {
-      "tag": "c:rods/wooden"
-    }
+    "-": "terrestria:yucca_palm_slab",
+    "/": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:terrestria/yucca_palm_shelf",

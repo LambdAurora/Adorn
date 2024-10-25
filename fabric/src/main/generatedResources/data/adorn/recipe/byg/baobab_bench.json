@@ -6,9 +6,7 @@
     "S S"
   ],
   "key": {
-    "S": {
-      "item": "byg:baobab_slab"
-    }
+    "S": "byg:baobab_slab"
   },
   "result": {
     "id": "adorn:byg/baobab_bench",

@@ -7,12 +7,8 @@
     "S"
   ],
   "key": {
-    "C": {
-      "tag": "c:chests/wooden"
-    },
-    "S": {
-      "item": "cinderscapes:umbral_slab"
-    }
+    "C": "#c:chests/wooden",
+    "S": "cinderscapes:umbral_slab"
   },
   "result": {
     "id": "adorn:cinderscapes/umbral_drawer",

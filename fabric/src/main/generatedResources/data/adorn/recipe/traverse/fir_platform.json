@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "traverse:fir_slab"
-    },
-    "P": {
-      "item": "adorn:traverse/fir_post"
-    }
+    "S": "traverse:fir_slab",
+    "P": "adorn:traverse/fir_post"
   },
   "result": {
     "id": "adorn:traverse/fir_platform",

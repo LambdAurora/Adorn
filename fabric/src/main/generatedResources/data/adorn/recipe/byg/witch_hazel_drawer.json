@@ -7,12 +7,8 @@
     "S"
   ],
   "key": {
-    "C": {
-      "tag": "c:chests/wooden"
-    },
-    "S": {
-      "item": "byg:witch_hazel_slab"
-    }
+    "C": "#c:chests/wooden",
+    "S": "byg:witch_hazel_slab"
   },
   "result": {
     "id": "adorn:byg/witch_hazel_drawer",

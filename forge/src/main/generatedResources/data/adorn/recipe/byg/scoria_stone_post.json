@@ -7,12 +7,8 @@
     "#"
   ],
   "key": {
-    "#": {
-      "item": "byg:scoria_stone"
-    },
-    "/": {
-      "tag": "c:rods/stone"
-    }
+    "#": "byg:scoria_stone",
+    "/": "#c:rods/stone"
   },
   "result": {
     "id": "adorn:byg/scoria_stone_post",

@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "biomesoplenty:mahogany_slab"
-    },
-    "P": {
-      "item": "adorn:biomesoplenty/mahogany_post"
-    }
+    "S": "biomesoplenty:mahogany_slab",
+    "P": "adorn:biomesoplenty/mahogany_post"
   },
   "result": {
     "id": "adorn:biomesoplenty/mahogany_platform",

@@ -6,12 +6,8 @@
     "/ /"
   ],
   "key": {
-    "-": {
-      "item": "terrestria:redwood_slab"
-    },
-    "/": {
-      "tag": "c:rods/wooden"
-    }
+    "-": "terrestria:redwood_slab",
+    "/": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:terrestria/redwood_shelf",

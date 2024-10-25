@@ -1,8 +1,6 @@
 {
   "type": "stonecutting",
-  "ingredient": {
-    "item": "terrestria:rainbow_eucalyptus_planks"
-  },
+  "ingredient": "terrestria:rainbow_eucalyptus_planks",
   "result": {
     "id": "adorn:terrestria/rainbow_eucalyptus_step",
     "count": 2

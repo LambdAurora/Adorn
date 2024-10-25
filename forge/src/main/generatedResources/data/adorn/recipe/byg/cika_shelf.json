@@ -6,12 +6,8 @@
     "/ /"
   ],
   "key": {
-    "-": {
-      "item": "byg:cika_slab"
-    },
-    "/": {
-      "tag": "c:rods/wooden"
-    }
+    "-": "byg:cika_slab",
+    "/": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:byg/cika_shelf",

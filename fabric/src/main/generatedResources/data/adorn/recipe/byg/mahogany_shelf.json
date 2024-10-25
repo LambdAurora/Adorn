@@ -6,12 +6,8 @@
     "/ /"
   ],
   "key": {
-    "-": {
-      "item": "byg:mahogany_slab"
-    },
-    "/": {
-      "tag": "c:rods/wooden"
-    }
+    "-": "byg:mahogany_slab",
+    "/": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:byg/mahogany_shelf",

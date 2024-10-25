@@ -1,8 +1,6 @@
 {
   "type": "stonecutting",
-  "ingredient": {
-    "item": "minecraft:acacia_planks"
-  },
+  "ingredient": "minecraft:acacia_planks",
   "result": {
     "id": "adorn:acacia_step",
     "count": 2

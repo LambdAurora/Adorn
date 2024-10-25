@@ -1,8 +1,6 @@
 {
   "type": "stonecutting",
-  "ingredient": {
-    "item": "byg:fir_planks"
-  },
+  "ingredient": "byg:fir_planks",
   "result": {
     "id": "adorn:byg/fir_platform",
     "count": 1

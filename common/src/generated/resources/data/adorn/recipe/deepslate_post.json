@@ -7,12 +7,8 @@
     "#"
   ],
   "key": {
-    "#": {
-      "item": "minecraft:deepslate"
-    },
-    "/": {
-      "tag": "c:rods/stone"
-    }
+    "#": "minecraft:deepslate",
+    "/": "#c:rods/stone"
   },
   "result": {
     "id": "adorn:deepslate_post",

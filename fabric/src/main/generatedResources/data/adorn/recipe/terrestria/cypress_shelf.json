@@ -6,12 +6,8 @@
     "/ /"
   ],
   "key": {
-    "-": {
-      "item": "terrestria:cypress_slab"
-    },
-    "/": {
-      "tag": "c:rods/wooden"
-    }
+    "-": "terrestria:cypress_slab",
+    "/": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:terrestria/cypress_shelf",

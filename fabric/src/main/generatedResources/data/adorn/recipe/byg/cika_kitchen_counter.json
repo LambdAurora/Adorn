@@ -6,12 +6,8 @@
     "PP"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:polished_andesite_slab"
-    },
-    "P": {
-      "item": "byg:cika_planks"
-    }
+    "S": "minecraft:polished_andesite_slab",
+    "P": "byg:cika_planks"
   },
   "result": {
     "id": "adorn:byg/cika_kitchen_counter",

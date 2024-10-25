@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:deepslate_brick_slab"
-    },
-    "P": {
-      "item": "adorn:deepslate_brick_post"
-    }
+    "S": "minecraft:deepslate_brick_slab",
+    "P": "adorn:deepslate_brick_post"
   },
   "result": {
     "id": "adorn:deepslate_brick_platform",

@@ -7,12 +7,8 @@
     "S"
   ],
   "key": {
-    "C": {
-      "tag": "c:chests/wooden"
-    },
-    "S": {
-      "item": "cinderscapes:scorched_slab"
-    }
+    "C": "#c:chests/wooden",
+    "S": "cinderscapes:scorched_slab"
   },
   "result": {
     "id": "adorn:cinderscapes/scorched_drawer",

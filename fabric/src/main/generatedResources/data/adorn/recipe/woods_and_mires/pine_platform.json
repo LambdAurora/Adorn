@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "woods_and_mires:pine_slab"
-    },
-    "P": {
-      "item": "adorn:woods_and_mires/pine_post"
-    }
+    "S": "woods_and_mires:pine_slab",
+    "P": "adorn:woods_and_mires/pine_post"
   },
   "result": {
     "id": "adorn:woods_and_mires/pine_platform",

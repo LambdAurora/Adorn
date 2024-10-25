@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:prismarine_slab"
-    },
-    "P": {
-      "item": "adorn:prismarine_post"
-    }
+    "S": "minecraft:prismarine_slab",
+    "P": "adorn:prismarine_post"
   },
   "result": {
     "id": "adorn:prismarine_platform",

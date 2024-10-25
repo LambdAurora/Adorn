@@ -7,12 +7,8 @@
     "#"
   ],
   "key": {
-    "#": {
-      "item": "ecologics:coconut_planks"
-    },
-    "/": {
-      "tag": "c:rods/wooden"
-    }
+    "#": "ecologics:coconut_planks",
+    "/": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:ecologics/coconut_post",

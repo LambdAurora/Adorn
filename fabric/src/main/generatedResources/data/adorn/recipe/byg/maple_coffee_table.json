@@ -6,15 +6,9 @@
     "# #"
   ],
   "key": {
-    "S": {
-      "item": "byg:maple_slab"
-    },
-    "#": {
-      "tag": "c:rods/wooden"
-    },
-    "-": {
-      "tag": "c:glass_panes"
-    }
+    "S": "byg:maple_slab",
+    "#": "#c:rods/wooden",
+    "-": "#c:glass_panes"
   },
   "result": {
     "id": "adorn:byg/maple_coffee_table",

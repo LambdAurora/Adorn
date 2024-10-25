@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "biomemakeover:swamp_cypress_slab"
-    },
-    "P": {
-      "item": "adorn:biomemakeover/swamp_cypress_post"
-    }
+    "S": "biomemakeover:swamp_cypress_slab",
+    "P": "adorn:biomemakeover/swamp_cypress_post"
   },
   "result": {
     "id": "adorn:biomemakeover/swamp_cypress_platform",

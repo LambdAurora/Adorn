@@ -6,9 +6,7 @@
     "S S"
   ],
   "key": {
-    "S": {
-      "item": "byg:nightshade_slab"
-    }
+    "S": "byg:nightshade_slab"
   },
   "result": {
     "id": "adorn:byg/nightshade_bench",

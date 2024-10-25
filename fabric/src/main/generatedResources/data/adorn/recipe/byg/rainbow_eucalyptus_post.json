@@ -7,12 +7,8 @@
     "#"
   ],
   "key": {
-    "#": {
-      "item": "byg:rainbow_eucalyptus_planks"
-    },
-    "/": {
-      "tag": "c:rods/wooden"
-    }
+    "#": "byg:rainbow_eucalyptus_planks",
+    "/": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:byg/rainbow_eucalyptus_post",

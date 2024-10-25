@@ -2,12 +2,8 @@
   "type": "crafting_shapeless",
   "group": "adorn:kitchen_sink",
   "ingredients": [
-    {
-      "item": "adorn:acacia_kitchen_counter"
-    },
-    {
-      "tag": "c:buckets/empty"
-    }
+    "adorn:acacia_kitchen_counter",
+    "#c:buckets/empty"
   ],
   "result": {
     "id": "adorn:acacia_kitchen_sink",

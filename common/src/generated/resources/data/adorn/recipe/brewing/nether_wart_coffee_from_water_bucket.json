@@ -1,0 +1,9 @@
+{
+  "type": "adorn:brewing",
+  "first_ingredient": "#c:crops/nether_wart",
+  "result": {
+    "count": 1,
+    "id": "adorn:nether_wart_coffee"
+  },
+  "second_ingredient": "minecraft:water_bucket"
+}

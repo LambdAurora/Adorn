@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "terrestria:rainbow_eucalyptus_slab"
-    },
-    "P": {
-      "item": "adorn:terrestria/rainbow_eucalyptus_post"
-    }
+    "S": "terrestria:rainbow_eucalyptus_slab",
+    "P": "adorn:terrestria/rainbow_eucalyptus_post"
   },
   "result": {
     "id": "adorn:terrestria/rainbow_eucalyptus_platform",

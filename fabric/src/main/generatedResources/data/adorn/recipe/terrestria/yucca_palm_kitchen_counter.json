@@ -6,12 +6,8 @@
     "PP"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:polished_andesite_slab"
-    },
-    "P": {
-      "item": "terrestria:yucca_palm_planks"
-    }
+    "S": "minecraft:polished_andesite_slab",
+    "P": "terrestria:yucca_palm_planks"
   },
   "result": {
     "id": "adorn:terrestria/yucca_palm_kitchen_counter",

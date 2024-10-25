@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:dark_prismarine_slab"
-    },
-    "P": {
-      "item": "adorn:dark_prismarine_post"
-    }
+    "S": "minecraft:dark_prismarine_slab",
+    "P": "adorn:dark_prismarine_post"
   },
   "result": {
     "id": "adorn:dark_prismarine_platform",

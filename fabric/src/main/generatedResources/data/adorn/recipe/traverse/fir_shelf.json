@@ -6,12 +6,8 @@
     "/ /"
   ],
   "key": {
-    "-": {
-      "item": "traverse:fir_slab"
-    },
-    "/": {
-      "tag": "c:rods/wooden"
-    }
+    "-": "traverse:fir_slab",
+    "/": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:traverse/fir_shelf",

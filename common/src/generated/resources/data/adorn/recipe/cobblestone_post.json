@@ -7,12 +7,8 @@
     "#"
   ],
   "key": {
-    "#": {
-      "item": "minecraft:cobblestone"
-    },
-    "/": {
-      "tag": "c:rods/stone"
-    }
+    "#": "minecraft:cobblestone",
+    "/": "#c:rods/stone"
   },
   "result": {
     "id": "adorn:cobblestone_post",

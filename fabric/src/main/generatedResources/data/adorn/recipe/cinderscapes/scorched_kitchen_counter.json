@@ -6,12 +6,8 @@
     "PP"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:polished_andesite_slab"
-    },
-    "P": {
-      "item": "cinderscapes:scorched_planks"
-    }
+    "S": "minecraft:polished_andesite_slab",
+    "P": "cinderscapes:scorched_planks"
   },
   "result": {
     "id": "adorn:cinderscapes/scorched_kitchen_counter",

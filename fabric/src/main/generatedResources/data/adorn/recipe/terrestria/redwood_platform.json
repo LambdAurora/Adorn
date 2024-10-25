@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "terrestria:redwood_slab"
-    },
-    "P": {
-      "item": "adorn:terrestria/redwood_post"
-    }
+    "S": "terrestria:redwood_slab",
+    "P": "adorn:terrestria/redwood_post"
   },
   "result": {
     "id": "adorn:terrestria/redwood_platform",

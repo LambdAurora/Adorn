@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:cut_sandstone_slab"
-    },
-    "P": {
-      "item": "adorn:cut_sandstone_post"
-    }
+    "S": "minecraft:cut_sandstone_slab",
+    "P": "adorn:cut_sandstone_post"
   },
   "result": {
     "id": "adorn:cut_sandstone_platform",

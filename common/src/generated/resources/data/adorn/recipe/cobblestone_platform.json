@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:cobblestone_slab"
-    },
-    "P": {
-      "item": "adorn:cobblestone_post"
-    }
+    "S": "minecraft:cobblestone_slab",
+    "P": "adorn:cobblestone_post"
   },
   "result": {
     "id": "adorn:cobblestone_platform",

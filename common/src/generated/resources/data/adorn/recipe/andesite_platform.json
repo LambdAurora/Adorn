@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:andesite_slab"
-    },
-    "P": {
-      "item": "adorn:andesite_post"
-    }
+    "S": "minecraft:andesite_slab",
+    "P": "adorn:andesite_post"
   },
   "result": {
     "id": "adorn:andesite_platform",

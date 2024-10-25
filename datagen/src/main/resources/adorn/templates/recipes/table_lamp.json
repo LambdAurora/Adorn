@@ -6,12 +6,8 @@
     "|"
   ],
   "key": {
-    "-": {
-      "item": "minecraft:<id.path>_carpet"
-    },
-    "|": {
-      "item": "adorn:stone_torch"
-    }
+    "-": "minecraft:<id.path>_carpet",
+    "|": "adorn:stone_torch"
   },
   "result": {
     "id": "adorn:<id.path>_table_lamp",

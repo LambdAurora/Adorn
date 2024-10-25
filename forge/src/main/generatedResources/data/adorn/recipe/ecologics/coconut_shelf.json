@@ -6,12 +6,8 @@
     "/ /"
   ],
   "key": {
-    "-": {
-      "item": "ecologics:coconut_slab"
-    },
-    "/": {
-      "tag": "c:rods/wooden"
-    }
+    "-": "ecologics:coconut_slab",
+    "/": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:ecologics/coconut_shelf",

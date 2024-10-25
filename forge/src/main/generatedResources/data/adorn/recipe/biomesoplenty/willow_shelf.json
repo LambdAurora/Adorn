@@ -6,12 +6,8 @@
     "/ /"
   ],
   "key": {
-    "-": {
-      "item": "biomesoplenty:willow_slab"
-    },
-    "/": {
-      "tag": "c:rods/wooden"
-    }
+    "-": "biomesoplenty:willow_slab",
+    "/": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:biomesoplenty/willow_shelf",

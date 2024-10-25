@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "byg:cika_slab"
-    },
-    "P": {
-      "item": "adorn:byg/cika_post"
-    }
+    "S": "byg:cika_slab",
+    "P": "adorn:byg/cika_post"
   },
   "result": {
     "id": "adorn:byg/cika_platform",

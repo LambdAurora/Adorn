@@ -7,12 +7,8 @@
     "SS"
   ],
   "key": {
-    "S": {
-      "tag": "c:rods/wooden"
-    },
-    "W": {
-      "item": "minecraft:blue_wool"
-    }
+    "S": "#c:rods/wooden",
+    "W": "minecraft:blue_wool"
   },
   "result": {
     "id": "adorn:blue_sofa",

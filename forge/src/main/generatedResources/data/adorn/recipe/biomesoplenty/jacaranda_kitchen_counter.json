@@ -6,12 +6,8 @@
     "PP"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:polished_andesite_slab"
-    },
-    "P": {
-      "item": "biomesoplenty:jacaranda_planks"
-    }
+    "S": "minecraft:polished_andesite_slab",
+    "P": "biomesoplenty:jacaranda_planks"
   },
   "result": {
     "id": "adorn:biomesoplenty/jacaranda_kitchen_counter",

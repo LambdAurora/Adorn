@@ -1,8 +1,6 @@
 {
   "type": "stonecutting",
-  "ingredient": {
-    "item": "biomesoplenty:umbran_planks"
-  },
+  "ingredient": "biomesoplenty:umbran_planks",
   "result": {
     "id": "adorn:biomesoplenty/umbran_step",
     "count": 2

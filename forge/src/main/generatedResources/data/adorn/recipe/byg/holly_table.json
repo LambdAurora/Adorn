@@ -7,12 +7,8 @@
     "# #"
   ],
   "key": {
-    "S": {
-      "item": "byg:holly_slab"
-    },
-    "#": {
-      "tag": "c:rods/wooden"
-    }
+    "S": "byg:holly_slab",
+    "#": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:byg/holly_table",

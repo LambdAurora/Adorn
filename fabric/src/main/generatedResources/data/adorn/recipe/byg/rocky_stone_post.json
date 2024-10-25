@@ -7,12 +7,8 @@
     "#"
   ],
   "key": {
-    "#": {
-      "item": "byg:rocky_stone"
-    },
-    "/": {
-      "tag": "c:rods/stone"
-    }
+    "#": "byg:rocky_stone",
+    "/": "#c:rods/stone"
   },
   "result": {
     "id": "adorn:byg/rocky_stone_post",

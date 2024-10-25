@@ -6,12 +6,8 @@
     "/ /"
   ],
   "key": {
-    "-": {
-      "item": "byg:green_enchanted_slab"
-    },
-    "/": {
-      "tag": "c:rods/wooden"
-    }
+    "-": "byg:green_enchanted_slab",
+    "/": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:byg/green_enchanted_shelf",

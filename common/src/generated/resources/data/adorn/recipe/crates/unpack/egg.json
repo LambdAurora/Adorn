@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "adorn:unpack_crate",
+  "ingredients": [
+    "adorn:egg_crate"
+  ],
+  "result": {
+    "count": 8,
+    "id": "minecraft:egg"
+  }
+}

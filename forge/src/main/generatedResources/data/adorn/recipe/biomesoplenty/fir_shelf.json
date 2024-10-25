@@ -6,12 +6,8 @@
     "/ /"
   ],
   "key": {
-    "-": {
-      "item": "biomesoplenty:fir_slab"
-    },
-    "/": {
-      "tag": "c:rods/wooden"
-    }
+    "-": "biomesoplenty:fir_slab",
+    "/": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:biomesoplenty/fir_shelf",

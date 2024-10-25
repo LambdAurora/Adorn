@@ -6,12 +6,8 @@
     "/ /"
   ],
   "key": {
-    "-": {
-      "item": "byg:rainbow_eucalyptus_slab"
-    },
-    "/": {
-      "tag": "c:rods/wooden"
-    }
+    "-": "byg:rainbow_eucalyptus_slab",
+    "/": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:byg/rainbow_eucalyptus_shelf",

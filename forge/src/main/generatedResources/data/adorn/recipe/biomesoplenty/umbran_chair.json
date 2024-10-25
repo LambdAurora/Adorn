@@ -7,12 +7,8 @@
     "##"
   ],
   "key": {
-    "S": {
-      "item": "biomesoplenty:umbran_slab"
-    },
-    "#": {
-      "tag": "c:rods/wooden"
-    }
+    "S": "biomesoplenty:umbran_slab",
+    "#": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:biomesoplenty/umbran_chair",

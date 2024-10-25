@@ -1,8 +1,6 @@
 {
   "type": "stonecutting",
-  "ingredient": {
-    "item": "biomesoplenty:redwood_planks"
-  },
+  "ingredient": "biomesoplenty:redwood_planks",
   "result": {
     "id": "adorn:biomesoplenty/redwood_step",
     "count": 2

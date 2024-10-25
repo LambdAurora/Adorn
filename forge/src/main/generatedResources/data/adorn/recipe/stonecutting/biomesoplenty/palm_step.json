@@ -1,8 +1,6 @@
 {
   "type": "stonecutting",
-  "ingredient": {
-    "item": "biomesoplenty:palm_planks"
-  },
+  "ingredient": "biomesoplenty:palm_planks",
   "result": {
     "id": "adorn:biomesoplenty/palm_step",
     "count": 2

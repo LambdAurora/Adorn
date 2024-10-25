@@ -6,12 +6,8 @@
     "/ /"
   ],
   "key": {
-    "-": {
-      "item": "byg:pine_slab"
-    },
-    "/": {
-      "tag": "c:rods/wooden"
-    }
+    "-": "byg:pine_slab",
+    "/": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:byg/pine_shelf",

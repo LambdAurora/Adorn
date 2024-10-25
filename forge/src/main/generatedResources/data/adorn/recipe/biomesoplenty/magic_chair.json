@@ -7,12 +7,8 @@
     "##"
   ],
   "key": {
-    "S": {
-      "item": "biomesoplenty:magic_slab"
-    },
-    "#": {
-      "tag": "c:rods/wooden"
-    }
+    "S": "biomesoplenty:magic_slab",
+    "#": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:biomesoplenty/magic_chair",

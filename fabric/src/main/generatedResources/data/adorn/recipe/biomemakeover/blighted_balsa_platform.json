@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "biomemakeover:blighted_balsa_slab"
-    },
-    "P": {
-      "item": "adorn:biomemakeover/blighted_balsa_post"
-    }
+    "S": "biomemakeover:blighted_balsa_slab",
+    "P": "adorn:biomemakeover/blighted_balsa_post"
   },
   "result": {
     "id": "adorn:biomemakeover/blighted_balsa_platform",

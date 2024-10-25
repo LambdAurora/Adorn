@@ -2,15 +2,9 @@
   "type": "crafting_shapeless",
   "group": "adorn:kitchen_cupboard",
   "ingredients": [
-    {
-      "tag": "c:chests/wooden"
-    },
-    {
-      "item": "adorn:techreborn/rubber_kitchen_counter"
-    },
-    {
-      "item": "adorn:techreborn/rubber_kitchen_counter"
-    }
+    "#c:chests/wooden",
+    "adorn:techreborn/rubber_kitchen_counter",
+    "adorn:techreborn/rubber_kitchen_counter"
   ],
   "result": {
     "id": "adorn:techreborn/rubber_kitchen_cupboard",

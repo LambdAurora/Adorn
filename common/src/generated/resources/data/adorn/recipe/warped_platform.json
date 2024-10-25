@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:warped_slab"
-    },
-    "P": {
-      "item": "adorn:warped_post"
-    }
+    "S": "minecraft:warped_slab",
+    "P": "adorn:warped_post"
   },
   "result": {
     "id": "adorn:warped_platform",

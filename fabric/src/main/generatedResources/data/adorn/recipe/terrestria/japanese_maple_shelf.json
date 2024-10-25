@@ -6,12 +6,8 @@
     "/ /"
   ],
   "key": {
-    "-": {
-      "item": "terrestria:japanese_maple_slab"
-    },
-    "/": {
-      "tag": "c:rods/wooden"
-    }
+    "-": "terrestria:japanese_maple_slab",
+    "/": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:terrestria/japanese_maple_shelf",

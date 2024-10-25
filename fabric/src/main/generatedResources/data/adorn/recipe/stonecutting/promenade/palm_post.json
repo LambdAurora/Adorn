@@ -1,8 +1,6 @@
 {
   "type": "stonecutting",
-  "ingredient": {
-    "item": "promenade:palm_planks"
-  },
+  "ingredient": "promenade:palm_planks",
   "result": {
     "id": "adorn:promenade/palm_post",
     "count": 2

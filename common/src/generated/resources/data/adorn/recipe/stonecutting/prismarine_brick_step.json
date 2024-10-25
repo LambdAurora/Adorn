@@ -1,8 +1,6 @@
 {
   "type": "stonecutting",
-  "ingredient": {
-    "item": "minecraft:prismarine_bricks"
-  },
+  "ingredient": "minecraft:prismarine_bricks",
   "result": {
     "id": "adorn:prismarine_brick_step",
     "count": 2

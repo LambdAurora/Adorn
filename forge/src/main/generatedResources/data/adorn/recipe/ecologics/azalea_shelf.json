@@ -6,12 +6,8 @@
     "/ /"
   ],
   "key": {
-    "-": {
-      "item": "ecologics:azalea_slab"
-    },
-    "/": {
-      "tag": "c:rods/wooden"
-    }
+    "-": "ecologics:azalea_slab",
+    "/": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:ecologics/azalea_shelf",

@@ -6,12 +6,8 @@
     "PP"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:polished_andesite_slab"
-    },
-    "P": {
-      "item": "biomemakeover:swamp_cypress_planks"
-    }
+    "S": "minecraft:polished_andesite_slab",
+    "P": "biomemakeover:swamp_cypress_planks"
   },
   "result": {
     "id": "adorn:biomemakeover/swamp_cypress_kitchen_counter",

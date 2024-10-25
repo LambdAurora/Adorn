@@ -1,8 +1,6 @@
 {
   "type": "stonecutting",
-  "ingredient": {
-    "item": "<planks>"
-  },
+  "ingredient": "<planks>",
   "result": {
     "id": "adorn:<mod-prefix><id.path>_platform",
     "count": 1

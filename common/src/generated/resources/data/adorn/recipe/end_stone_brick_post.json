@@ -7,12 +7,8 @@
     "#"
   ],
   "key": {
-    "#": {
-      "item": "minecraft:end_stone_bricks"
-    },
-    "/": {
-      "tag": "c:rods/stone"
-    }
+    "#": "minecraft:end_stone_bricks",
+    "/": "#c:rods/stone"
   },
   "result": {
     "id": "adorn:end_stone_brick_post",

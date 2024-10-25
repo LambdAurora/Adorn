@@ -6,12 +6,8 @@
     "PP"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:polished_andesite_slab"
-    },
-    "P": {
-      "item": "terrestria:redwood_planks"
-    }
+    "S": "minecraft:polished_andesite_slab",
+    "P": "terrestria:redwood_planks"
   },
   "result": {
     "id": "adorn:terrestria/redwood_kitchen_counter",

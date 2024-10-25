@@ -6,12 +6,8 @@
     "/ /"
   ],
   "key": {
-    "-": {
-      "item": "byg:embur_slab"
-    },
-    "/": {
-      "tag": "c:rods/wooden"
-    }
+    "-": "byg:embur_slab",
+    "/": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:byg/embur_shelf",

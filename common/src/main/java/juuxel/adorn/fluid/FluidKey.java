@@ -5,6 +5,7 @@ import juuxel.adorn.util.EntryOrTag;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.registry.Registries;
+import net.minecraft.registry.tag.TagKey;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +25,14 @@ import java.util.Set;
 /// Examples: `"minecraft:water"`, `"#c:milk"`, `["minecraft:water", "minecraft:lava"]`
 public sealed interface FluidKey permits FluidKeyImpl.Simple, FluidKeyImpl.OfArray {
     Codec<FluidKey> CODEC = FluidKeyImpl.CODEC;
+
+    static FluidKey of(Fluid fluid) {
+        return new FluidKeyImpl.Simple(new EntryOrTag.OfEntry<>(fluid));
+    }
+
+    static FluidKey of(TagKey<Fluid> tag) {
+        return new FluidKeyImpl.Simple(new EntryOrTag.OfTag<>(tag));
+    }
 
     /**
      * Returns the set of all fluids matching this key.

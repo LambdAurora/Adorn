@@ -6,12 +6,8 @@
     "PP"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:polished_andesite_slab"
-    },
-    "P": {
-      "item": "byg:white_mangrove_planks"
-    }
+    "S": "minecraft:polished_andesite_slab",
+    "P": "byg:white_mangrove_planks"
   },
   "result": {
     "id": "adorn:byg/white_mangrove_kitchen_counter",

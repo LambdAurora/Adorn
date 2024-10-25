@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "byg:scoria_stone_slab"
-    },
-    "P": {
-      "item": "adorn:byg/scoria_stone_post"
-    }
+    "S": "byg:scoria_stone_slab",
+    "P": "adorn:byg/scoria_stone_post"
   },
   "result": {
     "id": "adorn:byg/scoria_stone_platform",

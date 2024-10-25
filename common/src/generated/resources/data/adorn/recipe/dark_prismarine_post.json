@@ -7,12 +7,8 @@
     "#"
   ],
   "key": {
-    "#": {
-      "item": "minecraft:dark_prismarine"
-    },
-    "/": {
-      "tag": "c:rods/stone"
-    }
+    "#": "minecraft:dark_prismarine",
+    "/": "#c:rods/stone"
   },
   "result": {
     "id": "adorn:dark_prismarine_post",

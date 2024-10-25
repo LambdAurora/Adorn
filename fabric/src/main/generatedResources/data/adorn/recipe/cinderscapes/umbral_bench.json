@@ -6,9 +6,7 @@
     "S S"
   ],
   "key": {
-    "S": {
-      "item": "cinderscapes:umbral_slab"
-    }
+    "S": "cinderscapes:umbral_slab"
   },
   "result": {
     "id": "adorn:cinderscapes/umbral_bench",

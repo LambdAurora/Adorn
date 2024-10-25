@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "biomesoplenty:redwood_slab"
-    },
-    "P": {
-      "item": "adorn:biomesoplenty/redwood_post"
-    }
+    "S": "biomesoplenty:redwood_slab",
+    "P": "adorn:biomesoplenty/redwood_post"
   },
   "result": {
     "id": "adorn:biomesoplenty/redwood_platform",

@@ -6,9 +6,7 @@
     "S S"
   ],
   "key": {
-    "S": {
-      "item": "biomesoplenty:hellbark_slab"
-    }
+    "S": "biomesoplenty:hellbark_slab"
   },
   "result": {
     "id": "adorn:biomesoplenty/hellbark_bench",

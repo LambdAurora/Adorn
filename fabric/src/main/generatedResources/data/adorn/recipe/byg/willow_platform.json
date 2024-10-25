@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "byg:willow_slab"
-    },
-    "P": {
-      "item": "adorn:byg/willow_post"
-    }
+    "S": "byg:willow_slab",
+    "P": "adorn:byg/willow_post"
   },
   "result": {
     "id": "adorn:byg/willow_platform",

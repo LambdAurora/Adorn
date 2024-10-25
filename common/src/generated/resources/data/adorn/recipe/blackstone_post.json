@@ -7,12 +7,8 @@
     "#"
   ],
   "key": {
-    "#": {
-      "item": "minecraft:blackstone"
-    },
-    "/": {
-      "tag": "c:rods/stone"
-    }
+    "#": "minecraft:blackstone",
+    "/": "#c:rods/stone"
   },
   "result": {
     "id": "adorn:blackstone_post",

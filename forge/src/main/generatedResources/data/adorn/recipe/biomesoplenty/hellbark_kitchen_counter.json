@@ -6,12 +6,8 @@
     "PP"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:polished_andesite_slab"
-    },
-    "P": {
-      "item": "biomesoplenty:hellbark_planks"
-    }
+    "S": "minecraft:polished_andesite_slab",
+    "P": "biomesoplenty:hellbark_planks"
   },
   "result": {
     "id": "adorn:biomesoplenty/hellbark_kitchen_counter",

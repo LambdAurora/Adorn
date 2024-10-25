@@ -6,9 +6,7 @@
     "S S"
   ],
   "key": {
-    "S": {
-      "item": "cinderscapes:scorched_slab"
-    }
+    "S": "cinderscapes:scorched_slab"
   },
   "result": {
     "id": "adorn:cinderscapes/scorched_bench",

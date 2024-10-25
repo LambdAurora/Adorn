@@ -7,12 +7,8 @@
     "S"
   ],
   "key": {
-    "C": {
-      "tag": "c:chests/wooden"
-    },
-    "S": {
-      "item": "minecraft:spruce_slab"
-    }
+    "C": "#c:chests/wooden",
+    "S": "minecraft:spruce_slab"
   },
   "result": {
     "id": "adorn:spruce_drawer",

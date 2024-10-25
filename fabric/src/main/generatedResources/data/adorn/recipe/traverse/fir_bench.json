@@ -6,9 +6,7 @@
     "S S"
   ],
   "key": {
-    "S": {
-      "item": "traverse:fir_slab"
-    }
+    "S": "traverse:fir_slab"
   },
   "result": {
     "id": "adorn:traverse/fir_bench",

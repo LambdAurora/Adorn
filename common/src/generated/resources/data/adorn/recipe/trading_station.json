@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "#adorn:tables",
+    "#c:gems/emerald",
+    "#c:gems/emerald"
+  ],
+  "result": {
+    "count": 1,
+    "id": "adorn:trading_station"
+  }
+}

@@ -6,9 +6,7 @@
     "S S"
   ],
   "key": {
-    "S": {
-      "item": "byg:zelkova_slab"
-    }
+    "S": "byg:zelkova_slab"
   },
   "result": {
     "id": "adorn:byg/zelkova_bench",

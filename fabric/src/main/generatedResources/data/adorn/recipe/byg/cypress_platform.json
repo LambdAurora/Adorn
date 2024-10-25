@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "byg:cypress_slab"
-    },
-    "P": {
-      "item": "adorn:byg/cypress_post"
-    }
+    "S": "byg:cypress_slab",
+    "P": "adorn:byg/cypress_post"
   },
   "result": {
     "id": "adorn:byg/cypress_platform",

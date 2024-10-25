@@ -1,8 +1,6 @@
 {
   "type": "stonecutting",
-  "ingredient": {
-    "item": "biomemakeover:swamp_cypress_planks"
-  },
+  "ingredient": "biomemakeover:swamp_cypress_planks",
   "result": {
     "id": "adorn:biomemakeover/swamp_cypress_platform",
     "count": 1

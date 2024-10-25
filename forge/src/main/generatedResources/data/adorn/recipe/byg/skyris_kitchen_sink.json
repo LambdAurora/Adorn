@@ -2,12 +2,8 @@
   "type": "crafting_shapeless",
   "group": "adorn:kitchen_sink",
   "ingredients": [
-    {
-      "item": "adorn:byg/skyris_kitchen_counter"
-    },
-    {
-      "tag": "c:buckets/empty"
-    }
+    "adorn:byg/skyris_kitchen_counter",
+    "#c:buckets/empty"
   ],
   "result": {
     "id": "adorn:byg/skyris_kitchen_sink",

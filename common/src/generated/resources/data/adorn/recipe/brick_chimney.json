@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "#c:bricks/normal",
+    ".": "#c:tools/igniter"
+  },
+  "pattern": [
+    " # ",
+    "#.#",
+    " # "
+  ],
+  "result": {
+    "count": 1,
+    "id": "adorn:brick_chimney"
+  }
+}

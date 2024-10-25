@@ -6,12 +6,8 @@
     "#"
   ],
   "key": {
-    "S": {
-      "item": "byg:dacite_slab"
-    },
-    "#": {
-      "tag": "c:rods/stone"
-    }
+    "S": "byg:dacite_slab",
+    "#": "#c:rods/stone"
   },
   "result": {
     "id": "adorn:byg/dacite_step",

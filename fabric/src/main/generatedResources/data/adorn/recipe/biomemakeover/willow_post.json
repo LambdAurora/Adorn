@@ -7,12 +7,8 @@
     "#"
   ],
   "key": {
-    "#": {
-      "item": "biomemakeover:willow_planks"
-    },
-    "/": {
-      "tag": "c:rods/wooden"
-    }
+    "#": "biomemakeover:willow_planks",
+    "/": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:biomemakeover/willow_post",

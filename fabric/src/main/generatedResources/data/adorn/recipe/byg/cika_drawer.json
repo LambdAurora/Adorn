@@ -7,12 +7,8 @@
     "S"
   ],
   "key": {
-    "C": {
-      "tag": "c:chests/wooden"
-    },
-    "S": {
-      "item": "byg:cika_slab"
-    }
+    "C": "#c:chests/wooden",
+    "S": "byg:cika_slab"
   },
   "result": {
     "id": "adorn:byg/cika_drawer",

@@ -6,12 +6,8 @@
     "#"
   ],
   "key": {
-    "S": {
-      "item": "terrestria:rubber_slab"
-    },
-    "#": {
-      "tag": "c:rods/wooden"
-    }
+    "S": "terrestria:rubber_slab",
+    "#": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:terrestria/rubber_step",

@@ -1,8 +1,6 @@
 {
   "type": "stonecutting",
-  "ingredient": {
-    "item": "minecraft:deepslate_tiles"
-  },
+  "ingredient": "minecraft:deepslate_tiles",
   "result": {
     "id": "adorn:deepslate_tile_post",
     "count": 2

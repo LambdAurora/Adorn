@@ -6,12 +6,8 @@
     "#"
   ],
   "key": {
-    "S": {
-      "item": "biomemakeover:willow_slab"
-    },
-    "#": {
-      "tag": "c:rods/wooden"
-    }
+    "S": "biomemakeover:willow_slab",
+    "#": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:biomemakeover/willow_step",

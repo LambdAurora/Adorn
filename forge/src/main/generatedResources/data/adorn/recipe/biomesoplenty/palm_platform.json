@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "biomesoplenty:palm_slab"
-    },
-    "P": {
-      "item": "adorn:biomesoplenty/palm_post"
-    }
+    "S": "biomesoplenty:palm_slab",
+    "P": "adorn:biomesoplenty/palm_post"
   },
   "result": {
     "id": "adorn:biomesoplenty/palm_platform",

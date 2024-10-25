@@ -6,12 +6,8 @@
     "PP"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:polished_andesite_slab"
-    },
-    "P": {
-      "item": "byg:sythian_planks"
-    }
+    "S": "minecraft:polished_andesite_slab",
+    "P": "byg:sythian_planks"
   },
   "result": {
     "id": "adorn:byg/sythian_kitchen_counter",

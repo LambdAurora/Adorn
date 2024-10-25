@@ -6,9 +6,7 @@
     "S S"
   ],
   "key": {
-    "S": {
-      "item": "promenade:dark_amaranth_slab"
-    }
+    "S": "promenade:dark_amaranth_slab"
   },
   "result": {
     "id": "adorn:promenade/dark_amaranth_bench",

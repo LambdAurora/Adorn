@@ -19,6 +19,10 @@ public record FluidIngredient(FluidKey fluid, long amount, ComponentChanges comp
     public static final PacketCodec<RegistryByteBuf, FluidIngredient> PACKET_CODEC =
         PacketCodec.of(FluidIngredient::write, FluidIngredient::load);
 
+    public FluidIngredient(FluidKey fluid, long amount, FluidUnit unit) {
+        this(fluid, amount, ComponentChanges.EMPTY, unit);
+    }
+
     private static FluidIngredient load(RegistryByteBuf buf) {
         var fluid = FluidKey.load(buf);
         var amount = buf.readVarLong();

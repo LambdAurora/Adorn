@@ -6,12 +6,8 @@
     "/ /"
   ],
   "key": {
-    "-": {
-      "item": "byg:maple_slab"
-    },
-    "/": {
-      "tag": "c:rods/wooden"
-    }
+    "-": "byg:maple_slab",
+    "/": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:byg/maple_shelf",

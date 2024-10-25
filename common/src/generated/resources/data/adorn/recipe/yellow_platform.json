@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "adorn:yellow_wood_slab"
-    },
-    "P": {
-      "item": "adorn:yellow_post"
-    }
+    "S": "adorn:yellow_wood_slab",
+    "P": "adorn:yellow_post"
   },
   "result": {
     "id": "adorn:yellow_platform",

@@ -1,8 +1,6 @@
 {
   "type": "stonecutting",
-  "ingredient": {
-    "item": "adorn:magenta_planks"
-  },
+  "ingredient": "adorn:magenta_planks",
   "result": {
     "id": "adorn:magenta_step",
     "count": 2

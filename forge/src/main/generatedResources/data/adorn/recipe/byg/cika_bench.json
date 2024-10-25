@@ -6,9 +6,7 @@
     "S S"
   ],
   "key": {
-    "S": {
-      "item": "byg:cika_slab"
-    }
+    "S": "byg:cika_slab"
   },
   "result": {
     "id": "adorn:byg/cika_bench",

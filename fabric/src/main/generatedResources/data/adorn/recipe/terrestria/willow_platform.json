@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "terrestria:willow_slab"
-    },
-    "P": {
-      "item": "adorn:terrestria/willow_post"
-    }
+    "S": "terrestria:willow_slab",
+    "P": "adorn:terrestria/willow_post"
   },
   "result": {
     "id": "adorn:terrestria/willow_platform",

@@ -7,12 +7,8 @@
     "#"
   ],
   "key": {
-    "#": {
-      "item": "adorn:purple_planks"
-    },
-    "/": {
-      "tag": "c:rods/wooden"
-    }
+    "#": "adorn:purple_planks",
+    "/": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:purple_post",

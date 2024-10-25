@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "byg:sythian_slab"
-    },
-    "P": {
-      "item": "adorn:byg/sythian_post"
-    }
+    "S": "byg:sythian_slab",
+    "P": "adorn:byg/sythian_post"
   },
   "result": {
     "id": "adorn:byg/sythian_platform",

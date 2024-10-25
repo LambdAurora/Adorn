@@ -6,12 +6,8 @@
     "#"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:prismarine_slab"
-    },
-    "#": {
-      "tag": "c:rods/stone"
-    }
+    "S": "minecraft:prismarine_slab",
+    "#": "#c:rods/stone"
   },
   "result": {
     "id": "adorn:prismarine_step",

@@ -6,12 +6,8 @@
     "#"
   ],
   "key": {
-    "S": {
-      "item": "terrestria:basalt_slab"
-    },
-    "#": {
-      "tag": "c:rods/stone"
-    }
+    "S": "terrestria:basalt_slab",
+    "#": "#c:rods/stone"
   },
   "result": {
     "id": "adorn:terrestria/basalt_step",

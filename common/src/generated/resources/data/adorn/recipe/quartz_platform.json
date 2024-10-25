@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:quartz_slab"
-    },
-    "P": {
-      "item": "adorn:quartz_post"
-    }
+    "S": "minecraft:quartz_slab",
+    "P": "adorn:quartz_post"
   },
   "result": {
     "id": "adorn:quartz_platform",

@@ -7,12 +7,8 @@
     "#"
   ],
   "key": {
-    "#": {
-      "item": "byg:blue_enchanted_planks"
-    },
-    "/": {
-      "tag": "c:rods/wooden"
-    }
+    "#": "byg:blue_enchanted_planks",
+    "/": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:byg/blue_enchanted_post",

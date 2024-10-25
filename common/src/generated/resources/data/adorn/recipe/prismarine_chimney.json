@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "minecraft:prismarine_shard",
+    ".": "#c:tools/igniter"
+  },
+  "pattern": [
+    " # ",
+    "#.#",
+    " # "
+  ],
+  "result": {
+    "count": 1,
+    "id": "adorn:prismarine_chimney"
+  }
+}

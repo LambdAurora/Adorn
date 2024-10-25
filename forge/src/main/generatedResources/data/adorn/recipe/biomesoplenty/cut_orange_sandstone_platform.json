@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "biomesoplenty:cut_orange_sandstone_slab"
-    },
-    "P": {
-      "item": "adorn:biomesoplenty/cut_orange_sandstone_post"
-    }
+    "S": "biomesoplenty:cut_orange_sandstone_slab",
+    "P": "adorn:biomesoplenty/cut_orange_sandstone_post"
   },
   "result": {
     "id": "adorn:biomesoplenty/cut_orange_sandstone_platform",

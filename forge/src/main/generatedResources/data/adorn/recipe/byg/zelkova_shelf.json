@@ -6,12 +6,8 @@
     "/ /"
   ],
   "key": {
-    "-": {
-      "item": "byg:zelkova_slab"
-    },
-    "/": {
-      "tag": "c:rods/wooden"
-    }
+    "-": "byg:zelkova_slab",
+    "/": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:byg/zelkova_shelf",

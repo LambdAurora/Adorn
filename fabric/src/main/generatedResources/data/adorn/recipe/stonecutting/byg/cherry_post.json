@@ -1,8 +1,6 @@
 {
   "type": "stonecutting",
-  "ingredient": {
-    "item": "byg:cherry_planks"
-  },
+  "ingredient": "byg:cherry_planks",
   "result": {
     "id": "adorn:byg/cherry_post",
     "count": 2

@@ -2,12 +2,8 @@
   "type": "crafting_shapeless",
   "group": "adorn:kitchen_sink",
   "ingredients": [
-    {
-      "item": "adorn:<mod-prefix><id.path>_kitchen_counter"
-    },
-    {
-      "tag": "c:buckets/empty"
-    }
+    "adorn:<mod-prefix><id.path>_kitchen_counter",
+    "#c:buckets/empty"
   ],
   "result": {
     "id": "adorn:<mod-prefix><id.path>_kitchen_sink",

@@ -1,8 +1,6 @@
 {
   "type": "stonecutting",
-  "ingredient": {
-    "item": "byg:polished_soapstone"
-  },
+  "ingredient": "byg:polished_soapstone",
   "result": {
     "id": "adorn:byg/polished_soapstone_platform",
     "count": 1

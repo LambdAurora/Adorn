@@ -7,12 +7,8 @@
     "#"
   ],
   "key": {
-    "#": {
-      "item": "minecraft:quartz_block"
-    },
-    "/": {
-      "tag": "c:rods/stone"
-    }
+    "#": "minecraft:quartz_block",
+    "/": "#c:rods/stone"
   },
   "result": {
     "id": "adorn:quartz_post",

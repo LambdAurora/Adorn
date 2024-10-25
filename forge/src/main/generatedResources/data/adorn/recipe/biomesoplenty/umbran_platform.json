@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "biomesoplenty:umbran_slab"
-    },
-    "P": {
-      "item": "adorn:biomesoplenty/umbran_post"
-    }
+    "S": "biomesoplenty:umbran_slab",
+    "P": "adorn:biomesoplenty/umbran_post"
   },
   "result": {
     "id": "adorn:biomesoplenty/umbran_platform",

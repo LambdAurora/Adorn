@@ -7,12 +7,8 @@
     "##"
   ],
   "key": {
-    "S": {
-      "item": "terrestria:sakura_slab"
-    },
-    "#": {
-      "tag": "c:rods/wooden"
-    }
+    "S": "terrestria:sakura_slab",
+    "#": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:terrestria/sakura_chair",

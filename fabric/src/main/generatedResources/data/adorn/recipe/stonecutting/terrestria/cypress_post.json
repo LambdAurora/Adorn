@@ -1,8 +1,6 @@
 {
   "type": "stonecutting",
-  "ingredient": {
-    "item": "terrestria:cypress_planks"
-  },
+  "ingredient": "terrestria:cypress_planks",
   "result": {
     "id": "adorn:terrestria/cypress_post",
     "count": 2

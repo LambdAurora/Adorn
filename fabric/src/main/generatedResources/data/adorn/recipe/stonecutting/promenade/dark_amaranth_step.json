@@ -1,8 +1,6 @@
 {
   "type": "stonecutting",
-  "ingredient": {
-    "item": "promenade:dark_amaranth_planks"
-  },
+  "ingredient": "promenade:dark_amaranth_planks",
   "result": {
     "id": "adorn:promenade/dark_amaranth_step",
     "count": 2

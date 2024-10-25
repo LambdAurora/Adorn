@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:mangrove_slab"
-    },
-    "P": {
-      "item": "adorn:mangrove_post"
-    }
+    "S": "minecraft:mangrove_slab",
+    "P": "adorn:mangrove_post"
   },
   "result": {
     "id": "adorn:mangrove_platform",

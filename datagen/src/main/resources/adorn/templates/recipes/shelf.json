@@ -6,12 +6,8 @@
     "/ /"
   ],
   "key": {
-    "-": {
-      "item": "<slab>"
-    },
-    "/": {
-      "tag": "<stick>"
-    }
+    "-": "<slab>",
+    "/": "#<stick>"
   },
   "result": {
     "id": "adorn:<mod-prefix><id.path>_shelf",

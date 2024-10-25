@@ -6,12 +6,8 @@
     "#"
   ],
   "key": {
-    "S": {
-      "item": "promenade:dark_amaranth_slab"
-    },
-    "#": {
-      "tag": "c:rods/wooden"
-    }
+    "S": "promenade:dark_amaranth_slab",
+    "#": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:promenade/dark_amaranth_step",

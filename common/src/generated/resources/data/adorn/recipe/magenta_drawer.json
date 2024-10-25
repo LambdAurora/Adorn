@@ -7,12 +7,8 @@
     "S"
   ],
   "key": {
-    "C": {
-      "tag": "c:chests/wooden"
-    },
-    "S": {
-      "item": "adorn:magenta_wood_slab"
-    }
+    "C": "#c:chests/wooden",
+    "S": "adorn:magenta_wood_slab"
   },
   "result": {
     "id": "adorn:magenta_drawer",

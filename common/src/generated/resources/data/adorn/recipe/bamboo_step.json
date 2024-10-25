@@ -6,12 +6,8 @@
     "#"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:bamboo_slab"
-    },
-    "#": {
-      "tag": "c:rods/wooden"
-    }
+    "S": "minecraft:bamboo_slab",
+    "#": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:bamboo_step",

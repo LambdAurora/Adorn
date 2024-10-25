@@ -6,9 +6,7 @@
     "S S"
   ],
   "key": {
-    "S": {
-      "item": "woods_and_mires:pine_slab"
-    }
+    "S": "woods_and_mires:pine_slab"
   },
   "result": {
     "id": "adorn:woods_and_mires/pine_bench",

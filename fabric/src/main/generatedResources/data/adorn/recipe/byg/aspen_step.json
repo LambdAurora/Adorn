@@ -6,12 +6,8 @@
     "#"
   ],
   "key": {
-    "S": {
-      "item": "byg:aspen_slab"
-    },
-    "#": {
-      "tag": "c:rods/wooden"
-    }
+    "S": "byg:aspen_slab",
+    "#": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:byg/aspen_step",

@@ -7,12 +7,8 @@
     "#"
   ],
   "key": {
-    "#": {
-      "item": "biomesoplenty:fir_planks"
-    },
-    "/": {
-      "tag": "c:rods/wooden"
-    }
+    "#": "biomesoplenty:fir_planks",
+    "/": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:biomesoplenty/fir_post",

@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "blockus:white_oak_slab"
-    },
-    "P": {
-      "item": "adorn:blockus/white_oak_post"
-    }
+    "S": "blockus:white_oak_slab",
+    "P": "adorn:blockus/white_oak_post"
   },
   "result": {
     "id": "adorn:blockus/white_oak_platform",

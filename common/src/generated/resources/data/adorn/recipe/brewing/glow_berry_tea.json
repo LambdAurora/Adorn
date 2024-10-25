@@ -1,0 +1,8 @@
+{
+  "type": "adorn:brewing",
+  "first_ingredient": "#c:foods/berry/glow",
+  "result": {
+    "count": 1,
+    "id": "adorn:glow_berry_tea"
+  }
+}

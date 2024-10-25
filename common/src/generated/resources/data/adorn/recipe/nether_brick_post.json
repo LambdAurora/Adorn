@@ -7,12 +7,8 @@
     "#"
   ],
   "key": {
-    "#": {
-      "item": "minecraft:nether_bricks"
-    },
-    "/": {
-      "tag": "c:rods/stone"
-    }
+    "#": "minecraft:nether_bricks",
+    "/": "#c:rods/stone"
   },
   "result": {
     "id": "adorn:nether_brick_post",

@@ -7,12 +7,8 @@
     "#"
   ],
   "key": {
-    "#": {
-      "item": "minecraft:birch_planks"
-    },
-    "/": {
-      "tag": "c:rods/wooden"
-    }
+    "#": "minecraft:birch_planks",
+    "/": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:birch_post",

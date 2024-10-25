@@ -1,8 +1,6 @@
 {
   "type": "stonecutting",
-  "ingredient": {
-    "item": "minecraft:stone"
-  },
+  "ingredient": "minecraft:stone",
   "result": {
     "id": "adorn:stone_post",
     "count": 2

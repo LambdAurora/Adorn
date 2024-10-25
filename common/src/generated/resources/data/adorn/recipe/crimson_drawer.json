@@ -7,12 +7,8 @@
     "S"
   ],
   "key": {
-    "C": {
-      "tag": "c:chests/wooden"
-    },
-    "S": {
-      "item": "minecraft:crimson_slab"
-    }
+    "C": "#c:chests/wooden",
+    "S": "minecraft:crimson_slab"
   },
   "result": {
     "id": "adorn:crimson_drawer",

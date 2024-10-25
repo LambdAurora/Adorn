@@ -6,9 +6,7 @@
     "S S"
   ],
   "key": {
-    "S": {
-      "item": "promenade:palm_slab"
-    }
+    "S": "promenade:palm_slab"
   },
   "result": {
     "id": "adorn:promenade/palm_bench",

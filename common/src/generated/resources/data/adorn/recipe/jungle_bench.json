@@ -6,9 +6,7 @@
     "S S"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:jungle_slab"
-    }
+    "S": "minecraft:jungle_slab"
   },
   "result": {
     "id": "adorn:jungle_bench",

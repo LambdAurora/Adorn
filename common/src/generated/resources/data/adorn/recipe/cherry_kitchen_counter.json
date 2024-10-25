@@ -6,12 +6,8 @@
     "PP"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:polished_andesite_slab"
-    },
-    "P": {
-      "item": "minecraft:cherry_planks"
-    }
+    "S": "minecraft:polished_andesite_slab",
+    "P": "minecraft:cherry_planks"
   },
   "result": {
     "id": "adorn:cherry_kitchen_counter",

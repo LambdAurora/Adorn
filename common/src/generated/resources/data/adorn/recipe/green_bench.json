@@ -6,9 +6,7 @@
     "S S"
   ],
   "key": {
-    "S": {
-      "item": "adorn:green_wood_slab"
-    }
+    "S": "adorn:green_wood_slab"
   },
   "result": {
     "id": "adorn:green_bench",

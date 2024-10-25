@@ -2,15 +2,9 @@
   "type": "crafting_shapeless",
   "group": "adorn:kitchen_cupboard",
   "ingredients": [
-    {
-      "tag": "c:chests/wooden"
-    },
-    {
-      "item": "adorn:ecologics/walnut_kitchen_counter"
-    },
-    {
-      "item": "adorn:ecologics/walnut_kitchen_counter"
-    }
+    "#c:chests/wooden",
+    "adorn:ecologics/walnut_kitchen_counter",
+    "adorn:ecologics/walnut_kitchen_counter"
   ],
   "result": {
     "id": "adorn:ecologics/walnut_kitchen_cupboard",

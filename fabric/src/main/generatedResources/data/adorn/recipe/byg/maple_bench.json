@@ -6,9 +6,7 @@
     "S S"
   ],
   "key": {
-    "S": {
-      "item": "byg:maple_slab"
-    }
+    "S": "byg:maple_slab"
   },
   "result": {
     "id": "adorn:byg/maple_bench",

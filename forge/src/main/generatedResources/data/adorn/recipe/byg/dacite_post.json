@@ -7,12 +7,8 @@
     "#"
   ],
   "key": {
-    "#": {
-      "item": "byg:dacite"
-    },
-    "/": {
-      "tag": "c:rods/stone"
-    }
+    "#": "byg:dacite",
+    "/": "#c:rods/stone"
   },
   "result": {
     "id": "adorn:byg/dacite_post",

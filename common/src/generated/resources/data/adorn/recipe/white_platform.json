@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "adorn:white_wood_slab"
-    },
-    "P": {
-      "item": "adorn:white_post"
-    }
+    "S": "adorn:white_wood_slab",
+    "P": "adorn:white_post"
   },
   "result": {
     "id": "adorn:white_platform",

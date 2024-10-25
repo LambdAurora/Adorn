@@ -6,12 +6,8 @@
     "/ /"
   ],
   "key": {
-    "-": {
-      "item": "byg:redwood_slab"
-    },
-    "/": {
-      "tag": "c:rods/wooden"
-    }
+    "-": "byg:redwood_slab",
+    "/": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:byg/redwood_shelf",

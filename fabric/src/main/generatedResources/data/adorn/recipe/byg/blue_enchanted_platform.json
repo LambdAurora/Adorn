@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "byg:blue_enchanted_slab"
-    },
-    "P": {
-      "item": "adorn:byg/blue_enchanted_post"
-    }
+    "S": "byg:blue_enchanted_slab",
+    "P": "adorn:byg/blue_enchanted_post"
   },
   "result": {
     "id": "adorn:byg/blue_enchanted_platform",

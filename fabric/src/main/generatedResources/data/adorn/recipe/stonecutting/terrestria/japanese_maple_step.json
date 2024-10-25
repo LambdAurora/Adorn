@@ -1,8 +1,6 @@
 {
   "type": "stonecutting",
-  "ingredient": {
-    "item": "terrestria:japanese_maple_planks"
-  },
+  "ingredient": "terrestria:japanese_maple_planks",
   "result": {
     "id": "adorn:terrestria/japanese_maple_step",
     "count": 2

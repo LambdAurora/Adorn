@@ -6,12 +6,8 @@
     "PP"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:polished_andesite_slab"
-    },
-    "P": {
-      "item": "byg:embur_planks"
-    }
+    "S": "minecraft:polished_andesite_slab",
+    "P": "byg:embur_planks"
   },
   "result": {
     "id": "adorn:byg/embur_kitchen_counter",

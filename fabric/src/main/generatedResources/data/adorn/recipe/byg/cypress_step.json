@@ -6,12 +6,8 @@
     "#"
   ],
   "key": {
-    "S": {
-      "item": "byg:cypress_slab"
-    },
-    "#": {
-      "tag": "c:rods/wooden"
-    }
+    "S": "byg:cypress_slab",
+    "#": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:byg/cypress_step",

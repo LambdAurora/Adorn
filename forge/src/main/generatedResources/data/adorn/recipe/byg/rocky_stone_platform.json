@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "byg:rocky_stone_slab"
-    },
-    "P": {
-      "item": "adorn:byg/rocky_stone_post"
-    }
+    "S": "byg:rocky_stone_slab",
+    "P": "adorn:byg/rocky_stone_post"
   },
   "result": {
     "id": "adorn:byg/rocky_stone_platform",

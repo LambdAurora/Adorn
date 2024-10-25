@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:jungle_slab"
-    },
-    "P": {
-      "item": "adorn:jungle_post"
-    }
+    "S": "minecraft:jungle_slab",
+    "P": "adorn:jungle_post"
   },
   "result": {
     "id": "adorn:jungle_platform",

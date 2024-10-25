@@ -7,12 +7,8 @@
     "#"
   ],
   "key": {
-    "#": {
-      "item": "adorn:magenta_planks"
-    },
-    "/": {
-      "tag": "c:rods/wooden"
-    }
+    "#": "adorn:magenta_planks",
+    "/": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:magenta_post",

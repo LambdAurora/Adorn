@@ -6,9 +6,7 @@
     "S S"
   ],
   "key": {
-    "S": {
-      "item": "biomemakeover:ancient_oak_slab"
-    }
+    "S": "biomemakeover:ancient_oak_slab"
   },
   "result": {
     "id": "adorn:biomemakeover/ancient_oak_bench",

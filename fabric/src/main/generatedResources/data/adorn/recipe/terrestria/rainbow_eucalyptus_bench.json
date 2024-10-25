@@ -6,9 +6,7 @@
     "S S"
   ],
   "key": {
-    "S": {
-      "item": "terrestria:rainbow_eucalyptus_slab"
-    }
+    "S": "terrestria:rainbow_eucalyptus_slab"
   },
   "result": {
     "id": "adorn:terrestria/rainbow_eucalyptus_bench",

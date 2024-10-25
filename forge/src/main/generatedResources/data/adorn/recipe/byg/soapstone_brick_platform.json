@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "byg:soapstone_brick_slab"
-    },
-    "P": {
-      "item": "adorn:byg/soapstone_brick_post"
-    }
+    "S": "byg:soapstone_brick_slab",
+    "P": "adorn:byg/soapstone_brick_post"
   },
   "result": {
     "id": "adorn:byg/soapstone_brick_platform",

@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "byg:imparius_slab"
-    },
-    "P": {
-      "item": "adorn:byg/imparius_post"
-    }
+    "S": "byg:imparius_slab",
+    "P": "adorn:byg/imparius_post"
   },
   "result": {
     "id": "adorn:byg/imparius_platform",

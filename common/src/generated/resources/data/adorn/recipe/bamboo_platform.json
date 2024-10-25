@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:bamboo_slab"
-    },
-    "P": {
-      "item": "adorn:bamboo_post"
-    }
+    "S": "minecraft:bamboo_slab",
+    "P": "adorn:bamboo_post"
   },
   "result": {
     "id": "adorn:bamboo_platform",

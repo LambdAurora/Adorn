@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "byg:zelkova_slab"
-    },
-    "P": {
-      "item": "adorn:byg/zelkova_post"
-    }
+    "S": "byg:zelkova_slab",
+    "P": "adorn:byg/zelkova_post"
   },
   "result": {
     "id": "adorn:byg/zelkova_platform",

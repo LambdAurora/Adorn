@@ -6,12 +6,8 @@
     "PP"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:polished_andesite_slab"
-    },
-    "P": {
-      "item": "terrestria:willow_planks"
-    }
+    "S": "minecraft:polished_andesite_slab",
+    "P": "terrestria:willow_planks"
   },
   "result": {
     "id": "adorn:terrestria/willow_kitchen_counter",

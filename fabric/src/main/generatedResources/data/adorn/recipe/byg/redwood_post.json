@@ -7,12 +7,8 @@
     "#"
   ],
   "key": {
-    "#": {
-      "item": "byg:redwood_planks"
-    },
-    "/": {
-      "tag": "c:rods/wooden"
-    }
+    "#": "byg:redwood_planks",
+    "/": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:byg/redwood_post",

@@ -2,15 +2,9 @@
   "type": "crafting_shapeless",
   "group": "adorn:kitchen_cupboard",
   "ingredients": [
-    {
-      "tag": "c:chests/wooden"
-    },
-    {
-      "item": "adorn:byg/holly_kitchen_counter"
-    },
-    {
-      "item": "adorn:byg/holly_kitchen_counter"
-    }
+    "#c:chests/wooden",
+    "adorn:byg/holly_kitchen_counter",
+    "adorn:byg/holly_kitchen_counter"
   ],
   "result": {
     "id": "adorn:byg/holly_kitchen_cupboard",

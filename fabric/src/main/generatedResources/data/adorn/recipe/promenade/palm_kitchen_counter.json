@@ -6,12 +6,8 @@
     "PP"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:polished_andesite_slab"
-    },
-    "P": {
-      "item": "promenade:palm_planks"
-    }
+    "S": "minecraft:polished_andesite_slab",
+    "P": "promenade:palm_planks"
   },
   "result": {
     "id": "adorn:promenade/palm_kitchen_counter",

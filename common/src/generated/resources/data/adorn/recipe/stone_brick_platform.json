@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:stone_brick_slab"
-    },
-    "P": {
-      "item": "adorn:stone_brick_post"
-    }
+    "S": "minecraft:stone_brick_slab",
+    "P": "adorn:stone_brick_post"
   },
   "result": {
     "id": "adorn:stone_brick_platform",

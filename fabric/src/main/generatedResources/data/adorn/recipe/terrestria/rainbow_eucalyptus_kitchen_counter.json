@@ -6,12 +6,8 @@
     "PP"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:polished_andesite_slab"
-    },
-    "P": {
-      "item": "terrestria:rainbow_eucalyptus_planks"
-    }
+    "S": "minecraft:polished_andesite_slab",
+    "P": "terrestria:rainbow_eucalyptus_planks"
   },
   "result": {
     "id": "adorn:terrestria/rainbow_eucalyptus_kitchen_counter",

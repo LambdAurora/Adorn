@@ -6,12 +6,8 @@
     "#"
   ],
   "key": {
-    "S": {
-      "item": "byg:soapstone_tile_slab"
-    },
-    "#": {
-      "tag": "c:rods/stone"
-    }
+    "S": "byg:soapstone_tile_slab",
+    "#": "#c:rods/stone"
   },
   "result": {
     "id": "adorn:byg/soapstone_tile_step",

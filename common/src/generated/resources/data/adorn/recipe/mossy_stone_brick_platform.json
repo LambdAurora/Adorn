@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:mossy_stone_brick_slab"
-    },
-    "P": {
-      "item": "adorn:mossy_stone_brick_post"
-    }
+    "S": "minecraft:mossy_stone_brick_slab",
+    "P": "adorn:mossy_stone_brick_post"
   },
   "result": {
     "id": "adorn:mossy_stone_brick_platform",

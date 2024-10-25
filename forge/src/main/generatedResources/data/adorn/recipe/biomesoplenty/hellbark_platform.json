@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "biomesoplenty:hellbark_slab"
-    },
-    "P": {
-      "item": "adorn:biomesoplenty/hellbark_post"
-    }
+    "S": "biomesoplenty:hellbark_slab",
+    "P": "adorn:biomesoplenty/hellbark_post"
   },
   "result": {
     "id": "adorn:biomesoplenty/hellbark_platform",

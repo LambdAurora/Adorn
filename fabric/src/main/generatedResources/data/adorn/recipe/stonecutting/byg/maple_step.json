@@ -1,8 +1,6 @@
 {
   "type": "stonecutting",
-  "ingredient": {
-    "item": "byg:maple_planks"
-  },
+  "ingredient": "byg:maple_planks",
   "result": {
     "id": "adorn:byg/maple_step",
     "count": 2

@@ -7,12 +7,8 @@
     "# #"
   ],
   "key": {
-    "S": {
-      "item": "techreborn:rubber_slab"
-    },
-    "#": {
-      "tag": "c:rods/wooden"
-    }
+    "S": "techreborn:rubber_slab",
+    "#": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:techreborn/rubber_table",

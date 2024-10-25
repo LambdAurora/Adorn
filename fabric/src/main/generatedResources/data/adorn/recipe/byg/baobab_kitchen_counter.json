@@ -6,12 +6,8 @@
     "PP"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:polished_andesite_slab"
-    },
-    "P": {
-      "item": "byg:baobab_planks"
-    }
+    "S": "minecraft:polished_andesite_slab",
+    "P": "byg:baobab_planks"
   },
   "result": {
     "id": "adorn:byg/baobab_kitchen_counter",

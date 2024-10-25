@@ -6,12 +6,8 @@
     "#"
   ],
   "key": {
-    "S": {
-      "item": "biomesoplenty:smooth_white_sandstone_slab"
-    },
-    "#": {
-      "tag": "c:rods/stone"
-    }
+    "S": "biomesoplenty:smooth_white_sandstone_slab",
+    "#": "#c:rods/stone"
   },
   "result": {
     "id": "adorn:biomesoplenty/smooth_white_sandstone_step",

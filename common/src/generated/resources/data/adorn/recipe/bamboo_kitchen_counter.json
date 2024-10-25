@@ -6,12 +6,8 @@
     "PP"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:polished_andesite_slab"
-    },
-    "P": {
-      "item": "minecraft:bamboo_planks"
-    }
+    "S": "minecraft:polished_andesite_slab",
+    "P": "minecraft:bamboo_planks"
   },
   "result": {
     "id": "adorn:bamboo_kitchen_counter",

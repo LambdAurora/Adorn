@@ -6,9 +6,7 @@
     "S S"
   ],
   "key": {
-    "S": {
-      "item": "byg:witch_hazel_slab"
-    }
+    "S": "byg:witch_hazel_slab"
   },
   "result": {
     "id": "adorn:byg/witch_hazel_bench",

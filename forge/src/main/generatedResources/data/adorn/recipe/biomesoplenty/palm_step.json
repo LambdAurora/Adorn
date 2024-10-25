@@ -6,12 +6,8 @@
     "#"
   ],
   "key": {
-    "S": {
-      "item": "biomesoplenty:palm_slab"
-    },
-    "#": {
-      "tag": "c:rods/wooden"
-    }
+    "S": "biomesoplenty:palm_slab",
+    "#": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:biomesoplenty/palm_step",

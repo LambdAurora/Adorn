@@ -1,8 +1,6 @@
 {
   "type": "stonecutting",
-  "ingredient": {
-    "item": "terrestria:redwood_planks"
-  },
+  "ingredient": "terrestria:redwood_planks",
   "result": {
     "id": "adorn:terrestria/redwood_post",
     "count": 2

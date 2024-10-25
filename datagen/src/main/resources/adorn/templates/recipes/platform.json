@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "<slab>"
-    },
-    "P": {
-      "item": "adorn:<mod-prefix><id.path>_post"
-    }
+    "S": "<slab>",
+    "P": "adorn:<mod-prefix><id.path>_post"
   },
   "result": {
     "id": "adorn:<mod-prefix><id.path>_platform",

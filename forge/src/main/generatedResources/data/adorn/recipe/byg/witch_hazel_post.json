@@ -7,12 +7,8 @@
     "#"
   ],
   "key": {
-    "#": {
-      "item": "byg:witch_hazel_planks"
-    },
-    "/": {
-      "tag": "c:rods/wooden"
-    }
+    "#": "byg:witch_hazel_planks",
+    "/": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:byg/witch_hazel_post",

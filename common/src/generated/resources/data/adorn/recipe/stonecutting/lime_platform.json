@@ -1,8 +1,6 @@
 {
   "type": "stonecutting",
-  "ingredient": {
-    "item": "adorn:lime_planks"
-  },
+  "ingredient": "adorn:lime_planks",
   "result": {
     "id": "adorn:lime_platform",
     "count": 1

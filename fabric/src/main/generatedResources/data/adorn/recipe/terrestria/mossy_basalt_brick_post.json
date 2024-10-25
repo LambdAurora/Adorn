@@ -7,12 +7,8 @@
     "#"
   ],
   "key": {
-    "#": {
-      "item": "terrestria:mossy_basalt_bricks"
-    },
-    "/": {
-      "tag": "c:rods/stone"
-    }
+    "#": "terrestria:mossy_basalt_bricks",
+    "/": "#c:rods/stone"
   },
   "result": {
     "id": "adorn:terrestria/mossy_basalt_brick_post",

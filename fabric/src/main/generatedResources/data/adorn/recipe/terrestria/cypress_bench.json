@@ -6,9 +6,7 @@
     "S S"
   ],
   "key": {
-    "S": {
-      "item": "terrestria:cypress_slab"
-    }
+    "S": "terrestria:cypress_slab"
   },
   "result": {
     "id": "adorn:terrestria/cypress_bench",

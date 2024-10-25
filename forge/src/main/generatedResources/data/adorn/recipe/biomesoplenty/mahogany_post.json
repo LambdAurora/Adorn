@@ -7,12 +7,8 @@
     "#"
   ],
   "key": {
-    "#": {
-      "item": "biomesoplenty:mahogany_planks"
-    },
-    "/": {
-      "tag": "c:rods/wooden"
-    }
+    "#": "biomesoplenty:mahogany_planks",
+    "/": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:biomesoplenty/mahogany_post",

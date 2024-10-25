@@ -1,8 +1,6 @@
 {
   "type": "stonecutting",
-  "ingredient": {
-    "item": "byg:holly_planks"
-  },
+  "ingredient": "byg:holly_planks",
   "result": {
     "id": "adorn:byg/holly_step",
     "count": 2

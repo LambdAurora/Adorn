@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "byg:ebony_slab"
-    },
-    "P": {
-      "item": "adorn:byg/ebony_post"
-    }
+    "S": "byg:ebony_slab",
+    "P": "adorn:byg/ebony_post"
   },
   "result": {
     "id": "adorn:byg/ebony_platform",

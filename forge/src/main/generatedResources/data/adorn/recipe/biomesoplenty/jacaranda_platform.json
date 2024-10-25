@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "biomesoplenty:jacaranda_slab"
-    },
-    "P": {
-      "item": "adorn:biomesoplenty/jacaranda_post"
-    }
+    "S": "biomesoplenty:jacaranda_slab",
+    "P": "adorn:biomesoplenty/jacaranda_post"
   },
   "result": {
     "id": "adorn:biomesoplenty/jacaranda_platform",

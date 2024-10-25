@@ -6,12 +6,8 @@
     "#"
   ],
   "key": {
-    "S": {
-      "item": "adorn:purple_wood_slab"
-    },
-    "#": {
-      "tag": "c:rods/wooden"
-    }
+    "S": "adorn:purple_wood_slab",
+    "#": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:purple_step",

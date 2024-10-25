@@ -7,12 +7,8 @@
     "#"
   ],
   "key": {
-    "#": {
-      "item": "ecologics:walnut_planks"
-    },
-    "/": {
-      "tag": "c:rods/wooden"
-    }
+    "#": "ecologics:walnut_planks",
+    "/": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:ecologics/walnut_post",

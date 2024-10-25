@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "biomesoplenty:dead_slab"
-    },
-    "P": {
-      "item": "adorn:biomesoplenty/dead_post"
-    }
+    "S": "biomesoplenty:dead_slab",
+    "P": "adorn:biomesoplenty/dead_post"
   },
   "result": {
     "id": "adorn:biomesoplenty/dead_platform",

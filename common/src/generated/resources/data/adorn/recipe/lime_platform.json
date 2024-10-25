@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "adorn:lime_wood_slab"
-    },
-    "P": {
-      "item": "adorn:lime_post"
-    }
+    "S": "adorn:lime_wood_slab",
+    "P": "adorn:lime_post"
   },
   "result": {
     "id": "adorn:lime_platform",

@@ -6,12 +6,8 @@
     "#"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:cherry_slab"
-    },
-    "#": {
-      "tag": "c:rods/wooden"
-    }
+    "S": "minecraft:cherry_slab",
+    "#": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:cherry_step",

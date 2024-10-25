@@ -1,8 +1,6 @@
 {
   "type": "stonecutting",
-  "ingredient": {
-    "item": "promenade:sakura_planks"
-  },
+  "ingredient": "promenade:sakura_planks",
   "result": {
     "id": "adorn:promenade/sakura_post",
     "count": 2

@@ -7,12 +7,8 @@
     "#"
   ],
   "key": {
-    "#": {
-      "item": "terrestria:yucca_palm_planks"
-    },
-    "/": {
-      "tag": "c:rods/wooden"
-    }
+    "#": "terrestria:yucca_palm_planks",
+    "/": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:terrestria/yucca_palm_post",

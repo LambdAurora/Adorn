@@ -1,8 +1,6 @@
 {
   "type": "stonecutting",
-  "ingredient": {
-    "item": "minecraft:diorite"
-  },
+  "ingredient": "minecraft:diorite",
   "result": {
     "id": "adorn:diorite_step",
     "count": 2

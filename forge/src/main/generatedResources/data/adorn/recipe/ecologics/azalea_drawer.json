@@ -7,12 +7,8 @@
     "S"
   ],
   "key": {
-    "C": {
-      "tag": "c:chests/wooden"
-    },
-    "S": {
-      "item": "ecologics:azalea_slab"
-    }
+    "C": "#c:chests/wooden",
+    "S": "ecologics:azalea_slab"
   },
   "result": {
     "id": "adorn:ecologics/azalea_drawer",

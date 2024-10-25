@@ -6,9 +6,7 @@
     "S S"
   ],
   "key": {
-    "S": {
-      "item": "biomesoplenty:redwood_slab"
-    }
+    "S": "biomesoplenty:redwood_slab"
   },
   "result": {
     "id": "adorn:biomesoplenty/redwood_bench",

@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "terrestria:sakura_slab"
-    },
-    "P": {
-      "item": "adorn:terrestria/sakura_post"
-    }
+    "S": "terrestria:sakura_slab",
+    "P": "adorn:terrestria/sakura_post"
   },
   "result": {
     "id": "adorn:terrestria/sakura_platform",

@@ -7,12 +7,8 @@
     "#"
   ],
   "key": {
-    "#": {
-      "item": "byg:polished_soapstone"
-    },
-    "/": {
-      "tag": "c:rods/stone"
-    }
+    "#": "byg:polished_soapstone",
+    "/": "#c:rods/stone"
   },
   "result": {
     "id": "adorn:byg/polished_soapstone_post",

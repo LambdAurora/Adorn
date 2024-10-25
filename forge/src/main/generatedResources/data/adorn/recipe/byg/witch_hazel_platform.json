@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "byg:witch_hazel_slab"
-    },
-    "P": {
-      "item": "adorn:byg/witch_hazel_post"
-    }
+    "S": "byg:witch_hazel_slab",
+    "P": "adorn:byg/witch_hazel_post"
   },
   "result": {
     "id": "adorn:byg/witch_hazel_platform",

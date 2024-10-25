@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "byg:lament_slab"
-    },
-    "P": {
-      "item": "adorn:byg/lament_post"
-    }
+    "S": "byg:lament_slab",
+    "P": "adorn:byg/lament_post"
   },
   "result": {
     "id": "adorn:byg/lament_platform",

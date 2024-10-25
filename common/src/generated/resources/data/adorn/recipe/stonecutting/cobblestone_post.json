@@ -1,8 +1,6 @@
 {
   "type": "stonecutting",
-  "ingredient": {
-    "item": "minecraft:cobblestone"
-  },
+  "ingredient": "minecraft:cobblestone",
   "result": {
     "id": "adorn:cobblestone_post",
     "count": 2

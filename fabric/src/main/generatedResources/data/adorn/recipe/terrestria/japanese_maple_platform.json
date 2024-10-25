@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "terrestria:japanese_maple_slab"
-    },
-    "P": {
-      "item": "adorn:terrestria/japanese_maple_post"
-    }
+    "S": "terrestria:japanese_maple_slab",
+    "P": "adorn:terrestria/japanese_maple_post"
   },
   "result": {
     "id": "adorn:terrestria/japanese_maple_platform",

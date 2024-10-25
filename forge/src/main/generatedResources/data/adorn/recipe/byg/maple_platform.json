@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "byg:maple_slab"
-    },
-    "P": {
-      "item": "adorn:byg/maple_post"
-    }
+    "S": "byg:maple_slab",
+    "P": "adorn:byg/maple_post"
   },
   "result": {
     "id": "adorn:byg/maple_platform",

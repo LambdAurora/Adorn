@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "byg:dacite_slab"
-    },
-    "P": {
-      "item": "adorn:byg/dacite_post"
-    }
+    "S": "byg:dacite_slab",
+    "P": "adorn:byg/dacite_post"
   },
   "result": {
     "id": "adorn:byg/dacite_platform",

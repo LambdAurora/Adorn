@@ -6,12 +6,8 @@
     "#"
   ],
   "key": {
-    "S": {
-      "item": "byg:ether_slab"
-    },
-    "#": {
-      "tag": "c:rods/wooden"
-    }
+    "S": "byg:ether_slab",
+    "#": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:byg/ether_step",

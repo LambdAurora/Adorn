@@ -6,12 +6,8 @@
     "#"
   ],
   "key": {
-    "S": {
-      "item": "byg:mossy_red_rock_brick_slab"
-    },
-    "#": {
-      "tag": "c:rods/stone"
-    }
+    "S": "byg:mossy_red_rock_brick_slab",
+    "#": "#c:rods/stone"
   },
   "result": {
     "id": "adorn:byg/mossy_red_rock_brick_step",

@@ -7,12 +7,8 @@
     "S"
   ],
   "key": {
-    "C": {
-      "tag": "c:chests/wooden"
-    },
-    "S": {
-      "item": "terrestria:yucca_palm_slab"
-    }
+    "C": "#c:chests/wooden",
+    "S": "terrestria:yucca_palm_slab"
   },
   "result": {
     "id": "adorn:terrestria/yucca_palm_drawer",

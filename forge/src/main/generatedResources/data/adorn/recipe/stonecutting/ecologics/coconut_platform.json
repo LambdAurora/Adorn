@@ -1,8 +1,6 @@
 {
   "type": "stonecutting",
-  "ingredient": {
-    "item": "ecologics:coconut_planks"
-  },
+  "ingredient": "ecologics:coconut_planks",
   "result": {
     "id": "adorn:ecologics/coconut_platform",
     "count": 1

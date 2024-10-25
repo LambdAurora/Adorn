@@ -6,12 +6,8 @@
     "#"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:polished_blackstone_slab"
-    },
-    "#": {
-      "tag": "c:rods/stone"
-    }
+    "S": "minecraft:polished_blackstone_slab",
+    "#": "#c:rods/stone"
   },
   "result": {
     "id": "adorn:polished_blackstone_step",

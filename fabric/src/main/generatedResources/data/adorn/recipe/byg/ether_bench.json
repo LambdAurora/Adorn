@@ -6,9 +6,7 @@
     "S S"
   ],
   "key": {
-    "S": {
-      "item": "byg:ether_slab"
-    }
+    "S": "byg:ether_slab"
   },
   "result": {
     "id": "adorn:byg/ether_bench",

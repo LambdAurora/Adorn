@@ -6,9 +6,7 @@
     "S S"
   ],
   "key": {
-    "S": {
-      "item": "biomemakeover:blighted_balsa_slab"
-    }
+    "S": "biomemakeover:blighted_balsa_slab"
   },
   "result": {
     "id": "adorn:biomemakeover/blighted_balsa_bench",

@@ -6,12 +6,8 @@
     "#"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:deepslate_tile_slab"
-    },
-    "#": {
-      "tag": "c:rods/stone"
-    }
+    "S": "minecraft:deepslate_tile_slab",
+    "#": "#c:rods/stone"
   },
   "result": {
     "id": "adorn:deepslate_tile_step",

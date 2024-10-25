@@ -6,12 +6,8 @@
     "/ /"
   ],
   "key": {
-    "-": {
-      "item": "biomemakeover:ancient_oak_slab"
-    },
-    "/": {
-      "tag": "c:rods/wooden"
-    }
+    "-": "biomemakeover:ancient_oak_slab",
+    "/": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:biomemakeover/ancient_oak_shelf",

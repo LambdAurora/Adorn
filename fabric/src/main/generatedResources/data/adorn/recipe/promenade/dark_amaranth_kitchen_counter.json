@@ -6,12 +6,8 @@
     "PP"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:polished_andesite_slab"
-    },
-    "P": {
-      "item": "promenade:dark_amaranth_planks"
-    }
+    "S": "minecraft:polished_andesite_slab",
+    "P": "promenade:dark_amaranth_planks"
   },
   "result": {
     "id": "adorn:promenade/dark_amaranth_kitchen_counter",

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "adorn:pack_crate",
+  "key": {
+    "#": "adorn:crate",
+    ".": "minecraft:honeycomb"
+  },
+  "pattern": [
+    "...",
+    ".#.",
+    "..."
+  ],
+  "result": {
+    "count": 1,
+    "id": "adorn:honeycomb_crate"
+  }
+}

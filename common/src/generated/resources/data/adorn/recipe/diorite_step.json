@@ -6,12 +6,8 @@
     "#"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:diorite_slab"
-    },
-    "#": {
-      "tag": "c:rods/stone"
-    }
+    "S": "minecraft:diorite_slab",
+    "#": "#c:rods/stone"
   },
   "result": {
     "id": "adorn:diorite_step",

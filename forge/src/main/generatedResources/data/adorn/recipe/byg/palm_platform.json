@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "byg:palm_slab"
-    },
-    "P": {
-      "item": "adorn:byg/palm_post"
-    }
+    "S": "byg:palm_slab",
+    "P": "adorn:byg/palm_post"
   },
   "result": {
     "id": "adorn:byg/palm_platform",

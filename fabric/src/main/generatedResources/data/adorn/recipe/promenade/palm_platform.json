@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "promenade:palm_slab"
-    },
-    "P": {
-      "item": "adorn:promenade/palm_post"
-    }
+    "S": "promenade:palm_slab",
+    "P": "adorn:promenade/palm_post"
   },
   "result": {
     "id": "adorn:promenade/palm_platform",

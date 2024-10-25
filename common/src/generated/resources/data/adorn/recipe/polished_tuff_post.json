@@ -7,12 +7,8 @@
     "#"
   ],
   "key": {
-    "#": {
-      "item": "minecraft:polished_tuff"
-    },
-    "/": {
-      "tag": "c:rods/stone"
-    }
+    "#": "minecraft:polished_tuff",
+    "/": "#c:rods/stone"
   },
   "result": {
     "id": "adorn:polished_tuff_post",

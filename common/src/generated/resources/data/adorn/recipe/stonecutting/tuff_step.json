@@ -1,8 +1,6 @@
 {
   "type": "stonecutting",
-  "ingredient": {
-    "item": "minecraft:tuff"
-  },
+  "ingredient": "minecraft:tuff",
   "result": {
     "id": "adorn:tuff_step",
     "count": 2

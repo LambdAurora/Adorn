@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "adorn:cyan_wood_slab"
-    },
-    "P": {
-      "item": "adorn:cyan_post"
-    }
+    "S": "adorn:cyan_wood_slab",
+    "P": "adorn:cyan_post"
   },
   "result": {
     "id": "adorn:cyan_platform",

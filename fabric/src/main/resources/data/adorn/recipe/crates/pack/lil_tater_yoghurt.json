@@ -7,8 +7,8 @@
     "..."
   ],
   "key": {
-    ".": { "item": "ltr:lil_tater" },
-    "#": { "item": "adorn:crate" }
+    ".": "ltr:lil_tater",
+    "#": "adorn:crate"
   },
   "result": {
     "id": "adorn:lil_tater_crate"

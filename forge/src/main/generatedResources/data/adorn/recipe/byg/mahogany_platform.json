@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "byg:mahogany_slab"
-    },
-    "P": {
-      "item": "adorn:byg/mahogany_post"
-    }
+    "S": "byg:mahogany_slab",
+    "P": "adorn:byg/mahogany_post"
   },
   "result": {
     "id": "adorn:byg/mahogany_platform",

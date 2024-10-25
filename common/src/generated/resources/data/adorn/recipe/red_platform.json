@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "adorn:red_wood_slab"
-    },
-    "P": {
-      "item": "adorn:red_post"
-    }
+    "S": "adorn:red_wood_slab",
+    "P": "adorn:red_post"
   },
   "result": {
     "id": "adorn:red_platform",

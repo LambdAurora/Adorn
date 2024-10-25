@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "terrestria:hemlock_slab"
-    },
-    "P": {
-      "item": "adorn:terrestria/hemlock_post"
-    }
+    "S": "terrestria:hemlock_slab",
+    "P": "adorn:terrestria/hemlock_post"
   },
   "result": {
     "id": "adorn:terrestria/hemlock_platform",

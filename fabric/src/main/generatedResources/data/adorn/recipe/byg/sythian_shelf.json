@@ -6,12 +6,8 @@
     "/ /"
   ],
   "key": {
-    "-": {
-      "item": "byg:sythian_slab"
-    },
-    "/": {
-      "tag": "c:rods/wooden"
-    }
+    "-": "byg:sythian_slab",
+    "/": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:byg/sythian_shelf",

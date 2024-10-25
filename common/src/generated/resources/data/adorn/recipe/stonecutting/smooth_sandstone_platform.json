@@ -1,8 +1,6 @@
 {
   "type": "stonecutting",
-  "ingredient": {
-    "item": "minecraft:smooth_sandstone"
-  },
+  "ingredient": "minecraft:smooth_sandstone",
   "result": {
     "id": "adorn:smooth_sandstone_platform",
     "count": 1

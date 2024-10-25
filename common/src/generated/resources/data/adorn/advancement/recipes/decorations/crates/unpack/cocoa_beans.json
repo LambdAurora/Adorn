@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_cocoa_bean_crate": {
+      "conditions": {
+        "items": [
+          {
+            "items": "adorn:cocoa_bean_crate"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:crates/unpack/cocoa_beans"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_cocoa_bean_crate"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:crates/unpack/cocoa_beans"
+    ]
+  }
+}

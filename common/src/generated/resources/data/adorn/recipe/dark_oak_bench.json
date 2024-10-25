@@ -6,9 +6,7 @@
     "S S"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:dark_oak_slab"
-    }
+    "S": "minecraft:dark_oak_slab"
   },
   "result": {
     "id": "adorn:dark_oak_bench",

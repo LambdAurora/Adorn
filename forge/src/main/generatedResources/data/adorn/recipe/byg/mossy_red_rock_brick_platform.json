@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "byg:mossy_red_rock_brick_slab"
-    },
-    "P": {
-      "item": "adorn:byg/mossy_red_rock_brick_post"
-    }
+    "S": "byg:mossy_red_rock_brick_slab",
+    "P": "adorn:byg/mossy_red_rock_brick_post"
   },
   "result": {
     "id": "adorn:byg/mossy_red_rock_brick_platform",

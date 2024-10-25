@@ -1,8 +1,6 @@
 {
   "type": "stonecutting",
-  "ingredient": {
-    "item": "architects_palette:myonite"
-  },
+  "ingredient": "architects_palette:myonite",
   "result": {
     "id": "adorn:architects_palette/myonite_post",
     "count": 2

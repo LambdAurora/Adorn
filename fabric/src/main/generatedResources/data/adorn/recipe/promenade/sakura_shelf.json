@@ -6,12 +6,8 @@
     "/ /"
   ],
   "key": {
-    "-": {
-      "item": "promenade:sakura_slab"
-    },
-    "/": {
-      "tag": "c:rods/wooden"
-    }
+    "-": "promenade:sakura_slab",
+    "/": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:promenade/sakura_shelf",

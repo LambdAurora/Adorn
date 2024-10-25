@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "terrestria:mossy_basalt_cobblestone_slab"
-    },
-    "P": {
-      "item": "adorn:terrestria/mossy_basalt_cobblestone_post"
-    }
+    "S": "terrestria:mossy_basalt_cobblestone_slab",
+    "P": "adorn:terrestria/mossy_basalt_cobblestone_post"
   },
   "result": {
     "id": "adorn:terrestria/mossy_basalt_cobblestone_platform",

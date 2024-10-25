@@ -6,12 +6,8 @@
     "|"
   ],
   "key": {
-    "-": {
-      "item": "minecraft:orange_carpet"
-    },
-    "|": {
-      "item": "adorn:stone_torch"
-    }
+    "-": "minecraft:orange_carpet",
+    "|": "adorn:stone_torch"
   },
   "result": {
     "id": "adorn:orange_table_lamp",

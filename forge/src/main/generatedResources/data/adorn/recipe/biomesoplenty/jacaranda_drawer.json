@@ -7,12 +7,8 @@
     "S"
   ],
   "key": {
-    "C": {
-      "tag": "c:chests/wooden"
-    },
-    "S": {
-      "item": "biomesoplenty:jacaranda_slab"
-    }
+    "C": "#c:chests/wooden",
+    "S": "biomesoplenty:jacaranda_slab"
   },
   "result": {
     "id": "adorn:biomesoplenty/jacaranda_drawer",

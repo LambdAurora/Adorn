@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "byg:redwood_slab"
-    },
-    "P": {
-      "item": "adorn:byg/redwood_post"
-    }
+    "S": "byg:redwood_slab",
+    "P": "adorn:byg/redwood_post"
   },
   "result": {
     "id": "adorn:byg/redwood_platform",

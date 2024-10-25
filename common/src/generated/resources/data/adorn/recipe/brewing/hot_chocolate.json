@@ -1,0 +1,9 @@
+{
+  "type": "adorn:brewing",
+  "first_ingredient": "#c:crops/cocoa_bean",
+  "result": {
+    "count": 1,
+    "id": "adorn:hot_chocolate"
+  },
+  "second_ingredient": "#c:foods/milk"
+}

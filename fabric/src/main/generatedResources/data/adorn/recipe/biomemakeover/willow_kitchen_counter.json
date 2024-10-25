@@ -6,12 +6,8 @@
     "PP"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:polished_andesite_slab"
-    },
-    "P": {
-      "item": "biomemakeover:willow_planks"
-    }
+    "S": "minecraft:polished_andesite_slab",
+    "P": "biomemakeover:willow_planks"
   },
   "result": {
     "id": "adorn:biomemakeover/willow_kitchen_counter",

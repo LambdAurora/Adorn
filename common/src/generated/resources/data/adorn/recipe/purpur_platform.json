@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:purpur_slab"
-    },
-    "P": {
-      "item": "adorn:purpur_post"
-    }
+    "S": "minecraft:purpur_slab",
+    "P": "adorn:purpur_post"
   },
   "result": {
     "id": "adorn:purpur_platform",

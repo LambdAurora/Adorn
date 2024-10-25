@@ -6,9 +6,7 @@
     "S S"
   ],
   "key": {
-    "S": {
-      "item": "byg:lament_slab"
-    }
+    "S": "byg:lament_slab"
   },
   "result": {
     "id": "adorn:byg/lament_bench",

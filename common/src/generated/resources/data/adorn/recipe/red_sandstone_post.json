@@ -7,12 +7,8 @@
     "#"
   ],
   "key": {
-    "#": {
-      "item": "minecraft:red_sandstone"
-    },
-    "/": {
-      "tag": "c:rods/stone"
-    }
+    "#": "minecraft:red_sandstone",
+    "/": "#c:rods/stone"
   },
   "result": {
     "id": "adorn:red_sandstone_post",

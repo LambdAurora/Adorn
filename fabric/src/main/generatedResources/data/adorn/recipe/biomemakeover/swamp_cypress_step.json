@@ -6,12 +6,8 @@
     "#"
   ],
   "key": {
-    "S": {
-      "item": "biomemakeover:swamp_cypress_slab"
-    },
-    "#": {
-      "tag": "c:rods/wooden"
-    }
+    "S": "biomemakeover:swamp_cypress_slab",
+    "#": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:biomemakeover/swamp_cypress_step",

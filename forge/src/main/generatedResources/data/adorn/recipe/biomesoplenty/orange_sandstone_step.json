@@ -6,12 +6,8 @@
     "#"
   ],
   "key": {
-    "S": {
-      "item": "biomesoplenty:orange_sandstone_slab"
-    },
-    "#": {
-      "tag": "c:rods/stone"
-    }
+    "S": "biomesoplenty:orange_sandstone_slab",
+    "#": "#c:rods/stone"
   },
   "result": {
     "id": "adorn:biomesoplenty/orange_sandstone_step",

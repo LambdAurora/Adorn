@@ -6,12 +6,8 @@
     "PP"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:polished_andesite_slab"
-    },
-    "P": {
-      "item": "biomemakeover:ancient_oak_planks"
-    }
+    "S": "minecraft:polished_andesite_slab",
+    "P": "biomemakeover:ancient_oak_planks"
   },
   "result": {
     "id": "adorn:biomemakeover/ancient_oak_kitchen_counter",

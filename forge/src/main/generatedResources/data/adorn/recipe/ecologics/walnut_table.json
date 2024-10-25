@@ -7,12 +7,8 @@
     "# #"
   ],
   "key": {
-    "S": {
-      "item": "ecologics:walnut_slab"
-    },
-    "#": {
-      "tag": "c:rods/wooden"
-    }
+    "S": "ecologics:walnut_slab",
+    "#": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:ecologics/walnut_table",

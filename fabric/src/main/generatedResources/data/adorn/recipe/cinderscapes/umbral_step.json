@@ -6,12 +6,8 @@
     "#"
   ],
   "key": {
-    "S": {
-      "item": "cinderscapes:umbral_slab"
-    },
-    "#": {
-      "tag": "c:rods/wooden"
-    }
+    "S": "cinderscapes:umbral_slab",
+    "#": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:cinderscapes/umbral_step",

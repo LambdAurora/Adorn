@@ -7,12 +7,8 @@
     "S"
   ],
   "key": {
-    "C": {
-      "tag": "c:chests/wooden"
-    },
-    "S": {
-      "item": "minecraft:bamboo_slab"
-    }
+    "C": "#c:chests/wooden",
+    "S": "minecraft:bamboo_slab"
   },
   "result": {
     "id": "adorn:bamboo_drawer",

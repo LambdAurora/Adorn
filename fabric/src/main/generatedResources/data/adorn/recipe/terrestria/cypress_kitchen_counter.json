@@ -6,12 +6,8 @@
     "PP"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:polished_andesite_slab"
-    },
-    "P": {
-      "item": "terrestria:cypress_planks"
-    }
+    "S": "minecraft:polished_andesite_slab",
+    "P": "terrestria:cypress_planks"
   },
   "result": {
     "id": "adorn:terrestria/cypress_kitchen_counter",

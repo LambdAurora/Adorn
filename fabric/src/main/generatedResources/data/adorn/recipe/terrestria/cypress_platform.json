@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "terrestria:cypress_slab"
-    },
-    "P": {
-      "item": "adorn:terrestria/cypress_post"
-    }
+    "S": "terrestria:cypress_slab",
+    "P": "adorn:terrestria/cypress_post"
   },
   "result": {
     "id": "adorn:terrestria/cypress_platform",

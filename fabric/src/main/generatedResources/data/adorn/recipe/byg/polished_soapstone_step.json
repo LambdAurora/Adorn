@@ -6,12 +6,8 @@
     "#"
   ],
   "key": {
-    "S": {
-      "item": "byg:polished_soapstone_slab"
-    },
-    "#": {
-      "tag": "c:rods/stone"
-    }
+    "S": "byg:polished_soapstone_slab",
+    "#": "#c:rods/stone"
   },
   "result": {
     "id": "adorn:byg/polished_soapstone_step",

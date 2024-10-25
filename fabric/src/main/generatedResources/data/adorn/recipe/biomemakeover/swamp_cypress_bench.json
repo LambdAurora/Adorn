@@ -6,9 +6,7 @@
     "S S"
   ],
   "key": {
-    "S": {
-      "item": "biomemakeover:swamp_cypress_slab"
-    }
+    "S": "biomemakeover:swamp_cypress_slab"
   },
   "result": {
     "id": "adorn:biomemakeover/swamp_cypress_bench",

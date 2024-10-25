@@ -6,12 +6,8 @@
     "#"
   ],
   "key": {
-    "S": {
-      "item": "cinderscapes:scorched_slab"
-    },
-    "#": {
-      "tag": "c:rods/wooden"
-    }
+    "S": "cinderscapes:scorched_slab",
+    "#": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:cinderscapes/scorched_step",

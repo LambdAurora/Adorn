@@ -6,12 +6,8 @@
     "#"
   ],
   "key": {
-    "S": {
-      "item": "biomesoplenty:redwood_slab"
-    },
-    "#": {
-      "tag": "c:rods/wooden"
-    }
+    "S": "biomesoplenty:redwood_slab",
+    "#": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:biomesoplenty/redwood_step",

@@ -1,8 +1,6 @@
 {
   "type": "stonecutting",
-  "ingredient": {
-    "item": "byg:lament_planks"
-  },
+  "ingredient": "byg:lament_planks",
   "result": {
     "id": "adorn:byg/lament_platform",
     "count": 1

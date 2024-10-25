@@ -6,12 +6,8 @@
     "#"
   ],
   "key": {
-    "S": {
-      "item": "byg:scoria_stonebrick_slab"
-    },
-    "#": {
-      "tag": "c:rods/stone"
-    }
+    "S": "byg:scoria_stonebrick_slab",
+    "#": "#c:rods/stone"
   },
   "result": {
     "id": "adorn:byg/scoria_stonebrick_step",

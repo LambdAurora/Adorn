@@ -1,8 +1,6 @@
 {
   "type": "stonecutting",
-  "ingredient": {
-    "item": "minecraft:andesite"
-  },
+  "ingredient": "minecraft:andesite",
   "result": {
     "id": "adorn:andesite_step",
     "count": 2

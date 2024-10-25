@@ -7,12 +7,8 @@
     "#"
   ],
   "key": {
-    "#": {
-      "item": "cinderscapes:umbral_planks"
-    },
-    "/": {
-      "tag": "c:rods/wooden"
-    }
+    "#": "cinderscapes:umbral_planks",
+    "/": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:cinderscapes/umbral_post",

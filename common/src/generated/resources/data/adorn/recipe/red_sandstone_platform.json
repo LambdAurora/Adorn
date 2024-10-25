@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:red_sandstone_slab"
-    },
-    "P": {
-      "item": "adorn:red_sandstone_post"
-    }
+    "S": "minecraft:red_sandstone_slab",
+    "P": "adorn:red_sandstone_post"
   },
   "result": {
     "id": "adorn:red_sandstone_platform",

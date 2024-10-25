@@ -6,9 +6,7 @@
     "S S"
   ],
   "key": {
-    "S": {
-      "item": "ecologics:flowering_azalea_slab"
-    }
+    "S": "ecologics:flowering_azalea_slab"
   },
   "result": {
     "id": "adorn:ecologics/flowering_azalea_bench",

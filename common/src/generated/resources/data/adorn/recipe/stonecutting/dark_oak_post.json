@@ -1,8 +1,6 @@
 {
   "type": "stonecutting",
-  "ingredient": {
-    "item": "minecraft:dark_oak_planks"
-  },
+  "ingredient": "minecraft:dark_oak_planks",
   "result": {
     "id": "adorn:dark_oak_post",
     "count": 2

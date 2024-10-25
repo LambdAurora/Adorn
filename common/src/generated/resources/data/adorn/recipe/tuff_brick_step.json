@@ -6,12 +6,8 @@
     "#"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:tuff_brick_slab"
-    },
-    "#": {
-      "tag": "c:rods/stone"
-    }
+    "S": "minecraft:tuff_brick_slab",
+    "#": "#c:rods/stone"
   },
   "result": {
     "id": "adorn:tuff_brick_step",

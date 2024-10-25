@@ -6,12 +6,8 @@
     "PP"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:polished_andesite_slab"
-    },
-    "P": {
-      "item": "terrestria:hemlock_planks"
-    }
+    "S": "minecraft:polished_andesite_slab",
+    "P": "terrestria:hemlock_planks"
   },
   "result": {
     "id": "adorn:terrestria/hemlock_kitchen_counter",

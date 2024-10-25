@@ -7,12 +7,8 @@
     "#"
   ],
   "key": {
-    "#": {
-      "item": "byg:white_mangrove_planks"
-    },
-    "/": {
-      "tag": "c:rods/wooden"
-    }
+    "#": "byg:white_mangrove_planks",
+    "/": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:byg/white_mangrove_post",

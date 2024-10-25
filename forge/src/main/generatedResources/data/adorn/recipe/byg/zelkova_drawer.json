@@ -7,12 +7,8 @@
     "S"
   ],
   "key": {
-    "C": {
-      "tag": "c:chests/wooden"
-    },
-    "S": {
-      "item": "byg:zelkova_slab"
-    }
+    "C": "#c:chests/wooden",
+    "S": "byg:zelkova_slab"
   },
   "result": {
     "id": "adorn:byg/zelkova_drawer",

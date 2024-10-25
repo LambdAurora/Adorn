@@ -1,8 +1,6 @@
 {
   "type": "stonecutting",
-  "ingredient": {
-    "item": "byg:red_rock_bricks"
-  },
+  "ingredient": "byg:red_rock_bricks",
   "result": {
     "id": "adorn:byg/red_rock_brick_platform",
     "count": 1

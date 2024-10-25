@@ -2,15 +2,9 @@
   "type": "crafting_shapeless",
   "group": "adorn:kitchen_cupboard",
   "ingredients": [
-    {
-      "tag": "c:chests/wooden"
-    },
-    {
-      "item": "adorn:<mod-prefix><id.path>_kitchen_counter"
-    },
-    {
-      "item": "adorn:<mod-prefix><id.path>_kitchen_counter"
-    }
+    "#c:chests/wooden",
+    "adorn:<mod-prefix><id.path>_kitchen_counter",
+    "adorn:<mod-prefix><id.path>_kitchen_counter"
   ],
   "result": {
     "id": "adorn:<mod-prefix><id.path>_kitchen_cupboard",

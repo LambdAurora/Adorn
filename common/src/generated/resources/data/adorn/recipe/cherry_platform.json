@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:cherry_slab"
-    },
-    "P": {
-      "item": "adorn:cherry_post"
-    }
+    "S": "minecraft:cherry_slab",
+    "P": "adorn:cherry_post"
   },
   "result": {
     "id": "adorn:cherry_platform",

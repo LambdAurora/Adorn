@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "techreborn:rubber_slab"
-    },
-    "P": {
-      "item": "adorn:techreborn/rubber_post"
-    }
+    "S": "techreborn:rubber_slab",
+    "P": "adorn:techreborn/rubber_post"
   },
   "result": {
     "id": "adorn:techreborn/rubber_platform",

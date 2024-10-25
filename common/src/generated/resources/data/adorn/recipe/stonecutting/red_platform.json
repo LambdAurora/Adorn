@@ -1,8 +1,6 @@
 {
   "type": "stonecutting",
-  "ingredient": {
-    "item": "adorn:red_planks"
-  },
+  "ingredient": "adorn:red_planks",
   "result": {
     "id": "adorn:red_platform",
     "count": 1

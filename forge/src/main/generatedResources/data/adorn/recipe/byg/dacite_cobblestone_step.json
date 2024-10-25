@@ -6,12 +6,8 @@
     "#"
   ],
   "key": {
-    "S": {
-      "item": "byg:dacite_cobblestone_slab"
-    },
-    "#": {
-      "tag": "c:rods/stone"
-    }
+    "S": "byg:dacite_cobblestone_slab",
+    "#": "#c:rods/stone"
   },
   "result": {
     "id": "adorn:byg/dacite_cobblestone_step",

@@ -6,12 +6,8 @@
     "PP"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:polished_andesite_slab"
-    },
-    "P": {
-      "item": "biomemakeover:blighted_balsa_planks"
-    }
+    "S": "minecraft:polished_andesite_slab",
+    "P": "biomemakeover:blighted_balsa_planks"
   },
   "result": {
     "id": "adorn:biomemakeover/blighted_balsa_kitchen_counter",

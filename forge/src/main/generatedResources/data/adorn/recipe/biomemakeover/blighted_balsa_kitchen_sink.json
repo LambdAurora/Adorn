@@ -2,12 +2,8 @@
   "type": "crafting_shapeless",
   "group": "adorn:kitchen_sink",
   "ingredients": [
-    {
-      "item": "adorn:biomemakeover/blighted_balsa_kitchen_counter"
-    },
-    {
-      "tag": "c:buckets/empty"
-    }
+    "adorn:biomemakeover/blighted_balsa_kitchen_counter",
+    "#c:buckets/empty"
   ],
   "result": {
     "id": "adorn:biomemakeover/blighted_balsa_kitchen_sink",

@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "cinderscapes:scorched_slab"
-    },
-    "P": {
-      "item": "adorn:cinderscapes/scorched_post"
-    }
+    "S": "cinderscapes:scorched_slab",
+    "P": "adorn:cinderscapes/scorched_post"
   },
   "result": {
     "id": "adorn:cinderscapes/scorched_platform",

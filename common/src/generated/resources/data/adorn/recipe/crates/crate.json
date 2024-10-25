@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "p": "#minecraft:planks",
+    "s": "#c:rods/wooden"
+  },
+  "pattern": [
+    "psp",
+    "s s",
+    "psp"
+  ],
+  "result": {
+    "count": 4,
+    "id": "adorn:crate"
+  }
+}

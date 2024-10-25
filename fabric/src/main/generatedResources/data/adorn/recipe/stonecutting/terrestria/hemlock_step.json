@@ -1,8 +1,6 @@
 {
   "type": "stonecutting",
-  "ingredient": {
-    "item": "terrestria:hemlock_planks"
-  },
+  "ingredient": "terrestria:hemlock_planks",
   "result": {
     "id": "adorn:terrestria/hemlock_step",
     "count": 2

@@ -6,9 +6,7 @@
     "S S"
   ],
   "key": {
-    "S": {
-      "item": "biomesoplenty:dead_slab"
-    }
+    "S": "biomesoplenty:dead_slab"
   },
   "result": {
     "id": "adorn:biomesoplenty/dead_bench",

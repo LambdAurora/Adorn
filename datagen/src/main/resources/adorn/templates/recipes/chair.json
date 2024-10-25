@@ -7,12 +7,8 @@
     "##"
   ],
   "key": {
-    "S": {
-      "item": "<slab>"
-    },
-    "#": {
-      "tag": "<stick>"
-    }
+    "S": "<slab>",
+    "#": "#<stick>"
   },
   "result": {
     "id": "adorn:<mod-prefix><id.path>_chair",

@@ -6,12 +6,8 @@
     "PP"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:polished_andesite_slab"
-    },
-    "P": {
-      "item": "minecraft:acacia_planks"
-    }
+    "S": "minecraft:polished_andesite_slab",
+    "P": "minecraft:acacia_planks"
   },
   "result": {
     "id": "adorn:acacia_kitchen_counter",

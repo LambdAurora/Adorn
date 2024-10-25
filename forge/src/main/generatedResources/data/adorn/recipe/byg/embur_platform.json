@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "byg:embur_slab"
-    },
-    "P": {
-      "item": "adorn:byg/embur_post"
-    }
+    "S": "byg:embur_slab",
+    "P": "adorn:byg/embur_post"
   },
   "result": {
     "id": "adorn:byg/embur_platform",

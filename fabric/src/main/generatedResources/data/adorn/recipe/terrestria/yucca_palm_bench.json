@@ -6,9 +6,7 @@
     "S S"
   ],
   "key": {
-    "S": {
-      "item": "terrestria:yucca_palm_slab"
-    }
+    "S": "terrestria:yucca_palm_slab"
   },
   "result": {
     "id": "adorn:terrestria/yucca_palm_bench",

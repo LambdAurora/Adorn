@@ -6,12 +6,8 @@
     "#"
   ],
   "key": {
-    "S": {
-      "item": "adorn:white_wood_slab"
-    },
-    "#": {
-      "tag": "c:rods/wooden"
-    }
+    "S": "adorn:white_wood_slab",
+    "#": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:white_step",

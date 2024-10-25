@@ -6,12 +6,8 @@
     "/ /"
   ],
   "key": {
-    "-": {
-      "item": "byg:fir_slab"
-    },
-    "/": {
-      "tag": "c:rods/wooden"
-    }
+    "-": "byg:fir_slab",
+    "/": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:byg/fir_shelf",

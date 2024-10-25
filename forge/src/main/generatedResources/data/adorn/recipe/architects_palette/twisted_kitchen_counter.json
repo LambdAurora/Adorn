@@ -6,12 +6,8 @@
     "PP"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:polished_andesite_slab"
-    },
-    "P": {
-      "item": "architects_palette:twisted_planks"
-    }
+    "S": "minecraft:polished_andesite_slab",
+    "P": "architects_palette:twisted_planks"
   },
   "result": {
     "id": "adorn:architects_palette/twisted_kitchen_counter",

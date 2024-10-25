@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "byg:skyris_slab"
-    },
-    "P": {
-      "item": "adorn:byg/skyris_post"
-    }
+    "S": "byg:skyris_slab",
+    "P": "adorn:byg/skyris_post"
   },
   "result": {
     "id": "adorn:byg/skyris_platform",

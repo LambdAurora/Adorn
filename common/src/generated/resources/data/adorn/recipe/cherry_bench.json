@@ -6,9 +6,7 @@
     "S S"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:cherry_slab"
-    }
+    "S": "minecraft:cherry_slab"
   },
   "result": {
     "id": "adorn:cherry_bench",

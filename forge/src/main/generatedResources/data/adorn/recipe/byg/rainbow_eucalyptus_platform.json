@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "byg:rainbow_eucalyptus_slab"
-    },
-    "P": {
-      "item": "adorn:byg/rainbow_eucalyptus_post"
-    }
+    "S": "byg:rainbow_eucalyptus_slab",
+    "P": "adorn:byg/rainbow_eucalyptus_post"
   },
   "result": {
     "id": "adorn:byg/rainbow_eucalyptus_platform",

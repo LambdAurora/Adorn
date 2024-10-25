@@ -1,8 +1,6 @@
 {
   "type": "stonecutting",
-  "ingredient": {
-    "item": "minecraft:granite"
-  },
+  "ingredient": "minecraft:granite",
   "result": {
     "id": "adorn:granite_step",
     "count": 2

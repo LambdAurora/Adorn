@@ -6,12 +6,8 @@
     "#"
   ],
   "key": {
-    "S": {
-      "item": "promenade:palm_slab"
-    },
-    "#": {
-      "tag": "c:rods/wooden"
-    }
+    "S": "promenade:palm_slab",
+    "#": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:promenade/palm_step",

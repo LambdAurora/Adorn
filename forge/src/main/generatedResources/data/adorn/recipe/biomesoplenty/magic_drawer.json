@@ -7,12 +7,8 @@
     "S"
   ],
   "key": {
-    "C": {
-      "tag": "c:chests/wooden"
-    },
-    "S": {
-      "item": "biomesoplenty:magic_slab"
-    }
+    "C": "#c:chests/wooden",
+    "S": "biomesoplenty:magic_slab"
   },
   "result": {
     "id": "adorn:biomesoplenty/magic_drawer",

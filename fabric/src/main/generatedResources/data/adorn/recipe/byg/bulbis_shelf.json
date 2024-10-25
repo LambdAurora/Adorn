@@ -6,12 +6,8 @@
     "/ /"
   ],
   "key": {
-    "-": {
-      "item": "byg:bulbis_slab"
-    },
-    "/": {
-      "tag": "c:rods/wooden"
-    }
+    "-": "byg:bulbis_slab",
+    "/": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:byg/bulbis_shelf",

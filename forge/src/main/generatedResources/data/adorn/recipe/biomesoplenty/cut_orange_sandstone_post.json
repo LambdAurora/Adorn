@@ -7,12 +7,8 @@
     "#"
   ],
   "key": {
-    "#": {
-      "item": "biomesoplenty:cut_orange_sandstone"
-    },
-    "/": {
-      "tag": "c:rods/stone"
-    }
+    "#": "biomesoplenty:cut_orange_sandstone",
+    "/": "#c:rods/stone"
   },
   "result": {
     "id": "adorn:biomesoplenty/cut_orange_sandstone_post",

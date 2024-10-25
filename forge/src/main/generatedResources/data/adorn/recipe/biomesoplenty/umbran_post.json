@@ -7,12 +7,8 @@
     "#"
   ],
   "key": {
-    "#": {
-      "item": "biomesoplenty:umbran_planks"
-    },
-    "/": {
-      "tag": "c:rods/wooden"
-    }
+    "#": "biomesoplenty:umbran_planks",
+    "/": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:biomesoplenty/umbran_post",

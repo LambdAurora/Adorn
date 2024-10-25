@@ -6,12 +6,8 @@
     "/ /"
   ],
   "key": {
-    "-": {
-      "item": "byg:ether_slab"
-    },
-    "/": {
-      "tag": "c:rods/wooden"
-    }
+    "-": "byg:ether_slab",
+    "/": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:byg/ether_shelf",

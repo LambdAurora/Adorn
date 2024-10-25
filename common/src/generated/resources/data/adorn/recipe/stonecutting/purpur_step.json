@@ -1,8 +1,6 @@
 {
   "type": "stonecutting",
-  "ingredient": {
-    "item": "minecraft:purpur_block"
-  },
+  "ingredient": "minecraft:purpur_block",
   "result": {
     "id": "adorn:purpur_step",
     "count": 2

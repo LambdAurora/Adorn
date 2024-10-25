@@ -6,12 +6,8 @@
     "#"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:red_sandstone_slab"
-    },
-    "#": {
-      "tag": "c:rods/stone"
-    }
+    "S": "minecraft:red_sandstone_slab",
+    "#": "#c:rods/stone"
   },
   "result": {
     "id": "adorn:red_sandstone_step",

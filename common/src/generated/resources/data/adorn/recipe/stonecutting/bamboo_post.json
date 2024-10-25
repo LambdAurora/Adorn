@@ -1,8 +1,6 @@
 {
   "type": "stonecutting",
-  "ingredient": {
-    "item": "minecraft:bamboo_planks"
-  },
+  "ingredient": "minecraft:bamboo_planks",
   "result": {
     "id": "adorn:bamboo_post",
     "count": 2

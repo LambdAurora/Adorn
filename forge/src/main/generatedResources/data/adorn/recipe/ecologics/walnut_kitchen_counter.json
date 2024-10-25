@@ -6,12 +6,8 @@
     "PP"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:polished_andesite_slab"
-    },
-    "P": {
-      "item": "ecologics:walnut_planks"
-    }
+    "S": "minecraft:polished_andesite_slab",
+    "P": "ecologics:walnut_planks"
   },
   "result": {
     "id": "adorn:ecologics/walnut_kitchen_counter",

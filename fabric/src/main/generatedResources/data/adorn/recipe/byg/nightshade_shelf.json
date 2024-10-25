@@ -6,12 +6,8 @@
     "/ /"
   ],
   "key": {
-    "-": {
-      "item": "byg:nightshade_slab"
-    },
-    "/": {
-      "tag": "c:rods/wooden"
-    }
+    "-": "byg:nightshade_slab",
+    "/": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:byg/nightshade_shelf",

@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:diorite_slab"
-    },
-    "P": {
-      "item": "adorn:diorite_post"
-    }
+    "S": "minecraft:diorite_slab",
+    "P": "adorn:diorite_post"
   },
   "result": {
     "id": "adorn:diorite_platform",

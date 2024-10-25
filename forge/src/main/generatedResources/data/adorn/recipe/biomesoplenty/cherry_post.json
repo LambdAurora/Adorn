@@ -7,12 +7,8 @@
     "#"
   ],
   "key": {
-    "#": {
-      "item": "biomesoplenty:cherry_planks"
-    },
-    "/": {
-      "tag": "c:rods/wooden"
-    }
+    "#": "biomesoplenty:cherry_planks",
+    "/": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:biomesoplenty/cherry_post",

@@ -1,8 +1,6 @@
 {
   "type": "stonecutting",
-  "ingredient": {
-    "item": "ecologics:flowering_azalea_planks"
-  },
+  "ingredient": "ecologics:flowering_azalea_planks",
   "result": {
     "id": "adorn:ecologics/flowering_azalea_platform",
     "count": 1

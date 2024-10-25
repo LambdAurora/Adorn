@@ -6,12 +6,8 @@
     "#"
   ],
   "key": {
-    "S": {
-      "item": "byg:rocky_stone_slab"
-    },
-    "#": {
-      "tag": "c:rods/stone"
-    }
+    "S": "byg:rocky_stone_slab",
+    "#": "#c:rods/stone"
   },
   "result": {
     "id": "adorn:byg/rocky_stone_step",

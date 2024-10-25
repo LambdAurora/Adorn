@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "byg:bulbis_slab"
-    },
-    "P": {
-      "item": "adorn:byg/bulbis_post"
-    }
+    "S": "byg:bulbis_slab",
+    "P": "adorn:byg/bulbis_post"
   },
   "result": {
     "id": "adorn:byg/bulbis_platform",

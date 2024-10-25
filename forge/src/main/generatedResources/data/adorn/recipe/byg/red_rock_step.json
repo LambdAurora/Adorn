@@ -6,12 +6,8 @@
     "#"
   ],
   "key": {
-    "S": {
-      "item": "byg:red_rock_slab"
-    },
-    "#": {
-      "tag": "c:rods/stone"
-    }
+    "S": "byg:red_rock_slab",
+    "#": "#c:rods/stone"
   },
   "result": {
     "id": "adorn:byg/red_rock_step",

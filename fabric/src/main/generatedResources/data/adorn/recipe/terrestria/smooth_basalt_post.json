@@ -7,12 +7,8 @@
     "#"
   ],
   "key": {
-    "#": {
-      "item": "terrestria:smooth_basalt"
-    },
-    "/": {
-      "tag": "c:rods/stone"
-    }
+    "#": "terrestria:smooth_basalt",
+    "/": "#c:rods/stone"
   },
   "result": {
     "id": "adorn:terrestria/smooth_basalt_post",

@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:crimson_slab"
-    },
-    "P": {
-      "item": "adorn:crimson_post"
-    }
+    "S": "minecraft:crimson_slab",
+    "P": "adorn:crimson_post"
   },
   "result": {
     "id": "adorn:crimson_platform",

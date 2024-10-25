@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "terrestria:rubber_slab"
-    },
-    "P": {
-      "item": "adorn:terrestria/rubber_post"
-    }
+    "S": "terrestria:rubber_slab",
+    "P": "adorn:terrestria/rubber_post"
   },
   "result": {
     "id": "adorn:terrestria/rubber_platform",

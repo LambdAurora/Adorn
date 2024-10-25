@@ -1,8 +1,6 @@
 {
   "type": "stonecutting",
-  "ingredient": {
-    "item": "byg:sythian_planks"
-  },
+  "ingredient": "byg:sythian_planks",
   "result": {
     "id": "adorn:byg/sythian_platform",
     "count": 1

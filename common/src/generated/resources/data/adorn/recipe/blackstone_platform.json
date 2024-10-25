@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:blackstone_slab"
-    },
-    "P": {
-      "item": "adorn:blackstone_post"
-    }
+    "S": "minecraft:blackstone_slab",
+    "P": "adorn:blackstone_post"
   },
   "result": {
     "id": "adorn:blackstone_platform",

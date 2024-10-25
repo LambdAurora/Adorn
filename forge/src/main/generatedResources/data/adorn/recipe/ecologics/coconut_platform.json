@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "ecologics:coconut_slab"
-    },
-    "P": {
-      "item": "adorn:ecologics/coconut_post"
-    }
+    "S": "ecologics:coconut_slab",
+    "P": "adorn:ecologics/coconut_post"
   },
   "result": {
     "id": "adorn:ecologics/coconut_platform",

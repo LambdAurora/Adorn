@@ -1,8 +1,6 @@
 {
   "type": "stonecutting",
-  "ingredient": {
-    "item": "biomesoplenty:white_sandstone"
-  },
+  "ingredient": "biomesoplenty:white_sandstone",
   "result": {
     "id": "adorn:biomesoplenty/white_sandstone_step",
     "count": 2

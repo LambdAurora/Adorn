@@ -6,12 +6,8 @@
     "/ /"
   ],
   "key": {
-    "-": {
-      "item": "ecologics:flowering_azalea_slab"
-    },
-    "/": {
-      "tag": "c:rods/wooden"
-    }
+    "-": "ecologics:flowering_azalea_slab",
+    "/": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:ecologics/flowering_azalea_shelf",

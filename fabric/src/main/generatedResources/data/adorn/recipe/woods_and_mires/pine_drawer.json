@@ -7,12 +7,8 @@
     "S"
   ],
   "key": {
-    "C": {
-      "tag": "c:chests/wooden"
-    },
-    "S": {
-      "item": "woods_and_mires:pine_slab"
-    }
+    "C": "#c:chests/wooden",
+    "S": "woods_and_mires:pine_slab"
   },
   "result": {
     "id": "adorn:woods_and_mires/pine_drawer",

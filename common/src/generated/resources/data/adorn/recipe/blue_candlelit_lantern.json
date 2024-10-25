@@ -7,12 +7,8 @@
     "***"
   ],
   "key": {
-    "*": {
-      "tag": "c:nuggets/iron"
-    },
-    "|": {
-      "item": "minecraft:blue_candle"
-    }
+    "*": "#c:nuggets/iron",
+    "|": "minecraft:blue_candle"
   },
   "result": {
     "id": "adorn:blue_candlelit_lantern",

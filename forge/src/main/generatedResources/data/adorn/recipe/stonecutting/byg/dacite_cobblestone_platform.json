@@ -1,8 +1,6 @@
 {
   "type": "stonecutting",
-  "ingredient": {
-    "item": "byg:dacite_cobblestone"
-  },
+  "ingredient": "byg:dacite_cobblestone",
   "result": {
     "id": "adorn:byg/dacite_cobblestone_platform",
     "count": 1

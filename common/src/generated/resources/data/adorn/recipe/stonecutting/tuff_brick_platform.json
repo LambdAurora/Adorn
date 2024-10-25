@@ -1,8 +1,6 @@
 {
   "type": "stonecutting",
-  "ingredient": {
-    "item": "minecraft:tuff_bricks"
-  },
+  "ingredient": "minecraft:tuff_bricks",
   "result": {
     "id": "adorn:tuff_brick_platform",
     "count": 1

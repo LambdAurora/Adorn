@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "adorn:unpack_crate",
+  "ingredients": [
+    "adorn:nether_wart_crate"
+  ],
+  "result": {
+    "count": 8,
+    "id": "minecraft:nether_wart"
+  }
+}

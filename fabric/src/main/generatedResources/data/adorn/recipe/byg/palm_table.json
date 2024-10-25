@@ -7,12 +7,8 @@
     "# #"
   ],
   "key": {
-    "S": {
-      "item": "byg:palm_slab"
-    },
-    "#": {
-      "tag": "c:rods/wooden"
-    }
+    "S": "byg:palm_slab",
+    "#": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:byg/palm_table",

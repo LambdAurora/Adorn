@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:cobbled_deepslate_slab"
-    },
-    "P": {
-      "item": "adorn:cobbled_deepslate_post"
-    }
+    "S": "minecraft:cobbled_deepslate_slab",
+    "P": "adorn:cobbled_deepslate_post"
   },
   "result": {
     "id": "adorn:cobbled_deepslate_platform",

@@ -7,12 +7,8 @@
     "#"
   ],
   "key": {
-    "#": {
-      "item": "byg:cherry_planks"
-    },
-    "/": {
-      "tag": "c:rods/wooden"
-    }
+    "#": "byg:cherry_planks",
+    "/": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:byg/cherry_post",

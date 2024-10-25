@@ -6,12 +6,8 @@
     "#"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:polished_andesite_slab"
-    },
-    "#": {
-      "tag": "c:rods/stone"
-    }
+    "S": "minecraft:polished_andesite_slab",
+    "#": "#c:rods/stone"
   },
   "result": {
     "id": "adorn:polished_andesite_step",

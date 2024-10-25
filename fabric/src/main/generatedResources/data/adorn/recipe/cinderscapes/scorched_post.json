@@ -7,12 +7,8 @@
     "#"
   ],
   "key": {
-    "#": {
-      "item": "cinderscapes:scorched_planks"
-    },
-    "/": {
-      "tag": "c:rods/wooden"
-    }
+    "#": "cinderscapes:scorched_planks",
+    "/": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:cinderscapes/scorched_post",

@@ -6,12 +6,8 @@
     "#"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:crimson_slab"
-    },
-    "#": {
-      "tag": "c:rods/wooden"
-    }
+    "S": "minecraft:crimson_slab",
+    "#": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:crimson_step",

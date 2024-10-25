@@ -6,12 +6,8 @@
     "#"
   ],
   "key": {
-    "S": {
-      "item": "architects_palette:myonite_slab"
-    },
-    "#": {
-      "tag": "c:rods/stone"
-    }
+    "S": "architects_palette:myonite_slab",
+    "#": "#c:rods/stone"
   },
   "result": {
     "id": "adorn:architects_palette/myonite_step",

@@ -6,12 +6,8 @@
     "/ /"
   ],
   "key": {
-    "-": {
-      "item": "techreborn:rubber_slab"
-    },
-    "/": {
-      "tag": "c:rods/wooden"
-    }
+    "-": "techreborn:rubber_slab",
+    "/": "#c:rods/wooden"
   },
   "result": {
     "id": "adorn:techreborn/rubber_shelf",

@@ -6,9 +6,7 @@
     "S S"
   ],
   "key": {
-    "S": {
-      "item": "biomesoplenty:fir_slab"
-    }
+    "S": "biomesoplenty:fir_slab"
   },
   "result": {
     "id": "adorn:biomesoplenty/fir_bench",

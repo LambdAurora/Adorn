@@ -7,12 +7,8 @@
     "#"
   ],
   "key": {
-    "#": {
-      "item": "byg:dacite_cobblestone"
-    },
-    "/": {
-      "tag": "c:rods/stone"
-    }
+    "#": "byg:dacite_cobblestone",
+    "/": "#c:rods/stone"
   },
   "result": {
     "id": "adorn:byg/dacite_cobblestone_post",

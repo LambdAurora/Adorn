@@ -1,8 +1,6 @@
 {
   "type": "stonecutting",
-  "ingredient": {
-    "item": "minecraft:bricks"
-  },
+  "ingredient": "minecraft:bricks",
   "result": {
     "id": "adorn:brick_platform",
     "count": 1

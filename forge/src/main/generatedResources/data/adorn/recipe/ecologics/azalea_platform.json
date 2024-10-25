@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "ecologics:azalea_slab"
-    },
-    "P": {
-      "item": "adorn:ecologics/azalea_post"
-    }
+    "S": "ecologics:azalea_slab",
+    "P": "adorn:ecologics/azalea_post"
   },
   "result": {
     "id": "adorn:ecologics/azalea_platform",

@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "adorn:magenta_wood_slab"
-    },
-    "P": {
-      "item": "adorn:magenta_post"
-    }
+    "S": "adorn:magenta_wood_slab",
+    "P": "adorn:magenta_post"
   },
   "result": {
     "id": "adorn:magenta_platform",

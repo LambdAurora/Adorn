@@ -6,12 +6,8 @@
     "PP"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:polished_andesite_slab"
-    },
-    "P": {
-      "item": "minecraft:jungle_planks"
-    }
+    "S": "minecraft:polished_andesite_slab",
+    "P": "minecraft:jungle_planks"
   },
   "result": {
     "id": "adorn:jungle_kitchen_counter",

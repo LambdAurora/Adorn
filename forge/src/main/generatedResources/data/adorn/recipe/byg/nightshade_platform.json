@@ -6,12 +6,8 @@
     "P"
   ],
   "key": {
-    "S": {
-      "item": "byg:nightshade_slab"
-    },
-    "P": {
-      "item": "adorn:byg/nightshade_post"
-    }
+    "S": "byg:nightshade_slab",
+    "P": "adorn:byg/nightshade_post"
   },
   "result": {
     "id": "adorn:byg/nightshade_platform",

@@ -7,12 +7,8 @@
     "S"
   ],
   "key": {
-    "C": {
-      "tag": "c:chests/wooden"
-    },
-    "S": {
-      "item": "byg:nightshade_slab"
-    }
+    "C": "#c:chests/wooden",
+    "S": "byg:nightshade_slab"
   },
   "result": {
     "id": "adorn:byg/nightshade_drawer",

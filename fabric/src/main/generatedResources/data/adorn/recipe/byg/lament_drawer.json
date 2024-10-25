@@ -7,12 +7,8 @@
     "S"
   ],
   "key": {
-    "C": {
-      "tag": "c:chests/wooden"
-    },
-    "S": {
-      "item": "byg:lament_slab"
-    }
+    "C": "#c:chests/wooden",
+    "S": "byg:lament_slab"
   },
   "result": {
     "id": "adorn:byg/lament_drawer",

@@ -1,8 +1,6 @@
 {
   "type": "stonecutting",
-  "ingredient": {
-    "item": "biomesoplenty:hellbark_planks"
-  },
+  "ingredient": "biomesoplenty:hellbark_planks",
   "result": {
     "id": "adorn:biomesoplenty/hellbark_step",
     "count": 2

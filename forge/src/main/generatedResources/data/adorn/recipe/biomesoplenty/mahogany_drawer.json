@@ -7,12 +7,8 @@
     "S"
   ],
   "key": {
-    "C": {
-      "tag": "c:chests/wooden"
-    },
-    "S": {
-      "item": "biomesoplenty:mahogany_slab"
-    }
+    "C": "#c:chests/wooden",
+    "S": "biomesoplenty:mahogany_slab"
   },
   "result": {
     "id": "adorn:biomesoplenty/mahogany_drawer",
