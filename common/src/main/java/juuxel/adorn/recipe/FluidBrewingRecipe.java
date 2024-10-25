@@ -27,7 +27,7 @@ public record FluidBrewingRecipe(Ingredient firstIngredient, Optional<Ingredient
     @Override
     public boolean matches(BrewerInput input, World world) {
         var itemsMatch = (input.matches(LEFT_INGREDIENT_SLOT, firstIngredient) && input.matches(RIGHT_INGREDIENT_SLOT, secondIngredient)) ||
-            (input.matches(RIGHT_INGREDIENT_SLOT, firstIngredient) && input.matches(LEFT_INGREDIENT_SLOT, firstIngredient));
+            (input.matches(RIGHT_INGREDIENT_SLOT, firstIngredient) && input.matches(LEFT_INGREDIENT_SLOT, secondIngredient));
         return itemsMatch && input.getFluidReference().matches(fluid);
     }
 
